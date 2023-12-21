@@ -1,6 +1,6 @@
 # mlflow
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 MLflow is an open source platform to manage the ML lifecycle, including experimentation, reproducibility, deployment, and a central model registry.
 
@@ -8,7 +8,7 @@ MLflow is an open source platform to manage the ML lifecycle, including experime
 
 ## Source Code
 
-* <https://github.com/statisticsnorway/dapla-lab-helm-charts-services>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental>
 
 ## Requirements
 
