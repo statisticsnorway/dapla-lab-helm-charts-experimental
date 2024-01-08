@@ -7,38 +7,63 @@ replicaCount: 1
 image:
   repository: trygu/nbdemetra
   tag: "0.7"
+  pullPolicy: IfNotPresent
 
-discoverable:
-  allow: true
+service:
+  type: ClusterIP
+  port: 6080
 
-liveness:
-  enabled: "true"
+securityContext: {}
+# capabilities:
+#   drop:
+#   - ALL
+# readOnlyRootFilesystem: true
+# runAsNonRoot: true
+# runAsUser: 1000
 
-security:
-  networkPolicy:
-    enabled: false
-    from:
-      - ipBlock:
-          cidr: 10.233.103.0/32
-      - ipBlock:
-          cidr: 10.233.111.0/32
-  allowlist:
-    enabled: true
-    ip: "0.0.0.0/0"
-  serviceEntry:
-    enabled: true
-    hosts:
-      - "storage.googleapis.com"
-  oauth2:
-    enabled: false
-
-resources_init:
+resources:
   limits:
     cpu: "100m"
     memory: "128Mi"
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+
+livenessProbe:
+  httpGet:
+    path: /vnc.html
+    port: service.port
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+readinessProbe:
+  httpGet:
+    path: /vnc.html
+    port: service.port
+  initialDelaySeconds: 5
+  periodSeconds: 20
 
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
+
+# Network policies
+networkPolicy:
+  enabled: false
+
+# IP allowlist
+allowlist:
+  enabled: true
+  ip: "0.0.0.0/0"
+
+# External dependencies
+serviceEntry:
+  enabled: true
+  hosts:
+    - "storage.googleapis.com"
+
+# OAuth2 Configuration
+oauth2:
+  enabled: false

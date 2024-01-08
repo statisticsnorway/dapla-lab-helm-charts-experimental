@@ -37,6 +37,9 @@ spec:
             - name: noVNC
               containerPort: 6080
               protocol: TCP
+          volumeMounts:
+            - name: tmpfs
+              mountPath: /tmp/.X11-unix
           livenessProbe:
             httpGet:
               path: /vnc.html
@@ -47,6 +50,11 @@ spec:
               port: noVNC
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: tmpfs
+          emptyDir:
+            medium: Memory
+            sizeLimit: "65536k"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
