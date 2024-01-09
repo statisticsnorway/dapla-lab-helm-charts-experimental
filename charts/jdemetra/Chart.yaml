@@ -1,0 +1,32 @@
+apiVersion: v2
+name: jdemetra
+description: A Helm chart for JDemetra+ with noVNC setup
+type: application
+
+# Version of the chart
+version: 0.0.1
+
+# Version of the application
+appVersion: "2.2.4"
+
+# Keywords to tag the chart
+keywords:
+  - JDemetra+
+  - time series
+  - seasonal adjustment
+
+# Home URL for the project
+home: https://github.com/trygu/jdemetra-docker
+
+# Sources - where to find the source code and related information
+sources:
+  - https://github.com/trygu/jdemetra-docker
+
+# Maintainers list
+maintainers:
+  - name: Trygve Falch
+    email: trygve.falch@gmail.com
+    url: https://github.com/trygu/
+
+# A list of URLs to images to be used as icons
+icon: https://avatars.githubusercontent.com/u/10142886?s=200&v=4
