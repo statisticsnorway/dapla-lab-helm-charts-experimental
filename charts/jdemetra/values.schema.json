@@ -24,22 +24,21 @@
               "description": "supported versions",
               "type": "string",
               "listEnum": [
-                "inseefrlab/mlflow:v2.5.0",
-                "inseefrlab/mlflow:v2.2.2"
+                "trygu/jdemetra:0.7"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
-              "default": "inseefrlab/mlflow:v2.2.2"
+              "default": "trygu/jdemetra:0.7"
             }
           }
         }, 
         "directory": {
           "description": "directory of artifact root repository",
           "type": "string",
-          "default": "/tmp/mlflow/artifacts/",
+          "default": "/tmp/jdemetra/artifacts/",
           "x-onyxia": {
             "hidden": true,
-            "overwriteDefaultWith": "s3://{{s3.AWS_BUCKET_NAME}}/mlflow-artifacts"
+            "overwriteDefaultWith": "s3://{{s3.AWS_BUCKET_NAME}}/jdemetra-artifacts"
           }
         }
       }
@@ -260,70 +259,6 @@
               "sliderExtremity": "up",
               "sliderExtremitySemantic": "Maximum",
               "sliderRangeId": "memory"
-            }
-          }
-        }
-      }
-    },
-    "postgresql": {
-      "description": "postgres specific configuration",
-      "type": "object",
-      "title": "Database",
-      "properties": {
-        "image": {
-          "description": "image specific configuration",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "description": "postgresql major version",
-              "type": "string",
-              "enum": [
-                "12",
-                "13",
-                "14",
-                "15"
-              ],
-              "default": "15"
-            }
-          }
-        },
-        "auth": {
-          "description": "postgres specific configuration",
-          "type": "object",
-          "title": "Authentification",
-          "properties": {
-            "username": {
-              "type": "string",
-              "title": "User",
-              "default": "user",
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "{{project.id}}"
-              }
-            },
-            "password": {
-              "type": "string",
-              "title": "User Password",
-              "default": "changeme",
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "{{project.password}}"
-              }
-            },
-            "postgresPassword": {
-              "type": "string",
-              "title": "Admin Password",
-              "default": "changeme",
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "{{project.password}}"
-              }
-            },
-            "database": {
-              "description": "Name for the default database that is created when the image is first started.",
-              "type": "string",
-              "title": "Database",
-              "default": "mlflow"
             }
           }
         }
