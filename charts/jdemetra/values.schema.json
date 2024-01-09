@@ -2,18 +2,6 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "dataset": {
-      "description": "Select the dataset to document",
-      "type": "object",
-      "properties": {
-        "dataset_path": {
-          "title": "Dataset path",
-          "type": "string",
-          "description": "Path to a dataset file in a GCS bucket. Must start with 'gs://'. Supported file types are .parquet, .parquet.gzip, .sas7bdat.",
-          "default": ""
-        }
-      }
-    },
     "service": {
       "description": "Service specific configuration",
       "type": "object",
@@ -34,7 +22,7 @@
             "version": {
               "description": "supported versions",
               "type": "string",
-              "default": "trygu/jdemetra:0.7"
+              "default": "trygu/nbdemetra:0.6"
             }
           }
         }
