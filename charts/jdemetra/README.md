@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
+![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
 
 A Helm chart for JDemetra+ with noVNC setup
 
@@ -28,7 +28,7 @@ A Helm chart for JDemetra+ with noVNC setup
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"trygu/nbdemetra"` |  |
-| image.tag | string | `"0.7"` |  |
+| image.tag | string | `"0.6"` |  |
 | livenessProbe.httpGet.path | string | `"/vnc.html"` |  |
 | livenessProbe.httpGet.port | string | `"service.port"` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
