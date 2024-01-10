@@ -22,7 +22,7 @@
             "version": {
               "description": "supported versions",
               "type": "string",
-              "default": "trygu/nbdemetra:0.6"
+              "default": "trygu/nbdemetra:0.7"
             }
           }
         }
