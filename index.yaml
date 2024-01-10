@@ -3,6 +3,32 @@ entries:
   jdemetra:
   - apiVersion: v2
     appVersion: 2.2.4
+    created: "2024-01-10T15:03:40.043421847Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: A Helm chart for JDemetra+ with noVNC setup
+    digest: 26bd92d1c02fa3eb059867d3476c459aa3827256fc6c4daedd0df396087b1efb
+    home: https://github.com/trygu/jdemetra-docker
+    icon: https://avatars.githubusercontent.com/u/10142886?s=200&v=4
+    keywords:
+    - JDemetra+
+    - time series
+    - seasonal adjustment
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: jdemetra
+    sources:
+    - https://github.com/trygu/jdemetra-docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jdemetra-0.0.7-alpha/jdemetra-0.0.7-alpha.tgz
+    version: 0.0.7-alpha
+  - apiVersion: v2
+    appVersion: 2.2.4
     created: "2024-01-10T14:52:30.983259694Z"
     dependencies:
     - name: library-chart
@@ -165,4 +191,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
-generated: "2024-01-10T14:52:30.98328892Z"
+generated: "2024-01-10T15:03:40.04347226Z"
