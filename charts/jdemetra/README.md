@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 0.0.7-alpha](https://img.shields.io/badge/Version-0.0.7--alpha-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
+![Version: 0.0.7-alpha.1](https://img.shields.io/badge/Version-0.0.7--alpha.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
 
 A Helm chart for JDemetra+ with noVNC setup
 
@@ -34,7 +34,7 @@ A Helm chart for JDemetra+ with noVNC setup
 | istio.hostname | string | `"chart-example.local"` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `8080` |  |
+| networking.service.port | int | `6080` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | nodeSelector | object | `{}` |  |
 | oidc.enabled | bool | `true` |  |
