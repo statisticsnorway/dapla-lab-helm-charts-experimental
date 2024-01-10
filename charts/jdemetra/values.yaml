@@ -1,69 +1,88 @@
-# Default values for jdemetra.
+service:
+  image:
+    pullPolicy: IfNotPresent
+    version: trygu/nbdemetra:0.7
+security:
+  password: "changeme"
+  networkPolicy:
+    enabled: false
+    from: []
+  allowlist:
+    enabled: false
+    ip: "0.0.0.0/0"
+  oauth2:
+    provider: keycloak-oidc
+    oidcIssuerUrl: ""
+    clientId: "my-client"
+    authenticatedEmails: ""
+oidc:
+  # Specifies whether a config map should be created
+  enabled: true
+  tokenExchangeUrl: ""
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  secretName: ""
+
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-
 replicaCount: 1
 
-image:
-  repository: trygu/nbdemetra
-  tag: "0.6"
-  pullPolicy: IfNotPresent
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
 
-service:
-  type: ClusterIP
-  port: 6080
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
 
-securityContext: {}
-# capabilities:
-#   drop:
-#   - ALL
-# readOnlyRootFilesystem: true
-# runAsNonRoot: true
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 100
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
 # runAsUser: 1000
 
-resources:
-  limits:
-    cpu: "100m"
-    memory: "128Mi"
-  requests:
-    cpu: "100m"
-    memory: "128Mi"
+networking:
+  type: ClusterIP
+  clusterIP: None
+  service:
+    port: 8080
 
-livenessProbe:
-  httpGet:
-    path: /vnc.html
-    port: service.port
-  initialDelaySeconds: 15
-  periodSeconds: 20
-
-readinessProbe:
-  httpGet:
-    path: /vnc.html
-    port: service.port
-  initialDelaySeconds: 5
-  periodSeconds: 20
-
-autoscaling:
+istio:
   enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
+  gateways:
+    - istio-namespace/example-gateway
+  hostname: chart-example.local
 
-# Network policies
-networkPolicy:
+persistence:
   enabled: false
+  ## database data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  accessMode: ReadWriteOnce
+  size: 10Gi
+  # existingClaim: ""
 
-# IP allowlist
-allowlist:
-  enabled: true
-  ip: "0.0.0.0/0"
+nodeSelector: {}
 
-# External dependencies
-serviceEntry:
-  enabled: true
-  hosts:
-    - "storage.googleapis.com"
+tolerations: []
 
-# OAuth2 Configuration
-oauth2:
-  enabled: false
+affinity: {}
+

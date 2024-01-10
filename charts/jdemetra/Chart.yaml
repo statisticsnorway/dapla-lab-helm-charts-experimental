@@ -4,7 +4,7 @@ description: A Helm chart for JDemetra+ with noVNC setup
 type: application
 
 # Version of the chart
-version: 0.0.5
+version: 0.0.6-alpha
 
 # Version of the application
 appVersion: "2.2.4"
@@ -30,3 +30,8 @@ maintainers:
 
 # A list of URLs to images to be used as icons
 icon: https://avatars.githubusercontent.com/u/10142886?s=200&v=4
+
+dependencies:
+  - name: library-chart
+    version: 3.1.1
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services

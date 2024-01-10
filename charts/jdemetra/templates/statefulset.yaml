@@ -1,60 +1,76 @@
+{{- $fullName := include "library-chart.fullname" . -}}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: {{ include "jdemetra.fullname" . }}
+  name: {{ include "library-chart.fullname" . }}
   labels:
-    {{- include "jdemetra.labels" . | nindent 4 }}
+    {{- include "library-chart.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  serviceName: {{ include "library-chart.fullname" . }}
   selector:
     matchLabels:
-      {{- include "jdemetra.selectorLabels" . | nindent 6 }}
+      {{- include "library-chart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+        {{- if .Values.oidc.enabled }}
+        checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- end }}
       labels:
-        {{- include "jdemetra.selectorLabels" . | nindent 8 }}
+        {{- include "library-chart.selectorLabels" . | nindent 8 }}
     spec:
+      volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - {{ include "library-chart.oauth2ProxyVolume" . | indent 10 | trim }}
+        - name: dshm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 128Mi
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "jdemetra.serviceAccountName" . }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: noVNC
-              containerPort: 6080
-              protocol: TCP
-          volumeMounts:
-            - name: tmpfs
-              mountPath: /tmp/.X11-unix
+          image: "{{ .Values.service.image.version }}"
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          envFrom:
+            {{- if .Values.oidc.enabled }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameOidc" . }}
+            {{- end }}
           livenessProbe:
             httpGet:
-              path: /vnc.html
-              port: noVNC
+              path: /
+              port: {{ .Values.networking.service.port }}
           readinessProbe:
             httpGet:
-              path: /vnc.html
-              port: noVNC
+              path: /
+              port: {{ .Values.networking.service.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      volumes:
-        - name: tmpfs
-          emptyDir:
-            medium: Memory
-            sizeLimit: "65536k"
+          volumeMounts:
+            - mountPath: /home/work
+              subPath: work
+              name: home
+            - mountPath: /dev/shm
+              name: dshm
+        - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
