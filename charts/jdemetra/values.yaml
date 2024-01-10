@@ -58,7 +58,7 @@ networking:
   type: ClusterIP
   clusterIP: None
   service:
-    port: 8080
+    port: 6080
 
 istio:
   enabled: false
