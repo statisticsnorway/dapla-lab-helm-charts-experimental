@@ -95,6 +95,32 @@
             }
           }
         },
+        "serviceEntry": {
+          "type": "object",
+          "description": "Service entry to give access to external services",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable service entry",
+              "description": "Enable access to external services",
+              "default": true,
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "hosts": {
+              "type": "array",
+              "description": "Array of hosts allowed to be accessed from your service",
+              "default": [],
+              "x-onyxia": {
+                "hidden": true,
+                "overwriteDefaultWith": [
+                  "${{region.customValues.oidc.hostname}}"
+                ]
+              }
+            }
+          }
+        },
         "oauth2": {
           "type": "object",
           "description": "OAuth2 configuration",
