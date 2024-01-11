@@ -1,7 +1,7 @@
 service:
   image:
     pullPolicy: IfNotPresent
-    version: trygu/nbdemetra:0.7
+    version: trygu/nbdemetra:1.0
 security:
   password: "changeme"
   networkPolicy:
