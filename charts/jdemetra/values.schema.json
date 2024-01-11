@@ -114,7 +114,7 @@
               "default": [],
               "x-onyxia": {
                 "hidden": true,
-                "overwriteDefaultWith": "[\"${{region.customValues.oidc.hostname}}\"]"
+                "overwriteDefaultWith": "region.customValues.oidcEgress"
               }
             }
           }
