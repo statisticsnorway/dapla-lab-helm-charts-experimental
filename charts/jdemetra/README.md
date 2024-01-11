@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
+![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
 
 A Helm chart for JDemetra+ with noVNC setup
 
@@ -55,6 +55,8 @@ A Helm chart for JDemetra+ with noVNC setup
 | security.oauth2.oidcIssuerUrl | string | `""` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
 | security.password | string | `"changeme"` |  |
+| security.serviceEntry.enabled | bool | `true` |  |
+| security.serviceEntry.hosts | list | `[]` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
 | service.image.version | string | `"trygu/nbdemetra:0.7"` |  |
