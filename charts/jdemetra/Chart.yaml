@@ -4,7 +4,7 @@ description: A Helm chart for JDemetra+ with noVNC setup
 type: application
 
 # Version of the chart
-version: 0.1.0
+version: 0.1.1
 
 # Version of the application
 appVersion: "2.2.4"
