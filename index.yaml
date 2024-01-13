@@ -109,6 +109,36 @@ entries:
   jdemetra:
   - apiVersion: v2
     appVersion: 2.2.4
+    created: "2024-01-13T20:09:07.587249245Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: JDemetra+ is an open-source software application developed by the
+      National Bank of Belgium in collaboration with the Deutsche Bundesbank and Eurostat
+      for seasonal adjustment and time series analysis. It implements TRAMO/SEATS+
+      and X-12ARIMA/X-13ARIMA-SEATS methods and is officially recommended by the European
+      Statistical System.
+    digest: 2b806ec38124cf2fe4db560f7fdd7b3e0b295f38db153aca09fbf4188521af33
+    home: https://github.com/trygu/jdemetra-docker
+    icon: https://avatars.githubusercontent.com/u/10142886?s=200&v=4
+    keywords:
+    - JDemetra+
+    - time series
+    - seasonal adjustment
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: jdemetra
+    sources:
+    - https://github.com/trygu/jdemetra-docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jdemetra-0.1.2/jdemetra-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 2.2.4
     created: "2024-01-11T21:49:55.305723297Z"
     dependencies:
     - name: library-chart
@@ -209,4 +239,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
-generated: "2024-01-13T20:04:01.531714807Z"
+generated: "2024-01-13T20:09:07.587443026Z"
