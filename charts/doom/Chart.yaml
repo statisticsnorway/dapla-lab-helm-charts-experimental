@@ -1,10 +1,10 @@
 apiVersion: v2
 name: doom
-description: Face the inferno of data with the same gusto as you would the legions of Hell in Doom. Debug your day with some demon-slaying, and let the only "crunch" be the sound of your victories, not your number-crunching. Perfect for those moments when you need to take a "p-value" break from your statistical analyses and enjoy some p(ain)-value against the forces of darkness. Equip yourself with the BFG (Big Friendly Graph) of classic gaming right here!
+description: Swap algorithms for ammo and scatter plots for shotguns in the ultimate data scientist's break. Defrag your brain with Doom's demon hordes – it's the perfect 'escape' key!
 type: application
 
 # Version of the chart
-version: 0.0.4
+version: 0.0.5
 
 # Version of the application
 appVersion: "1.0.0"
