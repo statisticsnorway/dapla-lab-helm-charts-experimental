@@ -3,6 +3,36 @@ entries:
   doom:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-01-13T20:04:01.531690392Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: Face the inferno of data with the same gusto as you would the legions
+      of Hell in Doom. Debug your day with some demon-slaying, and let the only "crunch"
+      be the sound of your victories, not your number-crunching. Perfect for those
+      moments when you need to take a "p-value" break from your statistical analyses
+      and enjoy some p(ain)-value against the forces of darkness. Equip yourself with
+      the BFG (Big Friendly Graph) of classic gaming right here!
+    digest: 4491dc5b3979c1fc07c78ec14b9b63e35faba680f9591b991947fe4215cd6c97
+    home: https://github.com/CallumHoughton18/Doom-In-Docker
+    icon: https://www.giantbomb.com/a/uploads/scale_small/1/16944/2976271-flat%2C800x800%2C075%2Cf.jpg
+    keywords:
+    - Doom
+    - ID software
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: doom
+    sources:
+    - https://github.com/CallumHoughton18/Doom-In-Docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.0.4/doom-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-01-13T15:58:45.504608897Z"
     dependencies:
     - name: library-chart
@@ -179,4 +209,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
-generated: "2024-01-13T15:58:45.504648018Z"
+generated: "2024-01-13T20:04:01.531714807Z"
