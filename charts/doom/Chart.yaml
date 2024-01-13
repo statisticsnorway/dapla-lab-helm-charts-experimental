@@ -4,7 +4,7 @@ description: A Helm chart for ID software's Doom!
 type: application
 
 # Version of the chart
-version: 0.0.2
+version: 0.0.3
 
 # Version of the application
 appVersion: "1.0.0"
@@ -28,7 +28,7 @@ maintainers:
     url: https://github.com/trygu/
 
 # A list of URLs to images to be used as icons
-icon: https://retrogamerbase.com/wp-content/uploads/2023/11/gruk-doom-1152x720.jpg
+icon: https://www.giantbomb.com/a/uploads/scale_small/1/16944/2976271-flat%2C800x800%2C075%2Cf.jpg
 
 dependencies:
   - name: library-chart
