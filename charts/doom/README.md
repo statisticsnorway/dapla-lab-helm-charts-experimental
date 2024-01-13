@@ -1,8 +1,8 @@
 # doom
 
-![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
-A Helm chart for ID software's Doom!
+Face the inferno of data with the same gusto as you would the legions of Hell in Doom. Debug your day with some demon-slaying, and let the only "crunch" be the sound of your victories, not your number-crunching. Perfect for those moments when you need to take a "p-value" break from your statistical analyses and enjoy some p(ain)-value against the forces of darkness. Equip yourself with the BFG (Big Friendly Graph) of classic gaming right here!
 
 **Homepage:** <https://github.com/CallumHoughton18/Doom-In-Docker>
 
