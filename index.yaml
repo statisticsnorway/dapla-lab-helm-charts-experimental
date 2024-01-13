@@ -3,6 +3,31 @@ entries:
   doom:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-01-13T15:49:28.003841051Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: A Helm chart for ID software's Doom!
+    digest: 210425c36301c8ab009ebea55259963a354e11cb45a1b8caa514b98522f9225b
+    home: https://github.com/CallumHoughton18/Doom-In-Docker
+    icon: https://retrogamerbase.com/wp-content/uploads/2023/11/gruk-doom-1152x720.jpg
+    keywords:
+    - Doom
+    - ID software
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: doom
+    sources:
+    - https://github.com/CallumHoughton18/Doom-In-Docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.0.2/doom-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-01-13T15:42:15.007829151Z"
     dependencies:
     - name: library-chart
@@ -129,4 +154,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
-generated: "2024-01-13T15:42:15.00784474Z"
+generated: "2024-01-13T15:49:28.003856651Z"
