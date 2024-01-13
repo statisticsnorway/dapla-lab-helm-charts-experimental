@@ -1,0 +1,36 @@
+apiVersion: v2
+name: doom
+description: A Helm chart for ID software's Doom!
+type: application
+
+# Version of the chart
+version: 0.0.1
+
+# Version of the application
+appVersion: "1.0.0"
+
+# Keywords to tag the chart
+keywords:
+  - Doom
+  - ID software
+
+# Home URL for the project
+home: https://github.com/CallumHoughton18/Doom-In-Docker
+
+# Sources - where to find the source code and related information
+sources:
+  - https://github.com/CallumHoughton18/Doom-In-Docker
+
+# Maintainers list
+maintainers:
+  - name: Trygve Falch
+    email: trygve.falch@gmail.com
+    url: https://github.com/trygu/
+
+# A list of URLs to images to be used as icons
+icon: https://retrogamerbase.com/wp-content/uploads/2023/11/gruk-doom-1152x720.jpg
+
+dependencies:
+  - name: library-chart
+    version: 3.1.1
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
