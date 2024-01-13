@@ -1,8 +1,8 @@
 # doom
 
-![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
-Face the inferno of data with the same gusto as you would the legions of Hell in Doom. Debug your day with some demon-slaying, and let the only "crunch" be the sound of your victories, not your number-crunching. Perfect for those moments when you need to take a "p-value" break from your statistical analyses and enjoy some p(ain)-value against the forces of darkness. Equip yourself with the BFG (Big Friendly Graph) of classic gaming right here!
+Swap algorithms for ammo and scatter plots for shotguns in the ultimate data scientist's break. Defrag your brain with Doom's demon hordes – it's the perfect 'escape' key!
 
 **Homepage:** <https://github.com/CallumHoughton18/Doom-In-Docker>
 
