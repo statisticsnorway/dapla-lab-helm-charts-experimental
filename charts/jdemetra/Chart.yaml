@@ -1,10 +1,10 @@
 apiVersion: v2
 name: jdemetra
-description: A Helm chart for JDemetra+ with noVNC setup
+description: JDemetra+ is an open-source software application developed by the National Bank of Belgium in collaboration with the Deutsche Bundesbank and Eurostat for seasonal adjustment and time series analysis. It implements TRAMO/SEATS+ and X-12ARIMA/X-13ARIMA-SEATS methods and is officially recommended by the European Statistical System.
 type: application
 
 # Version of the chart
-version: 0.1.1
+version: 0.1.2
 
 # Version of the application
 appVersion: "2.2.4"
