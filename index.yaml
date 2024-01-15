@@ -3,6 +3,33 @@ entries:
   doom:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-01-15T10:17:12.182473302Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: Swap algorithms for ammo and scatter plots for shotguns in the ultimate
+      data scientist's break. Defrag your brain with Doom's demon hordes – it's the
+      perfect 'escape' key!
+    digest: 01ef63abe266e15d72e0e4063d400a18e154173228224686c62be468943c3fb3
+    home: https://github.com/CallumHoughton18/Doom-In-Docker
+    icon: https://www.giantbomb.com/a/uploads/scale_small/1/16944/2976271-flat%2C800x800%2C075%2Cf.jpg
+    keywords:
+    - Doom
+    - ID software
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: doom
+    sources:
+    - https://github.com/CallumHoughton18/Doom-In-Docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.0.6/doom-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-01-13T20:11:47.60087734Z"
     dependencies:
     - name: library-chart
@@ -294,4 +321,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
-generated: "2024-01-13T20:18:42.253059332Z"
+generated: "2024-01-15T10:17:12.18250937Z"
