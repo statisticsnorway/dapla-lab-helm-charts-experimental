@@ -48,7 +48,12 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.version }}"
+          command: [ "/bin/sh","-c" ]
+          args: [ "{{ .Values.init.standardInitPath }} ./startup.sh" ]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: GCS_MOUNT_BUCKET
+              value: {{ .Values.bucket.bucket_name }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
