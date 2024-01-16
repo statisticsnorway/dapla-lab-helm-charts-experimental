@@ -1,5 +1,5 @@
 apiVersion: v2
-name: KlassR Tutorial
+name: klassr_tutorial
 description: Example on how you could package a Shiny app and run it in Onyxia
 type: application
 
