@@ -1,10 +1,10 @@
-# doom
+# KlassR Tutorial
 
-![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
-Swap algorithms for ammo and scatter plots for shotguns in the ultimate data scientist's break. Defrag your brain with Doom's demon hordes – it's the perfect 'escape' key!
+Example on how you could package a Shiny app and run it in Onyxia
 
-**Homepage:** <https://github.com/CallumHoughton18/Doom-In-Docker>
+**Homepage:** <https://github.com/trygu/klassr_tutorial>
 
 ## Maintainers
 
@@ -14,7 +14,7 @@ Swap algorithms for ammo and scatter plots for shotguns in the ultimate data sci
 
 ## Source Code
 
-* <https://github.com/CallumHoughton18/Doom-In-Docker>
+* <https://github.com/trygu/klassr_tutorial>
 
 ## Requirements
 
@@ -34,7 +34,7 @@ Swap algorithms for ammo and scatter plots for shotguns in the ultimate data sci
 | istio.hostname | string | `"chart-example.local"` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `8080` |  |
+| networking.service.port | int | `3838` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | nodeSelector | object | `{}` |  |
 | oidc.enabled | bool | `true` |  |
@@ -59,7 +59,7 @@ Swap algorithms for ammo and scatter plots for shotguns in the ultimate data sci
 | security.serviceEntry.hosts | list | `[]` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"trygu/doom:1.0"` |  |
+| service.image.version | string | `"trygu/klassr_tutorial:latest"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
