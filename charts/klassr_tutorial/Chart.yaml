@@ -1,0 +1,37 @@
+apiVersion: v2
+name: KlassR Tutorial
+description: Example on how you could package a Shiny app and run it in Onyxia
+type: application
+
+# Version of the chart
+version: 0.0.1
+
+# Version of the application
+appVersion: "1.0.0"
+
+# Keywords to tag the chart
+keywords:
+  - R
+  - Shiny
+  - Klass
+
+# Home URL for the project
+home: https://github.com/trygu/klassr_tutorial
+
+# Sources - where to find the source code and related information
+sources:
+  - https://github.com/trygu/klassr_tutorial
+
+# Maintainers list
+maintainers:
+  - name: Trygve Falch
+    email: trygve.falch@gmail.com
+    url: https://github.com/trygu/
+
+# A list of URLs to images to be used as icons
+icon: https://avatars.githubusercontent.com/u/5849578
+
+dependencies:
+  - name: library-chart
+    version: 3.1.1
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
