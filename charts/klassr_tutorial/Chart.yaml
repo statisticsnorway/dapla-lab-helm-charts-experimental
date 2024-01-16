@@ -1,10 +1,10 @@
 apiVersion: v2
-name: klassr_tutorial
-description: Example on how you could package a Shiny app and run it in Onyxia
+name: klassr
+description: An example Tutorial application for KLASS using R. Example on how you could package a Shiny app and run it in Onyxia
 type: application
 
 # Version of the chart
-version: 0.0.2
+version: 0.0.3
 
 # Version of the application
 appVersion: "1.0.0"
