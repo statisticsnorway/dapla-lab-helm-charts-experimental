@@ -297,6 +297,33 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jdemetra-0.0.10/jdemetra-0.0.10.tgz
     version: 0.0.10
+  klassr_tutorial:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-01-16T08:41:02.054361773Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: Example on how you could package a Shiny app and run it in Onyxia
+    digest: ae686bdf360d79accf04ad0fa0b94b92311fa06baf9c8335cda33f5b0b8cc07f
+    home: https://github.com/trygu/klassr_tutorial
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - R
+    - Shiny
+    - Klass
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: klassr_tutorial
+    sources:
+    - https://github.com/trygu/klassr_tutorial
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/klassr_tutorial-0.0.2/klassr_tutorial-0.0.2.tgz
+    version: 0.0.2
   mlflow:
   - apiVersion: v2
     created: "2023-12-21T07:14:03.080412693Z"
@@ -321,4 +348,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
-generated: "2024-01-15T10:17:12.18250937Z"
+generated: "2024-01-16T08:41:02.05439224Z"
