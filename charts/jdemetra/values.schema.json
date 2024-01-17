@@ -26,6 +26,18 @@
             }
           }
         }
+      },
+      "bucket": {
+        "description": "Select a GCS bucket to mount.",
+        "type": "object",
+        "properties": {
+          "bucket_name": {
+            "title": "Bucket name",
+            "type": "string",
+            "description": "Enter the name of the GCS bucket to mount. For example: 'ssb-staging-dapla-felles-data-delt'.",
+            "default": ""
+          }
+        }
       }
     },
     "security": {
