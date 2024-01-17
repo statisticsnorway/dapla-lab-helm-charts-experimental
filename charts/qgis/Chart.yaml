@@ -4,7 +4,7 @@ description: QGIS Desktop is a robust open-source Geographic Information System 
 type: application
 
 # Version of the chart
-version: 0.0.1
+version: 0.0.2
 
 # Version of the application
 appVersion: "3.34.2"
