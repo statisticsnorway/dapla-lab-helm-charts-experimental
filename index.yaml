@@ -379,6 +379,36 @@ entries:
   qgis:
   - apiVersion: v2
     appVersion: 3.34.2
+    created: "2024-01-17T21:10:32.160220669Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: QGIS Desktop is a robust open-source Geographic Information System
+      (GIS) software, offering a user-friendly interface for creating, editing, analyzing,
+      and visualizing geospatial data. It empowers users, from beginners to experts,
+      with a versatile toolkit for mapping and spatial data management. With QGIS
+      Desktop, you can harness the power of geospatial information for a wide range
+      of applications.
+    digest: 520ddfe95ed4dc876eedb96005896019fdd7f965172350796b7e1e245bf7f223
+    home: https://github.com/trygu/dapla-qgis-desktop
+    icon: https://www.qgis.org/en/_static/logo.png
+    keywords:
+    - QGis
+    - Geo
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: qgis
+    sources:
+    - https://github.com/trygu/dapla-qgis-desktop
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-0.0.2/qgis-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 3.34.2
     created: "2024-01-17T21:07:38.524180706Z"
     dependencies:
     - name: library-chart
@@ -407,4 +437,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-0.0.1/qgis-0.0.1.tgz
     version: 0.0.1
-generated: "2024-01-17T21:07:38.524248843Z"
+generated: "2024-01-17T21:10:32.160251566Z"
