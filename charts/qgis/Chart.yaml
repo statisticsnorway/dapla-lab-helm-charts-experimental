@@ -1,0 +1,36 @@
+apiVersion: v2
+name: qgis
+description: QGIS Desktop is a robust open-source Geographic Information System (GIS) software, offering a user-friendly interface for creating, editing, analyzing, and visualizing geospatial data. It empowers users, from beginners to experts, with a versatile toolkit for mapping and spatial data management. With QGIS Desktop, you can harness the power of geospatial information for a wide range of applications.
+type: application
+
+# Version of the chart
+version: 0.0.1
+
+# Version of the application
+appVersion: "3.34.2"
+
+# Keywords to tag the chart
+keywords:
+  - QGis
+  - Geo
+
+# Home URL for the project
+home: https://github.com/trygu/dapla-qgis-desktop
+
+# Sources - where to find the source code and related information
+sources:
+  - https://github.com/trygu/dapla-qgis-desktop
+
+# Maintainers list
+maintainers:
+  - name: Trygve Falch
+    email: trygve.falch@gmail.com
+    url: https://github.com/trygu/
+
+# A list of URLs to images to be used as icons
+icon: https://www.qgis.org/en/_static/logo.png
+
+dependencies:
+  - name: library-chart
+    version: 3.1.1
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
