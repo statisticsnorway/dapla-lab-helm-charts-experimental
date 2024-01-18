@@ -1,10 +1,10 @@
 apiVersion: v2
 name: qgis
-description: QGIS Desktop is a robust open-source Geographic Information System (GIS) software, offering a user-friendly interface for creating, editing, analyzing, and visualizing geospatial data. It empowers users, from beginners to experts, with a versatile toolkit for mapping and spatial data management. With QGIS Desktop, you can harness the power of geospatial information for a wide range of applications.
+description: QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
 type: application
 
 # Version of the chart
-version: 0.0.2
+version: 0.0.3
 
 # Version of the application
 appVersion: "3.34.2"
