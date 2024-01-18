@@ -5,7 +5,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
-  name: "sirius-editering-sqladmin-googleapis"
+  name:  {{ include "library-chart.fullname" . }}
   namespace: {{ .Release.Namespace }}
 spec:
   addresses:
