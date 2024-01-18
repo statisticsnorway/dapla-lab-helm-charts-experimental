@@ -2,7 +2,7 @@
 
 service:
   image:
-    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.2-641b0d15f3dfe640314412a210c49bf6b9066d69"
+    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.3-62808d4608be56a71e47fedaac180db01401fc7b"
     pullPolicy: IfNotPresent
 
 security:
