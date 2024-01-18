@@ -59,8 +59,6 @@ spec:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
               value: "{{ .Values.service.image.version }}"
-            - name: SIRIUS_EDITERING_DATASET_PATH
-              value: {{ .Values.dataset.dataset_path }}
             - name: PROJECT_USER
               value: {{ .Values.environment.user }}
             - name: PROJECT_GROUP
