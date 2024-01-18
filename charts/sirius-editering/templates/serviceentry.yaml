@@ -1,1 +1,23 @@
 {{ include "library-chart.serviceentry" . }}
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: "sirius-editering-sqladmin-googleapis"
+  namespace: {{ .Release.Namespace }}
+spec:
+  addresses:
+    - 10.100.0.0/22
+  hosts:
+    - sqladmin.googleapis.com
+  # Limit effect of this service entry to only this namespace
+  exportTo:
+    - .
+  ports:
+    - name: tcp
+      number: 3307
+      protocol: tcp
+  location: MESH_EXTERNAL
+  resolution: NONE
