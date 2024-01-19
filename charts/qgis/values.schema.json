@@ -114,7 +114,7 @@
               "default": [],
               "x-onyxia": {
                 "hidden": true,
-                "overwriteDefaultWith": "region.customValues.oidcEgress"
+                "overwriteDefaultWith": "region.customValues.qgisEgress"
               }
             }
           }
