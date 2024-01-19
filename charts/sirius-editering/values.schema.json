@@ -2,6 +2,24 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
+    "gcp": {
+      "description": "Select GCP project",
+      "type": "object",
+      "properties": {
+        "google_cloud_project": {
+          "title": "GCP Project",
+          "type": "string",
+          "default": "sirius-editering-d-z7",
+          "listEnum": [
+            "sirius-editering-d-z7",
+            "sirius-editering-t-4h",
+            "sirius-editering-p-hl"
+          ],
+          "render": "list"
+        }
+      }
+    },
+
     "service": {
       "description": "Service specific configuration",
       "type": "object",
@@ -26,9 +44,9 @@
             "version": {
               "description": "Dash POC supported versions",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.3-62808d4608be56a71e47fedaac180db01401fc7b",
+              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.4-31b7cf9fe73d8fbe88c996cb1b471c9ae3ad2083",
               "listEnum": [
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.3-62808d4608be56a71e47fedaac180db01401fc7b"
+                "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.4-31b7cf9fe73d8fbe88c996cb1b471c9ae3ad2083"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
