@@ -63,6 +63,8 @@ spec:
               value: {{ .Values.environment.user }}
             - name: PROJECT_GROUP
               value: {{ .Values.environment.group }}
+            - name: GOOGLE_CLOUD_PROJECT
+              value: {{ .Values.gcp.google_cloud_project }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
