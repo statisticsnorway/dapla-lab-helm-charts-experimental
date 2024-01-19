@@ -12,7 +12,7 @@ security:
   password: "changeme"
   networkPolicy:
     enabled: false
-    from: [ ]
+    from: []
   allowlist:
     enabled: false
     ip: "0.0.0.0/0"
@@ -45,7 +45,7 @@ oidc:
 
 replicaCount: 1
 
-imagePullSecrets: [ ]
+imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
@@ -53,7 +53,7 @@ serviceAccount:
   # Specifies whether a service account should be created
   create: true
   # Annotations to add to the service account
-  annotations: { }
+  annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
@@ -62,7 +62,7 @@ kubernetes:
   enabled: false
   role: "view"
 
-podAnnotations: { }
+podAnnotations: {}
 
 podLabels:
   onyxia.app: "sirius-editering"
@@ -70,7 +70,7 @@ podLabels:
 podSecurityContext:
   fsGroup: 100
 
-securityContext: { }
+securityContext: {}
 
 networking:
   type: ClusterIP
@@ -88,7 +88,7 @@ istio:
   hostname: chart-example.local
   userHostname: chart-example-user.local
 
-resources: { }
+resources: {}
 
 persistence:
   enabled: false
@@ -98,11 +98,11 @@ persistence:
 autoscaling:
   enabled: false
 
-nodeSelector: { }
+nodeSelector: {}
 
-tolerations: [ ]
+tolerations: []
 
-affinity: { }
+affinity: {}
 
 startupProbe:
   failureThreshold: 60
@@ -117,4 +117,4 @@ deleteJob:
   cronHourAtDay: "20"
   imageVersion: "v1.0.0"
   serviceAccount:
-    annotations: { }
+    annotations: {}
