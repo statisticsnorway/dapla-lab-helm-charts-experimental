@@ -19,7 +19,6 @@
         }
       }
     },
-
     "service": {
       "description": "Service specific configuration",
       "type": "object",
@@ -250,10 +249,15 @@
             "hosts": {
               "type": "array",
               "description": "Array of hosts allowed to be accessed from your service",
-              "default": [],
+              "default": [
+                "sso.dapla-dev.ssb.no",
+                "sqladmin.googleapis.com",
+                "secretmanager.googleapis.com",
+                "bigquery.googleapis.com",
+                "bigquerystorage.googleapis.com"
+              ],
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.siriusEgress"
+                "hidden": true
               }
             }
           }
