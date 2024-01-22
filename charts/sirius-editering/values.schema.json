@@ -9,11 +9,11 @@
         "google_cloud_project": {
           "title": "GCP Project",
           "type": "string",
-          "default": "sirius-editering-d-z7",
+          "default": "sirius-editering-t-4h",
           "listEnum": [
-            "sirius-editering-d-z7",
+            "sirius-editering-p-hl",
             "sirius-editering-t-4h",
-            "sirius-editering-p-hl"
+            "sirius-editering-d-z7"
           ],
           "render": "list"
         }
@@ -44,9 +44,9 @@
             "version": {
               "description": "Dash POC supported versions",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.4-31b7cf9fe73d8fbe88c996cb1b471c9ae3ad2083",
+              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.5-9d79998cacc3666e3b51e4f9045bd6cc1162669d",
               "listEnum": [
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.4-31b7cf9fe73d8fbe88c996cb1b471c9ae3ad2083"
+                "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.5-9d79998cacc3666e3b51e4f9045bd6cc1162669d"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -67,7 +67,7 @@
               "description": "The amount of cpu guaranteed",
               "title": "CPU",
               "type": "string",
-              "default": "100m",
+              "default": "1000m",
               "render": "slider",
               "sliderMin": 50,
               "sliderMax": 1000,
