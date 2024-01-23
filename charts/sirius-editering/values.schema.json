@@ -9,10 +9,8 @@
         "google_cloud_project": {
           "title": "GCP Project",
           "type": "string",
-          "default": "sirius-editering-t-4h",
+          "default": "sirius-editering-d-z7",
           "listEnum": [
-            "sirius-editering-p-hl",
-            "sirius-editering-t-4h",
             "sirius-editering-d-z7"
           ],
           "render": "list"
