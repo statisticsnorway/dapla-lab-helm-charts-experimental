@@ -5,7 +5,7 @@ gcp:
 
 service:
   image:
-    version: "v" # "Undefined" is not allowed here
+    version: "v"
     pullPolicy: IfNotPresent
 
 security:
