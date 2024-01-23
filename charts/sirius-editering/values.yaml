@@ -5,7 +5,7 @@ gcp:
 
 service:
   image:
-    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.5-9d79998cacc3666e3b51e4f9045bd6cc1162669d"
+    version: "v"
     pullPolicy: IfNotPresent
 
 security:
