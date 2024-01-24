@@ -41,9 +41,9 @@
             "version": {
               "description": "Dash POC supported versions",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.5.1-1c88fdc75f97a8c754a2c7425dcc8852d97bd5a5",
+              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.5.1",
               "listEnum": [
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.5.1-1c88fdc75f97a8c754a2c7425dcc8852d97bd5a5"
+                "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.5.1"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
