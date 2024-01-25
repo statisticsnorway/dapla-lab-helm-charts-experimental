@@ -407,6 +407,33 @@ entries:
   qgis:
   - apiVersion: v2
     appVersion: 3.34.2
+    created: "2024-01-25T10:02:42.12700529Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: QGIS Desktop - Open-source GIS software for geospatial data management,
+      mapping, and analysis. User-friendly interface, versatile tools, and ideal for
+      all skill levels.
+    digest: 3a55882d1e933317df5c7a0063a45883d706ea77dec079cf1430555b1a8cdb46
+    home: https://github.com/trygu/dapla-qgis-desktop
+    icon: https://www.qgis.org/en/_static/logo.png
+    keywords:
+    - QGis
+    - Geo
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: qgis
+    sources:
+    - https://github.com/trygu/dapla-qgis-desktop
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-0.0.5/qgis-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: 3.34.2
     created: "2024-01-19T07:26:09.933926953Z"
     dependencies:
     - name: library-chart
@@ -673,4 +700,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.1.0/sirius-editering-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-24T15:03:33.105343255Z"
+generated: "2024-01-25T10:02:42.12706893Z"
