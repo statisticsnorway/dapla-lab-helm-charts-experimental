@@ -4,10 +4,10 @@ description: QGIS Desktop - Open-source GIS software for geospatial data managem
 type: application
 
 # Version of the chart
-version: 0.0.5
+version: 0.1.0
 
 # Version of the application
-appVersion: "3.34.2"
+appVersion: "3.34.3"
 
 # Keywords to tag the chart
 keywords:
