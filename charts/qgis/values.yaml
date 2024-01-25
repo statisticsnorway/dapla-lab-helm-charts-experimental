@@ -1,7 +1,7 @@
 service:
   image:
     pullPolicy: IfNotPresent
-    version: trygu/dapla-qgis-desktop:v0.0.1
+    version: trygu/dapla-qgis-desktop:v0.0.2
 security:
   password: "changeme"
   networkPolicy:

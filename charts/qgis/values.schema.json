@@ -22,7 +22,7 @@
             "version": {
               "description": "supported versions",
               "type": "string",
-              "default": "trygu/dapla-qgis-desktop:v0.0.1"
+              "default": "trygu/dapla-qgis-desktop:v0.0.2"
             }
           }
         }

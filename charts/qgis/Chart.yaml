@@ -4,7 +4,7 @@ description: QGIS Desktop - Open-source GIS software for geospatial data managem
 type: application
 
 # Version of the chart
-version: 0.0.4
+version: 0.0.5
 
 # Version of the application
 appVersion: "3.34.2"
