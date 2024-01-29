@@ -73,9 +73,12 @@ spec:
                 name: {{ include "library-chart.secretNameOidc" . }}
             {{- end }}
           livenessProbe:
+            timeoutSeconds: 30
+            failureThreshold: 10
             httpGet:
               path: /healthz/live
               port: {{ .Values.networking.service.port }}
+
           readinessProbe:
             httpGet:
               path: /healthz/ready
