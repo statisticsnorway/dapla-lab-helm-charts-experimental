@@ -162,6 +162,34 @@ entries:
     version: 0.0.1
   jdemetra:
   - apiVersion: v2
+    appVersion: 3.2.1
+    created: "2024-02-05T13:04:45.505708593Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: JDemetra+ offers seasonal adjustment and time series analysis with
+      TRAMO/SEATS+ and X-12/X-13ARIMA-SEATS, endorsed by the European Statistical
+      System.
+    digest: 022378e91eb303bdeb745d7edcf1c565736705bc67a96f74978ae25792887174
+    home: https://github.com/trygu/jdemetra-docker
+    icon: https://avatars.githubusercontent.com/u/10142886?s=200&v=4
+    keywords:
+    - JDemetra+
+    - time series
+    - seasonal adjustment
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: jdemetra
+    sources:
+    - https://github.com/trygu/jdemetra-docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jdemetra-0.2.0/jdemetra-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 2.2.4
     created: "2024-01-18T16:38:31.710724536Z"
     dependencies:
@@ -941,4 +969,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.1.0/sirius-editering-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-30T17:57:59.981264591Z"
+generated: "2024-02-05T13:04:45.505830752Z"
