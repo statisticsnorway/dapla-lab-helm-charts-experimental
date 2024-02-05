@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.2.1](https://img.shields.io/badge/AppVersion-3.2.1-informational?style=flat-square)
 
 JDemetra+ offers seasonal adjustment and time series analysis with TRAMO/SEATS+ and X-12/X-13ARIMA-SEATS, endorsed by the European Statistical System.
 
@@ -59,7 +59,7 @@ JDemetra+ offers seasonal adjustment and time series analysis with TRAMO/SEATS+ 
 | security.serviceEntry.hosts | list | `[]` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"trygu/nbdemetra:1.2"` |  |
+| service.image.version | string | `"trygu/nbdemetra:2.0"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
