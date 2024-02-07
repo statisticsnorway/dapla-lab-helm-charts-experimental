@@ -3,6 +3,33 @@ entries:
   doom:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-02-07T17:06:02.784787736Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.2
+    description: Swap algorithms for ammo and scatter plots for shotguns in the ultimate
+      data scientist's break. Defrag your brain with Doom's demon hordes – it's the
+      perfect 'escape' key!
+    digest: 349d8f0d4595fc009e0b8d6081b56eb1288d71f96493ea21f4a97845f8a705f1
+    home: https://github.com/CallumHoughton18/Doom-In-Docker
+    icon: https://www.giantbomb.com/a/uploads/scale_small/1/16944/2976271-flat%2C800x800%2C075%2Cf.jpg
+    keywords:
+    - Doom
+    - ID software
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: doom
+    sources:
+    - https://github.com/CallumHoughton18/Doom-In-Docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.1.0/doom-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-01-15T10:17:12.182473302Z"
     dependencies:
     - name: library-chart
@@ -161,6 +188,34 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.0.1/doom-0.0.1.tgz
     version: 0.0.1
   jdemetra:
+  - apiVersion: v2
+    appVersion: 3.2.1
+    created: "2024-02-07T17:06:02.921324442Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.2
+    description: JDemetra+ offers seasonal adjustment and time series analysis with
+      TRAMO/SEATS+ and X-12/X-13ARIMA-SEATS, endorsed by the European Statistical
+      System.
+    digest: 7f70fbbed92c5d07e53430c7c77f3d53158b44daf55a1d8d5dc77e685619d493
+    home: https://github.com/trygu/jdemetra-docker
+    icon: https://avatars.githubusercontent.com/u/10142886?s=200&v=4
+    keywords:
+    - JDemetra+
+    - time series
+    - seasonal adjustment
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: jdemetra
+    sources:
+    - https://github.com/trygu/jdemetra-docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jdemetra-0.3.0/jdemetra-0.3.0.tgz
+    version: 0.3.0
   - apiVersion: v2
     appVersion: 3.2.1
     created: "2024-02-05T13:04:45.505708593Z"
@@ -356,6 +411,33 @@ entries:
   klassr:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-02-07T17:06:03.034022421Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.2
+    description: An example Tutorial application for KLASS using R. Example on how
+      you could package a Shiny app and run it in Onyxia
+    digest: b8fbaa7ca161ca84eb6816b58bf97b9783e071804162bd5ed1551f176d40d692
+    home: https://github.com/trygu/klassr_tutorial
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - R
+    - Shiny
+    - Klass
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: klassr
+    sources:
+    - https://github.com/trygu/klassr_tutorial
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/klassr-0.1.0/klassr-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-01-17T12:18:47.996935673Z"
     dependencies:
     - name: library-chart
@@ -433,6 +515,33 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
   qgis:
+  - apiVersion: v2
+    appVersion: 3.34.3
+    created: "2024-02-07T17:06:03.140855197Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.2
+    description: QGIS Desktop - Open-source GIS software for geospatial data management,
+      mapping, and analysis. User-friendly interface, versatile tools, and ideal for
+      all skill levels.
+    digest: 361cd19cd08c53564f097cfb86ff4cab78fdfde0a4d8c332f2ebaac47277c053
+    home: https://github.com/trygu/dapla-qgis-desktop
+    icon: https://www.qgis.org/en/_static/logo.png
+    keywords:
+    - QGis
+    - Geo
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: qgis
+    sources:
+    - https://github.com/trygu/dapla-qgis-desktop
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-0.4.0/qgis-0.4.0.tgz
+    version: 0.4.0
   - apiVersion: v2
     appVersion: 3.34.3
     created: "2024-01-26T09:40:04.527454996Z"
@@ -629,6 +738,23 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-0.0.1/qgis-0.0.1.tgz
     version: 0.0.1
   sirius-editering:
+  - apiVersion: v2
+    created: "2024-02-07T17:06:03.245235287Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.2
+    description: A Helm chart for Kubernetes
+    digest: 7b2cd57cadeda0bb3c3c357795d7e0632716a165a3a42b0676b65f7166fd2dc5
+    home: https://github.com/statisticsnorway/sirius-editering
+    icon: https://avatars.githubusercontent.com/u/5849578
+    name: sirius-editering
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.1.21/sirius-editering-0.1.21.tgz
+    version: 0.1.21
   - apiVersion: v2
     created: "2024-01-30T17:57:59.981070107Z"
     dependencies:
@@ -969,4 +1095,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.1.0/sirius-editering-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-05T13:04:45.505830752Z"
+generated: "2024-02-07T17:06:03.245424631Z"
