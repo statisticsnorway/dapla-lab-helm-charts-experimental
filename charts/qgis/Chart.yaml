@@ -4,7 +4,7 @@ description: QGIS Desktop - Open-source GIS software for geospatial data managem
 type: application
 
 # Version of the chart
-version: 0.3.0
+version: 0.4.0
 
 # Version of the application
 appVersion: "3.34.3"
@@ -32,5 +32,5 @@ icon: https://www.qgis.org/en/_static/logo.png
 
 dependencies:
   - name: library-chart
-    version: 3.1.1
+    version: 3.1.2
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services

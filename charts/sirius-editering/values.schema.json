@@ -511,6 +511,15 @@
           "x-onyxia": {
             "hidden": true
           }
+        },
+        "clusterRoleName": {
+          "type": "string",
+          "title": "Cluster role name",
+          "description": "Which cluster role the delete job should run with",
+          "default": "onyxia-manage-services",
+          "x-onyxia": {
+            "hidden": true
+          }
         }
       }
     }

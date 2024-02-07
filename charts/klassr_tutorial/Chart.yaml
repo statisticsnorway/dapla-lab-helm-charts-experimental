@@ -4,7 +4,7 @@ description: An example Tutorial application for KLASS using R. Example on how y
 type: application
 
 # Version of the chart
-version: 0.0.4
+version: 0.1.0
 
 # Version of the application
 appVersion: "1.0.0"
@@ -33,5 +33,5 @@ icon: https://avatars.githubusercontent.com/u/5849578
 
 dependencies:
   - name: library-chart
-    version: 3.1.1
+    version: 3.1.2
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services

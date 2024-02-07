@@ -4,7 +4,7 @@ description: JDemetra+ offers seasonal adjustment and time series analysis with 
 type: application
 
 # Version of the chart
-version: 0.2.0
+version: 0.3.0
 
 # Version of the application
 appVersion: "3.2.1"
@@ -33,5 +33,5 @@ icon: https://avatars.githubusercontent.com/u/10142886?s=200&v=4
 
 dependencies:
   - name: library-chart
-    version: 3.1.1
+    version: 3.1.2
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
