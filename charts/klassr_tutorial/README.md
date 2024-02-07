@@ -1,6 +1,6 @@
 # klassr
 
-![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 An example Tutorial application for KLASS using R. Example on how you could package a Shiny app and run it in Onyxia
 
@@ -20,13 +20,19 @@ An example Tutorial application for KLASS using R. Example on how you could pack
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.1 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.2 |
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| deleteJob.clusterRoleName | string | `"onyxia-manage-services"` |  |
+| deleteJob.cronHourAtDay | string | `"20"` |  |
+| deleteJob.cronMinuteAtDay | string | `"0"` |  |
+| deleteJob.enabled | bool | `true` |  |
+| deleteJob.imageVersion | string | `"v1.0.0"` |  |
+| deleteJob.serviceAccount.annotations | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | istio.enabled | bool | `false` |  |
