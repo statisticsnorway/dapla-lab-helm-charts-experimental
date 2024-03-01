@@ -3,6 +3,9 @@
 gcp:
   google_cloud_project: "Undefined"
 
+uiSettings:
+  theme: "Undefined"
+
 service:
   image:
     version: "v"

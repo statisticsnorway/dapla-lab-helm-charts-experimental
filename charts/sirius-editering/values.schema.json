@@ -17,6 +17,22 @@
         }
       }
     },
+    "uiSettings": {
+      "description": "User interface settings",
+      "type": "object",
+      "properties": {
+        "theme": {
+          "title": "Select dark/bright theme",
+          "type": "string",
+          "default": "bright",
+          "listEnum": [
+            "bright",
+            "dark"
+          ],
+          "render": "list"
+        }
+      }
+    },
     "service": {
       "description": "Service specific configuration",
       "type": "object",

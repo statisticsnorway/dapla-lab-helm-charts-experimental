@@ -67,6 +67,8 @@ spec:
               value: {{ .Values.gcp.google_cloud_project }}
             - name: JUPYTERHUB_USER
               value: {{ .Values.security.oauth2.authenticatedEmails }}
+            - name: THEME
+              value: {{ .Values.uiSettings.theme }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
