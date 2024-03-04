@@ -128,10 +128,6 @@ redis:
   usePassword: false
   auth:
     enabled: false
-  persistence:
-    enabled: false
   master:
     persistence:
-      enable: false
-  cluster:
-    enabled: false
+      enabled: false
