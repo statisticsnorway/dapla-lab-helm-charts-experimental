@@ -1,6 +1,6 @@
 # sirius-editering
 
-![Version: 0.1.26](https://img.shields.io/badge/Version-0.1.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.27](https://img.shields.io/badge/Version-0.1.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -57,7 +57,10 @@ A Helm chart for Kubernetes
 | podSecurityContext.fsGroup | int | `100` |  |
 | redis.architecture | string | `"standalone"` |  |
 | redis.auth.enabled | bool | `false` |  |
-| redis.configmap | string | `"# Custom Configuration\n# Disable AOF and RDB persistence as we keep everything in memory only, see https://redis.io/topics/persistence\nappendonly no\n# Disable RDB persistence, AOF persistence already disabled above.\nsave \"\"\n"` |  |
+| redis.cluster.enabled | bool | `false` |  |
+| redis.master.persistence.enable | bool | `false` |  |
+| redis.persistence.enabled | bool | `false` |  |
+| redis.usePassword | bool | `false` |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | security.allowlist.enabled | bool | `false` |  |
