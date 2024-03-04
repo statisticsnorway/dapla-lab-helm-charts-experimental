@@ -122,3 +122,8 @@ deleteJob:
   clusterRoleName: onyxia-manage-services
   serviceAccount:
     annotations: {}
+
+redis:
+  architecture: standalone
+  auth:
+    enabled: false
