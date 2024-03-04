@@ -127,7 +127,7 @@ redis:
   architecture: standalone
   auth:
     enabled: false
-  configmap: |    
+  configmap: |
     # Custom Configuration
     # Disable AOF and RDB persistence as we keep everything in memory only, see https://redis.io/topics/persistence
     appendonly no
