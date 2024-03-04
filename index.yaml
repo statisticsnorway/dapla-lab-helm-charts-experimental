@@ -766,6 +766,26 @@ entries:
     version: 0.0.1
   sirius-editering:
   - apiVersion: v2
+    created: "2024-03-04T23:09:51.391644707Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.2
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.17.0
+    description: A Helm chart for Kubernetes
+    digest: 7f7087cdef918e3b0daf871e16dcd1e47e2be508aee1c4f2898c760cbb95595d
+    home: https://github.com/statisticsnorway/sirius-editering
+    icon: https://avatars.githubusercontent.com/u/5849578
+    name: sirius-editering
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.1.28/sirius-editering-0.1.28.tgz
+    version: 0.1.28
+  - apiVersion: v2
     created: "2024-03-04T22:33:37.133592737Z"
     dependencies:
     - name: library-chart
@@ -1233,4 +1253,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.1.0/sirius-editering-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-04T22:33:37.133819754Z"
+generated: "2024-03-04T23:09:51.391912196Z"
