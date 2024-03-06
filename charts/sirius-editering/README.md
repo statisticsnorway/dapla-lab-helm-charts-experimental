@@ -1,6 +1,6 @@
 # sirius-editering
 
-![Version: 0.1.32](https://img.shields.io/badge/Version-0.1.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.33](https://img.shields.io/badge/Version-0.1.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -14,7 +14,6 @@ A Helm chart for Kubernetes
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | redis | 18.17.0 |
 | https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.2 |
 
 ## Values
@@ -55,10 +54,6 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podLabels."onyxia.app" | string | `"sirius-editering"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
-| redis.architecture | string | `"standalone"` |  |
-| redis.auth.enabled | bool | `false` |  |
-| redis.master.persistence.enabled | bool | `false` |  |
-| redis.usePassword | bool | `false` |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | security.allowlist.enabled | bool | `false` |  |
