@@ -78,7 +78,7 @@ spec:
             {{- end }}
           livenessProbe:
             timeoutSeconds: 30
-            failureThreshold: 10
+            failureThreshold: 3
             httpGet:
               path: /healthz/live
               port: {{ .Values.networking.service.port }}
