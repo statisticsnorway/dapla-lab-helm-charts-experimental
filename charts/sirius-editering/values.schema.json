@@ -538,64 +538,6 @@
           }
         }
       }
-    },
-
-    "redis": {
-      "description": "Redis config",
-      "type": "object",
-      "properties": {
-        "architecture": {
-          "type": "string",
-          "description": "Redis architecture",
-          "default": "standalone",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-
-        "usePassword": {
-          "type": "boolean",
-          "description": "Redis usePassword",
-          "default": false,
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-
-        "auth": {
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "description": "Redis auth.enabled",
-              "default": false,
-              "x-onyxia": {
-                "hidden": true
-              }
-            }
-          }
-        },
-
-        "master": {
-          "type": "object",
-          "properties": {
-            "persistence": {
-              "type": "object",
-              "description": "Redis master.persistence",
-              "properties": {
-                "enabled": {
-                  "type": "boolean",
-                  "description": "Redis master.persistence.enabled",
-                  "default": false,
-                  "x-onyxia": {
-                    "hidden": true
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   }
 }
