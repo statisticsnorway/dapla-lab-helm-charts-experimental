@@ -34,7 +34,7 @@ spec:
           persistentVolumeClaim:
             claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
         {{- else }}
-          emptyDir: {}
+          emptyDir: { }
         {{- end }}
         - {{ include "library-chart.oauth2ProxyVolume" . | indent 10 | trim }}
       {{- with .Values.imagePullSecrets }}
@@ -47,6 +47,13 @@ spec:
       subdomain: {{ include "library-chart.fullname" . }}
       hostname: sirius-editering
       containers:
+        - name: {{ .Chart.Name }}-redis
+          image: "redis"
+          ports:
+            - containerPort: 6379
+              name: redis
+              protocol: TCP
+
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -66,7 +73,7 @@ spec:
             - name: GOOGLE_CLOUD_PROJECT
               value: {{ .Values.gcp.google_cloud_project }}
             - name: REDIS_URL
-              value: "redis://{{ .Release.Name }}-redis-master:6379"
+              value: "redis://localhost:6379"
             - name: JUPYTERHUB_USER
               value: {{ .Values.security.oauth2.authenticatedEmails }}
             - name: THEME
