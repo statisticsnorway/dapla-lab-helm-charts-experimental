@@ -57,9 +57,9 @@
             "version": {
               "description": "Dash POC supported versions",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.6.24",
+              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.6.26",
               "listEnum": [
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.6.24"
+                "europe-north1-docker.pkg.dev/artifact-registry-5n/sirius-editering-docker/dash-poc:v0.6.26"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -98,9 +98,9 @@
               "description": "The amount of memory guaranteed",
               "title": "memory",
               "type": "string",
-              "default": "4Gi",
+              "default": "6Gi",
               "render": "slider",
-              "sliderMin": 2,
+              "sliderMin": 5,
               "sliderMax": 10,
               "sliderStep": 1,
               "sliderUnit": "Gi",
@@ -140,9 +140,9 @@
               "description": "The maximum amount of memory",
               "title": "Memory",
               "type": "string",
-              "default": "5Gi",
+              "default": "7Gi",
               "render": "slider",
-              "sliderMin": 2,
+              "sliderMin": 5,
               "sliderMax": 10,
               "sliderStep": 1,
               "sliderUnit": "Gi",
