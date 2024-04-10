@@ -129,9 +129,9 @@
           "description": "Mount a bucket in your VSCode instance",
           "default": false
         },
-        "serviceAccount": {
+        "group": {
           "type": "string",
-          "description": "GCP Service Account to use",
+          "description": "The Dapla group to act as",
           "default": ""
         },
         "name": {

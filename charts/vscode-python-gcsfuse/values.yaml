@@ -43,7 +43,7 @@ oidc:
 
 bucket:
   enabled: false
-  serviceAccount: ""
+  group: ""
   name: ""
 
 git:
