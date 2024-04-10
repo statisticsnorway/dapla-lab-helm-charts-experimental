@@ -2,8 +2,8 @@
 apiVersion: dapla.ssb.no/v1alpha1
 kind: WorkloadIdentityAccess
 metadata:
-  name: {{ include "library-chart.fullname" }}
+  name: {{ include "library-chart.fullname" . }}
 spec:
-  serviceAccount: {{ include "serviceAccountName" }}
+  serviceAccount: {{ include "serviceAccountName" . }}
   groupName: {{ .Values.bucket.group }}
 {{- end }}
