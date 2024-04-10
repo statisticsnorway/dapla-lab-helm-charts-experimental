@@ -1,6 +1,6 @@
 # vscode-python-gcsfuse
 
-![Version: 2.5.6](https://img.shields.io/badge/Version-2.5.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.6.0](https://img.shields.io/badge/Version-2.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages.
 
@@ -27,8 +27,8 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | bucket.enabled | bool | `false` |  |
+| bucket.group | string | `""` |  |
 | bucket.name | string | `""` |  |
-| bucket.serviceAccount | string | `""` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
