@@ -3,6 +3,8 @@ apiVersion: dapla.ssb.no/v1alpha1
 kind: WorkloadIdentityAccess
 metadata:
   name: {{ include "library-chart.fullname" . }}
+  annotations:
+    helm.sh/hook: pre-install
 spec:
   serviceAccount: {{ include "serviceAccountName" . }}
   groupName: {{ .Values.bucket.group }}
