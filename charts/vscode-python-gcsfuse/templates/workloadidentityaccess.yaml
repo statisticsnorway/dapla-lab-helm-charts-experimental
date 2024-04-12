@@ -28,6 +28,7 @@ metadata:
 spec:
   serviceAccount: {{ include "serviceAccountName" . }}
   groupName: {{ .Values.bucket.group }}
+  destroyOnSADelete: true
 ---
 apiVersion: batch/v1
 kind: Job
