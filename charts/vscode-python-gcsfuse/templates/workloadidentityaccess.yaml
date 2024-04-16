@@ -1,54 +1,9 @@
 {{- if .Values.bucket.enabled }}
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: {{ include "serviceAccountName" . }}
-  labels:
-    app.kubernetes.io/managed-by: Helm
-    {{- include "library-chart.labels" . | nindent 4 }}
-  annotations:
-    helm.sh/hook: pre-install
-    meta.helm.sh/release-name: {{ .Release.Name }}
-    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
-    iam.gke.io/gcp-service-account: {{ .Values.bucket.group }}@kons-stolen-vpcsc-t-1u.iam.gserviceaccount.com
-  {{- with .Values.serviceAccount.annotations }}
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
----
 apiVersion: dapla.ssb.no/v1alpha1
 kind: WorkloadIdentityAccess
 metadata:
   name: {{ include "library-chart.fullname" . }}
-  annotations:
-    helm.sh/hook: pre-install
-    meta.helm.sh/release-name: {{ .Release.Name }}
-    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
-  labels:
-    app.kubernetes.io/managed-by: Helm
 spec:
   serviceAccount: {{ include "serviceAccountName" . }}
   groupName: {{ .Values.bucket.group }}
-  destroyOnSADelete: true
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: {{ include "library-chart.fullname" . }}-iam-probe
-  annotations:
-    helm.sh/hook-delete-policy: hook-failed,hook-succeeded
-    helm.sh/hook: pre-install
-spec:
-  template:
-    metadata:
-      labels:
-        sidecar.istio.io/inject: "false"
-    spec:
-      serviceAccountName: {{ include "serviceAccountName" . }}
-      containers:
-        - name: iam-probe
-          image: europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/sarator-iam-probe:v0.0.10
-          env:
-            - name: PROBE_BUCKET
-              value: {{ .Values.bucket.name }}
-      restartPolicy: Never
 {{- end }}
