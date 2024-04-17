@@ -41,10 +41,9 @@ oidc:
   # If not set and create is true, a name is generated using the fullname template
   secretName: ""
 
-bucket:
-  enabled: false
+buckets:
   group: ""
-  name: ""
+  buckets: ""
 
 git:
   # Specifies whether a config map should be created

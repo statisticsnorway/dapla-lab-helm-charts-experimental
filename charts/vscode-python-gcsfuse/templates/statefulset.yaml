@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       annotations:
-        {{- if .Values.bucket.enabled}}
+        {{- if ( ne .Values.buckets.buckets "" ) }}
         gke-gcsfuse/volumes: "true"
         traffic.sidecar.istio.io/excludeOutboundIPRanges: 169.254.169.254/32
         {{- end }}
@@ -48,13 +48,13 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 128Mi
-        {{- if .Values.bucket.enabled}}
-        - name: bucket-vol
+        {{- range ( .Values.buckets.buckets | split "," ) }}
+        - name: gcs-{{ . }}
           csi:
             driver: gcsfuse.csi.storage.gke.io
             readOnly: false
             volumeAttributes:
-              bucketName: {{ .Values.bucket.name }}
+              bucketName: {{ . }}
               mountOptions: "implicit-dirs"
               gcsfuseLoggingSeverity: warning
         {{- end }}
@@ -133,9 +133,9 @@ spec:
               name: home
             - mountPath: /dev/shm
               name: dshm
-            {{- if .Values.bucket.enabled }}
-            - name: bucket-vol
-              mountPath: /home/{{ .Values.environment.user}}/work/buckets/{{ .Values.bucket.name }}
+            {{- range ( .Values.buckets.buckets | split "," ) }}
+            - name: gcs-{{ . }}
+              mountPath: /home/{{ $.Values.environment.user}}/buckets/{{ . }}
               readOnly: false
             {{- end }}
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
