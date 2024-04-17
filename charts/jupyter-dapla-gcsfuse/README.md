@@ -1,6 +1,6 @@
 # jupyter-dapla-gcsfuse
 
-![Version: 1.4.12](https://img.shields.io/badge/Version-1.4.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
@@ -25,9 +25,8 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| bucket.enabled | bool | `false` |  |
-| bucket.group | string | `""` |  |
-| bucket.name | string | `""` |  |
+| buckets.buckets | string | `""` |  |
+| buckets.group | string | `""` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
