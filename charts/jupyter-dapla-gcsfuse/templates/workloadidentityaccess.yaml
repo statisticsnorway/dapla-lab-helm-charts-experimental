@@ -5,5 +5,5 @@ metadata:
   name: {{ include "library-chart.fullname" . }}
 spec:
   serviceAccount: {{ include "serviceAccountName" . }}
-  groupName: {{ .Values.bucket.group }}
+  groupName: {{ .Values.buckets.group }}
 {{- end }}
