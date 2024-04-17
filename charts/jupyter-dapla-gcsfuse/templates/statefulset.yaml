@@ -54,7 +54,7 @@ spec:
             readOnly: false
             volumeAttributes:
               bucketName: {{ . }}
-              mountOptions: "implicit-dirs"
+              mountOptions: "implicit-dirs,uid=1000,gid=100"
               gcsfuseLoggingSeverity: warning
         {{- end }}
       {{- with .Values.imagePullSecrets }}
