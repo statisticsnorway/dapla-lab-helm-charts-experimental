@@ -38,10 +38,9 @@ userAttributes:
   userAttribute: "access_token"
   value: ""
 
-bucket:
-  enabled: false
+buckets:
   group: ""
-  name: ""
+  buckets: ""
 
 git:
   # Specifies whether a config map should be created

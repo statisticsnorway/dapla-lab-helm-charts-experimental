@@ -136,23 +136,18 @@
                 }
             }
         },
-        "bucket": {
+        "buckets": {
           "description": "GCS Bucket configuration",
           "type": "object",
           "properties": {
-            "enabled": {
-              "type": "boolean",
-              "description": "Mount a bucket in your VSCode instance",
-              "default": false
-            },
             "group": {
               "type": "string",
               "description": "The Dapla group to act as",
               "default": ""
             },
-            "name": {
+            "buckets": {
               "type": "string",
-              "description": "Name of the bucket",
+              "description": "Comma-separated list of buckets to mount (e.g. ssb-abc,ssb-def)",
               "default": ""
             }
           }
