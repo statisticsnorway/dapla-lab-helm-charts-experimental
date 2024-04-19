@@ -57,6 +57,8 @@ spec:
             volumeAttributes:
               {{- if ( ne . "" ) }}
               bucketName: {{ . }}
+              {{- else }}
+              bucketName: "_"
               {{- end }}
               mountOptions: "implicit-dirs,uid=1000,gid=100"
               gcsfuseLoggingSeverity: warning
