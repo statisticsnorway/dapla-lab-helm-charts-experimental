@@ -48,15 +48,19 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 128Mi
+        {{- if ( ne .Values.buckets.group "" ) }}
         {{- range ( .Values.buckets.buckets | split "," ) }}
-        - name: gcs-{{ . }}
+        - name: gcs{{ if ( ne . "" ) }}-{{ . }}{{ end }}
           csi:
             driver: gcsfuse.csi.storage.gke.io
             readOnly: false
             volumeAttributes:
+              {{- if ( ne . "" ) }}
               bucketName: {{ . }}
+              {{- end }}
               mountOptions: "implicit-dirs,uid=1000,gid=100"
               gcsfuseLoggingSeverity: warning
+        {{- end }}
         {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -133,10 +137,16 @@ spec:
               name: home
             - mountPath: /dev/shm
               name: dshm
+            {{- if ( ne .Values.buckets.group "" ) }}
             {{- range ( .Values.buckets.buckets | split "," ) }}
-            - name: gcs-{{ . }}
+            - name: gcs{{ if ( ne . "" )}}-{{ . }}{{ end }}
+              {{- if ( ne . "" ) }}
               mountPath: /home/{{ $.Values.environment.user}}/buckets/{{ . }}
+              {{- else }}
+              mountPath: /home/{{ $.Values.environment.user}}/buckets-ondemand
+              {{- end }}
               readOnly: false
+            {{- end }}
             {{- end }}
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
