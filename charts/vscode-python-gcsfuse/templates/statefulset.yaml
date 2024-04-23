@@ -48,9 +48,21 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 128Mi
-        {{- if ( ne .Values.buckets.group "" ) }}
-        {{- range ( .Values.buckets.buckets | split "," ) }}
-        - name: gcs{{ if ( ne . "" ) }}-{{ . }}{{ end }}
+        {{- if .Values.buckets.enabled }}
+        {{- if .Values.buckets.mountStandard }}
+        {{- range tuple "produkt" "tilsky" "frasky" }}
+        - name: gcs-standard-{{ . }}
+          csi:
+            driver: gcsfuse.csi.storage.gke.io
+            readOnly: false
+            volumeAttributes:
+              bucketName: "ssb-{{ $.Values.buckets.team }}-data-{{ . }}-{{ lower $.Values.deployEnvironment }}"
+              mountOptions: "implicit-dirs,uid=1000,gid=100"
+              gcsfuseLoggingSeverity: warning
+        {{- end }}
+        {{- end }}
+        {{- range ( .Values.buckets.extraBuckets | split "," ) }}
+        - name: gcs-extra-{{ . }}
           csi:
             driver: gcsfuse.csi.storage.gke.io
             readOnly: false
@@ -139,14 +151,17 @@ spec:
               name: home
             - mountPath: /dev/shm
               name: dshm
-            {{- if ( ne .Values.buckets.group "" ) }}
-            {{- range ( .Values.buckets.buckets | split "," ) }}
-            - name: gcs{{ if ( ne . "" )}}-{{ . }}{{ end }}
-              {{- if ( ne . "" ) }}
+            {{- if .Values.buckets.enabled }}
+            {{- if .Values.buckets.mountStandard }}
+            {{- range tuple "produkt" "tilsky" "frasky" }}
+            - name: gcs-standard-{{ . }}
               mountPath: /home/{{ $.Values.environment.user}}/buckets/{{ . }}
-              {{- else }}
-              mountPath: /home/{{ $.Values.environment.user}}/buckets-ondemand
-              {{- end }}
+              readOnly: false
+            {{- end }}
+            {{- end }}
+            {{- range ( .Values.buckets.extraBuckets | split "," ) }}
+            - name: gcs-extra-{{ . }}
+              mountPath: /home/{{ $.Values.environment.user}}/buckets/{{ . }}
               readOnly: false
             {{- end }}
             {{- end }}

@@ -1,9 +1,9 @@
-{{- if ( ne .Values.buckets.group "" ) }}
+{{- if .Values.buckets.enabled }}
 apiVersion: dapla.ssb.no/v1alpha1
 kind: WorkloadIdentityAccess
 metadata:
   name: {{ include "library-chart.fullname" . }}
 spec:
   serviceAccount: {{ include "serviceAccountName" . }}
-  groupName: {{ .Values.buckets.group }}
+  groupName: {{ .Values.buckets.team }-{{ .Values.buckets.group }}
 {{- end }}
