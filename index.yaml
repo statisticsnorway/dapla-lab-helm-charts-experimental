@@ -1855,6 +1855,28 @@ entries:
     version: 2.5.6
   vscode-python-gcsfuse:
   - apiVersion: v2
+    created: "2024-04-23T12:11:42.80532621Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages.
+    digest: ed7644038992c6528212c78158839d69ff9fd7dc9965a3ce62d134b2c64e103b
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-gcsfuse
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-gcsfuse-5.0.1/vscode-python-gcsfuse-5.0.1.tgz
+    version: 5.0.1
+  - apiVersion: v2
     created: "2024-04-23T11:22:31.090727446Z"
     dependencies:
     - name: library-chart
@@ -2184,4 +2206,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-gcsfuse-2.5.6/vscode-python-gcsfuse-2.5.6.tgz
     version: 2.5.6
-generated: "2024-04-23T11:22:31.091124156Z"
+generated: "2024-04-23T12:11:42.805553444Z"
