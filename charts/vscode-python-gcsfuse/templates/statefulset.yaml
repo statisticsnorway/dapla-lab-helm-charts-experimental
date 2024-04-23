@@ -61,6 +61,7 @@ spec:
               gcsfuseLoggingSeverity: warning
         {{- end }}
         {{- end }}
+        {{- if ( ne .Values.buckets.extraBuckets "" ) }}
         {{- range ( .Values.buckets.extraBuckets | split "," ) }}
         - name: gcs-extra-{{ . }}
           csi:
@@ -74,6 +75,7 @@ spec:
               {{- end }}
               mountOptions: "implicit-dirs,uid=1000,gid=100"
               gcsfuseLoggingSeverity: warning
+        {{- end }}
         {{- end }}
         {{- end }}
       {{- with .Values.imagePullSecrets }}
@@ -159,10 +161,12 @@ spec:
               readOnly: false
             {{- end }}
             {{- end }}
+            {{- if ( ne .Values.buckets.extraBuckets "" ) }}
             {{- range ( .Values.buckets.extraBuckets | split "," ) }}
             - name: gcs-extra-{{ . }}
               mountPath: /home/{{ $.Values.environment.user}}/buckets/{{ . }}
               readOnly: false
+            {{- end }}
             {{- end }}
             {{- end }}
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
