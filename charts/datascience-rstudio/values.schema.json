@@ -26,7 +26,7 @@
                             "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-rstudio:r4.4.0",
                             "listEnum": [
                                 "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-rstudio:r4.4.0",
-                                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-rstudio:r3.3.0"
+                                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-rstudio:r4.3.3"
                             ],
                             "render": "list",
                             "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -255,12 +255,8 @@
                             "type": "string",
                             "title": "OIDC issuer url",
                             "description": "Url to the OIDC issuer",
-                            "default": "",
-                            "x-onyxia": {
-                                "hidden": true,
-                                "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
-                            }
-                        },
+                            "default": "https://auth-play.external.test.ssb.cloud.nais.io/realms/onyxia-services"
+                          },
                         "clientId": {
                             "type": "string",
                             "title": "Client id",
