@@ -1,0 +1,97 @@
+# datascience-rstudio
+
+![Version: 1.4.6](https://img.shields.io/badge/Version-1.4.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+
+The RStudio IDE with a collection of standard data science packages, adapted to work for Dapla.
+
+**Homepage:** <https://www.rstudio.com/>
+
+## Source Code
+
+- <https://statisticsnorway.github.io/dapla-lab-helm-charts-services>
+
+## Requirements
+
+| Repository                                                        | Name          | Version |
+| ----------------------------------------------------------------- | ------------- | ------- |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.1   |
+
+## Values
+
+| Key                                        | Type   | Default                                                                                                  | Description |
+| ------------------------------------------ | ------ | -------------------------------------------------------------------------------------------------------- | ----------- |
+| affinity                                   | object | `{}`                                                                                                     |             |
+| autoscaling.enabled                        | bool   | `false`                                                                                                  |             |
+| autoscaling.maxReplicas                    | int    | `100`                                                                                                    |             |
+| autoscaling.minReplicas                    | int    | `1`                                                                                                      |             |
+| autoscaling.targetCPUUtilizationPercentage | int    | `80`                                                                                                     |             |
+| deleteJob.cronHourAtDay                    | string | `"20"`                                                                                                   |             |
+| deleteJob.cronMinuteAtDay                  | string | `"0"`                                                                                                    |             |
+| deleteJob.enabled                          | bool   | `true`                                                                                                   |             |
+| deleteJob.imageVersion                     | string | `"v1.0.0"`                                                                                               |             |
+| deleteJob.serviceAccount.annotations       | object | `{}`                                                                                                     |             |
+| deployEnvironment                          | string | `"DEV"`                                                                                                  |             |
+| environment.group                          | string | `"users"`                                                                                                |             |
+| environment.user                           | string | `"onyxia"`                                                                                               |             |
+| fullnameOverride                           | string | `""`                                                                                                     |             |
+| git.branch                                 | string | `""`                                                                                                     |             |
+| git.cache                                  | string | `""`                                                                                                     |             |
+| git.email                                  | string | `""`                                                                                                     |             |
+| git.enabled                                | bool   | `true`                                                                                                   |             |
+| git.name                                   | string | `""`                                                                                                     |             |
+| git.repository                             | string | `""`                                                                                                     |             |
+| git.secretName                             | string | `""`                                                                                                     |             |
+| git.token                                  | string | `""`                                                                                                     |             |
+| imagePullSecrets                           | list   | `[]`                                                                                                     |             |
+| init.personalInit                          | string | `""`                                                                                                     |             |
+| init.personalInitArgs                      | string | `""`                                                                                                     |             |
+| init.regionInit                            | string | `""`                                                                                                     |             |
+| init.standardInitPath                      | string | `"/opt/onyxia-init.sh"`                                                                                  |             |
+| istio.enabled                              | bool   | `false`                                                                                                  |             |
+| istio.gateways[0]                          | string | `"istio-namespace/example-gateway"`                                                                      |             |
+| istio.hostname                             | string | `"chart-example.local"`                                                                                  |             |
+| kubernetes.enabled                         | bool   | `true`                                                                                                   |             |
+| kubernetes.role                            | string | `"view"`                                                                                                 |             |
+| nameOverride                               | string | `""`                                                                                                     |             |
+| networking.clusterIP                       | string | `"None"`                                                                                                 |             |
+| networking.service.port                    | int    | `8787`                                                                                                   |             |
+| networking.sparkui.port                    | int    | `4040`                                                                                                   |             |
+| networking.type                            | string | `"ClusterIP"`                                                                                            |             |
+| nodeSelector                               | object | `{}`                                                                                                     |             |
+| oidc.enabled                               | bool   | `true`                                                                                                   |             |
+| oidc.secretName                            | string | `""`                                                                                                     |             |
+| oidc.tokenExchangeUrl                      | string | `""`                                                                                                     |             |
+| persistence.accessMode                     | string | `"ReadWriteOnce"`                                                                                        |             |
+| persistence.enabled                        | bool   | `true`                                                                                                   |             |
+| persistence.size                           | string | `"10Gi"`                                                                                                 |             |
+| podAnnotations                             | object | `{}`                                                                                                     |             |
+| podSecurityContext.fsGroup                 | int    | `100`                                                                                                    |             |
+| replicaCount                               | int    | `1`                                                                                                      |             |
+| repository.configMapName                   | string | `""`                                                                                                     |             |
+| repository.rRepository                     | string | `""`                                                                                                     |             |
+| resources                                  | object | `{}`                                                                                                     |             |
+| security.allowlist.enabled                 | bool   | `false`                                                                                                  |             |
+| security.allowlist.ip                      | string | `"0.0.0.0/0"`                                                                                            |             |
+| security.networkPolicy.enabled             | bool   | `false`                                                                                                  |             |
+| security.networkPolicy.from                | list   | `[]`                                                                                                     |             |
+| security.oauth2.authenticatedEmails        | string | `""`                                                                                                     |             |
+| security.oauth2.clientId                   | string | `"my-client"`                                                                                            |             |
+| security.oauth2.oidcIssuerUrl              | string | `"a"`                                                                                                    |             |
+| security.oauth2.provider                   | string | `"keycloak-oidc"`                                                                                        |             |
+| security.password                          | string | `"changeme"`                                                                                             |             |
+| security.serviceEntry.enabled              | bool   | `true`                                                                                                   |             |
+| security.serviceEntry.hosts[0]             | string | `"storage.googleapis.com"`                                                                               |             |
+| securityContext                            | object | `{}`                                                                                                     |             |
+| service.image.pullPolicy                   | string | `"IfNotPresent"`                                                                                         |             |
+| service.image.version                      | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-rstudio:r4.4.0"` |             |
+| serviceAccount.annotations                 | object | `{}`                                                                                                     |             |
+| serviceAccount.create                      | bool   | `true`                                                                                                   |             |
+| serviceAccount.name                        | string | `""`                                                                                                     |             |
+| tolerations                                | list   | `[]`                                                                                                     |             |
+| userAttributes.environmentVariableName     | string | `"OIDC_TOKEN"`                                                                                           |             |
+| userAttributes.userAttribute               | string | `"access_token"`                                                                                         |             |
+| userAttributes.value                       | string | `""`                                                                                                     |             |
+
+---
+
+Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
