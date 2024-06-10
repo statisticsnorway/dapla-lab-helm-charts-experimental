@@ -19,7 +19,7 @@
                       "version": {
                         "description": "supported versions",
                         "type": "string",
-                        "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py312",
+                        "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py311",
                         "listEnum": [
                             "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py312",
                             "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py311"
