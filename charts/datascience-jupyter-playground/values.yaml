@@ -2,7 +2,7 @@
 
 service:
   image:
-    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py312"
+    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py311"
     pullPolicy: IfNotPresent
 
 security:
