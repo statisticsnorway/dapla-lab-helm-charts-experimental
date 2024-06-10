@@ -140,6 +140,7 @@ buckets:
   group: play-foeniks-a-developers
   mountStandard: true
   extraBuckets: []
+  customFlags: ""
 
 autoscaling:
   enabled: false

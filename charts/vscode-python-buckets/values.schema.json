@@ -169,6 +169,16 @@
             "value": false,
             "path": "buckets/enabled"
           }
+        },
+        "customFlags": {
+            "type": "string",
+            "title": "Custom flags",
+            "description": "Extra gcsfuse flags for development purposes",
+            "default": "",
+            "hidden": {
+                "value": false,
+                "path": "buckets/enabled"
+            }
         }
       }
     },
