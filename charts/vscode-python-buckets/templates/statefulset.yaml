@@ -1,5 +1,6 @@
 {{- $fullName := include "library-chart.fullname" . -}}
 {{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.buckets.group) }}
+{{- $bucketEnv := "dev" "test" "test" "test" "prod" "prod" }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -53,7 +54,7 @@ spec:
             driver: gcsfuse.csi.storage.gke.io
             readOnly: false
             volumeAttributes:
-              bucketName: "ssb-{{ $.teamName }}-data-{{ . }}-{{ lower $.Values.deployEnvironment }}"
+              bucketName: "ssb-{{ $teamName }}-data-{{ . }}-{{ get $bucketEnv (lower $.Values.deployEnvironment) }}"
               mountOptions: "implicit-dirs,uid=1000,gid=100"
               gcsfuseLoggingSeverity: warning
         {{- end }}
