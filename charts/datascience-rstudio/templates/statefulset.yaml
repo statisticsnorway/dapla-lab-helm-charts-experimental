@@ -76,13 +76,29 @@ spec:
           args: ["{{ .Values.init.standardInitPath }} /init"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: KUBERNETES_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: IMAGE_NAME
+              value: "{{ .Values.service.image.version }}"
+            - name: DAPLA_ENVIRONMENT
+              value: {{ .Values.deployEnvironment }}
+            - name: DAPLA_REGION
+              value: DAPLA_LAB
+            - name: DAPLA_SERVICE
+              value: R_STUDIO
+            - name: PASSWORD
+              value: ""
+            - name: PROJECT_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_GROUP
+              value: {{ .Values.environment.group }}
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /home/{{ .Values.environment.user }}/work
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
-            {{- end }}
-            {{- if .Values.init.regionInitCheckSum }}
-            - name: REGION_INIT_SCRIPT_CHECKSUM
-              value: {{ .Values.init.regionInitCheckSum }}
             {{- end }}
             {{- if .Values.init.personalInit }}
             - name: PERSONAL_INIT_SCRIPT
@@ -92,20 +108,8 @@ spec:
             - name: PERSONAL_INIT_ARGS
               value: {{ .Values.init.personalInitArgs }}
             {{- end }}
-            - name: DAPLA_ENVIRONMENT
-              value: {{ .Values.deployEnvironment }}
-            - name: DAPLA_REGION
-              value: DAPLA_LAB
-            - name: DAPLA_SERVICE
-              value: VS_CODE
-            - name: PASSWORD
-              value: ""
-            - name: PROJECT_USER
-              value: {{ .Values.environment.user }}
-            - name: PROJECT_GROUP
-              value: {{ .Values.environment.group }}
-            - name: ROOT_PROJECT_DIRECTORY
-              value: /home/{{ .Values.environment.user }}/work
+            - name: DISABLE_AUTH
+              value: "true"
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
