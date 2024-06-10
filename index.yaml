@@ -2,6 +2,28 @@ apiVersion: v1
 entries:
   datascience-rstudio:
   - apiVersion: v2
+    created: "2024-06-10T09:34:17.111948504Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: The RStudio IDE with a collection of standard data science packages,
+      adapted to work for Dapla.
+    digest: e71b80c90bfe8bcb109125652ef37eae6cc6d4cf15a4367d4ddeece40af623a0
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    name: datascience-rstudio
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-datascience-images
+    - https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-rstudio-0.0.3/datascience-rstudio-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
     created: "2024-06-10T09:20:54.765444851Z"
     dependencies:
     - name: library-chart
@@ -2473,4 +2495,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-gcsfuse-2.5.6/vscode-python-gcsfuse-2.5.6.tgz
     version: 2.5.6
-generated: "2024-06-10T09:20:54.765694928Z"
+generated: "2024-06-10T09:34:17.112138131Z"
