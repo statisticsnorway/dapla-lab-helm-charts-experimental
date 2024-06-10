@@ -113,7 +113,7 @@
             "version": {
               "description": "vscode supported version",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-vscode-python:py312",
+              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-vscode-python:py311",
               "listEnum": [
                 "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-vscode-python:py312",
                 "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-vscode-python:py311"
