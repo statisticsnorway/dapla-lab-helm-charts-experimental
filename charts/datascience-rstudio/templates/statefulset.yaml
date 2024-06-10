@@ -1,0 +1,159 @@
+{{- $fullName := include "library-chart.fullname" . -}}
+{{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.buckets.group) }}
+{{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "library-chart.fullname" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  serviceName: {{ include "library-chart.fullname" . }}
+  selector:
+    matchLabels:
+      {{- include "library-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        {{- if .Values.git.enabled }}
+        checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if .Values.oidc.enabled }}
+        checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if (include "library-chart.repository.enabled"  .) }}
+        checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "library-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: home
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - {{ include "library-chart.oauth2ProxyVolume" . | indent 10 | trim }}
+        - name: dshm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 128Mi
+        {{- if .Values.buckets.enabled }}
+        {{- if .Values.buckets.mountStandard }}
+        {{- range tuple "produkt" "tilsky" "frasky" }}
+        - name: gcs-standard-{{ . }}
+          csi:
+            driver: gcsfuse.csi.storage.gke.io
+            readOnly: false
+            volumeAttributes:
+              bucketName: "ssb-{{ $teamName }}-data-{{ . }}-{{ get $bucketEnv (lower $.Values.deployEnvironment) }}"
+              mountOptions: "implicit-dirs,uid=1000,gid=100"
+              gcsfuseLoggingSeverity: warning
+        {{- end }}
+        {{- end }}
+        {{- end }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.service.image.version }}"
+          command: ["/bin/sh","-c"]
+          args: ["{{ .Values.init.standardInitPath }} /usr/bin/code-server --host 0.0.0.0 --auth none"]
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            {{- if .Values.init.regionInit }}
+            - name: REGION_INIT_SCRIPT
+              value: {{ .Values.init.regionInit }}
+            {{- end }}
+            {{- if .Values.init.regionInitCheckSum }}
+            - name: REGION_INIT_SCRIPT_CHECKSUM
+              value: {{ .Values.init.regionInitCheckSum }}
+            {{- end }}
+            {{- if .Values.init.personalInit }}
+            - name: PERSONAL_INIT_SCRIPT
+              value: {{ .Values.init.personalInit }}
+            {{- end }}
+            {{- if .Values.init.personalInitArgs }}
+            - name: PERSONAL_INIT_ARGS
+              value: {{ .Values.init.personalInitArgs }}
+            {{- end }}
+            - name: DAPLA_ENVIRONMENT
+              value: {{ .Values.deployEnvironment }}
+            - name: DAPLA_REGION
+              value: DAPLA_LAB
+            - name: DAPLA_SERVICE
+              value: VS_CODE
+            - name: PASSWORD
+              value: ""
+            - name: PROJECT_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_GROUP
+              value: {{ .Values.environment.group }}
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /home/{{ .Values.environment.user }}/work
+          envFrom:
+            {{- if .Values.oidc.enabled }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameOidc" . }}
+            {{- end }}
+            {{- if .Values.git.enabled }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameGit" . }}
+            {{- end }}
+            {{- if (include "library-chart.repository.enabled"  .) }}
+            - configMapRef:
+                name: {{ include "library-chart.configMapNameRepository" . }}
+            {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.networking.service.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.networking.service.port }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /home/{{ .Values.environment.user}}/work
+              subPath: work
+              name: home
+            - mountPath: /dev/shm
+              name: dshm
+            {{- if .Values.buckets.enabled }}
+            {{- if .Values.buckets.mountStandard }}
+            {{- range tuple "produkt" "tilsky" "frasky" }}
+            - name: gcs-standard-{{ . }}
+              mountPath: /buckets/{{ . }}
+              readOnly: false
+            {{- end }}
+            {{- end }}
+            {{- end }}
+        - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
