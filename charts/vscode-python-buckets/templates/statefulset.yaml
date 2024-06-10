@@ -59,7 +59,7 @@ spec:
             readOnly: false
             volumeAttributes:
               bucketName: "ssb-{{ $teamName }}-data-{{ . }}-{{ get $bucketEnv (lower $.Values.deployEnvironment) }}"
-              mountOptions: "implicit-dirs,uid=1000,gid=100"
+              mountOptions: "uid=1000,gid=100"
               gcsfuseLoggingSeverity: warning
         {{- end }}
         {{- end }}
