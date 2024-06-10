@@ -136,22 +136,6 @@
                 }
             }
         },
-        "buckets": {
-          "description": "GCS Bucket configuration",
-          "type": "object",
-          "properties": {
-            "group": {
-              "type": "string",
-              "description": "The Dapla group to act as",
-              "default": ""
-            },
-            "buckets": {
-              "type": "string",
-              "description": "Comma-separated list of buckets to mount (e.g. ssb-abc,ssb-def)",
-              "default": ""
-            }
-          }
-        },
         "persistence": {
             "description": "Configuration for persistence",
             "type": "object",

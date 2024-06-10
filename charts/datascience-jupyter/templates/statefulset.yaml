@@ -16,10 +16,6 @@ spec:
   template:
     metadata:
       annotations:
-        {{- if ( ne .Values.buckets.buckets "" ) }}
-        gke-gcsfuse/volumes: "true"
-        traffic.sidecar.istio.io/excludeOutboundIPRanges: 169.254.169.254/32
-        {{- end }}
         {{- if .Values.git.enabled }}
         checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
         {{- end }}
@@ -47,16 +43,6 @@ spec:
           emptyDir: {}
         {{- end }}
         - {{ include "library-chart.oauth2ProxyVolume" . | indent 10 | trim }}
-        {{- range ( .Values.buckets.buckets | split "," ) }}
-        - name: gcs-{{ . }}
-          csi:
-            driver: gcsfuse.csi.storage.gke.io
-            readOnly: false
-            volumeAttributes:
-              bucketName: {{ . }}
-              mountOptions: "implicit-dirs,uid=1000,gid=100"
-              gcsfuseLoggingSeverity: warning
-        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -144,11 +130,6 @@ spec:
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}
               name: home
-            {{- range ( .Values.buckets.buckets | split "," ) }}
-            - name: gcs-{{ . }}
-              mountPath: /home/{{ $.Values.environment.user}}/buckets/{{ . }}
-              readOnly: false
-            {{- end }}
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
