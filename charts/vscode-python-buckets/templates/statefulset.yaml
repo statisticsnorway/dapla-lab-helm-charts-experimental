@@ -18,6 +18,10 @@ spec:
   template:
     metadata:
       annotations:
+        {{- if .Values.buckets.enabled }}
+        gke-gcsfuse/volumes: "true"
+        traffic.sidecar.istio.io/excludeOutboundIPRanges: 169.254.169.254/32
+        {{- end }}
         {{- if .Values.git.enabled }}
         checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
         {{- end }}
