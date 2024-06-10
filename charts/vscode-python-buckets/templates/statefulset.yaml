@@ -1,6 +1,6 @@
 {{- $fullName := include "library-chart.fullname" . -}}
 {{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.buckets.group) }}
-{{- $bucketEnv := "dev" "test" "test" "test" "prod" "prod" }}
+{{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
