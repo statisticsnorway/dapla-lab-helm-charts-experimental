@@ -1,6 +1,6 @@
 # datascience-jupyter
 
-![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
@@ -68,7 +68,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `false` |  |
+| persistence.enabled | bool | `true` |  |
 | persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels."onyxia.app" | string | `"jupyterlab"` |  |
