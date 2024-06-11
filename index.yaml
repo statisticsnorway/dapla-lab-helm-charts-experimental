@@ -2,6 +2,27 @@ apiVersion: v1
 entries:
   datascience-jupyter:
   - apiVersion: v2
+    created: "2024-06-11T07:49:19.78272261Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: a6e3b78c738dca8fae250bcce25294107454ab28a5899086a1b9b707556a9b74
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: datascience-jupyter
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-jupyter-0.0.6/datascience-jupyter-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
     created: "2024-06-10T20:23:43.591203672Z"
     dependencies:
     - name: library-chart
@@ -107,6 +128,27 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-jupyter-0.0.1/datascience-jupyter-0.0.1.tgz
     version: 0.0.1
   datascience-jupyter-playground:
+  - apiVersion: v2
+    created: "2024-06-11T07:49:19.903126115Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: fd1751312ad015451c5e4589386a73e2c2ed56bd68a9931b54ca4ced85fe0689
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: datascience-jupyter-playground
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-jupyter-playground-0.0.6/datascience-jupyter-playground-0.0.6.tgz
+    version: 0.0.6
   - apiVersion: v2
     created: "2024-06-10T20:23:43.694554705Z"
     dependencies:
@@ -324,6 +366,28 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-rstudio-0.0.1/datascience-rstudio-0.0.1.tgz
     version: 0.0.1
   datascience-vscode-python:
+  - apiVersion: v2
+    created: "2024-06-11T07:49:20.013287802Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages, with Google Cloud Storage bucket mounting functionality.
+    digest: 28b0a092e4dd023e31727861ea6d6d51ca27778730a266b6532b7877c2a3e1a5
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: datascience-vscode-python
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-datascience-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-vscode-python-0.0.4/datascience-vscode-python-0.0.4.tgz
+    version: 0.0.4
   - apiVersion: v2
     created: "2024-06-10T20:36:29.28294368Z"
     dependencies:
@@ -2817,4 +2881,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-gcsfuse-2.5.6/vscode-python-gcsfuse-2.5.6.tgz
     version: 2.5.6
-generated: "2024-06-10T20:36:29.283123277Z"
+generated: "2024-06-11T07:49:20.013507603Z"
