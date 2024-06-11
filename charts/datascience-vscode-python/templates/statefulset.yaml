@@ -106,6 +106,8 @@ spec:
               value: {{ .Values.environment.group }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
+            - name: STAT_TEMPLATE_DEFAULT_REFERENCE
+              value: "1.1.6"
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
