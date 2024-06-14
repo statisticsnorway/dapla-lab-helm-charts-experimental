@@ -89,10 +89,6 @@ spec:
               value: "https://{{ .Values.istio.hostname }}/"
             - name: JUPYTERHUB_USER
               value: "onyxia"
-            - name: JUPYTER_SERVER_URL
-              value: "http://{{ .Values.istio.hostname }}/user/onyxia/"
-            - name: JUPYTERHUB_SERVICE_URL
-              value: "http://0.0.0.0:8888/user/onyxia/"
             - name: JUPYTERHUB_SERVICE_PREFIX
               value: "/user/onyxia/"
             {{- if .Values.init.regionInit }}
