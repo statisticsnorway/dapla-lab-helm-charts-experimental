@@ -2,6 +2,27 @@ apiVersion: v1
 entries:
   datascience-jupyter:
   - apiVersion: v2
+    created: "2024-06-14T09:28:06.929318671Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 728a330f9272dbc397ee5bc9338a3bcd2d67a72ccac447058ac4411cf9f9361e
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: datascience-jupyter
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-jupyter-0.0.13/datascience-jupyter-0.0.13.tgz
+    version: 0.0.13
+  - apiVersion: v2
     created: "2024-06-14T07:25:13.566953337Z"
     dependencies:
     - name: library-chart
@@ -254,6 +275,27 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-jupyter-0.0.1/datascience-jupyter-0.0.1.tgz
     version: 0.0.1
   datascience-jupyter-playground:
+  - apiVersion: v2
+    created: "2024-06-14T09:28:07.109794788Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.1.1
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 4c8e34037c7ce680ca8aff3c814703f360c24c863d19ff9d75ba7b4335093a42
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: datascience-jupyter-playground
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-jupyter-playground-0.0.12/datascience-jupyter-playground-0.0.12.tgz
+    version: 0.0.12
   - apiVersion: v2
     created: "2024-06-14T07:25:13.679155498Z"
     dependencies:
@@ -3112,4 +3154,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-gcsfuse-2.5.6/vscode-python-gcsfuse-2.5.6.tgz
     version: 2.5.6
-generated: "2024-06-14T07:25:13.679499051Z"
+generated: "2024-06-14T09:28:07.110338206Z"
