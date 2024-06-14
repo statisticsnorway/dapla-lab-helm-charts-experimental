@@ -122,15 +122,15 @@ spec:
             {{- end }}
           livenessProbe:
             httpGet:
-              path: /user/onyxia
+              path: /user/onyxia/
               port: {{ .Values.networking.service.port }}
           readinessProbe:
             httpGet:
-              path: /user/onyxia
+              path: /user/onyxia/
               port: {{ .Values.networking.service.port }}
           startupProbe:
             httpGet:
-              path: /
+              path: /user/onyxia/
               port: {{ .Values.networking.service.port }}
             {{- toYaml .Values.startupProbe | nindent 12 }}     
           resources:
