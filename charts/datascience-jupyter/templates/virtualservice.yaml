@@ -1,13 +1,5 @@
 {{/* vim: set filetype=mustache: */}}
 
-{{/* Ingress hostname */}}
-{{- define "library-chart.istio.hostname" -}}
-{{- printf "%s" .Values.istio.hostname }}
-{{- end }}
-
-{{/* Template to generate a standard VirtualService */}}
-{{- define "library-chart.virtualservice" -}}
-{{- if .Values.istio.enabled -}}
 {{- $fullName := include "library-chart.fullname" . -}}
 {{- $svcPort := .Values.networking.service.port -}}
 apiVersion: networking.istio.io/v1beta1
@@ -26,12 +18,10 @@ spec:
       match:
         - uri:
             prefix: "/"
-        rewrite:
-          uri: /user/onyxia
+      rewrite:
+        uri: /user/onyxia
       route:
         - destination:
             host: {{ $fullName }}
             port:
               number: 4180
-{{- end }}
-{{- end }}
