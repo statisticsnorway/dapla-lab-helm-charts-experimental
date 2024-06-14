@@ -122,11 +122,11 @@ spec:
             {{- end }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /user/onyxia
               port: {{ .Values.networking.service.port }}
           readinessProbe:
             httpGet:
-              path: /
+              path: //user/onyxia
               port: {{ .Values.networking.service.port }}
           startupProbe:
             httpGet:
