@@ -18,8 +18,8 @@ spec:
       match:
         - uri:
             prefix: "/"
-          rewrite:
-            - uri: /user/onyxia
+      rewrite:
+        uri: /user/onyxia
       route:
         - destination:
             host: {{ $fullName }}
