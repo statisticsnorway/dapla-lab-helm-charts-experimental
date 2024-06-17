@@ -38,6 +38,11 @@ userAttributes:
   userAttribute: "access_token"
   value: ""
 
+buckets:
+  enabled: false
+  group: play-foeniks-a-developers
+  mountStandard: true
+  extraBuckets: []
 
 git:
   # Specifies whether a config map should be created
