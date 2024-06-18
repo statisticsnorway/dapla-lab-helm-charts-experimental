@@ -16,6 +16,15 @@ spec:
   http:
   - match:
     - uri:
+        exact: /oauth2/callback
+    name: oauth2-callback
+    route:
+    - destination:
+        host: {{ $fullName }}
+        port:
+          number: 4180
+  - match:
+    - uri:
         exact: /
     name: root-to-onyxia
     rewrite:
