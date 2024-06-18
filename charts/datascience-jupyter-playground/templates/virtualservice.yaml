@@ -36,17 +36,6 @@ spec:
           number: 4180
   - match:
     - uri:
-        exact: /user/onyxia
-    name: onyxia-lab
-    rewrite:
-      uri: /user/onyxia/lab
-    route:
-    - destination:
-        host: {{ $fullName }}
-        port:
-          number: 4180
-  - match:
-    - uri:
         prefix: /user/onyxia
     name: onyxia-prefixed
     route:
