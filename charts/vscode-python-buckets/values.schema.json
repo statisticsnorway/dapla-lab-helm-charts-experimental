@@ -138,13 +138,12 @@
           "title": "Dapla group",
           "description": "Which Dapla group to act as",
           "render": "list",
-          "default": "play-skyinfra-a-developers",
-          "listEnum": [
-            "play-skyinfra-a-developers",
-            "play-obr-b-developers",
-            "play-obr-developers",
-            "play-foeniks-a-developers"
-          ],
+          "default": "",
+          "listEnum": [""],
+          "x-onyxia": {
+              "overwriteDefaultWith": "user.decodedIdToken.dapla.groups[0]",
+              "overwriteListEnumWith": "user.decodedIdtoken.dapla.groups"
+          },
           "hidden": {
             "value": false,
             "path": "buckets/enabled"
