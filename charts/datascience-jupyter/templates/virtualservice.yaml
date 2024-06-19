@@ -26,6 +26,10 @@ spec:
   - match:
     - uri:
         exact: /
+    - uri:
+        exact: /user
+    - uri:
+        exact: /user/
     name: root-to-onyxia
     rewrite:
       uri: /user/onyxia
