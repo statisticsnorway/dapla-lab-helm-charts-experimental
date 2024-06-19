@@ -141,8 +141,8 @@
           "default": "",
           "listEnum": [""],
           "x-onyxia": {
-              "overwriteDefaultWith": "user.decodedIdToken.dapla.groups[0]",
-              "overwriteListEnumWith": "user.decodedIdtoken.dapla.groups"
+              "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
+              "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
           },
           "hidden": {
             "value": false,
