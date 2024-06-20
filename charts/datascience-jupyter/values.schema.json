@@ -270,7 +270,7 @@
                     "type": "string",
                     "title": "OIDC issuer url",
                     "description": "Url to the OIDC issuer",
-                    "default": "https://auth-play.external.test.ssb.cloud.nais.io/realms/onyxia-services"
+                    "default": "https://sso.dapla-test.ssb.no/realms/ssb"
                   },
                   "clientId": {
                     "type": "string",
@@ -603,11 +603,7 @@
           "tokenExchangeUrl": {
             "type": "string",
             "description": "token exchange url",
-            "default": "",
-            "x-onyxia": {
-              "hidden": true,
-              "overwriteDefaultWith": "region.customValues.oidc.tokenExchangeUrl"
-            }
+            "default": "https://sso.dapla-test.ssb.no/realms/ssb/protocol/openid-connect/token"
           },
           "configMapName": {
             "type": "string",
