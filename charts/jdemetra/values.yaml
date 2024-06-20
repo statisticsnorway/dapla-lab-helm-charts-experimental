@@ -12,7 +12,8 @@ security:
     ip: "0.0.0.0/0"
   serviceEntry:
     enabled: true
-    hosts: []
+    hosts:
+      - "ssb.no"
   oauth2:
     provider: keycloak-oidc
     oidcIssuerUrl: ""
