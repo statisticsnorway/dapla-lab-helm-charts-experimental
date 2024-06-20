@@ -1,6 +1,6 @@
 # qgis
 
-![Version: 0.8.0](https://img.shields.io/badge/Version-0.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
+![Version: 0.9.0](https://img.shields.io/badge/Version-0.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
 
 QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
 
@@ -20,7 +20,7 @@ QGIS Desktop - Open-source GIS software for geospatial data management, mapping,
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.2 |
 
 ## Values
 
@@ -62,7 +62,7 @@ QGIS Desktop - Open-source GIS software for geospatial data management, mapping,
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
 | security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
-| security.serviceEntry.hosts | list | `[]` |  |
+| security.serviceEntry.hosts[0] | string | `"ssb.no"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
 | service.image.version | string | `"trygu/dapla-qgis-desktop:v0.20.0"` |  |

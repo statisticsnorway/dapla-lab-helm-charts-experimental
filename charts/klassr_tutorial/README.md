@@ -1,6 +1,6 @@
 # klassr
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 An example Tutorial application for KLASS using R. Example on how you could package a Shiny app and run it in Onyxia
 
@@ -20,7 +20,7 @@ An example Tutorial application for KLASS using R. Example on how you could pack
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.2 |
 
 ## Values
 
@@ -62,7 +62,7 @@ An example Tutorial application for KLASS using R. Example on how you could pack
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
 | security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
-| security.serviceEntry.hosts | list | `[]` |  |
+| security.serviceEntry.hosts[0] | string | `"ssb.no"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
 | service.image.version | string | `"trygu/klassr_tutorial:latest"` |  |

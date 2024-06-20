@@ -1,6 +1,6 @@
 # doom
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Swap algorithms for ammo and scatter plots for shotguns in the ultimate data scientist's break. Defrag your brain with Doom's demon hordes – it's the perfect 'escape' key!
 
@@ -20,7 +20,7 @@ Swap algorithms for ammo and scatter plots for shotguns in the ultimate data sci
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.2 |
 
 ## Values
 
@@ -62,7 +62,7 @@ Swap algorithms for ammo and scatter plots for shotguns in the ultimate data sci
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
 | security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
-| security.serviceEntry.hosts | list | `[]` |  |
+| security.serviceEntry.hosts[0] | string | `"ssb.no"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
 | service.image.version | string | `"trygu/doom:1.0"` |  |

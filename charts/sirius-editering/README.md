@@ -1,6 +1,6 @@
 # sirius-editering
 
-![Version: 0.1.55](https://img.shields.io/badge/Version-0.1.55-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -14,7 +14,7 @@ A Helm chart for Kubernetes
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.2 |
 
 ## Values
 

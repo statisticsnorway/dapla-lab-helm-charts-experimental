@@ -1,6 +1,6 @@
 # datascience-rstudio
 
-![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The RStudio IDE with a collection of standard data science packages, adapted to work for Dapla.
 
@@ -15,7 +15,7 @@ The RStudio IDE with a collection of standard data science packages, adapted to 
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.1.1 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.2 |
 
 ## Values
 
