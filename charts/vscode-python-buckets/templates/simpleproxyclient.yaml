@@ -1,1 +1,1 @@
-simpleproxyclient
+{{ include "library-chart.daplaSimpleProxyClient" . }}
