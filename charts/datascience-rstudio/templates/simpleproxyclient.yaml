@@ -7,4 +7,4 @@ metadata:
 spec:
   redirectUris:
     - "https://{{ .Values.istio.hostname }}/oauth2/callback"
-  secretName: {{ include "library-chart.daplaCommonClientRedirectUriSecretName" . | quote }}
+  secretName: {{ include "library-chart.daplaSimpleProxyClientSecretName" . | quote }}
