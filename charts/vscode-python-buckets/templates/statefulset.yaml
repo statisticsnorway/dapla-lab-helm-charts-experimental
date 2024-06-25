@@ -9,7 +9,7 @@ metadata:
   annotations:
     dapla.ssb.no/enable-ssbucketeer: "true"
     dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
-    dapla.ssb.no/service-container-name: {{ .Chart.name }}
+    dapla.ssb.no/service-container-name: {{ .Chart.Name }}
 {{- if .Values.buckets.mountStandard }}
     dapla.ssb.no/mount-buckets: ssb-{{ $teamName }}-data-produkt-{{ get $bucketEnv (lower $.Values.deployEnvironment) }}
 {{- end }}
