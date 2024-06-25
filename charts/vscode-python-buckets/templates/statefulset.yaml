@@ -5,6 +5,15 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
+{{- if .Values.buckets.enabled }}
+  annotations:
+    dapla.ssb.no/enable-ssbucketeer: "true"
+    dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
+    dapla.ssb.no/service-container-name: {{ .Chart.name }}
+{{- if .Values.buckets.mountStandard }}
+    dapla.ssb.no/mount-buckets: ssb-{{ $teamName }}-data-produkt-{{ get $bucketEnv (lower $.Values.deployEnvironment) }}
+{{- end }}
+{{- end }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
@@ -18,10 +27,6 @@ spec:
   template:
     metadata:
       annotations:
-        {{- if .Values.buckets.enabled }}
-        gke-gcsfuse/volumes: "true"
-        traffic.sidecar.istio.io/excludeOutboundIPRanges: 169.254.169.254/32
-        {{- end }}
         {{- if .Values.git.enabled }}
         checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
         {{- end }}
@@ -50,20 +55,6 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 128Mi
-        {{- if .Values.buckets.enabled }}
-        {{- if .Values.buckets.mountStandard }}
-        {{- range tuple "produkt" "tilsky" "frasky" }}
-        - name: gcs-standard-{{ . }}
-          csi:
-            driver: gcsfuse.csi.storage.gke.io
-            readOnly: false
-            volumeAttributes:
-              bucketName: "ssb-{{ $teamName }}-data-{{ . }}-{{ get $bucketEnv (lower $.Values.deployEnvironment) }}"
-              mountOptions: "{{ $.Values.buckets.customFlags }}uid=1000,gid=100"
-              gcsfuseLoggingSeverity: warning
-        {{- end }}
-        {{- end }}
-        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -133,21 +124,6 @@ spec:
               port: {{ .Values.networking.service.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          volumeMounts:
-            - mountPath: /home/{{ .Values.environment.user}}/work
-              subPath: work
-              name: home
-            - mountPath: /dev/shm
-              name: dshm
-            {{- if .Values.buckets.enabled }}
-            {{- if .Values.buckets.mountStandard }}
-            {{- range tuple "produkt" "tilsky" "frasky" }}
-            - name: gcs-standard-{{ . }}
-              mountPath: /buckets/{{ . }}
-              readOnly: false
-            {{- end }}
-            {{- end }}
-            {{- end }}
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
