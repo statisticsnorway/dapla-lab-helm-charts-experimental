@@ -270,7 +270,11 @@
                     "type": "string",
                     "title": "OIDC issuer url",
                     "description": "Url to the OIDC issuer",
-                    "default": "https://auth-play.external.test.ssb.cloud.nais.io/realms/onyxia-services"
+                    "default": "",
+                    "x-onyxia": {
+                      "hidden": true,
+                      "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
+                    }
                   },
                   "clientId": {
                     "type": "string",
