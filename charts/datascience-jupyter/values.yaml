@@ -40,7 +40,7 @@ userAttributes:
 
 buckets:
   enabled: false
-  group: play-foeniks-a-developers
+  group: ""
   mountStandard: true
   extraBuckets: []
 
