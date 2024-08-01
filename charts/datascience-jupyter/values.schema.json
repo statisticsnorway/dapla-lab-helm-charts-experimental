@@ -30,6 +30,53 @@
                     }
                 }
             }
+        },  
+        "buckets": {
+          "description": "Mount Google Cloud Storage buckets as a folder in your service",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enabled",
+              "default": false
+            },
+            "group": {
+              "type": "string",
+              "title": "Dapla group",
+              "description": "Which Dapla group to act as",
+              "render": "list",
+              "default": "",
+              "listEnum": [""],
+              "x-onyxia": {
+                  "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
+                  "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
+              },
+              "hidden": {
+                "value": false,
+                "path": "buckets/enabled"
+              }
+            },
+            "mountStandard": {
+              "type": "boolean",
+              "title": "Mount standard buckets",
+              "description": "Whether to mount your group's standard buckets (e.g. produkt, tilsky, frasky)",
+              "default": true,
+              "hidden": {
+                "value": false,
+                "path": "buckets/enabled"
+              }
+            },
+            "extraBuckets": {
+              "type": "array",
+              "title": "Extra buckets to mount",
+              "description": "Any extra buckets you want to mount (e.g. shared buckets from another team)",
+              "default": [],
+              "hidden": {
+                "value": false,
+                "path": "buckets/enabled"
+              }
+            }
+          }
         },
         "discovery": {
             "description": "configure your service to autodetect some ressources.",
