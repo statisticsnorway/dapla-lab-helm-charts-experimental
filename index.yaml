@@ -2056,6 +2056,28 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jdemetra-0.0.10/jdemetra-0.0.10.tgz
     version: 0.0.10
+  jupyter-dapla:
+  - apiVersion: v2
+    created: "2024-08-01T12:57:12.446845412Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.2
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 7f5958b64d98263e03729e8cd91729a7b980877e43a8bb7e0915cffda7738e22
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-dapla
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-dapla-1.5.3/jupyter-dapla-1.5.3.tgz
+    version: 1.5.3
   jupyter-dapla-gcsfuse:
   - apiVersion: v2
     created: "2024-06-20T19:30:14.885958171Z"
@@ -4365,4 +4387,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-gcsfuse-2.5.6/vscode-python-gcsfuse-2.5.6.tgz
     version: 2.5.6
-generated: "2024-08-01T12:14:08.224136434Z"
+generated: "2024-08-01T12:57:12.447269477Z"
