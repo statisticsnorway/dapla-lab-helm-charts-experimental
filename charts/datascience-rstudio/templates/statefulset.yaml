@@ -5,6 +5,18 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
+{{- if .Values.buckets.enabled }}
+  annotations:
+    dapla.ssb.no/enable-ssbucketeer: "true"
+    dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
+    dapla.ssb.no/service-container-name: {{ .Chart.Name }}
+{{- with .Values.buckets.extraBuckets }}
+    dapla.ssb.no/mount-buckets: {{ join "," . }}
+{{- end }}
+{{- if .Values.buckets.mountStandard }}
+    dapla.ssb.no/mount-standard-buckets: "true"
+{{- end }}
+{{- end }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
@@ -46,20 +58,6 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 128Mi
-        {{- if .Values.buckets.enabled }}
-        {{- if .Values.buckets.mountStandard }}
-        {{- range tuple "produkt" "tilsky" "frasky" }}
-        - name: gcs-standard-{{ . }}
-          csi:
-            driver: gcsfuse.csi.storage.gke.io
-            readOnly: false
-            volumeAttributes:
-              bucketName: "ssb-{{ $teamName }}-data-{{ . }}-{{ get $bucketEnv (lower $.Values.deployEnvironment) }}"
-              mountOptions: "implicit-dirs,uid=1000,gid=100"
-              gcsfuseLoggingSeverity: warning
-        {{- end }}
-        {{- end }}
-        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -139,15 +137,6 @@ spec:
               name: home
             - mountPath: /dev/shm
               name: dshm
-            {{- if .Values.buckets.enabled }}
-            {{- if .Values.buckets.mountStandard }}
-            {{- range tuple "produkt" "tilsky" "frasky" }}
-            - name: gcs-standard-{{ . }}
-              mountPath: /buckets/{{ . }}
-              readOnly: false
-            {{- end }}
-            {{- end }}
-            {{- end }}
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
