@@ -374,7 +374,7 @@
           "type": "string",
           "title": "Version of helm-cli image",
           "description": "Which version of the helm-cli image",
-          "default": "v1.0.0",
+          "default": "v1.1.0",
           "x-onyxia": {
             "hidden": true
           }
@@ -383,7 +383,7 @@
           "type": "string",
           "title": "Cluster role name",
           "description": "Which cluster role the delete job should run with",
-          "default": "onyxia-manage-services",
+          "default": "onyxia-delete-job",
           "x-onyxia": {
             "hidden": true
           }

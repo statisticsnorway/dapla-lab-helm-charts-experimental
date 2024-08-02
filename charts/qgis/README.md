@@ -1,6 +1,6 @@
 # qgis
 
-![Version: 0.9.0](https://img.shields.io/badge/Version-0.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
+![Version: 0.10.0](https://img.shields.io/badge/Version-0.10.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
 
 QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
 
@@ -27,11 +27,11 @@ QGIS Desktop - Open-source GIS software for geospatial data management, mapping,
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| deleteJob.clusterRoleName | string | `"onyxia-manage-services"` |  |
+| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.0.0"` |  |
+| deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |

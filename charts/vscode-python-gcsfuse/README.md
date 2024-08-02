@@ -1,6 +1,6 @@
 # vscode-python-gcsfuse
 
-![Version: 5.1.0](https://img.shields.io/badge/Version-5.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 5.2.0](https://img.shields.io/badge/Version-5.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages.
 
@@ -31,10 +31,11 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | buckets.group | string | `"developers"` |  |
 | buckets.mountStandard | bool | `false` |  |
 | buckets.team | string | `"dapla-skyinfra"` |  |
+| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.0.0"` |  |
+| deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
 | environment.group | string | `"coder"` |  |

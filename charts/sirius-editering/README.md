@@ -1,6 +1,6 @@
 # sirius-editering
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -22,11 +22,11 @@ A Helm chart for Kubernetes
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
-| deleteJob.clusterRoleName | string | `"onyxia-manage-services"` |  |
+| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.0.0"` |  |
+| deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
