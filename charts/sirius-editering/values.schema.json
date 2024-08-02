@@ -533,7 +533,7 @@
           "type": "string",
           "title": "Cluster role name",
           "description": "Which cluster role the delete job should run with",
-          "default": "onyxia-manage-services",
+          "default": "onyxia-delete-job",
           "x-onyxia": {
             "hidden": true
           }

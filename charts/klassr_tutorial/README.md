@@ -27,7 +27,7 @@ An example Tutorial application for KLASS using R. Example on how you could pack
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| deleteJob.clusterRoleName | string | `"onyxia-manage-services"` |  |
+| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
