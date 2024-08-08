@@ -3,6 +3,9 @@ service:
     version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:main"
     pullPolicy: IfNotPresent
 
+global:
+  suspend: false
+
 security:
   password: "changeme"
   networkPolicy:
