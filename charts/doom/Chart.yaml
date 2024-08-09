@@ -4,7 +4,7 @@ description: Swap algorithms for ammo and scatter plots for shotguns in the ulti
 type: application
 
 # Version of the chart
-version: 0.3.1
+version: 0.3.2
 
 # Version of the application
 appVersion: "1.0.0"
@@ -32,5 +32,5 @@ icon: https://www.giantbomb.com/a/uploads/scale_small/1/16944/2976271-flat%2C800
 
 dependencies:
   - name: library-chart
-    version: 3.2.2
+    version: 3.2.3
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
