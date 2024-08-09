@@ -2,6 +2,27 @@ apiVersion: v1
 entries:
   datascience-jupyter:
   - apiVersion: v2
+    created: "2024-08-09T07:53:24.673211373Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: d228be1c73ce7277b9d760376bb9463cdb7d6d9ac2844fa5968701b7733c4900
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: datascience-jupyter
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-jupyter-0.3.2/datascience-jupyter-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
     created: "2024-08-09T07:25:57.719170962Z"
     dependencies:
     - name: library-chart
@@ -822,6 +843,27 @@ entries:
     version: 0.0.1
   datascience-jupyter-playground:
   - apiVersion: v2
+    created: "2024-08-09T07:53:24.843160575Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 9cf129ed0c8eab5c0c6927886f29fffe0717dcfb6b1275f5b911289e00d3a5f7
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: datascience-jupyter-playground
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-jupyter-playground-0.3.3/datascience-jupyter-playground-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
     created: "2024-08-09T07:25:57.894104453Z"
     dependencies:
     - name: library-chart
@@ -1411,6 +1453,28 @@ entries:
     version: 0.0.1
   datascience-rstudio:
   - apiVersion: v2
+    created: "2024-08-09T07:53:24.989285927Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The RStudio IDE with a collection of standard data science packages,
+      adapted to work for Dapla.
+    digest: d616d8f3123a5078dae08831187e040abc620fcd2e3b9e613cf37c7eeecc540e
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    name: datascience-rstudio
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-datascience-images
+    - https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-rstudio-0.3.2/datascience-rstudio-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
     created: "2024-08-09T07:25:58.118405051Z"
     dependencies:
     - name: library-chart
@@ -1654,6 +1718,28 @@ entries:
     version: 0.0.1
   datascience-vscode-python:
   - apiVersion: v2
+    created: "2024-08-09T07:53:25.16452035Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages, with Google Cloud Storage bucket mounting functionality.
+    digest: 127d540250e2b22a968e5927d59e28a383791afe7970827bb1071fd441971513
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: datascience-vscode-python
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-datascience-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-vscode-python-0.3.2/datascience-vscode-python-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
     created: "2024-08-09T07:25:58.271635662Z"
     dependencies:
     - name: library-chart
@@ -1852,6 +1938,33 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datascience-vscode-python-0.0.2/datascience-vscode-python-0.0.2.tgz
     version: 0.0.2
   doom:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-08-09T07:53:25.312700563Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: Swap algorithms for ammo and scatter plots for shotguns in the ultimate
+      data scientist's break. Defrag your brain with Doom's demon hordes – it's the
+      perfect 'escape' key!
+    digest: 77a15045cc2fc04e472cb219b47611d6498d27f5e9d235346581bb8e5263dd74
+    home: https://github.com/CallumHoughton18/Doom-In-Docker
+    icon: https://www.giantbomb.com/a/uploads/scale_small/1/16944/2976271-flat%2C800x800%2C075%2Cf.jpg
+    keywords:
+    - Doom
+    - ID software
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: doom
+    sources:
+    - https://github.com/CallumHoughton18/Doom-In-Docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.3.2/doom-0.3.2.tgz
+    version: 0.3.2
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2024-08-09T07:25:58.439722139Z"
@@ -2120,6 +2233,34 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.0.1/doom-0.0.1.tgz
     version: 0.0.1
   jdemetra:
+  - apiVersion: v2
+    appVersion: 3.2.1
+    created: "2024-08-09T07:53:25.454796535Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: JDemetra+ offers seasonal adjustment and time series analysis with
+      TRAMO/SEATS+ and X-12/X-13ARIMA-SEATS, endorsed by the European Statistical
+      System.
+    digest: 7ad8ad0c4ee6ac75c065469cd0fff61f216c724665ad1bd63771e6e32599465d
+    home: https://github.com/trygu/jdemetra-docker
+    icon: https://avatars.githubusercontent.com/u/10142886?s=200&v=4
+    keywords:
+    - JDemetra+
+    - time series
+    - seasonal adjustment
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: jdemetra
+    sources:
+    - https://github.com/trygu/jdemetra-docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jdemetra-0.5.2/jdemetra-0.5.2.tgz
+    version: 0.5.2
   - apiVersion: v2
     appVersion: 3.2.1
     created: "2024-08-09T07:25:58.611965897Z"
@@ -2448,6 +2589,27 @@ entries:
     version: 1.5.3
   jupyter-dapla-suspend:
   - apiVersion: v2
+    created: "2024-08-09T07:53:25.619494807Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 122fe06f79dbedc581aeb7566a3d2ca6e7d06a96792576892160315ad15a0d6d
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-dapla-suspend
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-dapla-suspend-1.6.2/jupyter-dapla-suspend-1.6.2.tgz
+    version: 1.6.2
+  - apiVersion: v2
     created: "2024-08-09T07:25:58.761547093Z"
     dependencies:
     - name: library-chart
@@ -2511,6 +2673,33 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-dapla-suspend-1.5.3/jupyter-dapla-suspend-1.5.3.tgz
     version: 1.5.3
   klassr:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-08-09T07:53:25.763206872Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: An example Tutorial application for KLASS using R. Example on how
+      you could package a Shiny app and run it in Onyxia
+    digest: c4a937b7b5a2ec69f9f8b34496154526c3b74f72d62f5d36eeb4dceb71adcbf2
+    home: https://github.com/trygu/klassr_tutorial
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - R
+    - Shiny
+    - Klass
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: klassr
+    sources:
+    - https://github.com/trygu/klassr_tutorial
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/klassr-0.3.2/klassr-0.3.2.tgz
+    version: 0.3.2
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2024-08-09T07:25:58.953584942Z"
@@ -2698,6 +2887,33 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
   qgis:
+  - apiVersion: v2
+    appVersion: 3.34.3
+    created: "2024-08-09T07:53:25.949268159Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: QGIS Desktop - Open-source GIS software for geospatial data management,
+      mapping, and analysis. User-friendly interface, versatile tools, and ideal for
+      all skill levels.
+    digest: efeb1f8cca951975f5dfb0310163ba2746bb070b42df97134c14d73352a9960c
+    home: https://github.com/trygu/dapla-qgis-desktop
+    icon: https://www.qgis.org/en/_static/logo.png
+    keywords:
+    - QGis
+    - Geo
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: qgis
+    sources:
+    - https://github.com/trygu/dapla-qgis-desktop
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-0.10.1/qgis-0.10.1.tgz
+    version: 0.10.1
   - apiVersion: v2
     appVersion: 3.34.3
     created: "2024-08-02T08:50:40.798570646Z"
@@ -3002,6 +3218,23 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-0.0.1/qgis-0.0.1.tgz
     version: 0.0.1
   sirius-editering:
+  - apiVersion: v2
+    created: "2024-08-09T07:53:26.128427343Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: A Helm chart for Kubernetes
+    digest: 35bc14d4037c9ef005eae7ee1a052cdbf73d2394baad19e9deff0f77e2a1549b
+    home: https://github.com/statisticsnorway/sirius-editering
+    icon: https://avatars.githubusercontent.com/u/5849578
+    name: sirius-editering
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.3.2/sirius-editering-0.3.2.tgz
+    version: 0.3.2
   - apiVersion: v2
     created: "2024-08-09T07:25:59.126861896Z"
     dependencies:
@@ -4037,6 +4270,28 @@ entries:
     version: 2.5.6
   vscode-python-buckets:
   - apiVersion: v2
+    created: "2024-08-09T07:53:26.289088504Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages, with Google Cloud Storage bucket mounting functionality.
+    digest: 01cada86b4949d5cf17926095a7cf89a63ac67cf938491906c195dd6affc7827
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-buckets
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-buckets-2.9.3/vscode-python-buckets-2.9.3.tgz
+    version: 2.9.3
+  - apiVersion: v2
     created: "2024-08-09T07:25:59.348559971Z"
     dependencies:
     - name: library-chart
@@ -4476,4 +4731,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-buckets-0.0.1/vscode-python-buckets-0.0.1.tgz
     version: 0.0.1
-generated: "2024-08-09T07:25:59.349273701Z"
+generated: "2024-08-09T07:53:26.289862761Z"
