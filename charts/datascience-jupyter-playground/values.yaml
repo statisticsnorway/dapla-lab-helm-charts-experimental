@@ -182,3 +182,6 @@ deleteJob:
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"
+
+global:
+  suspend: false
