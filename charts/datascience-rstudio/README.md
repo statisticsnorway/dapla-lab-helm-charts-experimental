@@ -1,6 +1,6 @@
 # datascience-rstudio
 
-![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The RStudio IDE with a collection of standard data science packages, adapted to work for Dapla.
 
@@ -48,6 +48,7 @@ The RStudio IDE with a collection of standard data science packages, adapted to 
 | git.repository | string | `""` |  |
 | git.secretName | string | `""` |  |
 | git.token | string | `""` |  |
+| global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |

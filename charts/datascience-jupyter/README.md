@@ -1,6 +1,6 @@
 # datascience-jupyter
 
-![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
@@ -48,6 +48,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | git.name | string | `""` |  |
 | git.repository | string | `""` |  |
 | git.token | string | `""` |  |
+| global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
