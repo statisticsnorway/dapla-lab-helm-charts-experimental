@@ -75,8 +75,8 @@ serviceAccount:
   name: ""
 
 environment:
-  user: coder
-  group: coder
+  user: onyxia
+  group: users
 
 kubernetes:
   enabled: true

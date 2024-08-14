@@ -30,7 +30,7 @@ init:
   personalInitArgs: ""
 
 environment:
-  user: jovyan
+  user: onyxia
   group: users
 
 userAttributes:
