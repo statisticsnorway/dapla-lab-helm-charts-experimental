@@ -3124,6 +3124,33 @@ entries:
   qgis:
   - apiVersion: v2
     appVersion: 3.34.3
+    created: "2024-08-14T11:21:56.770824324Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: QGIS Desktop - Open-source GIS software for geospatial data management,
+      mapping, and analysis. User-friendly interface, versatile tools, and ideal for
+      all skill levels.
+    digest: 07c05c93d07760ed50699a48fbc74f1459fa2a78e7d28f0a033f90baaee8e53b
+    home: https://github.com/trygu/dapla-qgis-desktop
+    icon: https://www.qgis.org/favicon.ico
+    keywords:
+    - QGis
+    - Geo
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: qgis
+    sources:
+    - https://github.com/trygu/dapla-qgis-desktop
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-0.11.0/qgis-0.11.0.tgz
+    version: 0.11.0
+  - apiVersion: v2
+    appVersion: 3.34.3
     created: "2024-08-09T07:53:25.949268159Z"
     dependencies:
     - name: library-chart
@@ -4966,4 +4993,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-buckets-0.0.1/vscode-python-buckets-0.0.1.tgz
     version: 0.0.1
-generated: "2024-08-14T10:51:51.015586922Z"
+generated: "2024-08-14T11:21:56.771281191Z"
