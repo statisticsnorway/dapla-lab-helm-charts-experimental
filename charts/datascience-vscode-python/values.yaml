@@ -1,3 +1,5 @@
+global:
+  suspend: false
 service:
   image:
     version: "datascience-vscode-python"
@@ -75,8 +77,8 @@ serviceAccount:
   name: ""
 
 environment:
-  user: coder
-  group: coder
+  user: onyxia
+  group: users
 
 kubernetes:
   enabled: true
@@ -163,6 +165,3 @@ deleteJob:
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"
-
-global:
-  suspend: false
