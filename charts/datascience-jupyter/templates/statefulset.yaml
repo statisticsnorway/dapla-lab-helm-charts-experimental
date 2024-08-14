@@ -152,7 +152,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /home/{{ .Values.environment.user}}
+            - mountPath: /home/{{ .Values.environment.user}}/work
+              subpath: work
               name: home
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
