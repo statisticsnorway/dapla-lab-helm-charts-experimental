@@ -3,8 +3,7 @@ name: qgis
 description: QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
 type: application
 
-# Version of the chart
-version: 0.10.1
+version: 0.11.0
 
 # Version of the application
 appVersion: "3.34.3"
@@ -28,7 +27,7 @@ maintainers:
     url: https://github.com/trygu/
 
 # A list of URLs to images to be used as icons
-icon: https://www.qgis.org/en/_static/logo.png
+icon: https://www.qgis.org/favicon.ico
 
 dependencies:
   - name: library-chart
