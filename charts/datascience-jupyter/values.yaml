@@ -1,5 +1,5 @@
-# Default values for jupyter.
-
+global:
+  suspend: false
 service:
   image:
     version: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter:r4.4.0-py311"
@@ -182,6 +182,3 @@ deleteJob:
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"
-
-global:
-  suspend: false

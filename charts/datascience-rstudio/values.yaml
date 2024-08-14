@@ -1,5 +1,5 @@
-# Default values for rstudio.
-
+global:
+  suspend: false
 service:
   image:
     version: "datascience-rstudio"
@@ -165,6 +165,3 @@ deleteJob:
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"
-
-global:
-  suspend: false

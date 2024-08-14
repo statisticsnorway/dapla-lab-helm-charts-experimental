@@ -1,3 +1,5 @@
+global:
+  suspend: false
 service:
   image:
     version: "datascience-vscode-python"
@@ -164,5 +166,3 @@ deleteJob:
     annotations: {}
 deployEnvironment: "DEV"
 
-global:
-  suspend: false
