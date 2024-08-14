@@ -83,7 +83,7 @@ environment:
 
 buckets:
   enabled: false
-  group: "dapla"
+  group: ""
   mountStandard: true
   extraBuckets: []
 
