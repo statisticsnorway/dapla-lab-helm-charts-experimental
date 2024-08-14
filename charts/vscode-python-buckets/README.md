@@ -1,6 +1,6 @@
 # vscode-python-buckets
 
-![Version: 2.8.2](https://img.shields.io/badge/Version-2.8.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.9.3](https://img.shields.io/badge/Version-2.9.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages, with Google Cloud Storage bucket mounting functionality.
 
@@ -15,7 +15,7 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.3 |
 
 ## Values
 
@@ -31,10 +31,11 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | buckets.extraBuckets | list | `[]` |  |
 | buckets.group | string | `"play-foeniks-a-developers"` |  |
 | buckets.mountStandard | bool | `true` |  |
+| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.0.0"` |  |
+| deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
 | environment.group | string | `"coder"` |  |
@@ -46,6 +47,7 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | git.enabled | bool | `true` |  |
 | git.name | string | `""` |  |
 | git.secretName | string | `""` |  |
+| global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
@@ -88,7 +90,7 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:main"` |  |
+| service.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:main"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |

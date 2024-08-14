@@ -1,7 +1,10 @@
 service:
   image:
-    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:main"
+    version: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:main"
     pullPolicy: IfNotPresent
+
+global:
+  suspend: false
 
 security:
   password: "changeme"
@@ -159,7 +162,8 @@ deleteJob:
   enabled: true
   cronMinuteAtDay: "0"
   cronHourAtDay: "20"
-  imageVersion: "v1.0.0"
+  imageVersion: "v1.1.0"
+  clusterRoleName: onyxia-delete-job
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"

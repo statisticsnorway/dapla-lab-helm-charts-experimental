@@ -1,5 +1,0 @@
-{{ include "library-chart.deleteJobCron" . }}
----
-{{ include "library-chart.deleteJobRoleBinding" . }}
----
-{{ include "library-chart.deleteJobServiceAccount" . }}

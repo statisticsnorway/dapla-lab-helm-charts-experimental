@@ -1,8 +1,8 @@
-# Default values for jupyter.
-
+global:
+  suspend: false
 service:
   image:
-    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter:r4.4.0-py311"
+    version: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter:r4.4.0-py311"
     pullPolicy: IfNotPresent
 
 security:
@@ -30,7 +30,7 @@ init:
   personalInitArgs: ""
 
 environment:
-  user: jovyan
+  user: onyxia
   group: users
 
 userAttributes:
@@ -177,7 +177,8 @@ deleteJob:
   enabled: true
   cronMinuteAtDay: "0"
   cronHourAtDay: "20"
-  imageVersion: "v1.0.0"
+  imageVersion: "v1.1.0"
+  clusterRoleName: onyxia-delete-job
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"

@@ -113,9 +113,9 @@
             "version": {
               "description": "vscode supported version",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:v1.0.1",
+              "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:v1.0.1",
               "listEnum": [
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:v1.0.1"
+                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:v1.0.1"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -766,7 +766,16 @@
           "type": "string",
           "title": "Version of helm-cli image",
           "description": "Which version of the helm-cli image",
-          "default": "v1.0.0",
+          "default": "v1.1.0",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "clusterRoleName": {
+          "type": "string",
+          "title": "Cluster role name",
+          "description": "Which cluster role the delete job should run with",
+          "default": "onyxia-delete-job",
           "x-onyxia": {
             "hidden": true
           }
@@ -781,6 +790,20 @@
         "hidden": true,
         "overwriteDefaultWith": "region.customValues.deployEnvironment"
       }
-    }
+    },
+    "global": {
+        "description": "Suspend",
+        "type": "object",
+        "properties": {
+            "suspend": {
+                "type": "boolean",
+                "description": "Suspend this service",
+                "default": false,
+                "x-onyxia": {
+                    "hidden": true
+                }
+            }
+        }
+      }
   }
 }

@@ -1,6 +1,6 @@
 # datascience-vscode-python
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages, with Google Cloud Storage bucket mounting functionality.
 
@@ -15,7 +15,7 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.3 |
 
 ## Values
 
@@ -30,14 +30,15 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | buckets.extraBuckets | list | `[]` |  |
 | buckets.group | string | `""` |  |
 | buckets.mountStandard | bool | `true` |  |
+| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.0.0"` |  |
+| deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
-| environment.group | string | `"coder"` |  |
-| environment.user | string | `"coder"` |  |
+| environment.group | string | `"users"` |  |
+| environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
 | git.branch | string | `""` |  |
 | git.cache | string | `""` |  |
@@ -45,6 +46,7 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | git.enabled | bool | `true` |  |
 | git.name | string | `""` |  |
 | git.secretName | string | `""` |  |
+| global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |

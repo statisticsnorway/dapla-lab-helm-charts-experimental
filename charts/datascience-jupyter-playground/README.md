@@ -1,6 +1,6 @@
 # datascience-jupyter-playground
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.7](https://img.shields.io/badge/Version-0.3.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
@@ -14,7 +14,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.3 |
 
 ## Values
 
@@ -29,15 +29,16 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | buckets.extraBuckets | list | `[]` |  |
 | buckets.group | string | `"play-foeniks-a-developers"` |  |
 | buckets.mountStandard | bool | `true` |  |
+| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.0.0"` |  |
+| deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
 | discovery.mlflow | bool | `true` |  |
 | environment.group | string | `"users"` |  |
-| environment.user | string | `"jovyan"` |  |
+| environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
 | git.branch | string | `""` |  |
 | git.cache | string | `""` |  |
@@ -47,6 +48,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | git.name | string | `""` |  |
 | git.repository | string | `""` |  |
 | git.token | string | `""` |  |
+| global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
@@ -91,7 +93,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py311"` |  |
+| service.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py311"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
