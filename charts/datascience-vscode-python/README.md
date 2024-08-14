@@ -1,6 +1,6 @@
 # datascience-vscode-python
 
-![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages, with Google Cloud Storage bucket mounting functionality.
 
@@ -37,8 +37,8 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
-| environment.group | string | `"coder"` |  |
-| environment.user | string | `"coder"` |  |
+| environment.group | string | `"users"` |  |
+| environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
 | git.branch | string | `""` |  |
 | git.cache | string | `""` |  |
