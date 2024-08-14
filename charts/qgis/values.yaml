@@ -1,3 +1,5 @@
+global:
+  suspend: false
 service:
   image:
     pullPolicy: IfNotPresent
@@ -31,6 +33,13 @@ oidc:
 # Declare variables to be passed into your templates.
 replicaCount: 1
 
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -51,12 +60,6 @@ podSecurityContext:
 
 securityContext:
   {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-# runAsUser: 1000
 
 networking:
   type: ClusterIP
@@ -72,23 +75,24 @@ istio:
 
 persistence:
   enabled: false
-  ## database data Persistent Volume Storage Class
-  ## If defined, storageClassName: <storageClass>
-  ## If set to "-", storageClassName: "", which disables dynamic provisioning
-  ## If undefined (the default) or set to null, no storageClassName spec is
-  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-  ##   GKE, AWS & OpenStack)
-  ##
-  # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 10Gi
-  # existingClaim: ""
 
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+environment:
+  user: dapla
+  group: dapla
+
+buckets:
+  enabled: false
+  group: ""
+  mountStandard: true
+  extraBuckets: []
 
 deleteJob:
   enabled: true
