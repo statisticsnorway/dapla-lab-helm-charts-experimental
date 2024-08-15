@@ -3,7 +3,7 @@ global:
 service:
   image:
     pullPolicy: IfNotPresent
-    version: trygu/dapla-qgis-desktop:v0.30.2
+    version: trygu/dapla-qgis-desktop:v0.31.0
 security:
   password: "changeme"
   networkPolicy:
