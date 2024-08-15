@@ -108,6 +108,10 @@ spec:
               value: {{ .Values.environment.group }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
+            - name: POETRY_VIRTUALENVS_IN_PROJECT
+              value: "true"
+            - name: JUPYTER_DATA_DIR
+              value: /home/{{ .Values.environment.user }}/work/.jupyter
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
               value: "1.1.6"
           envFrom:

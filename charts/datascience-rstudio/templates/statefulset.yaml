@@ -98,6 +98,10 @@ spec:
               value: {{ .Values.environment.group }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
+            - name: RENV_PATHS_LIBRARY
+              value: /home/{{ .Values.environment.user }}/work/.renv
+            - name: RENV_PATHS_CACHE
+              value: /home/{{ .Values.environment.user }}/work/.renv/cache
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
