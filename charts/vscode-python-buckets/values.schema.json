@@ -167,6 +167,11 @@
           "hidden": {
             "value": false,
             "path": "buckets/enabled"
+          },
+          "items": {
+            "type": "string",
+            "title": "Bucket name",
+            "description": "Name of the GCS bucket to mount"
           }
         },
         "customFlags": {
