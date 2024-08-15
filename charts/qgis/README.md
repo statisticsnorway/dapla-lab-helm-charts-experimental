@@ -1,6 +1,6 @@
 # qgis
 
-![Version: 0.11.2](https://img.shields.io/badge/Version-0.11.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
+![Version: 0.11.3](https://img.shields.io/badge/Version-0.11.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
 
 QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
 
@@ -76,7 +76,7 @@ QGIS Desktop - Open-source GIS software for geospatial data management, mapping,
 | security.serviceEntry.hosts[0] | string | `"ssb.no"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"trygu/dapla-qgis-desktop:v0.20.0"` |  |
+| service.image.version | string | `"trygu/dapla-qgis-desktop:v0.30.2"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
