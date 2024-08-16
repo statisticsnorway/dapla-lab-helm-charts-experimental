@@ -91,6 +91,8 @@ spec:
               value: "true"
             - name: JUPYTER_DATA_DIR
               value: /home/{{ .Values.environment.user }}/work/.jupyter
+            - name: HOME
+              value: /home/{{ .Values.environment.user }}/work
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
               value: "1.1.6"
             - name: JUPYTERHUB_HTTP_REFERER
