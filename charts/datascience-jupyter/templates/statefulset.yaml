@@ -111,6 +111,10 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.jupyter/data
             - name: JUPYTER_RUNTIME_DIR
               value: /home/{{ .Values.environment.user }}/work/.jupyter/runtime
+            - name: RENV_PATHS_LIBRARY
+              value: /home/{{ .Values.environment.user }}/work/.renv
+            - name: RENV_PATHS_CACHE
+              value: /home/{{ .Values.environment.user }}/work/.renv/cache
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
               value: "1.1.6"
             - name: JUPYTERHUB_HTTP_REFERER
