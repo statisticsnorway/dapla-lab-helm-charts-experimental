@@ -1,4 +1,4 @@
-# datascience-vscode-python
+# vscode-python
 
 ![Version: 0.3.6](https://img.shields.io/badge/Version-0.3.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
@@ -8,7 +8,7 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 
 ## Source Code
 
-* <https://github.com/statisticsnorway/dapla-lab-datascience-images>
+* <https://github.com/statisticsnorway/dapla-lab-images>
 * <https://github.com/statisticsnorway/dapla-lab-helm-charts-services>
 
 ## Requirements
@@ -89,7 +89,7 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"datascience-vscode-python"` |  |
+| service.image.version | string | `"vscode-python"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
