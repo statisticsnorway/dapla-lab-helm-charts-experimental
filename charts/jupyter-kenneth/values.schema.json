@@ -291,7 +291,7 @@
                       "default" : [],
                       "x-onyxia": {
                         "hidden": true,
-                        "overwriteDefaultWith": "region.customValues.jupyterEgress"
+                        "overwriteDefaultWith": "region.customValues.experimentalEgress"
                       }
                     }
                   }
