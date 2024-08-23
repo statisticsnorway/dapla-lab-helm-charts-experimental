@@ -1,4 +1,4 @@
-# datascience-rstudio
+# rstudio
 
 ![Version: 0.3.5](https://img.shields.io/badge/Version-0.3.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
@@ -8,7 +8,7 @@ The RStudio IDE with a collection of standard data science packages, adapted to 
 
 ## Source Code
 
-* <https://github.com/statisticsnorway/dapla-lab-datascience-images>
+* <https://github.com/statisticsnorway/dapla-lab-images>
 * <https://statisticsnorway.github.io/dapla-lab-helm-charts-services>
 
 ## Requirements
@@ -90,7 +90,7 @@ The RStudio IDE with a collection of standard data science packages, adapted to 
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"datascience-rstudio"` |  |
+| service.image.version | string | `"rstudio"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
