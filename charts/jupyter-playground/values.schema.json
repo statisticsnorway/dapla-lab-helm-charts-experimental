@@ -23,10 +23,10 @@
                         "version": {
                             "description": "supported versions",
                             "type": "string",
-                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-rstudio:r4.4.0",
+                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:py311",
                             "listEnum": [
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-rstudio:r4.4.0",
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-rstudio:r4.3.3"
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:py312",
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:py311"
                             ],
                             "render": "list",
                             "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -35,52 +35,20 @@
                 }
             }
         },
-        "buckets": {
-          "description": "Mount Google Cloud Storage buckets as a folder in your service",
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "description": "Enabled",
-              "default": false
-            },
-            "group": {
-              "type": "string",
-              "title": "Dapla group",
-              "description": "Which Dapla group to act as",
-              "render": "list",
-              "default": "",
-              "listEnum": [""],
-              "x-onyxia": {
-                  "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
-                  "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-              },
-              "hidden": {
-                "value": false,
-                "path": "buckets/enabled"
-              }
-            },
-            "mountStandard": {
-              "type": "boolean",
-              "title": "Mount standard buckets",
-              "description": "Whether to mount your group's standard buckets (e.g. produkt, tilsky, frasky)",
-              "default": true,
-              "hidden": {
-                "value": false,
-                "path": "buckets/enabled"
-              }
-            },
-            "extraBuckets": {
-              "type": "array",
-              "title": "Extra buckets to mount",
-              "description": "Any extra buckets you want to mount (e.g. shared buckets from another team)",
-              "default": [],
-              "hidden": {
-                "value": false,
-                "path": "buckets/enabled"
-              }
+        "discovery": {
+            "description": "configure your service to autodetect some ressources.",
+            "type": "object",
+            "properties": {
+                "mlflow": {
+                    "type": "boolean",
+                    "title": "Enable mlflow discovery",
+                    "description": "discover your mlflow service",
+                    "default": true,
+                    "x-onyxia": {
+                        "hidden": true
+                    }
+                }
             }
-          }
         },
         "resources": {
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
@@ -204,7 +172,7 @@
             }
         },
         "security": {
-            "description": "RStudio specific configuration",
+            "description": "security specific configuration",
             "type": "object",
             "properties": {
                 "allowlist": {
@@ -228,6 +196,10 @@
                             "x-onyxia": {
                                 "hidden": true,
                                 "overwriteDefaultWith": "{{user.ip}}"
+                            },
+                            "hidden": {
+                                "value": false,
+                                "path": "security/allowlist/enabled"
                             }
                         }
                     }
@@ -276,7 +248,7 @@
                             "default": [],
                             "x-onyxia": {
                                 "hidden": true,
-                                "overwriteDefaultWith": "region.customValues.rstudioEgress"
+                                "overwriteDefaultWith": "region.customValues.jupyterEgress"
                             }
                         }
                     }
@@ -302,11 +274,12 @@
                             "type": "string",
                             "title": "OIDC issuer url",
                             "description": "Url to the OIDC issuer",
+                            "default": "",
                             "x-onyxia": {
-                            "hidden": true,
-                            "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
+                                "hidden": true,
+                                "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
                             }
-                          },
+                        },
                         "clientId": {
                             "type": "string",
                             "title": "Client id",
@@ -474,37 +447,6 @@
                 }
             }
         },
-        "userAttrites": {
-            "description": "User attributes to pass into the service",
-            "type": "object",
-            "properties": {
-                "environmentVariableName": {
-                    "type": "string",
-                    "description": "Name of the environment variable to use",
-                    "default": "OIDC_TOKEN",
-                    "x-onyxia": {
-                        "hidden": true
-                    }
-                },
-                "userAttribute": {
-                    "type": "string",
-                    "description": "The user attribute to map to the environment variable",
-                    "default": "access_token",
-                    "x-onyxia": {
-                        "hidden": true
-                    }
-                },
-                "value": {
-                    "type": "string",
-                    "description": "The value of the user attribute (will be replaced by backend)",
-                    "default": "",
-                    "x-onyxia": {
-                        "hidden": true,
-                        "overwriteDefaultWith": ""
-                    }
-                }
-            }
-        },
         "networking": {
             "type": "object",
             "form": true,
@@ -571,17 +513,57 @@
                 }
             }
         },
-        "repository": {
-            "description": "r repository (eg : cran mirrors or proxy caches)",
+        "userAttributes": {
+            "description": "User attributes to pass into the service",
             "type": "object",
             "properties": {
-                "rRepository": {
+                "environmentVariableName": {
                     "type": "string",
-                    "description": "r repository",
+                    "description": "Name of the environment variable to use",
+                    "default": "OIDC_TOKEN",
+                    "x-onyxia": {
+                        "hidden": true
+                    }
+                },
+                "userAttribute": {
+                    "type": "string",
+                    "description": "The user attribute to map to the environment variable",
+                    "default": "access_token",
+                    "x-onyxia": {
+                        "hidden": true
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the user attribute (will be replaced by backend)",
                     "default": "",
                     "x-onyxia": {
                         "hidden": true,
-                        "overwriteDefaultWith": "{{packageRepositoryInjection.cranProxyUrl}}"
+                        "overwriteDefaultWith": ""
+                    }
+                }
+            }
+        },
+        "repository": {
+            "description": "python repositories for pip and conda",
+            "type": "object",
+            "properties": {
+                "pipRepository": {
+                    "type": "string",
+                    "description": "python repository for pip",
+                    "default": "",
+                    "x-onyxia": {
+                        "hidden": true,
+                        "overwriteDefaultWith": "{{packageRepositoryInjection.pypiProxyUrl}}"
+                    }
+                },
+                "condaRepository": {
+                    "type": "string",
+                    "description": "python repository for pip",
+                    "default": "",
+                    "x-onyxia": {
+                        "hidden": true,
+                        "overwriteDefaultWith": "{{packageRepositoryInjection.condaProxyUrl}}"
                     }
                 }
             }
@@ -634,7 +616,7 @@
                         "overwriteDefaultWith": "region.customValues.oidc.tokenExchangeUrl"
                     }
                 },
-                "secretName": {
+                "configMapName": {
                     "type": "string",
                     "description": "config map name",
                     "default": "",
@@ -728,6 +710,6 @@
                     }
                 }
             }
-          }
+        }
     }
 }

@@ -2,7 +2,7 @@ global:
   suspend: false
 service:
   image:
-    version: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter:r4.4.0-py311"
+    version: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:py311"
     pullPolicy: IfNotPresent
 
 security:
@@ -40,7 +40,7 @@ userAttributes:
 
 buckets:
   enabled: false
-  group: ""
+  group: play-foeniks-a-developers
   mountStandard: true
   extraBuckets: []
 
@@ -140,7 +140,7 @@ resources: {}
   #   memory: 128Mi
 
 persistence:
-  enabled: true
+  enabled: false
   ## database data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
