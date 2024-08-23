@@ -1,8 +1,8 @@
 # jupyter-kenneth
 
-![Version: 0.3.12](https://img.shields.io/badge/Version-0.3.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.13](https://img.shields.io/badge/Version-0.3.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
+Lekeplass for Jupyter charts. ⚠️ Her være drager 🐉 og enhjørninger 🦄
 
 **Homepage:** <https://jupyter.org/>
 
