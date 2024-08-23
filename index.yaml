@@ -780,6 +780,28 @@ entries:
     version: 1.5.3
   jupyter-kenneth:
   - apiVersion: v2
+    created: "2024-08-23T14:16:58.478789406Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: "Lekeplass for Jupyter charts. ⚠️ Her være drager \U0001F409 og enhjørninger
+      \U0001F984"
+    digest: 978d6d67c0771a276503ca8f9d05fc3314425ff6e6798b7e98a25b79e42ea779
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-kenneth
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-kenneth-0.3.13/jupyter-kenneth-0.3.13.tgz
+    version: 0.3.13
+  - apiVersion: v2
     created: "2024-08-23T13:46:54.523580909Z"
     dependencies:
     - name: library-chart
@@ -3057,4 +3079,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-buckets-0.0.1/vscode-python-buckets-0.0.1.tgz
     version: 0.0.1
-generated: "2024-08-23T13:46:54.523888411Z"
+generated: "2024-08-23T14:16:58.479099465Z"
