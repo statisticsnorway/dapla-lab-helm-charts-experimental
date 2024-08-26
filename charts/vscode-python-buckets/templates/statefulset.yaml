@@ -75,7 +75,8 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.version }}"
           command: ["/bin/sh","-c"]
-          args: ["{{ .Values.init.standardInitPath }} /usr/bin/code-server --host 0.0.0.0 --auth none"]
+          args: ["{{ .Values.init.standardInitPath }} /usr/bin/code-server --host 0.0.0.0 \
+          --auth none --disable-file-downloads --disable-telemetry --disable-update-check"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             {{- if .Values.init.regionInit }}
