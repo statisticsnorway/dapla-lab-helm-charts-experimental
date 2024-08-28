@@ -33,5 +33,5 @@ icon: https://avatars.githubusercontent.com/u/5849578
 
 dependencies:
   - name: library-chart
-    version: 3.2.3
+    version: 3.2.4
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services

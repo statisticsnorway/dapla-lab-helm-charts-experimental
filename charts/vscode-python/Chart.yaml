@@ -22,9 +22,9 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.3.8
+version: 0.3.9
 
 dependencies:
   - name: library-chart
-    version: 3.2.3
+    version: 3.2.4
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services

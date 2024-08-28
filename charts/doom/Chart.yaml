@@ -32,5 +32,5 @@ icon: https://www.giantbomb.com/a/uploads/scale_small/1/16944/2976271-flat%2C800
 
 dependencies:
   - name: library-chart
-    version: 3.2.3
+    version: 3.2.4
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
