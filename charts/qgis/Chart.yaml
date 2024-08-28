@@ -3,7 +3,7 @@ name: qgis
 description: QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
 type: application
 
-version: 0.12.1
+version: 0.12.2
 
 # Version of the application
 appVersion: "3.34.3"
