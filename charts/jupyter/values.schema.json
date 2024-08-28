@@ -2,35 +2,6 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "service": {
-      "description": "Service specific configuration",
-      "type": "object",
-      "properties": {
-        "image" : {
-          "description": "image docker",
-          "type": "object",
-          "properties": {
-            "pullPolicy": {
-              "type": "string",
-              "description": "option when pulling the docker image",
-              "default": "IfNotPresent",
-              "enum": ["IfNotPresent","Always","Never"]
-            },
-            "version": {
-              "description": "supported versions",
-              "type": "string",
-              "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311",
-              "listEnum": [
-                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py312",
-                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311"
-              ],
-              "render": "list",
-              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
-            }
-          }
-        }
-      }
-    },
     "buckets": {
       "description": "Mount Google Cloud Storage buckets as a folder in your service",
       "type": "object",
@@ -64,6 +35,35 @@
           "hidden": {
             "value": false,
             "path": "buckets/enabled"
+          }
+        }
+      }
+    },
+    "service": {
+      "description": "Service specific configuration",
+      "type": "object",
+      "properties": {
+        "image" : {
+          "description": "image docker",
+          "type": "object",
+          "properties": {
+            "pullPolicy": {
+              "type": "string",
+              "description": "option when pulling the docker image",
+              "default": "IfNotPresent",
+              "enum": ["IfNotPresent","Always","Never"]
+            },
+            "version": {
+              "description": "supported versions",
+              "type": "string",
+              "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311",
+              "listEnum": [
+                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py312",
+                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311"
+              ],
+              "render": "list",
+              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+            }
           }
         }
       }
