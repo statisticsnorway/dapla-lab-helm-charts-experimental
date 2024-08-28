@@ -38,7 +38,7 @@ userAttributes:
   userAttribute: "access_token"
   value: ""
 
-buckets:
+dapla:
   enabled: false
   group: ""
   mountStandard: true
