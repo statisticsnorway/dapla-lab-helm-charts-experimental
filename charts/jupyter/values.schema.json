@@ -25,7 +25,7 @@
           },
           "hidden": {
             "value": false,
-            "path": "dapla/enabled"
+            "path": "buckets/enabled"
           }
         },
         "mountStandard": {
@@ -35,7 +35,7 @@
           "default": true,
           "hidden": {
             "value": false,
-            "path": "dapla/enabled"
+            "path": "buckets/enabled"
           }
         }
       }
