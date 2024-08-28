@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "buckets": {
+    "dapla": {
       "description": "Mount Google Cloud Storage buckets as a folder in your service",
       "type": "object",
       "properties": {
@@ -24,7 +24,7 @@
           },
           "hidden": {
             "value": false,
-            "path": "buckets/enabled"
+            "path": "dapla/enabled"
           }
         },
         "mountStandard": {
@@ -34,7 +34,7 @@
           "default": true,
           "hidden": {
             "value": false,
-            "path": "buckets/enabled"
+            "path": "dapla/enabled"
           }
         }
       }
