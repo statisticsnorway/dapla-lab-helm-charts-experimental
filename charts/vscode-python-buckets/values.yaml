@@ -138,7 +138,7 @@ persistence:
   size: 10Gi
   # existingClaim: ""
 
-buckets:
+dapla:
   enabled: false
   group: play-foeniks-a-developers
   mountStandard: true
