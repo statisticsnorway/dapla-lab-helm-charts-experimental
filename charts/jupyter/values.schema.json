@@ -3,7 +3,7 @@
   "type": "object",
   "properties": {
     "buckets": {
-      "name": "Dapla",
+      "display": "Dapla",
       "description": "Mount Google Cloud Storage buckets as a folder in your service",
       "type": "object",
       "properties": {
