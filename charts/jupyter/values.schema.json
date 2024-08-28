@@ -43,7 +43,7 @@
       "description": "Service specific configuration",
       "type": "object",
       "properties": {
-        "image" : {
+        "image": {
           "description": "image docker",
           "type": "object",
           "properties": {
@@ -254,7 +254,7 @@
             "from": {
               "type": "array",
               "description": "Array of source allowed to have network access to your service",
-              "default" : [],
+              "default": [],
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.from"
@@ -278,7 +278,7 @@
             "hosts": {
               "type": "array",
               "description": "Array of hosts allowed to be accessed from your service",
-              "default" : [],
+              "default": [],
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.customValues.jupyterEgress"
@@ -467,7 +467,6 @@
             "hidden": true,
             "overwriteDefaultWith": "k8s.istio.gateways"
           },
-
           "default": []
         },
         "hostname": {
