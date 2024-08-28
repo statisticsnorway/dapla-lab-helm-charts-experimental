@@ -3,15 +3,15 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
-{{- if .Values.dapla.enabled }}
+{{- if .Values.buckets.enabled }}
   annotations:
     dapla.ssb.no/enable-ssbucketeer: "true"
-    dapla.ssb.no/impersonate-group: {{ .Values.dapla.group }}
+    dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
     dapla.ssb.no/service-container-name: {{ .Chart.Name }}
-{{- with .Values.dapla.extraBuckets }}
+{{- with .Values.buckets.extraBuckets }}
     dapla.ssb.no/mount-buckets: {{ join "," . }}
 {{- end }}
-{{- if .Values.dapla.mountStandard }}
+{{- if .Values.buckets.mountStandard }}
     dapla.ssb.no/mount-standard-buckets: "true"
 {{- end }}
 {{- end }}
