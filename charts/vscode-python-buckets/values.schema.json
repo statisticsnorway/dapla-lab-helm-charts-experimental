@@ -24,7 +24,7 @@
           },
           "hidden": {
             "value": false,
-            "path": "buckets/enabled"
+            "path": "dapla/enabled"
           }
         },
         "mountStandard": {
@@ -34,7 +34,7 @@
           "default": true,
           "hidden": {
             "value": false,
-            "path": "buckets/enabled"
+            "path": "dapla/enabled"
           }
         },
         "customFlags": {
@@ -44,7 +44,7 @@
           "default": "",
           "hidden": {
             "value": false,
-            "path": "buckets/enabled"
+            "path": "dapla/enabled"
           }
         }
       }
