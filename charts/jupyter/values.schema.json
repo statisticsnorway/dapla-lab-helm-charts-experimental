@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "dapla": {
+        "buckets": {
         "description": "Mount Google Cloud Storage buckets as a folder in your service",
         "type": "object",
         "properties": {
@@ -38,7 +38,8 @@
             }
           }
         }
-      },
+        }
+    },
         "service": {
             "description": "Service specific configuration",
             "type": "object",
