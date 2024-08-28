@@ -4,7 +4,7 @@ description: An example Tutorial application for KLASS using R. Example on how y
 type: application
 
 # Version of the chart
-version: 0.3.2
+version: 0.3.3
 
 # Version of the application
 appVersion: "1.0.0"
