@@ -1,6 +1,6 @@
 # klassr
 
-![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 An example Tutorial application for KLASS using R. Example on how you could package a Shiny app and run it in Onyxia
 
@@ -20,7 +20,7 @@ An example Tutorial application for KLASS using R. Example on how you could pack
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.3 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.4 |
 
 ## Values
 

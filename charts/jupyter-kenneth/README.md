@@ -1,6 +1,6 @@
 # jupyter-kenneth
 
-![Version: 0.3.13](https://img.shields.io/badge/Version-0.3.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.15](https://img.shields.io/badge/Version-0.3.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Lekeplass for Jupyter charts. ⚠️ Her være drager 🐉 og enhjørninger 🦄
 
@@ -15,7 +15,7 @@ Lekeplass for Jupyter charts. ⚠️ Her være drager 🐉 og enhjørninger 🦄
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.3 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.4 |
 
 ## Values
 

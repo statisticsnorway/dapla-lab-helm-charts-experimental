@@ -1,6 +1,6 @@
 # vscode-python-buckets
 
-![Version: 2.9.5](https://img.shields.io/badge/Version-2.9.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.9.8](https://img.shields.io/badge/Version-2.9.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages, with Google Cloud Storage bucket mounting functionality.
 
@@ -15,7 +15,7 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.3 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.4 |
 
 ## Values
 
@@ -26,11 +26,11 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| buckets.customFlags | string | `""` |  |
-| buckets.enabled | bool | `false` |  |
-| buckets.extraBuckets | list | `[]` |  |
-| buckets.group | string | `"play-foeniks-a-developers"` |  |
-| buckets.mountStandard | bool | `true` |  |
+| dapla.customFlags | string | `""` |  |
+| dapla.enabled | bool | `false` |  |
+| dapla.extraBuckets | list | `[]` |  |
+| dapla.group | string | `"play-foeniks-a-developers"` |  |
+| dapla.mountStandard | bool | `true` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
