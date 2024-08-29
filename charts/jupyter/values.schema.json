@@ -4,7 +4,7 @@
   "properties": {
     "dapla": {
       "title": "Dapla",
-      "description": "Mount Google Cloud Storage buckets as a folder in your service and assign Dapla groups",
+      "description": "Dapla groups and resources",
       "type": "object",
       "properties": {
         "buckets": {
@@ -14,7 +14,7 @@
           "properties": {
             "enabled": {
               "type": "boolean",
-              "description": "Enabled",
+              "description": "Enable bucket",
               "default": false
             },
             "mountStandard": {
