@@ -38,10 +38,12 @@ userAttributes:
   userAttribute: "access_token"
   value: ""
 
-buckets:
-  enabled: false
+dapla:
+  buckets:
+    enabled: false
+    mountStandard: true
   group: ""
-  mountStandard: true
+
 
 git:
   # Specifies whether a config map should be created

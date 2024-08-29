@@ -2,15 +2,32 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "buckets": {
+    "dapla": {
       "title": "Dapla",
-      "description": "Mount Google Cloud Storage buckets as a folder in your service",
+      "description": "Mount Google Cloud Storage buckets as a folder in your service and assign Dapla groups",
       "type": "object",
       "properties": {
-        "enabled": {
-          "type": "boolean",
-          "description": "Enabled",
-          "default": false
+        "buckets": {
+          "title": "Buckets",
+          "description": "Mount Google Cloud Storage buckets as a folder in your service",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enabled",
+              "default": false
+            },
+            "mountStandard": {
+              "type": "boolean",
+              "title": "Mount standard buckets",
+              "description": "Whether to mount your group's standard buckets (e.g. produkt, tilsky, frasky)",
+              "default": true,
+              "hidden": {
+                "value": false,
+                "path": "dapla/buckets/enabled"
+              }
+            }
+          }
         },
         "group": {
           "type": "string",
@@ -18,24 +35,16 @@
           "description": "Which Dapla group to act as",
           "render": "list",
           "default": "",
-          "listEnum": [""],
+          "listEnum": [
+            ""
+          ],
           "x-onyxia": {
             "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
           },
           "hidden": {
             "value": false,
-            "path": "buckets/enabled"
-          }
-        },
-        "mountStandard": {
-          "type": "boolean",
-          "title": "Mount standard buckets",
-          "description": "Whether to mount your group's standard buckets (e.g. produkt, tilsky, frasky)",
-          "default": true,
-          "hidden": {
-            "value": false,
-            "path": "buckets/enabled"
+            "path": "dapla/buckets/enabled"
           }
         }
       }
@@ -52,7 +61,11 @@
               "type": "string",
               "description": "option when pulling the docker image",
               "default": "IfNotPresent",
-              "enum": ["IfNotPresent","Always","Never"]
+              "enum": [
+                "IfNotPresent",
+                "Always",
+                "Never"
+              ]
             },
             "version": {
               "description": "supported versions",
