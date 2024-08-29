@@ -42,7 +42,6 @@ buckets:
   enabled: false
   group: ""
   mountStandard: true
-  extraBuckets: []
 
 git:
   # Specifies whether a config map should be created

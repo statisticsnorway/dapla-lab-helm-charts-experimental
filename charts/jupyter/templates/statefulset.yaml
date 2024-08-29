@@ -8,9 +8,6 @@ metadata:
     dapla.ssb.no/enable-ssbucketeer: "true"
     dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
     dapla.ssb.no/service-container-name: {{ .Chart.Name }}
-{{- with .Values.buckets.extraBuckets }}
-    dapla.ssb.no/mount-buckets: {{ join "," . }}
-{{- end }}
 {{- if .Values.buckets.mountStandard }}
     dapla.ssb.no/mount-standard-buckets: "true"
 {{- end }}
