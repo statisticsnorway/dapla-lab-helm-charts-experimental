@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.3.20](https://img.shields.io/badge/Version-0.3.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.22](https://img.shields.io/badge/Version-0.3.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
@@ -25,9 +25,9 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| buckets.enabled | bool | `false` |  |
-| buckets.group | string | `""` |  |
-| buckets.mountStandard | bool | `true` |  |
+| dapla.buckets.enabled | bool | `false` |  |
+| dapla.buckets.mountStandard | bool | `true` |  |
+| dapla.group | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
