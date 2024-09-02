@@ -100,16 +100,16 @@
       }
     },
     "resources": {
-      "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
+      "description": "Your service will have at least the requested resources",
       "type": "object",
       "properties": {
         "requests": {
-          "description": "Guaranteed resources",
+          "description": "The amount of CPU requested",
           "type": "object",
           "properties": {
             "cpu": {
-              "description": "The amount of cpu guaranteed",
-              "title": "CPU Request",
+              "description": "The amount of CPU guaranteed",
+              "title": "CPU",
               "type": "string",
               "default": "100m",
               "render": "slider",
@@ -123,8 +123,8 @@
               }
             },
             "memory": {
-              "description": "The amount of memory guaranteed",
-              "title": "Memory Request",
+              "description": "The amount of memory requested",
+              "title": "Memory",
               "type": "string",
               "default": "2Gi",
               "render": "slider",
@@ -138,42 +138,7 @@
               }
             }
           }
-        },
-        "limits": {
-          "description": "max resources",
-          "type": "object",
-          "properties": {
-            "cpu": {
-              "description": "The maximum amount of cpu",
-              "title": "CPU Limit",
-              "type": "string",
-              "default": "30000m",
-              "render": "slider",
-              "sliderMin": 50,
-              "sliderMax": 40000,
-              "sliderStep": 50,
-              "sliderUnit": "m",
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.resources.cpuLimit",
-                "useRegionSliderConfig": "cpu"
-              }
-            },
-            "memory": {
-              "description": "The maximum amount of memory",
-              "title": "Memory Limit",
-              "type": "string",
-              "default": "50Gi",
-              "render": "slider",
-              "sliderMin": 1,
-              "sliderMax": 200,
-              "sliderStep": 1,
-              "sliderUnit": "Gi",
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.resources.memoryLimit",
-                "useRegionSliderConfig": "memory"
-              }
-            }
-          }
+        }
         }
       }
     },
