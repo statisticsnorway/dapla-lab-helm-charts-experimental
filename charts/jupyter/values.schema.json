@@ -117,7 +117,6 @@
               "sliderMax": 40000,
               "sliderStep": 50,
               "sliderUnit": "m",
-              "sliderRangeId": "cpu_req",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.cpuRequest",
                 "useRegionSliderConfig": "cpu"
@@ -133,7 +132,6 @@
               "sliderMax": 200,
               "sliderStep": 1,
               "sliderUnit": "Gi",
-              "sliderRangeId": "memory_req",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
@@ -155,9 +153,6 @@
               "sliderMax": 40000,
               "sliderStep": 50,
               "sliderUnit": "m",
-              "sliderExtremity": "up",
-              "sliderExtremitySemantic": "Maximum",
-              "sliderRangeId": "cpu_lim",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.cpuLimit",
                 "useRegionSliderConfig": "cpu"
@@ -173,9 +168,6 @@
               "sliderMax": 200,
               "sliderStep": 1,
               "sliderUnit": "Gi",
-              "sliderExtremity": "up",
-              "sliderExtremitySemantic": "Maximum",
-              "sliderRangeId": "memory_lim",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.memoryLimit",
                 "useRegionSliderConfig": "memory"
