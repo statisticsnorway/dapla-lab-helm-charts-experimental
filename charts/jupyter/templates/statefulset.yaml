@@ -163,7 +163,13 @@ spec:
               port: {{ .Values.networking.service.port }}
             {{- toYaml .Values.startupProbe | nindent 12 }}     
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits: 
+              # Memory limit = Memory requested * 1.5
+              memory: {{ .Values.resources.requests.memory | trimSuffix "Gi" | float64 |
+                mulf 1.5 | int | toString | printf "%vGi" }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
               subPath: work
