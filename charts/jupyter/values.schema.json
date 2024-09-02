@@ -109,7 +109,7 @@
           "properties": {
             "cpu": {
               "description": "The amount of cpu guaranteed",
-              "title": "CPU",
+              "title": "CPU Request",
               "type": "string",
               "default": "100m",
               "render": "slider",
@@ -117,9 +117,7 @@
               "sliderMax": 40000,
               "sliderStep": 50,
               "sliderUnit": "m",
-              "sliderExtremity": "down",
-              "sliderExtremitySemantic": "guaranteed",
-              "sliderRangeId": "cpu",
+              "sliderRangeId": "cpu_req",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.cpuRequest",
                 "useRegionSliderConfig": "cpu"
@@ -127,7 +125,7 @@
             },
             "memory": {
               "description": "The amount of memory guaranteed",
-              "title": "memory",
+              "title": "Memory Request",
               "type": "string",
               "default": "2Gi",
               "render": "slider",
@@ -135,9 +133,7 @@
               "sliderMax": 200,
               "sliderStep": 1,
               "sliderUnit": "Gi",
-              "sliderExtremity": "down",
-              "sliderExtremitySemantic": "guaranteed",
-              "sliderRangeId": "memory",
+              "sliderRangeId": "memory_req",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
@@ -151,7 +147,7 @@
           "properties": {
             "cpu": {
               "description": "The maximum amount of cpu",
-              "title": "CPU",
+              "title": "CPU Limit",
               "type": "string",
               "default": "30000m",
               "render": "slider",
@@ -161,7 +157,7 @@
               "sliderUnit": "m",
               "sliderExtremity": "up",
               "sliderExtremitySemantic": "Maximum",
-              "sliderRangeId": "cpu",
+              "sliderRangeId": "cpu_lim",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.cpuLimit",
                 "useRegionSliderConfig": "cpu"
@@ -169,7 +165,7 @@
             },
             "memory": {
               "description": "The maximum amount of memory",
-              "title": "Memory",
+              "title": "Memory Limit",
               "type": "string",
               "default": "50Gi",
               "render": "slider",
@@ -179,7 +175,7 @@
               "sliderUnit": "Gi",
               "sliderExtremity": "up",
               "sliderExtremitySemantic": "Maximum",
-              "sliderRangeId": "memory",
+              "sliderRangeId": "memory_lim",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.memoryLimit",
                 "useRegionSliderConfig": "memory"
