@@ -61,7 +61,15 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 20
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}         
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits: 
+              # Memory limit = min(mem_requested * 1.5, mem_requested + 4)
+              {{- with .Values.resources.requests}}
+              {{- $requestedmem := .memory | trimSuffix "Gi" | float64}}
+              memory: {{ min (mulf 1.5 $requestedmem) (add 4.0 $requestedmem) | int | toString | printf "%vGi" }}
+              {{- end }}         
 
       initContainers:
         - name: wait-for-postgresql
