@@ -1,6 +1,6 @@
 # vscode-python-buckets
 
-![Version: 2.9.8](https://img.shields.io/badge/Version-2.9.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.9.9](https://img.shields.io/badge/Version-2.9.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages, with Google Cloud Storage bucket mounting functionality.
 
@@ -76,7 +76,8 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| resources | object | `{}` |  |
+| resources.requests.cpu | string | `""` |  |
+| resources.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |

@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.3.18](https://img.shields.io/badge/Version-0.3.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.19](https://img.shields.io/badge/Version-0.3.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
@@ -79,7 +79,8 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| resources | object | `{}` |  |
+| resources.requests.cpu | string | `""` |  |
+| resources.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |

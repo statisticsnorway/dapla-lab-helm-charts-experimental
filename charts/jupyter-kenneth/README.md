@@ -1,6 +1,6 @@
 # jupyter-kenneth
 
-![Version: 0.3.16](https://img.shields.io/badge/Version-0.3.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.17](https://img.shields.io/badge/Version-0.3.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Lekeplass for Jupyter charts. ⚠️ Her være drager 🐉 og enhjørninger 🦄
 
@@ -80,7 +80,8 @@ Lekeplass for Jupyter charts. ⚠️ Her være drager 🐉 og enhjørninger 🦄
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| resources | object | `{}` |  |
+| resources.requests.cpu | string | `""` |  |
+| resources.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |

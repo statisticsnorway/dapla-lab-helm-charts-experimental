@@ -1,6 +1,6 @@
 # jupyter-dapla-suspend
 
-![Version: 1.6.5](https://img.shields.io/badge/Version-1.6.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.6.6](https://img.shields.io/badge/Version-1.6.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
@@ -75,7 +75,8 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| resources | object | `{}` |  |
+| resources.requests.cpu | string | `""` |  |
+| resources.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
