@@ -114,7 +114,7 @@
               "default": "2000m",
               "render": "slider",
               "sliderMin": 50,
-              "sliderMax": 40000,
+              "sliderMax": 8000,
               "sliderStep": 50,
               "sliderUnit": "m",
               "x-onyxia": {
@@ -129,7 +129,7 @@
               "default": "8Gi",
               "render": "slider",
               "sliderMin": 1,
-              "sliderMax": 200,
+              "sliderMax": 600,
               "sliderStep": 1,
               "sliderUnit": "Gi",
               "x-onyxia": {
