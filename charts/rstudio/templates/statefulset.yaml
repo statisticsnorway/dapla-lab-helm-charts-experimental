@@ -75,7 +75,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.service.image.version }}"
           command: ["/bin/sh","-c"]
-          args: ["sudo -u onyxia {{ .Values.init.standardInitPath }} && /init"]
+          args: ["{{ .Values.init.standardInitPath }} /init"]
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
             - name: KUBERNETES_POD_NAME
