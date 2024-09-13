@@ -1,6 +1,6 @@
 # datadoc
 
-![Version: 0.9.14](https://img.shields.io/badge/Version-0.9.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.9.15](https://img.shields.io/badge/Version-0.9.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Applikasjon for å dokumentere datasett i SSB.
 
@@ -8,7 +8,7 @@ Applikasjon for å dokumentere datasett i SSB.
 
 ## Source Code
 
-* <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
 * <https://github.com/statisticsnorway/datadoc>
 
 ## Requirements
