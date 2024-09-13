@@ -32,7 +32,8 @@
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
           },
           "hidden": {
-            "value": false
+            "value": false,
+            "path": "dapla/buckets/enabled"
           }
         }
       }
