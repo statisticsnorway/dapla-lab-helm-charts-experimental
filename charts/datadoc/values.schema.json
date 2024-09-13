@@ -30,9 +30,6 @@
             "hidden": false,
             "overwriteDefaultWith": "dapla-felles-developers",
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
-          "hidden": {
-            "value": false
           }
         }
       }
