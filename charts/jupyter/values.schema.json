@@ -140,8 +140,9 @@
             "version": {
               "description": "supported versions",
               "type": "string",
-              "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/r4.4.0-py311-v12-2024.09.13",
+              "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311",
               "listEnum": [
+                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/r4.4.0-py311-v12-2024.09.13",
                 "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py312",
                 "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311"
               ],
