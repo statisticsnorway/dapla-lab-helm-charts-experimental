@@ -58,10 +58,7 @@
               "description": "Datadoc-versjon",
               "type": "string",
               "default": "v0",
-              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
-              "x-form": {
-                "value": "v0"
-              }
+              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
             }
           }
         }
