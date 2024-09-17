@@ -2110,6 +2110,29 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-playground-0.3.15/jupyter-playground-0.3.15.tgz
     version: 0.3.15
+  jupyter-rpk:
+  - apiVersion: v2
+    created: "2024-09-17T10:47:04.323132749Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: Minimal Jupyterlab med Python og R. Brukeren kan selv installere
+      pakker.
+    digest: 60dc7d58e82dca41786d2bc3d22449f853b6bce8f09bbf84e5ea5b3f18e5d486
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-rpk
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-rpk-0.5.4/jupyter-rpk-0.5.4.tgz
+    version: 0.5.4
   klassr:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -4906,4 +4929,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-buckets-0.0.1/vscode-python-buckets-0.0.1.tgz
     version: 0.0.1
-generated: "2024-09-16T13:37:48.604880553Z"
+generated: "2024-09-17T10:47:04.323473207Z"
