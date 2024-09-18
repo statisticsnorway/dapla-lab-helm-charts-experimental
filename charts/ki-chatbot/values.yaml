@@ -2,7 +2,7 @@ global:
   suspend: false
 tjeneste:
   image:
-    version: ""
+    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/play-chatbot-docker/simple-rag:latest"
     pullPolicy: IfNotPresent
 
 security:
