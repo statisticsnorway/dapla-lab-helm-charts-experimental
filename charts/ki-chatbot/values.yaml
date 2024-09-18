@@ -140,7 +140,8 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: {}
+nodeSelector:
+  ssb-node: "a100-40gb-1gpu"
 
 runtimeClassName: nvidia
 
