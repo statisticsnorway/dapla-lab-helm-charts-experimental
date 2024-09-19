@@ -14,9 +14,8 @@ security:
     enabled: false
     ip: "0.0.0.0/0"
   serviceEntry:
-    enabled: true
-    hosts:
-      - "storage.googleapis.com"
+    enabled: false
+    hosts: []
   oauth2:
     provider: keycloak-oidc
     oidcIssuerUrl: "overwritten-by-onyxia"
