@@ -2177,6 +2177,27 @@ entries:
     version: 0.5.4
   ki-chatbot:
   - apiVersion: v2
+    created: "2024-09-19T11:08:19.055793132Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: KI chatbot trent på Dapla manualen.
+    digest: b625c1f7d1f3154123505a0217d1bfce9bb4093ad28dddee4e64cfb9b3276516
+    home: https://github.com/statisticsnorway/team-ki-chatbots
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - AI
+    - Python
+    name: ki-chatbot
+    sources:
+    - https://github.com/statisticsnorway/team-ki-chatbots
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/ki-chatbot-0.3.0/ki-chatbot-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2024-09-19T10:38:21.757642311Z"
     dependencies:
     - name: library-chart
@@ -5037,4 +5058,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-rpk-0.5.5/vscode-python-rpk-0.5.5.tgz
     version: 0.5.5
-generated: "2024-09-19T10:38:21.758084348Z"
+generated: "2024-09-19T11:08:19.056204449Z"
