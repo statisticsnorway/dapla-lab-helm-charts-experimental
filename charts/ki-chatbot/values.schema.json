@@ -77,7 +77,7 @@
               "type": "boolean",
               "title": "Enable service entry",
               "description": "Enable access to external services",
-              "default": true,
+              "default": false,
               "x-onyxia": {
                 "hidden": true
               }
@@ -374,14 +374,6 @@
       "description": "NodeSelector",
       "default": {
         "ssb-node": "a100-40gb-1gpu"
-      },
-      "x-form": {
-        "hidden": true,
-        "value": "{{region.nodeSelector}}"
-      },
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector"
       }
     },
     "oidc": {

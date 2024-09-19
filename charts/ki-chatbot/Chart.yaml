@@ -1,6 +1,7 @@
 apiVersion: v2
 name: ki-chatbot
 description: KI chatbot trent på Dapla manualen.
+icon: https://cdn-icons-png.flaticon.com/512/6819/6819653.png
 keywords:
   - AI
   - Python
@@ -21,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.4.0
+version: 0.5.0
 
 dependencies:
   - name: library-chart
