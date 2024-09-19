@@ -1,6 +1,7 @@
 apiVersion: v2
 name: ki-chatbot
 description: KI chatbot trent på Dapla manualen.
+icon: https://cdn-icons-png.flaticon.com/512/6819/6819653.png
 keywords:
   - AI
   - Python
