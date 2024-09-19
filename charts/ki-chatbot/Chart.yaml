@@ -1,7 +1,6 @@
 apiVersion: v2
 name: ki-chatbot
 description: KI chatbot trent på Dapla manualen.
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
 keywords:
   - AI
   - Python
