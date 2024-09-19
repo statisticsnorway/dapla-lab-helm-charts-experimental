@@ -122,6 +122,8 @@ spec:
               value: "/user/onyxia/"
             - name: PIPX_HOME
               value: /home/{{ .Values.environment.user }}/work/.local/opt/pipx
+            - name: PIPX_BIN_DIR
+              value: /home/{{ .Values.environment.user }}/work/.local/bin/
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
