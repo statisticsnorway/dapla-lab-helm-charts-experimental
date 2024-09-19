@@ -1,6 +1,6 @@
 # ki-chatbot
 
-![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 KI chatbot trent på Dapla manualen.
 
@@ -94,7 +94,7 @@ KI chatbot trent på Dapla manualen.
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.image.version | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/play-chatbot-docker/simple-rag:latest"` |  |
+| tjeneste.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/play-chatbot-docker/simple-rag:latest"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
