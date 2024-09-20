@@ -1051,6 +1051,27 @@ entries:
     version: 0.0.1
   jupyter:
   - apiVersion: v2
+    created: "2024-09-20T12:13:47.42775094Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.4
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 27e436f27df4207eae6ce24c3bf3e8b018b8945c544983b0ca9677ef8a10e09a
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-0.3.43/jupyter-0.3.43.tgz
+    version: 0.3.43
+  - apiVersion: v2
     created: "2024-09-19T08:14:11.180714676Z"
     dependencies:
     - name: library-chart
@@ -5099,6 +5120,28 @@ entries:
     version: 0.0.1
   vscode-python-rpk:
   - apiVersion: v2
+    created: "2024-09-20T12:13:47.522773988Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter
+      behov.
+    digest: 3e98e44dbd10ca81494f2eabaf3c82cd779aed2f5d2f4c5e04281750587617f8
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-rpk
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-rpk-0.5.6/vscode-python-rpk-0.5.6.tgz
+    version: 0.5.6
+  - apiVersion: v2
     created: "2024-09-18T08:30:32.978594985Z"
     dependencies:
     - name: library-chart
@@ -5120,4 +5163,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-rpk-0.5.5/vscode-python-rpk-0.5.5.tgz
     version: 0.5.5
-generated: "2024-09-19T17:41:40.88552267Z"
+generated: "2024-09-20T12:13:47.523352815Z"
