@@ -120,6 +120,10 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter
             - name: JUPYTER_RUNTIME_DIR
               value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/runtime
+            - name: PIPX_HOME
+              value: /home/{{ .Values.environment.user }}/work/.local/opt/pipx
+            - name: PIPX_BIN_DIR
+              value: /home/{{ .Values.environment.user }}/work/.local/bin/
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
               value: "1.1.7"
           envFrom:
