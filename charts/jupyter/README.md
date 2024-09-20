@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.3.42](https://img.shields.io/badge/Version-0.3.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.43](https://img.shields.io/badge/Version-0.3.43-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
