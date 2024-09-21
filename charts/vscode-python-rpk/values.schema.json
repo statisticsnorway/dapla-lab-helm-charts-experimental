@@ -199,10 +199,10 @@
             "version": {
               "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
               "type": "string",
-              "default": "py311-v20-2024.09.19",
+              "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py311",
               "listEnum": [
-                "py312-v20-2024.09.19",
-                "py311-v20-2024.09.19"
+                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py312",
+                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py311"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
