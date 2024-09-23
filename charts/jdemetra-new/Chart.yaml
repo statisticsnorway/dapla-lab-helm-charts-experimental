@@ -1,5 +1,5 @@
 apiVersion: v2
-name: jdemetra_new
+name: jdemetra-new
 description: Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 icon: https://avatars.githubusercontent.com/u/10142886
 keywords:
@@ -21,7 +21,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.0.2
+version: 0.0.3
 
 dependencies:
   - name: library-chart
