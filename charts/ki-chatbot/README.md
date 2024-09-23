@@ -1,6 +1,6 @@
 # ki-chatbot
 
-![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 KI chatbot trent på Dapla manualen.
 
@@ -64,7 +64,7 @@ KI chatbot trent på Dapla manualen.
 | networking.clusterIP | string | `"None"` |  |
 | networking.service.port | int | `8080` |  |
 | networking.type | string | `"ClusterIP"` |  |
-| nodeSelector.ssb-node | string | `"a100-40gb-1gpu"` |  |
+| nodeSelector."cloud.google.com/gke-accelerator" | string | `"nvidia-tesla-a100"` |  |
 | oidc.enabled | bool | `true` |  |
 | oidc.secretName | string | `""` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
@@ -75,9 +75,8 @@ KI chatbot trent på Dapla manualen.
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
 | ressurser.requests.cpu | string | `""` |  |
-| ressurser.requests.gpu | int | `1` |  |
+| ressurser.requests.gpu | string | `"1"` |  |
 | ressurser.requests.memory | string | `""` |  |
-| runtimeClassName | string | `"nvidia"` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
@@ -95,7 +94,9 @@ KI chatbot trent på Dapla manualen.
 | serviceAccount.name | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/play-chatbot-docker/simple-rag:latest"` |  |
-| tolerations | list | `[]` |  |
+| tolerations[0].effect | string | `"NoSchedule"` |  |
+| tolerations[0].key | string | `"nvidia.com/gpu"` |  |
+| tolerations[0].operator | string | `"Exists"` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
 | userAttributes.value | string | `""` |  |
