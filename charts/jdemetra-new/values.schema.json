@@ -144,7 +144,7 @@
             "pullPolicy": {
               "type": "string",
               "description": "option when pulling the docker image",
-              "default": "IfNotPresent",
+              "default": "Always",
               "enum": [
                 "IfNotPresent",
                 "Always",
@@ -157,9 +157,9 @@
             "version": {
               "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
               "type": "string",
-              "default": "jd3.2.4-v1-2024.09.10",
+              "default": "jd3.2.4",
               "listEnum": [
-                "jd3.2.4-v1-2024.09.10"
+                "jd3.2.4"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
