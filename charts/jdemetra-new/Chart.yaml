@@ -1,5 +1,5 @@
 apiVersion: v2
-name: jdemetra_new
+name: jdemetra-new
 description: Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 icon: https://avatars.githubusercontent.com/u/10142886
 keywords:
