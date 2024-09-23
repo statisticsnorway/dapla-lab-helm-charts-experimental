@@ -1,6 +1,6 @@
 # ki-chatbot
 
-![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 KI chatbot trent på Dapla manualen.
 
@@ -87,14 +87,14 @@ KI chatbot trent på Dapla manualen.
 | security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
 | security.password | string | `"changeme"` |  |
-| security.serviceEntry.enabled | bool | `true` |  |
-| security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
+| security.serviceEntry.enabled | bool | `false` |  |
+| security.serviceEntry.hosts | list | `[]` |  |
 | securityContext | object | `{}` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.image.version | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/play-chatbot-docker/simple-rag:latest"` |  |
+| tjeneste.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/play-chatbot-docker/simple-rag:latest"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
