@@ -359,7 +359,13 @@
     "tolerations": {
       "type": "array",
       "description": "Array of tolerations",
-      "default": [],
+      "default": [
+        {
+          "key": "nvidia.com/gpu",
+          "operator": "Exists",
+          "effect": "NoSchedule"
+        }
+      ],
       "x-form": {
         "hidden": true,
         "value": "{{region.tolerations}}"
@@ -373,7 +379,7 @@
       "type": "object",
       "description": "NodeSelector",
       "default": {
-        "ssb-node": "a100-40gb-1gpu"
+        "cloud.google.com/gke-accelerator": "nvidia-tesla-a100"
       }
     },
     "oidc": {
