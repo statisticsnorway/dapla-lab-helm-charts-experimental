@@ -116,7 +116,7 @@ ressurser:
   requests:
     cpu: ""
     memory: ""
-    gpu: 1
+    gpu: "1"
 
 diskplass:
   enabled: false
@@ -140,11 +140,14 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 nodeSelector:
-  ssb-node: "a100-40gb-1gpu"
+  cloud.google.com/gke-accelerator: nvidia-tesla-a100
 
-runtimeClassName: nvidia
+# runtimeClassName: nvidia
 
-tolerations: []
+tolerations:
+  - key: "nvidia.com/gpu"
+    operator: "Exists"
+    effect: "NoSchedule"
 
 userPreferences: {}
 
