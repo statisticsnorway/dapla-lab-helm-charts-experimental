@@ -180,7 +180,7 @@
               "description": "Garantert tilgjengelig CPU i tjenesten. Maximum kan være høyere hvis tilgjengelig på maskinen",
               "title": "CPU",
               "type": "string",
-              "default": "2000m",
+              "default": "1000m",
               "render": "slider",
               "sliderMin": 50,
               "sliderMax": 8000,
@@ -498,7 +498,7 @@
                 "value": false,
                 "path": "networking/user/enabled"
               },
-              "default": 5000
+              "default": 6080
             }
           }
         }
