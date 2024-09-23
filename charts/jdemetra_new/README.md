@@ -1,10 +1,10 @@
 # jdemetra_new
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
-**Homepage:** <https://manual.dapla.ssb.no/statistikkere/vscode-python.html>
+**Homepage:** <https://manual.dapla.ssb.no/statistikkere/jdemetra.html>
 
 ## Source Code
 
