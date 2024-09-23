@@ -4,7 +4,7 @@
   "properties": {
     "dapla": {
       "title": "Dapla",
-      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
+      "description": "Aktiver bøttemontering og velg dapla-gruppe",
       "type": "object",
       "properties": {
         "buckets": {
@@ -133,48 +133,6 @@
         }
       }
     },
-    "ressurser": {
-      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
-      "type": "object",
-      "properties": {
-        "requests": {
-          "description": "Garantert tilgjengelig cpu i tjenesten",
-          "type": "object",
-          "properties": {
-            "cpu": {
-              "description": "Garantert tilgjengelig CPU i tjenesten. Maximum kan være høyere hvis tilgjengelig på maskinen",
-              "title": "CPU",
-              "type": "string",
-              "default": "2000m",
-              "render": "slider",
-              "sliderMin": 50,
-              "sliderMax": 8000,
-              "sliderStep": 50,
-              "sliderUnit": "m",
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.resources.cpuRequest",
-                "useRegionSliderConfig": "cpu"
-              }
-            },
-            "memory": {
-              "description": "Garantert tilgjengelig minne/RAM i tjenesten",
-              "title": "Minne/RAM",
-              "type": "string",
-              "default": "8Gi",
-              "render": "slider",
-              "sliderMin": 1,
-              "sliderMax": 600,
-              "sliderStep": 1,
-              "sliderUnit": "Gi",
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.resources.memoryRequest",
-                "useRegionSliderConfig": "memory"
-              }
-            }
-          }
-        }
-      }
-    },
     "tjeneste": {
       "description": "Velg versjon av tjenesten",
       "type": "object",
@@ -205,6 +163,48 @@
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+            }
+          }
+        }
+      }
+    },
+    "ressurser": {
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
+      "type": "object",
+      "properties": {
+        "requests": {
+          "description": "Garantert tilgjengelig cpu i tjenesten",
+          "type": "object",
+          "properties": {
+            "cpu": {
+              "description": "Garantert tilgjengelig CPU i tjenesten. Maximum kan være høyere hvis tilgjengelig på maskinen",
+              "title": "CPU",
+              "type": "string",
+              "default": "1000m",
+              "render": "slider",
+              "sliderMin": 50,
+              "sliderMax": 8000,
+              "sliderStep": 50,
+              "sliderUnit": "m",
+              "x-onyxia": {
+                "overwriteDefaultWith": "region.resources.cpuRequest",
+                "useRegionSliderConfig": "cpu"
+              }
+            },
+            "memory": {
+              "description": "Garantert tilgjengelig minne/RAM i tjenesten",
+              "title": "Minne/RAM",
+              "type": "string",
+              "default": "8Gi",
+              "render": "slider",
+              "sliderMin": 1,
+              "sliderMax": 600,
+              "sliderStep": 1,
+              "sliderUnit": "Gi",
+              "x-onyxia": {
+                "overwriteDefaultWith": "region.resources.memoryRequest",
+                "useRegionSliderConfig": "memory"
+              }
             }
           }
         }
@@ -254,9 +254,6 @@
               "title": "Enable IP protection",
               "description": "Only the configured set of IPs will be able to reach the service",
               "default": true,
-              "x-form": {
-                "value": "{{region.defaultIpProtection}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.defaultIpProtection"
@@ -297,10 +294,6 @@
               "type": "array",
               "description": "Array of source allowed to have network access to your service",
               "default": [],
-              "x-form": {
-                "hidden": true,
-                "value": "{{region.from}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.from"
@@ -353,6 +346,7 @@
               "type": "string",
               "title": "OIDC issuer url",
               "description": "Url to the OIDC issuer",
+              "default": "",
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
@@ -504,7 +498,7 @@
                 "value": false,
                 "path": "networking/user/enabled"
               },
-              "default": 5000
+              "default": 6080
             }
           }
         }
