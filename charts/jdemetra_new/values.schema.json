@@ -4,7 +4,7 @@
   "properties": {
     "dapla": {
       "title": "Dapla",
-      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
+      "description": "Aktiver bøttemontering og velg dapla-gruppe",
       "type": "object",
       "properties": {
         "buckets": {
@@ -133,6 +133,41 @@
         }
       }
     },
+    "tjeneste": {
+      "description": "Velg versjon av tjenesten",
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "image docker",
+          "type": "object",
+          "properties": {
+            "pullPolicy": {
+              "type": "string",
+              "description": "option when pulling the docker image",
+              "default": "IfNotPresent",
+              "enum": [
+                "IfNotPresent",
+                "Always",
+                "Never"
+              ],
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "version": {
+              "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
+              "type": "string",
+              "default": "jd3.2.4-v1-2024.09.10",
+              "listEnum": [
+                "jd3.2.4-v1-2024.09.10"
+              ],
+              "render": "list",
+              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+            }
+          }
+        }
+      }
+    },
     "ressurser": {
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
@@ -170,41 +205,6 @@
                 "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
               }
-            }
-          }
-        }
-      }
-    },
-    "tjeneste": {
-      "description": "Velg versjon av tjenesten",
-      "type": "object",
-      "properties": {
-        "image": {
-          "description": "image docker",
-          "type": "object",
-          "properties": {
-            "pullPolicy": {
-              "type": "string",
-              "description": "option when pulling the docker image",
-              "default": "IfNotPresent",
-              "enum": [
-                "IfNotPresent",
-                "Always",
-                "Never"
-              ],
-              "x-onyxia": {
-                "hidden": true
-              }
-            },
-            "version": {
-              "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
-              "type": "string",
-              "default": "jd3.2.4-v1-2024.09.10",
-              "listEnum": [
-                "jd3.2.4-v1-2024.09.10"
-              ],
-              "render": "list",
-              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
             }
           }
         }
@@ -254,9 +254,6 @@
               "title": "Enable IP protection",
               "description": "Only the configured set of IPs will be able to reach the service",
               "default": true,
-              "x-form": {
-                "value": "{{region.defaultIpProtection}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.defaultIpProtection"
@@ -297,10 +294,6 @@
               "type": "array",
               "description": "Array of source allowed to have network access to your service",
               "default": [],
-              "x-form": {
-                "hidden": true,
-                "value": "{{region.from}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.from"
@@ -353,6 +346,7 @@
               "type": "string",
               "title": "OIDC issuer url",
               "description": "Url to the OIDC issuer",
+              "default": "",
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"

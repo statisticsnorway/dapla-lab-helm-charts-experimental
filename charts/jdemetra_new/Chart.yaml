@@ -4,7 +4,7 @@ description: Verktøy for sesongjustering og tidsserie-analyse utviklet i samarb
 icon: https://avatars.githubusercontent.com/u/10142886
 keywords:
   - JDemetra  # TODO: Change 'home' to link to Dapla Manual
-home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+home: https://manual.dapla.ssb.no/statistikkere/jdemetra.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
