@@ -155,11 +155,12 @@
               }
             },
             "version": {
-              "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
+              "description": "Velg hvilken versjon av imaget du ønsker å starte tjenesten med",
               "type": "string",
               "default": "jd3.2.4",
               "listEnum": [
-                "jd3.2.4"
+                "jd3.2.4",
+                "experimental"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
