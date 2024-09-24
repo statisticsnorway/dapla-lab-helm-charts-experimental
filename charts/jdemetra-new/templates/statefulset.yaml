@@ -29,6 +29,9 @@ spec:
   template:
     metadata:
       annotations:
+        {{- if eq .Values.tjeneste.image.version "experimental" }}
+        dapla.ssb.no/service-catalog: "experimental"
+        {{- end }}
         {{- if .Values.git.enabled }}
         checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
         {{- end }}
@@ -68,7 +71,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- if eq .Values.tjeneste.image.version "experimental" }}
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/jdemetra:latest"
+          {{- else }}
           image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jdemetra:{{ .Values.tjeneste.image.version }}"
+          {{- end }}
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} /opt/jdemetra-init.sh"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
