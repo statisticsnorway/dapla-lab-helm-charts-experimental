@@ -159,8 +159,8 @@
               "type": "string",
               "default": "jd3.2.4",
               "listEnum": [
-                "jd3.2.4",
-                "experimental"
+                "experimental-jd3.2.4",
+                "experimental-jd2.2.5"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"

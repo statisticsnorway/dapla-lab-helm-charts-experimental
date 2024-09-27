@@ -71,8 +71,10 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          {{- if eq .Values.tjeneste.image.version "experimental" }}
-          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/jdemetra:latest"
+          {{- if hasPrefix "experimental-jd3" .Values.tjeneste.image.version }}
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/jdemetra:jd3.2.4"
+          {{- else if hasPrefix "experimental-jd2" .Values.tjeneste.image.version }}
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/jdemetra:jd2.2.5"
           {{- else }}
           image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jdemetra:{{ .Values.tjeneste.image.version }}"
           {{- end }}
