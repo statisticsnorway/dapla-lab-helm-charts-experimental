@@ -77,7 +77,7 @@ podAnnotations: {}
 
 podLabels:
   onyxia.app: "datadoc"
-  maintained-by-team: "metadata"
+  maintained-by-team: "dapla-metadata"
 
 podSecurityContext:
   fsGroup: 100
