@@ -4,7 +4,7 @@
   "properties": {
     "dapla": {
       "title": "Dapla",
-      "description": "Aktiver bøttemontering og velg dapla-gruppe",
+      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
       "type": "object",
       "properties": {
         "buckets": {
@@ -15,16 +15,9 @@
               "type": "boolean",
               "title": "Aktiver",
               "description": "Aktiver datatilgang",
-              "default": false
-            },
-            "mountStandard": {
-              "type": "boolean",
-              "title": "Bøtter som filsystem",
-              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
               "default": true,
-              "hidden": {
-                "value": false,
-                "path": "dapla/buckets/enabled"
+              "x-onyxia": {
+                "hidden": true
               }
             }
           }
@@ -34,101 +27,12 @@
           "title": "Team og tilgangsgruppe",
           "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
           "render": "list",
-          "default": "",
-          "listEnum": [
-            ""
-          ],
+          "default": "dapla-felles-developers",
+          "listEnum": [""],
           "x-onyxia": {
-            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
+            "hidden": false,
+            "overwriteDefaultWith": "dapla-felles-developers",
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        }
-      }
-    },
-    "git": {
-      "description": "Konfigurer Git og GitHub for tjenesten",
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "title": "Konfigurer Git",
-          "description": "Konfigurerer Git iht SSBs standard",
-          "default": true
-        },
-        "name": {
-          "type": "string",
-          "title": "Git brukernavn",
-          "description": "Standardverdi arves fra *Min konto* i Dapla Lab",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.name}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "email": {
-          "type": "string",
-          "title": "Git e-post",
-          "description": "Standardverdi arves fra *Min konto* i Dapla Lab.",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.email}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "cache": {
-          "type": "string",
-          "description": "duration in seconds of the credentials cache duration",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.credentials_cache_duration}}",
-            "hidden": true
-          }
-        },
-        "token": {
-          "type": "string",
-          "title": "GitHub-token",
-          "description": "personal access token",
-          "default": "",
-          "render": "password",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.token}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "repository": {
-          "type": "string",
-          "title": "Repository",
-          "description": "Repo som skal klones ved oppstart av tjenesten",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.project}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "branch": {
-          "type": "string",
-          "title": "Git branch",
-          "description": "Hvilken branch du skal jobbe i",
-          "default": "",
-          "hidden": {
-            "value": "",
-            "path": "git/repository"
           }
         }
       }
@@ -155,7 +59,7 @@
               }
             },
             "version": {
-              "description": "Velg hvilken versjon av imaget du ønsker å starte tjenesten med",
+              "description": "JDemetra versjon",
               "type": "string",
               "default": "jd3.2.4",
               "listEnum": [
@@ -196,10 +100,10 @@
               "description": "Garantert tilgjengelig minne/RAM i tjenesten",
               "title": "Minne/RAM",
               "type": "string",
-              "default": "8Gi",
+              "default": "1Gi",
               "render": "slider",
               "sliderMin": 1,
-              "sliderMax": 600,
+              "sliderMax": 64,
               "sliderStep": 1,
               "sliderUnit": "Gi",
               "x-onyxia": {
@@ -236,7 +140,7 @@
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
-            "value": false,
+            "value": true,
             "path": "diskplass/enabled"
           }
         }
@@ -262,8 +166,8 @@
             },
             "ip": {
               "type": "string",
-              "description": "the white list of IP is whitespace",
-              "title": "Whitelist of IP",
+              "description": "the allow list of IP is whitespace",
+              "title": "Allowlist of IP",
               "x-form": {
                 "value": "{{user.ip}}"
               },
@@ -377,33 +281,6 @@
         }
       }
     },
-    "kubernetes": {
-      "description": "configuration of your kubernetes access",
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "description": "allow your service to access your namespace ressources",
-          "default": true,
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "role": {
-          "type": "string",
-          "description": "bind your service account to this kubernetes default role",
-          "default": "view",
-          "enum": [
-            "view",
-            "edit",
-            "admin"
-          ],
-          "x-onyxia": {
-            "hidden": true
-          }
-        }
-      }
-    },
     "istio": {
       "type": "object",
       "form": true,
@@ -439,37 +316,6 @@
         }
       }
     },
-    "userAttributes": {
-      "description": "User attributes to pass into the service",
-      "type": "object",
-      "properties": {
-        "environmentVariableName": {
-          "type": "string",
-          "description": "Name of the environment variable to use",
-          "default": "OIDC_TOKEN",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "userAttribute": {
-          "type": "string",
-          "description": "The user attribute to map to the environment variable",
-          "default": "access_token",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "value": {
-          "type": "string",
-          "description": "The value of the user attribute (will be replaced by backend)",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": ""
-          }
-        }
-      }
-    },
     "networking": {
       "type": "object",
       "form": true,
@@ -500,6 +346,37 @@
                 "path": "networking/user/enabled"
               },
               "default": 6080
+            }
+          }
+        },
+        "userAttributes": {
+          "description": "User attributes to pass into the service",
+          "type": "object",
+          "properties": {
+            "environmentVariableName": {
+              "type": "string",
+              "description": "Name of the environment variable to use",
+              "default": "OIDC_TOKEN",
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "userAttribute": {
+              "type": "string",
+              "description": "The user attribute to map to the environment variable",
+              "default": "access_token",
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "value": {
+              "type": "string",
+              "description": "The value of the user attribute (will be replaced by backend)",
+              "default": "",
+              "x-onyxia": {
+                "hidden": true,
+                "overwriteDefaultWith": ""
+              }
             }
           }
         },
@@ -666,84 +543,13 @@
         }
       }
     },
-    "deleteJob": {
-      "description": "Configuration for automatic deletion of job",
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "description": "Whenever or not to create a job to delete this release",
-          "default": true,
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "cronMinuteAtDay": {
-          "type": "string",
-          "title": "Minute at day",
-          "description": "Which minute at day the job should run",
-          "default": "0",
-          "form": true,
-          "render": "slider",
-          "sliderMin": 0,
-          "sliderMax": 59,
-          "sliderStep": 1,
-          "sliderUnit": "",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "cronHourAtDay": {
-          "type": "string",
-          "title": "Hour at day",
-          "description": "Which hour at day the job should run",
-          "default": "20",
-          "form": true,
-          "render": "slider",
-          "sliderMin": 0,
-          "sliderMax": 23,
-          "sliderStep": 1,
-          "sliderUnit": "",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "imageVersion": {
-          "type": "string",
-          "title": "Version of helm-cli image",
-          "description": "Which version of the helm-cli image",
-          "default": "v1.1.0",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "clusterRoleName": {
-          "type": "string",
-          "title": "Cluster role name",
-          "description": "Which cluster role the delete job should run with",
-          "default": "onyxia-delete-job",
-          "x-onyxia": {
-            "hidden": true
-          }
-        }
-      }
-    },
-    "deployEnvironment": {
-      "type": "string",
-      "description": "Environment in which a service is deployed",
-      "default": "",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteDefaultWith": "region.customValues.deployEnvironment"
-      }
-    },
     "global": {
         "description": "Suspend",
         "type": "object",
         "properties": {
             "suspend": {
                 "type": "boolean",
-                "description": "Suspend this service",
+                "description": "Pause tjenesten",
                 "default": false,
                 "x-onyxia": {
                     "hidden": true
