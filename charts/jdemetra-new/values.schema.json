@@ -92,6 +92,7 @@
               "sliderStep": 50,
               "sliderUnit": "m",
               "x-onyxia": {
+                "hidden": true,
                 "overwriteDefaultWith": "region.resources.cpuRequest",
                 "useRegionSliderConfig": "cpu"
               }
@@ -107,6 +108,7 @@
               "sliderStep": 1,
               "sliderUnit": "Gi",
               "x-onyxia": {
+                "hidden": true,
                 "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
               }
@@ -136,6 +138,7 @@
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
+            "hidden": true,
             "overwriteDefaultWith": "region.resources.disk",
             "useRegionSliderConfig": "disk"
           },
