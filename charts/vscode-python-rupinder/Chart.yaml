@@ -1,5 +1,5 @@
 apiVersion: v2
-name: vscode-python-rpk
+name: vscode-python-rupinder
 description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
 keywords:
@@ -22,9 +22,10 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.5.10
+version: 0.5.15
+
 
 dependencies:
   - name: library-chart
     version: 4.0.0
-    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library

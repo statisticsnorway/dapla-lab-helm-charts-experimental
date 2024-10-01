@@ -2,7 +2,7 @@ global:
   suspend: false
 tjeneste:
   image:
-    version: "py311-v8-2024.09.10"
+    version: "vscode1.0.0"
     pullPolicy: IfNotPresent
 
 security:
