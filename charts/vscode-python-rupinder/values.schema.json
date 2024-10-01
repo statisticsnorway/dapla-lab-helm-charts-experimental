@@ -202,7 +202,8 @@
               "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:vscode1.0.0",
               "listEnum": [
                 "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:vscode1.0.0",
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:latest"
+                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py312",
+                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py311"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
