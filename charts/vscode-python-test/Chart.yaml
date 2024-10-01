@@ -1,5 +1,5 @@
 apiVersion: v2
-name: vscode-python-buckets
+name: vscode-python-test
 description: The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages, with Google Cloud Storage bucket mounting functionality.
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
 keywords:
