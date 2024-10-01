@@ -1,6 +1,6 @@
 service:
   image:
-    version: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:main"
+    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/dapla-vscode-python:v1.0.0"
     pullPolicy: IfNotPresent
 
 global:
