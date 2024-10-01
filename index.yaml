@@ -5602,4 +5602,27 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-rpk-0.5.5/vscode-python-rpk-0.5.5.tgz
     version: 0.5.5
-generated: "2024-09-30T22:05:33.397245734Z"
+  vscode-python-rupinder:
+  - apiVersion: v2
+    created: "2024-10-01T08:11:15.352948984Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.0.0
+    description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter
+      behov.
+    digest: f7850e5d4159545aedf098c0e2b8f8b1a0f8fc4a524e142706d97b6e93df8533
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-rupinder
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-rupinder-0.5.15/vscode-python-rupinder-0.5.15.tgz
+    version: 0.5.15
+generated: "2024-10-01T08:11:15.35332728Z"
