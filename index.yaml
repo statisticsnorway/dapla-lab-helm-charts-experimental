@@ -4876,6 +4876,28 @@ entries:
     version: 0.3.7
   vscode-python-buckets:
   - apiVersion: v2
+    created: "2024-10-01T08:45:27.820470672Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.4
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages, with Google Cloud Storage bucket mounting functionality.
+    digest: b7d5b55d300200d2ba525f7c43ab792bfe957bc317724473478fb071e31b694f
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-buckets
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-buckets-2.9.11/vscode-python-buckets-2.9.11.tgz
+    version: 2.9.11
+  - apiVersion: v2
     created: "2024-10-01T08:33:29.040429261Z"
     dependencies:
     - name: library-chart
@@ -5647,4 +5669,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-rupinder-0.5.15/vscode-python-rupinder-0.5.15.tgz
     version: 0.5.15
-generated: "2024-10-01T08:33:29.04100537Z"
+generated: "2024-10-01T08:45:27.821037029Z"
