@@ -2,7 +2,7 @@ global:
   suspend: false
 tjeneste:
   image:
-    version: "py311-v39-2024.10.01"
+    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:v1.0.1"
     pullPolicy: IfNotPresent
 
 security:
