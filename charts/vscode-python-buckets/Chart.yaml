@@ -27,4 +27,4 @@ version: 2.9.13
 dependencies:
   - name: library-chart
     version: 3.2.4
-    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
