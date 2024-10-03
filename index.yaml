@@ -5581,6 +5581,28 @@ entries:
     version: 0.0.1
   vscode-python-suspend:
   - apiVersion: v2
+    created: "2024-10-03T12:48:31.026141931Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.0.0
+    description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter
+      behov.
+    digest: c380436d03a6e282f6f9fec441f36c09651ca8061a059d19369168fb11aee1bc
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-suspend
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.29/vscode-python-suspend-0.5.29.tgz
+    version: 0.5.29
+  - apiVersion: v2
     created: "2024-10-03T11:47:25.147409132Z"
     dependencies:
     - name: library-chart
@@ -5734,4 +5756,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.22/vscode-python-suspend-0.5.22.tgz
     version: 0.5.22
-generated: "2024-10-03T11:47:25.147783182Z"
+generated: "2024-10-03T12:48:31.02649336Z"
