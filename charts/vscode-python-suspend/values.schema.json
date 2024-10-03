@@ -199,9 +199,9 @@
             "version": {
               "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:v1.0.1",
+              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:v1.0.0",
               "listEnum": [
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:v1.0.1"
+                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:v1.0.0"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
