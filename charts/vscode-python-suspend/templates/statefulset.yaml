@@ -122,6 +122,10 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/runtime
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
               value: "1.1.7"
+            - name: PIPX_HOME
+              value: /home/{{ .Values.environment.user }}/work/.local/share/pipx
+            - name : PIPX_BIN_DIR
+              value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
