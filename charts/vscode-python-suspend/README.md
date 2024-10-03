@@ -1,6 +1,6 @@
 # vscode-python-suspend
 
-![Version: 0.5.28](https://img.shields.io/badge/Version-0.5.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.5.29](https://img.shields.io/badge/Version-0.5.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -92,7 +92,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py312"` |  |
+| tjeneste.image.version | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:v1.0.0"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
