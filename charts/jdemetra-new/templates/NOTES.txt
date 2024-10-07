@@ -4,8 +4,6 @@ dukker opp nederst til høyre i denne boksen.
 {{- end }}
 
 *Viktig:*
-
-- Når tjenesten slettes vil også filsystemet i tjenesten slettes.
-- Når tjenesten pauses vil alle filer som lagres utenfor `/home/onyxia/work/` bli slettet.
-- Data skal alltid lagres i Google-bøtter.
-- Kode skal lagres på GitHub og det er viktig at man *pusher* kode til GitHub med jevne mellomrom, og alltid før man avslutter arbeidsdagen.
+- Alltid lagre JDemetra-workspaces i en bøtte under `/buckets/produkt/`
+- Filer som ikke lagres under `/buckets/produkt/` vil bli slettet når tjenesten slettes.
+- Ved pausing av tjenesten vil alle filer som ikke er lagret under `/home/onyxia/work` eller `/buckets/produkt/` bli slettet.
