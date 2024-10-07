@@ -62,3 +62,6 @@ tjeneste:
 tolerations: []
 userPreferences:
   darkMode: false
+
+autoscaling:
+  enabled: false
