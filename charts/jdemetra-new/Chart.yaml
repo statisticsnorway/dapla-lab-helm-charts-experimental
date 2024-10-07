@@ -7,7 +7,7 @@ keywords:
 home: https://manual.dapla.ssb.no/statistikkere/jdemetra.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
-  - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -21,9 +21,9 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.2
+version: 0.1.3
 
 dependencies:
   - name: library-chart
     version: 4.0.0
-    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library

@@ -32,14 +32,8 @@ spec:
         {{- if eq .Values.tjeneste.image.version "experimental" }}
         dapla.ssb.no/service-catalog: "experimental"
         {{- end }}
-        {{- if .Values.git.enabled }}
-        checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
-        {{- end }}
         {{- if .Values.oidc.enabled }}
         checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if (include "library-chart.repository.enabled"  .) }}
-        checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
         {{- end }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
@@ -116,14 +110,6 @@ spec:
             {{- if .Values.oidc.enabled }}
             - secretRef:
                 name: {{ include "library-chart.secretNameOidc" . }}
-            {{- end }}
-            {{- if .Values.git.enabled }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameGit" . }}
-            {{- end }}
-            {{- if (include "library-chart.repository.enabled"  .) }}
-            - configMapRef:
-                name: {{ include "library-chart.configMapNameRepository" . }}
             {{- end }}
           livenessProbe:
             httpGet:
