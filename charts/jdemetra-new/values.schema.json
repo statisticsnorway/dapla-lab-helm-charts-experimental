@@ -339,15 +339,15 @@
       "form": true,
       "title": "Networking detail",
       "properties": {
-        "user": {
+        "service": {
           "type": "object",
-          "description": "user defined port",
+          "description": "service defined port",
           "properties": {
             "enabled": {
               "type": "boolean",
               "title": "Enable a custom service port",
               "description": "Enable a custom service port",
-              "default": false,
+              "default": true,
               "x-onyxia": {
                 "hidden": true
               }
@@ -361,7 +361,7 @@
               },
               "hidden": {
                 "value": false,
-                "path": "networking/user/enabled"
+                "path": "networking/service/enabled"
               },
               "default": 6080
             }

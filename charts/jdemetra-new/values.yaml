@@ -19,7 +19,7 @@ istio:
     - istio-system/dapla-lab-dev-gateway
   hostname: user-ssb-kons-schu-594273-0.lab.dapla-dev.ssb.no
 networking:
-  user:
+  service:
     enabled: false
     port: 6080
 nodeSelector:
