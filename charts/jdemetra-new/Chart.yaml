@@ -7,7 +7,7 @@ keywords:
 home: https://manual.dapla.ssb.no/statistikkere/jdemetra.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
-  - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
