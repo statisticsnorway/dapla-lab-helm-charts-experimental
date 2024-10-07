@@ -4,7 +4,7 @@
   "properties": {
     "dapla": {
       "title": "Dapla",
-      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
+      "description": "Aktiver bøttemontering og velg dapla-gruppe",
       "type": "object",
       "properties": {
         "buckets": {
@@ -19,6 +19,16 @@
               "x-onyxia": {
                 "hidden": true
               }
+            },
+            "mountStandard": {
+              "type": "boolean",
+              "title": "Bøtter som filsystem",
+              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
+              "default": true,
+              "hidden": {
+                "value": false,
+                "path": "dapla/buckets/enabled"
+              }
             }
           }
         },
@@ -28,11 +38,16 @@
           "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
           "render": "list",
           "default": "dapla-felles-developers",
-          "listEnum": [""],
+          "listEnum": [
+            ""
+          ],
           "x-onyxia": {
-            "hidden": false,
-            "overwriteDefaultWith": "dapla-felles-developers",
+            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
+          },
+          "hidden": {
+            "value": false,
+            "path": "dapla/buckets/enabled"
           }
         }
       }
@@ -61,7 +76,7 @@
             "version": {
               "description": "JDemetra versjon",
               "type": "string",
-              "default": "jd3.2.4",
+              "default": "experimental-jd3.2.4",
               "listEnum": [
                 "experimental-jd3.2.4",
                 "experimental-jd2.2.5"
@@ -190,9 +205,6 @@
               "title": "Enable network policy",
               "description": "Only pod from the same namespace will be allowed",
               "default": true,
-              "x-form": {
-                "value": "{{region.defaultNetworkPolicy}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.defaultNetworkPolicy"
