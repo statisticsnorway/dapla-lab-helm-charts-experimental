@@ -1,6 +1,6 @@
 # jdemetra-new
 
-![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -21,58 +21,77 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
+| autoscaling.maxReplicas | int | `100` |  |
+| autoscaling.minReplicas | int | `1` |  |
+| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | dapla.buckets.enabled | bool | `true` |  |
-| dapla.buckets.mountStandard | bool | `true` |  |
-| dapla.group | string | `"dapla-stat-developers"` |  |
-| diskplass.enabled | bool | `true` |  |
+| dapla.buckets.mountStandard | bool | `false` |  |
+| dapla.group | string | `"dapla-felles-developers"` |  |
+| diskplass.accessMode | string | `"ReadWriteOnce"` |  |
+| diskplass.enabled | bool | `false` |  |
 | diskplass.size | string | `"10Gi"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
+| features.toggle_new_variables_workspace | bool | `false` |  |
+| fullnameOverride | string | `""` |  |
 | global.suspend | bool | `false` |  |
+| imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
-| init.regionInitCheckSum | string | `""` |  |
-| istio.enabled | bool | `true` |  |
-| istio.gateways[0] | string | `"istio-system/dapla-lab-dev-gateway"` |  |
-| istio.hostname | string | `"user-ssb-kons-schu-594273-0.lab.dapla-dev.ssb.no"` |  |
+| init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
+| istio.enabled | bool | `false` |  |
+| istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
+| istio.hostname | string | `"chart-example.local"` |  |
+| istio.userHostname | string | `"chart-example-user.local"` |  |
 | kubernetes.enabled | bool | `false` |  |
 | kubernetes.role | string | `"view"` |  |
-| networking.service.enabled | bool | `false` |  |
+| nameOverride | string | `""` |  |
+| networking.clusterIP | string | `"None"` |  |
 | networking.service.port | int | `6080` |  |
+| networking.type | string | `"ClusterIP"` |  |
 | networking.user.enabled | bool | `false` |  |
-| networking.user.port | int | `6080` |  |
-| nodeSelector.ssb-node | string | `"onyxia-services"` |  |
+| nodeSelector | object | `{}` |  |
+| oidc.configMapName | string | `""` |  |
 | oidc.enabled | bool | `true` |  |
-| oidc.secretName | string | `""` |  |
-| oidc.tokenExchangeUrl | string | `"https://auth-play.test.ssb.no/realms/ssb/protocol/openid-connect/token"` |  |
-| ressurser.requests.cpu | string | `"1000m"` |  |
-| ressurser.requests.memory | string | `"1Gi"` |  |
+| oidc.tokenExchangeUrl | string | `""` |  |
+| persistence.accessMode | string | `"ReadWriteOnce"` |  |
+| persistence.enabled | bool | `false` |  |
+| persistence.size | string | `"10Gi"` |  |
+| podAnnotations | object | `{}` |  |
+| podLabels."onyxia.app" | string | `"jdemetra"` |  |
+| podSecurityContext.fsGroup | int | `100` |  |
+| replicaCount | int | `1` |  |
+| ressurser.requests.cpu | string | `""` |  |
+| ressurser.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
-| security.allowlist.ip | string | `"84.214.111.227"` |  |
+| security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
 | security.networkPolicy.from | list | `[]` |  |
-| security.oauth2.authenticatedEmails | string | `"kons_schu@ssb.no"` |  |
-| security.oauth2.clientId | string | `"onyxia-services"` |  |
-| security.oauth2.oidcIssuerUrl | string | `"https://auth-play.test.ssb.no/realms/onyxia-services"` |  |
+| security.oauth2.authenticatedEmails | string | `""` |  |
+| security.oauth2.clientId | string | `"my-client"` |  |
+| security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
+| security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
-| security.serviceEntry.hosts[0] | string | `"www.googleapis.com"` |  |
-| security.serviceEntry.hosts[1] | string | `"oauth2.googleapis.com"` |  |
-| security.serviceEntry.hosts[2] | string | `"storage.googleapis.com"` |  |
-| security.serviceEntry.hosts[3] | string | `"login.microsoftonline.com"` |  |
-| security.serviceEntry.hosts[4] | string | `"www.ssb.no"` |  |
-| security.serviceEntry.hosts[5] | string | `"auth-play.test.ssb.no"` |  |
-| security.serviceEntry.hosts[6] | string | `"auth.test.ssb.no"` |  |
+| security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
+| securityContext | object | `{}` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
-| startupProbe | object | `{}` |  |
+| startupProbe.failureThreshold | int | `60` |  |
+| startupProbe.initialDelaySeconds | int | `10` |  |
+| startupProbe.periodSeconds | int | `10` |  |
+| startupProbe.successThreshold | int | `1` |  |
+| startupProbe.timeoutSeconds | int | `30` |  |
 | tjeneste.image.pullPolicy | string | `"Always"` |  |
-| tjeneste.image.version | string | `"experimental-jd3.2.4"` |  |
+| tjeneste.image.version | string | `"v1"` |  |
 | tolerations | list | `[]` |  |
-| userPreferences.darkMode | bool | `false` |  |
+| userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
+| userAttributes.userAttribute | string | `"access_token"` |  |
+| userAttributes.value | string | `""` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
