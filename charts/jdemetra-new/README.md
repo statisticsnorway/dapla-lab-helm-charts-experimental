@@ -1,6 +1,6 @@
 # jdemetra-new
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -9,95 +9,68 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 ## Source Code
 
 * <https://github.com/statisticsnorway/dapla-lab-images>
-* <https://github.com/statisticsnorway/dapla-lab-helm-charts-services>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard>
 
 ## Requirements
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 4.0.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.0.0 |
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
-| autoscaling.maxReplicas | int | `100` |  |
-| autoscaling.minReplicas | int | `1` |  |
-| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| dapla.buckets.enabled | bool | `false` |  |
+| dapla.buckets.enabled | bool | `true` |  |
 | dapla.buckets.mountStandard | bool | `true` |  |
-| dapla.group | string | `""` |  |
-| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
-| deleteJob.cronHourAtDay | string | `"20"` |  |
-| deleteJob.cronMinuteAtDay | string | `"0"` |  |
-| deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.1.0"` |  |
-| deleteJob.serviceAccount.annotations | object | `{}` |  |
-| deployEnvironment | string | `"DEV"` |  |
-| diskplass.accessMode | string | `"ReadWriteOnce"` |  |
+| dapla.group | string | `"dapla-stat-developers"` |  |
 | diskplass.enabled | bool | `true` |  |
 | diskplass.size | string | `"10Gi"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
-| fullnameOverride | string | `""` |  |
-| git.branch | string | `""` |  |
-| git.cache | string | `""` |  |
-| git.email | string | `""` |  |
-| git.enabled | bool | `true` |  |
-| git.name | string | `""` |  |
-| git.secretName | string | `""` |  |
 | global.suspend | bool | `false` |  |
-| imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
 | init.regionInitCheckSum | string | `""` |  |
-| init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
-| istio.enabled | bool | `false` |  |
-| istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
-| istio.hostname | string | `"chart-example.local"` |  |
-| kubernetes.enabled | bool | `true` |  |
+| istio.enabled | bool | `true` |  |
+| istio.gateways[0] | string | `"istio-system/dapla-lab-dev-gateway"` |  |
+| istio.hostname | string | `"user-ssb-kons-schu-594273-0.lab.dapla-dev.ssb.no"` |  |
+| kubernetes.enabled | bool | `false` |  |
 | kubernetes.role | string | `"view"` |  |
-| nameOverride | string | `""` |  |
-| networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `8080` |  |
-| networking.type | string | `"ClusterIP"` |  |
-| nodeSelector | object | `{}` |  |
+| networking.service.enabled | bool | `false` |  |
+| networking.service.port | int | `6080` |  |
+| nodeSelector.ssb-node | string | `"onyxia-services"` |  |
 | oidc.enabled | bool | `true` |  |
 | oidc.secretName | string | `""` |  |
-| oidc.tokenExchangeUrl | string | `""` |  |
-| podAnnotations | object | `{}` |  |
-| podSecurityContext.fsGroup | int | `100` |  |
-| replicaCount | int | `1` |  |
-| repository.condaRepository | string | `""` |  |
-| repository.configMapName | string | `""` |  |
-| repository.pipRepository | string | `""` |  |
-| ressurser.requests.cpu | string | `""` |  |
-| ressurser.requests.memory | string | `""` |  |
+| oidc.tokenExchangeUrl | string | `"https://auth-play.test.ssb.no/realms/ssb/protocol/openid-connect/token"` |  |
+| ressurser.requests.cpu | string | `"1000m"` |  |
+| ressurser.requests.memory | string | `"1Gi"` |  |
 | security.allowlist.enabled | bool | `false` |  |
-| security.allowlist.ip | string | `"0.0.0.0/0"` |  |
+| security.allowlist.ip | string | `"84.214.111.227"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
 | security.networkPolicy.from | list | `[]` |  |
-| security.oauth2.authenticatedEmails | string | `""` |  |
-| security.oauth2.clientId | string | `"my-client"` |  |
-| security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
+| security.oauth2.authenticatedEmails | string | `"kons_schu@ssb.no"` |  |
+| security.oauth2.clientId | string | `"onyxia-services"` |  |
+| security.oauth2.oidcIssuerUrl | string | `"https://auth-play.test.ssb.no/realms/onyxia-services"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
-| security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
-| security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
-| securityContext | object | `{}` |  |
+| security.serviceEntry.hosts[0] | string | `"www.googleapis.com"` |  |
+| security.serviceEntry.hosts[1] | string | `"oauth2.googleapis.com"` |  |
+| security.serviceEntry.hosts[2] | string | `"storage.googleapis.com"` |  |
+| security.serviceEntry.hosts[3] | string | `"login.microsoftonline.com"` |  |
+| security.serviceEntry.hosts[4] | string | `"www.ssb.no"` |  |
+| security.serviceEntry.hosts[5] | string | `"auth-play.test.ssb.no"` |  |
+| security.serviceEntry.hosts[6] | string | `"auth.test.ssb.no"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
-| tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.image.version | string | `"jd3.2.4-v1-2024.09.10"` |  |
+| startupProbe | object | `{}` |  |
+| tjeneste.image.pullPolicy | string | `"Always"` |  |
+| tjeneste.image.version | string | `"experimental-jd3.2.4"` |  |
 | tolerations | list | `[]` |  |
-| userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
-| userAttributes.userAttribute | string | `"access_token"` |  |
-| userAttributes.value | string | `""` |  |
-| userPreferences | object | `{}` |  |
+| userPreferences.darkMode | bool | `false` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
