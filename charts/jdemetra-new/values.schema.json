@@ -22,8 +22,11 @@
               "title": "Bøtter som filsystem",
               "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
               "default": true,
+              "x-onyxia": {
+                "hidden": true
+              },
               "hidden": {
-                "value": false,
+                "value": true,
                 "path": "dapla/buckets/enabled"
               }
             }
