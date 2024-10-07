@@ -114,11 +114,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: {{ .Values.networking.service.port }}
+              port: {{ .Values.networking.user.port }}
           readinessProbe:
             httpGet:
               path: /
-              port: {{ .Values.networking.service.port }}
+              port: {{ .Values.networking.user.port }}
           resources:
             requests:
               cpu: {{ .Values.ressurser.requests.cpu }}
