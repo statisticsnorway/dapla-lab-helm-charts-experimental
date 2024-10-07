@@ -13,12 +13,9 @@
           "properties": {
             "enabled": {
               "type": "boolean",
-              "title": "Aktiver",
-              "description": "Aktiver datatilgang",
-              "default": true,
-              "x-onyxia": {
-                "hidden": true
-              }
+              "title": "Aktivér",
+              "description": "Aktivér datatilgang",
+              "default": true
             },
             "mountStandard": {
               "type": "boolean",
@@ -339,15 +336,15 @@
       "form": true,
       "title": "Networking detail",
       "properties": {
-        "service": {
+        "user": {
           "type": "object",
-          "description": "service defined port",
+          "description": "user defined port",
           "properties": {
             "enabled": {
               "type": "boolean",
               "title": "Enable a custom service port",
               "description": "Enable a custom service port",
-              "default": true,
+              "default": false,
               "x-onyxia": {
                 "hidden": true
               }
@@ -361,7 +358,7 @@
               },
               "hidden": {
                 "value": false,
-                "path": "networking/service/enabled"
+                "path": "networking/user/enabled"
               },
               "default": 6080
             }
