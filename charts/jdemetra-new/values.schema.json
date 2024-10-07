@@ -26,8 +26,7 @@
                 "hidden": true
               },
               "hidden": {
-                "value": true,
-                "path": "dapla/buckets/enabled"
+                "value": true
               }
             }
           }
