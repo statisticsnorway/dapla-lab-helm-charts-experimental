@@ -113,7 +113,7 @@
               "description": "Garantert tilgjengelig minne/RAM i tjenesten",
               "title": "Minne/RAM",
               "type": "string",
-              "default": "1Gi",
+              "default": "4Gi",
               "render": "slider",
               "sliderMin": 1,
               "sliderMax": 64,
