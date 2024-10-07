@@ -70,3 +70,7 @@ serviceAccount:
   create: true
   annotations: {}
   name: ""
+
+environment:
+  user: onyxia
+  group: users
