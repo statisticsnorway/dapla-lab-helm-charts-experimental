@@ -148,3 +148,9 @@ persistence:
   accessMode: ReadWriteOnce
   size: 10Gi
   # existingClaim: ""
+
+init:
+  standardInitPath: "/opt/onyxia-init.sh"
+  regionInit: ""
+  personalInit: ""
+  personalInitArgs: ""
