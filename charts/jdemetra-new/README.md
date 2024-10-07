@@ -1,6 +1,6 @@
 # jdemetra-new
 
-![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -41,6 +41,8 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 | kubernetes.role | string | `"view"` |  |
 | networking.service.enabled | bool | `false` |  |
 | networking.service.port | int | `6080` |  |
+| networking.user.enabled | bool | `false` |  |
+| networking.user.port | int | `6080` |  |
 | nodeSelector.ssb-node | string | `"onyxia-services"` |  |
 | oidc.enabled | bool | `true` |  |
 | oidc.secretName | string | `""` |  |
