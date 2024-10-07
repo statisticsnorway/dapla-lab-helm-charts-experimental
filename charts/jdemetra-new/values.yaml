@@ -74,3 +74,7 @@ serviceAccount:
 environment:
   user: onyxia
   group: users
+
+kubernetes:
+  enabled: false
+  role: "view"
