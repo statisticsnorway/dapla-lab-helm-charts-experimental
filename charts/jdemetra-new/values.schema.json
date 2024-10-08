@@ -24,9 +24,6 @@
               "default": true,
               "x-onyxia": {
                 "hidden": true
-              },
-              "hidden": {
-                "value": true
               }
             }
           }
