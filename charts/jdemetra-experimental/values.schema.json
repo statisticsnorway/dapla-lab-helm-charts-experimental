@@ -72,7 +72,7 @@
             "version": {
               "description": "JDemetra versjon",
               "type": "string",
-              "default": "jd3.2.4",
+              "default": "jd2.2.5",
               "listEnum": [
                 "jd3.2.4",
                 "jd2.2.5"
