@@ -1486,6 +1486,27 @@ entries:
     version: 0.0.1
   jupyter:
   - apiVersion: v2
+    created: "2024-10-21T08:28:13.7121675Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.4
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: c7032158b92fad8f176106f04898a43b11a1c9dac2b8247d5df7e0a49e79b4fb
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-0.3.46/jupyter-0.3.46.tgz
+    version: 0.3.46
+  - apiVersion: v2
     created: "2024-10-21T08:12:14.107817316Z"
     dependencies:
     - name: library-chart
@@ -5988,4 +6009,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.22/vscode-python-suspend-0.5.22.tgz
     version: 0.5.22
-generated: "2024-10-21T08:12:14.108387209Z"
+generated: "2024-10-21T08:28:13.71279347Z"
