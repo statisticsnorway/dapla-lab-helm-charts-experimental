@@ -94,6 +94,8 @@ spec:
               value: {{ .Values.environment.user }}
             - name: PROJECT_GROUP
               value: {{ .Values.environment.group }}
+            - name: MEM_LIMIT
+              value: {{ .Values.resources.requests.memory }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
             - name: POETRY_VIRTUALENVS_IN_PROJECT
