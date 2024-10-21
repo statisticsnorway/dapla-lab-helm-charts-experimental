@@ -94,6 +94,11 @@ spec:
               value: {{ .Values.environment.user }}
             - name: PROJECT_GROUP
               value: {{ .Values.environment.group }}
+            - name: MEM_LIMIT
+              value: |
+                {{- $requestedmem := .Values.resources.requests.memory | trimSuffix "Gi" | float64 }}
+                {{- $memlimit := mul 1024 1024 1024 (min (mul 1.5 $requestedmem) (add 4.0 $requestedmem) | float64) }}
+                {{ $memlimit | int64 | toString }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
             - name: POETRY_VIRTUALENVS_IN_PROJECT
