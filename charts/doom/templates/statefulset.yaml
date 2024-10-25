@@ -14,6 +14,7 @@ spec:
   template:
     metadata:
       annotations:
+        dapla.ssb.no/service-catalog: experimental
         {{- if .Values.oidc.enabled }}
         checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
         {{- end }}
