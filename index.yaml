@@ -340,6 +340,33 @@ entries:
   doom:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-10-25T10:29:18.694484562Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.4
+    description: Swap algorithms for ammo and scatter plots for shotguns in the ultimate
+      data scientist's break. Defrag your brain with Doom's demon hordes – it's the
+      perfect 'escape' key!
+    digest: 900a5c802d9d44fa594af5338e0e1294d353e1e0a3ed4e9f6603dfd6b0df5056
+    home: https://github.com/CallumHoughton18/Doom-In-Docker
+    icon: https://www.giantbomb.com/a/uploads/scale_small/1/16944/2976271-flat%2C800x800%2C075%2Cf.jpg
+    keywords:
+    - Doom
+    - ID software
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: doom
+    sources:
+    - https://github.com/CallumHoughton18/Doom-In-Docker
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.3.5/doom-0.3.5.tgz
+    version: 0.3.5
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-08-28T20:04:27.38309641Z"
     dependencies:
     - name: library-chart
@@ -6072,4 +6099,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.22/vscode-python-suspend-0.5.22.tgz
     version: 0.5.22
-generated: "2024-10-21T09:45:38.51533805Z"
+generated: "2024-10-25T10:29:18.694940191Z"
