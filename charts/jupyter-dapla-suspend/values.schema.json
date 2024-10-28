@@ -541,7 +541,7 @@
             "default": {},
             "x-onyxia": {
                 "hidden": true,
-                "overwriteDefaultWith": "region.nodeSelector"
+                "overwriteSchemaWith": "nodeSelector.json"
             }
         },
       "oidc": {
