@@ -5,6 +5,9 @@
     "resources": {
       "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "resources.json"
+      },
       "properties": {
         "requests": {
           "description": "Guaranteed resources",
@@ -176,6 +179,9 @@
     "persistence": {
       "description": "Configuration for persistence",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "persistence.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -207,6 +213,9 @@
     "security": {
       "description": "security specific configuration",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "security.json"
+      },
       "properties": {
         "allowlist": {
           "type": "object",
@@ -645,6 +654,9 @@
       "type": "object",
       "description": "Start up probe",
       "default": {},
+      "x-onyxia": {
+        "overwriteSchemaWith": "startupProb.json"
+      },
       "x-form": {
         "hidden": true,
         "value": "{{region.startupProbe}}"
@@ -658,6 +670,9 @@
       "type": "array",
       "description": "Array of tolerations",
       "default": [],
+      "x-onyxia": {
+        "overwriteSchemaWith": "tolerations.json"
+      },
       "x-form": {
         "hidden": true,
         "value": "{{region.tolerations}}"
@@ -677,12 +692,16 @@
       },
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector"
+        "overwriteDefaultWith": "region.nodeSelector",
+        "overwriteSchemaWith": "nodeSelector.json"
       }
     },
     "oidc": {
       "description": "OIDC configuration",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "oidc.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
