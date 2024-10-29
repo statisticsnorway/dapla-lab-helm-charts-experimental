@@ -5,6 +5,8 @@ metadata:
   name: {{ include "library-chart.fullname" . }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
+  annotations:
+    dapla.ssb.no/service-catalog: "experimental"
 spec:
   replicas: {{ .Values.replicaCount }}
   serviceName: {{ include "library-chart.fullname" . }}
@@ -14,7 +16,7 @@ spec:
   template:
     metadata:
       annotations:
-        dapla.ssb.no/service-catalog: experimental
+        dapla.ssb.no/service-catalog: "experimental"
         {{- if .Values.oidc.enabled }}
         checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
         {{- end }}
