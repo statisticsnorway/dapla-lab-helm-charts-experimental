@@ -580,6 +580,7 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
+        "overwriteSchemaWith": "nodeSelector.json",
         "overwriteDefaultWith": "region.nodeSelector"
       }
     },

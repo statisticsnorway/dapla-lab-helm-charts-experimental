@@ -288,12 +288,9 @@
       "type": "object",
       "description": "NodeSelector",
       "default": {},
-      "x-form": {
-        "hidden": true,
-        "value": "{{region.nodeSelector}}"
-      },
       "x-onyxia": {
         "hidden": true,
+        "overwriteSchemaWith": "nodeSelector.json",
         "overwriteDefaultWith": "region.nodeSelector"
       }
     },
