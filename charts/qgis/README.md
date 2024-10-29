@@ -1,6 +1,6 @@
 # qgis
 
-![Version: 0.12.3](https://img.shields.io/badge/Version-0.12.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
+![Version: 1.12.3](https://img.shields.io/badge/Version-1.12.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
 
 QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
 
