@@ -654,32 +654,28 @@
       "type": "object",
       "description": "Start up probe",
       "default": {},
-      "x-onyxia": {
-        "overwriteSchemaWith": "startupProb.json"
-      },
       "x-form": {
         "hidden": true,
         "value": "{{region.startupProbe}}"
       },
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.startupProbe"
+        "overwriteDefaultWith": "region.startupProbe",
+        "overwriteSchemaWith": "startupProbe.json"
       }
     },
     "tolerations": {
       "type": "array",
       "description": "Array of tolerations",
       "default": [],
-      "x-onyxia": {
-        "overwriteSchemaWith": "tolerations.json"
-      },
       "x-form": {
         "hidden": true,
         "value": "{{region.tolerations}}"
       },
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.tolerations"
+        "overwriteDefaultWith": "region.tolerations",
+        "overwriteSchemaWith": "tolerations.json"
       }
     },
     "nodeSelector": {
@@ -798,7 +794,8 @@
       "default": "",
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.customValues.deployEnvironment"
+        "overwriteDefaultWith": "region.customValues.deployEnvironment",
+        "overwriteSchemaWith": "deployEnvironment.json"
       }
     },
     "global": {
