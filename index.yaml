@@ -3865,6 +3865,33 @@ entries:
   qgis:
   - apiVersion: v2
     appVersion: 3.34.3
+    created: "2024-10-30T07:06:19.527390364Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.4
+    description: QGIS Desktop - Open-source GIS software for geospatial data management,
+      mapping, and analysis. User-friendly interface, versatile tools, and ideal for
+      all skill levels.
+    digest: fc7173a82d34466d711964e9534e7c570b76d64040e403207f5806ff2739ad5f
+    home: https://github.com/trygu/dapla-qgis-desktop
+    icon: https://www.qgis.org/favicon.ico
+    keywords:
+    - QGis
+    - Geo
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: qgis
+    sources:
+    - https://github.com/trygu/dapla-qgis-desktop
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/qgis-1.13.0/qgis-1.13.0.tgz
+    version: 1.13.0
+  - apiVersion: v2
+    appVersion: 3.34.3
     created: "2024-10-29T10:01:35.379788223Z"
     dependencies:
     - name: library-chart
@@ -6917,4 +6944,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.22/vscode-python-suspend-0.5.22.tgz
     version: 0.5.22
-generated: "2024-10-29T21:47:46.66490841Z"
+generated: "2024-10-30T07:06:19.52785602Z"
