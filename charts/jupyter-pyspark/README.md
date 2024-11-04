@@ -1,8 +1,8 @@
-# jupyter
+# jupyter-pyspark
 
-![Version: 0.3.49](https://img.shields.io/badge/Version-0.3.49-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
+The JupyterLab IDE with Python and Spark, tailored for SSB's data platform (Dapla).
 
 **Homepage:** <https://jupyter.org/>
 
@@ -93,7 +93,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311"` |  |
+| service.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:py311-spark3.5.3"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
