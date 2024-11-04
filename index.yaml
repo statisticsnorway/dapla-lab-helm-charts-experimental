@@ -3215,6 +3215,29 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-playground-0.3.15/jupyter-playground-0.3.15.tgz
     version: 0.3.15
+  jupyter-pyspark:
+  - apiVersion: v2
+    created: "2024-11-04T08:02:13.018667951Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.4
+    description: The JupyterLab IDE with Python and Spark, tailored for SSB's data
+      platform (Dapla).
+    digest: a2054d02a335ccc9530197d26546127d6ebc441d0fe1ade51593d66a2e1602f9
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    - Spark
+    name: jupyter-pyspark
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-pyspark-0.0.1/jupyter-pyspark-0.0.1.tgz
+    version: 0.0.1
   jupyter-rpk:
   - apiVersion: v2
     created: "2024-10-29T10:01:35.177483396Z"
@@ -7010,4 +7033,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.22/vscode-python-suspend-0.5.22.tgz
     version: 0.5.22
-generated: "2024-11-01T10:00:46.275726138Z"
+generated: "2024-11-04T08:02:13.019325568Z"
