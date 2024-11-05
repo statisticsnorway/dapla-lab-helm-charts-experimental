@@ -35,6 +35,9 @@
         "allowlist": {
           "type": "object",
           "description": "IP protection",
+          "x-onyxia": {
+            "overwriteSchemaWith": "allowlist.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -66,6 +69,9 @@
         "networkPolicy": {
           "type": "object",
           "description": "Define access policy to the service",
+          "x-onyxia": {
+            "overwriteSchemaWith": "network-policy.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -98,6 +104,9 @@
         "serviceEntry": {
           "type": "object",
           "description": "Service entry to give access to external services",
+          "x-onyxia": {
+            "overwriteSchemaWith": "egress/doom.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -122,6 +131,9 @@
         "oauth2": {
           "type": "object",
           "description": "OAuth2 configuration",
+          "x-onyxia": {
+            "overwriteSchemaWith": "oauth2.json"
+          },
           "properties": {
             "provider": {
               "type": "string",
@@ -281,7 +293,8 @@
       },
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.tolerations"
+        "overwriteDefaultWith": "region.tolerations",
+        "overwriteSchemaWith": "tolerations.json"
       }
     },
     "nodeSelector": {
@@ -294,12 +307,16 @@
       },
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector"
+        "overwriteDefaultWith": "region.nodeSelector",
+        "overwriteSchemaWith": "nodeSelector.json"
       }
     },
     "oidc": {
       "description": "OIDC configuration",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "oidc.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
