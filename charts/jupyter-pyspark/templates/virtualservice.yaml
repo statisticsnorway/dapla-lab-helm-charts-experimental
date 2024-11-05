@@ -47,14 +47,3 @@ spec:
         host: {{ $fullName }}
         port:
           number: 4180
-  - match:
-    - uri:
-        prefix: /spark-ui
-    name: spark-ui
-    rewrite:
-      uri: /
-    route:
-    - destination:
-        host: {{ $fullName }}
-        port:
-          number: 4040
