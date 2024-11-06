@@ -210,6 +210,9 @@
         "serviceEntry": {
           "type": "object",
           "description": "Service entry to give access to external services",
+          "x-onyxia": {
+            "overwriteSchemaWith": "egress/datadoc.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
