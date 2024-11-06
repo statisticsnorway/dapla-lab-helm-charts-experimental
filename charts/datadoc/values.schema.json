@@ -150,9 +150,6 @@
         "allowlist": {
           "type": "object",
           "description": "IP protection",
-          "x-onyxia": {
-            "overwriteSchemaWith": "allowlist.json"
-          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -182,9 +179,6 @@
         "networkPolicy": {
           "type": "object",
           "description": "Define access policy to the service",
-          "x-onyxia":{
-            "overwriteSchemaWith": "network-policy.json"
-          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -387,9 +381,7 @@
       "default": [],
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.tolerations",
-        "overwriteSchemaWith": "tolerations.json"
-
+        "overwriteDefaultWith": "region.tolerations"
       }
     },
     "nodeSelector": {
@@ -398,8 +390,7 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector",
-        "overwriteSchemaWith": "nodeSelector.json"
+        "overwriteDefaultWith": "region.nodeSelector"
       }
     },
     "oidc": {
@@ -420,7 +411,7 @@
           "default": "",
           "x-onyxia": {
             "hidden": true,
-            "overwriteSchemaWith": "oidc.json"
+            "overwriteDefaultWith": "region.customValues.oidc.tokenExchangeUrl"
           }
         },
         "configMapName": {
