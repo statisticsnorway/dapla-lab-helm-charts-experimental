@@ -67,6 +67,9 @@
     "ressurser": {
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "resources.json"
+      },
       "properties": {
         "requests": {
           "description": "The amount of CPU requested",
@@ -111,6 +114,9 @@
     "diskplass": {
       "description": "Configuration for persistence",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "persistence.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -150,6 +156,9 @@
         "allowlist": {
           "type": "object",
           "description": "IP protection",
+          "x-onyxia": {
+            "overwriteSchemaWith": "allowlist.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -179,6 +188,9 @@
         "networkPolicy": {
           "type": "object",
           "description": "Define access policy to the service",
+          "x-onyxia": {
+            "overwriteSchemaWith": "network-policy.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -231,6 +243,9 @@
         "oauth2": {
           "type": "object",
           "description": "OAuth2 configuration",
+          "x-onyxia": {
+            "overwriteSchemaWith": "oauth2.json"
+          },
           "properties": {
             "provider": {
               "type": "string",
@@ -384,7 +399,9 @@
       "default": [],
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.tolerations"
+        "overwriteDefaultWith": "region.tolerations",
+        "overwriteSchemaWith": "tolerations.json"
+
       }
     },
     "nodeSelector": {
@@ -393,12 +410,16 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector"
+        "overwriteDefaultWith": "region.nodeSelector",
+        "overwriteSchemaWith": "nodeSelector.json"
       }
     },
     "oidc": {
       "description": "OIDC configuration",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "oidc.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
