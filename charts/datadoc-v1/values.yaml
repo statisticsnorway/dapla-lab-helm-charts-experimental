@@ -76,7 +76,7 @@ kubernetes:
 podAnnotations: {}
 
 podLabels:
-  onyxia.app: "datadoc"
+  onyxia.app: "datadoc-v1"
   maintained-by-team: "dapla-metadata"
 
 podSecurityContext:
