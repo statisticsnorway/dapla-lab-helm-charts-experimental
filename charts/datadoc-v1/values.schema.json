@@ -115,7 +115,6 @@
       "description": "Configuration for persistence",
       "type": "object",
       "x-onyxia": {
-        "hidden": true,
         "overwriteSchemaWith": "persistence.json"
       },
       "properties": {
@@ -395,11 +394,14 @@
       "type": "array",
       "description": "Array of tolerations",
       "default": [],
+      "x-form": {
+        "hidden": true,
+        "value": "{{region.tolerations}}"
+      },
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.tolerations",
         "overwriteSchemaWith": "tolerations.json"
-
       }
     },
     "nodeSelector": {
