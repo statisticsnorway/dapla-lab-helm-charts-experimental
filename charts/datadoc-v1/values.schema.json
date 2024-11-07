@@ -111,7 +111,7 @@
         }
       }
     },
-    "diskplass": {
+    "persistence": {
       "description": "Configuration for persistence",
       "type": "object",
       "x-onyxia": {
@@ -142,7 +142,7 @@
           },
           "hidden": {
             "value": true,
-            "path": "diskplass/enabled"
+            "path": "persistence/enabled"
           }
         }
       }
