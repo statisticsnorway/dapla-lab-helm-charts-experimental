@@ -214,7 +214,7 @@
           "type": "object",
           "description": "Service entry to give access to external services",
           "x-onyxia": {
-            "overwriteSchemaWith": "egress/datadoc.json"
+            "overwriteSchemaWith": "egress/vscode.json"
           },
           "properties": {
             "enabled": {
