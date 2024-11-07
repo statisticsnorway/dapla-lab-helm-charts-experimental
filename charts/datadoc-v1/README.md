@@ -1,4 +1,4 @@
-# datadoc
+# datadoc-v1
 
 ![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
@@ -62,7 +62,7 @@ Applikasjon for å dokumentere datasett i SSB.
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
-| podLabels."onyxia.app" | string | `"datadoc"` |  |
+| podLabels."onyxia.app" | string | `"datadoc-v1"` |  |
 | podLabels.maintained-by-team | string | `"dapla-metadata"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
@@ -89,7 +89,7 @@ Applikasjon for å dokumentere datasett i SSB.
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `30` |  |
 | tjeneste.image.pullPolicy | string | `"Always"` |  |
-| tjeneste.image.version | string | `"v0"` |  |
+| tjeneste.image.version | string | `"v1"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
