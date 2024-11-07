@@ -180,7 +180,7 @@
       "description": "Configuration for persistence",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "persistence.json"
+        "overwriteSchemaWith": "persistenceOld.json"
       },
       "properties": {
         "enabled": {
