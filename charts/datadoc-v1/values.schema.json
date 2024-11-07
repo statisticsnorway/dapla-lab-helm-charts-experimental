@@ -115,16 +115,14 @@
       "description": "Configuration for persistence",
       "type": "object",
       "x-onyxia": {
+        "hidden": true,
         "overwriteSchemaWith": "persistence.json"
       },
       "properties": {
         "enabled": {
           "type": "boolean",
           "description": "Create a persistent volume",
-          "default": true,
-          "x-onyxia": {
-            "hidden": true
-          }
+          "default": true
         },
         "size": {
           "type": "string",
