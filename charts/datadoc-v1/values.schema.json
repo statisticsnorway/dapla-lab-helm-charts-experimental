@@ -119,7 +119,10 @@
         "enabled": {
           "type": "boolean",
           "description": "Create a persistent volume",
-          "default": true
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
         },
         "size": {
           "type": "string",
