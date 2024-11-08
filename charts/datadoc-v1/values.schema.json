@@ -68,6 +68,7 @@
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "x-onyxia": {
+        "hidden": true,
         "overwriteSchemaWith": "resources.json"
       },
       "properties": {
@@ -115,6 +116,7 @@
       "description": "Configuration for persistence",
       "type": "object",
       "x-onyxia": {
+        "hidden": true,
         "overwriteSchemaWith": "persistence.json"
       },
       "properties": {
