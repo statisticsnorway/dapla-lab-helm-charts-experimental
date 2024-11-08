@@ -133,6 +133,7 @@
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
+            "hidden": true,
             "overwriteDefaultWith": "region.resources.disk",
             "overwriteSchemaWith": "persistence.json",
             "useRegionSliderConfig": "disk"
