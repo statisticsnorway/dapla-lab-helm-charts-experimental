@@ -142,6 +142,7 @@
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
+            "value": true,
             "path": "persistence/enabled"
           }
         }
