@@ -115,10 +115,6 @@
     "persistence": {
       "description": "Configuration for persistence",
       "type": "object",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "persistence.json"
-      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -138,6 +134,7 @@
           "sliderUnit": "Gi",
           "x-onyxia": {
             "overwriteDefaultWith": "region.resources.disk",
+            "overwriteSchemaWith": "persistence.json",
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
