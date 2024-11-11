@@ -174,30 +174,39 @@
             "path": "buckets/enabled"
           }
         },
-        "reason": {
-          "type": "string",
-          "title": "Begrunnelse",
-          "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
-          "default": "",
-          "hidden": {
-            "value": false,
-            "path": "buckets/enabled"
-          }
-        },
-        "requestedDuration": {
-          "type": "string",
-          "title": "Tilgangsvarighet i timer",
-          "description": "Varighet for tilgang til kildedata (kun for data-admins)",
-          "default": "8h",
-          "render": "slider",
-          "sliderMin": 1,
-          "sliderMax": 8,
-          "sliderStep": 1,
-          "sliderUnit": "h",
-          "hidden": {
-            "value": "",
-            "path": "buckets/reason"
-          }
+        "restricted": {
+            "type": "object",
+            "hidden": {
+                "value": false,
+                "path": "buckets/enabled"
+            },
+            "properties": {
+                "reason": {
+                  "type": "string",
+                  "title": "Begrunnelse",
+                  "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
+                  "default": "",
+                  "hidden": {
+                    "value": false,
+                    "path": "buckets/enabled"
+                  }
+                },
+                "requestedDuration": {
+                  "type": "string",
+                  "title": "Tilgangsvarighet i timer",
+                  "description": "Varighet for tilgang til kildedata (kun for data-admins)",
+                  "default": "8h",
+                  "render": "slider",
+                  "sliderMin": 1,
+                  "sliderMax": 8,
+                  "sliderStep": 1,
+                  "sliderUnit": "h",
+                  "hidden": {
+                    "value": "",
+                    "path": "buckets/restricted/reason"
+                  }
+                }
+            }
         }
       }
     },
