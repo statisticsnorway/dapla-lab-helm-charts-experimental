@@ -216,7 +216,7 @@
           "type": "object",
           "description": "Service entry to give access to external services",
           "x-onyxia": {
-            "overwriteSchemaWith": "egress-datadoc.json"
+            "overwriteSchemaWith": "dapla/egress-datadoc.json"
           },
           "properties": {
             "enabled": {
