@@ -72,7 +72,8 @@
           "description": "The amount of CPU requested",
           "type": "object",
           "x-onyxia": {
-            "hidden": true
+            "hidden": true,
+            "overwriteSchemaWith": "resources.json"
           },
           "properties": {
             "cpu": {
@@ -86,8 +87,6 @@
               "sliderStep": 50,
               "sliderUnit": "m",
               "x-onyxia": {
-                "hidden": true,
-                "overwriteSchemaWith": "resources.json",
                 "overwriteDefaultWith": "region.resources.cpuRequest",
                 "useRegionSliderConfig": "cpu"
               }
@@ -103,8 +102,6 @@
               "sliderStep": 1,
               "sliderUnit": "Gi",
               "x-onyxia": {
-                "hidden": true,
-                "overwriteSchemaWith": "resources.json",
                 "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
               }
