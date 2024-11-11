@@ -411,6 +411,30 @@ entries:
     version: 0.9.15
   datadoc-v1:
   - apiVersion: v2
+    created: "2024-11-11T10:08:35.159086314Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: Applikasjon for å dokumentere datasett i SSB.
+    digest: 0f4ce529e45038f2413d3ca525a89996b3048d9f6c8e61373471dfeb0cc726a7
+    home: https://manual.dapla.ssb.no/statistikkere/datadoc.html
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Datadoc
+    - Metadata
+    - Variables
+    - Units
+    - Classifications
+    name: datadoc-v1
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/datadoc
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/datadoc-v1-1.0.14/datadoc-v1-1.0.14.tgz
+    version: 1.0.14
+  - apiVersion: v2
     created: "2024-11-11T09:29:07.555509959Z"
     dependencies:
     - name: library-chart
@@ -7556,4 +7580,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.22/vscode-python-suspend-0.5.22.tgz
     version: 0.5.22
-generated: "2024-11-11T09:45:25.148968541Z"
+generated: "2024-11-11T10:08:35.159661364Z"
