@@ -74,7 +74,6 @@
           "x-onyxia": {
             "hidden": true,
             "overwriteSchemaWith": "resources.json"
-
           },
           "properties": {
             "cpu": {
