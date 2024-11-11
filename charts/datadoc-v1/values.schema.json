@@ -71,6 +71,9 @@
         "requests": {
           "description": "The amount of CPU requested",
           "type": "object",
+          "x-onyxia": {
+            "hidden": true
+          },
           "properties": {
             "cpu": {
               "description": "The amount of CPU guaranteed",
