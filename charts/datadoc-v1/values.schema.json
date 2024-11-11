@@ -67,10 +67,7 @@
     "ressurser": {
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "resources.json"
-      },
+
       "properties": {
         "requests": {
           "description": "The amount of CPU requested",
@@ -88,6 +85,7 @@
               "sliderUnit": "m",
               "x-onyxia": {
                 "hidden": true,
+                "overwriteSchemaWith": "resources.json",
                 "overwriteDefaultWith": "region.resources.cpuRequest",
                 "useRegionSliderConfig": "cpu"
               }
@@ -104,6 +102,7 @@
               "sliderUnit": "Gi",
               "x-onyxia": {
                 "hidden": true,
+                "overwriteSchemaWith": "resources.json",
                 "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
               }
