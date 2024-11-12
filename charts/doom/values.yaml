@@ -16,7 +16,7 @@ security:
       - "ssb.no"
   oauth2:
     provider: keycloak-oidc
-    oidcIssuerUrl: "placeholder"
+    oidcIssuerUrl: ""
     clientId: "my-client"
     authenticatedEmails: ""
 oidc:
