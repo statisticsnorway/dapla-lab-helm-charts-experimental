@@ -1,5 +1,5 @@
 apiVersion: v2
-name: datadoc
+name: datadoc-v1
 description: Applikasjon for å dokumentere datasett i SSB.
 icon: https://avatars.githubusercontent.com/u/5849578
 keywords:
