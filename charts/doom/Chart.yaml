@@ -4,7 +4,7 @@ description: Swap algorithms for ammo and scatter plots for shotguns in the ulti
 type: application
 
 # Version of the chart
-version: 3.0.0
+version: 3.0.2
 
 # Version of the application
 appVersion: "1.0.0"
