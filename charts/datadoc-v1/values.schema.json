@@ -4,7 +4,7 @@
   "properties": {
     "dapla": {
       "title": "Dapla",
-      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
+      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter (Kildedata støttes ikke)",
       "type": "object",
       "properties": {
         "buckets": {
