@@ -172,6 +172,11 @@
           "hidden": {
             "value": false,
             "path": "buckets/enabled"
+          },
+          "items": {
+              "type": "string",
+              "default": "",
+              "pattern": "^ssb-[a-z0-9_-]*[a-z0-9]$"
           }
         },
         "restricted": {
