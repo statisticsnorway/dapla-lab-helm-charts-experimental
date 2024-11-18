@@ -137,13 +137,17 @@
         }
       }
     },
-    "persistence": {
-      "description": "Configuration for persistence",
+    "diskplass": {
+      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/persistence.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
-          "description": "Create a persistent volume",
+          "title": "Opprett filsystem",
+          "description": "Opprett et lokal filsystem i tjenesten",
           "default": true,
           "x-onyxia": {
             "hidden": true
@@ -151,8 +155,7 @@
         },
         "size": {
           "type": "string",
-          "title": "Persistent volume size",
-          "description": "Size of the persistent volume",
+          "title": "Diskplass i filsystemet",
           "default": "10Gi",
           "form": true,
           "render": "slider",
@@ -161,14 +164,12 @@
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
-            "hidden": true,
             "overwriteDefaultWith": "region.resources.disk",
-            "overwriteSchemaWith": "dapla/persistence.json",
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
             "value": true,
-            "path": "persistence/enabled"
+            "path": "diskplass/enabled"
           }
         }
       }
@@ -213,7 +214,7 @@
           "type": "object",
           "description": "Define access policy to the service",
           "x-onyxia": {
-            "overwriteSchemaWith": "dapla/network-policy.json"
+            "overwriteSchemaWith": "network-policy.json"
           },
           "properties": {
             "enabled": {
