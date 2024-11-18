@@ -444,6 +444,9 @@
     "oidc": {
       "description": "OIDC configuration",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/oidc.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
