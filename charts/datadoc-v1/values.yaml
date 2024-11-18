@@ -114,7 +114,7 @@ ressurser:
     cpu: ""
     memory: ""
 
-persistence:
+diskplass:
   enabled: false
   accessMode: ReadWriteOnce
   size: 10Gi
