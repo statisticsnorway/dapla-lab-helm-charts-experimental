@@ -98,7 +98,7 @@
           "type": "object",
           "x-onyxia": {
             "hidden": true,
-            "overwriteSchemaWith": "resources.json"
+            "overwriteSchemaWith": "dapla/resources.json"
           },
           "properties": {
             "cpu": {
@@ -163,7 +163,7 @@
           "x-onyxia": {
             "hidden": true,
             "overwriteDefaultWith": "region.resources.disk",
-            "overwriteSchemaWith": "persistence.json",
+            "overwriteSchemaWith": "dapla/persistence.json",
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
@@ -181,7 +181,7 @@
           "type": "object",
           "description": "IP protection",
           "x-onyxia": {
-            "overwriteSchemaWith": "allowlist.json"
+            "overwriteSchemaWith": "dapla/allowlist.json"
           },
           "properties": {
             "enabled": {
@@ -213,7 +213,7 @@
           "type": "object",
           "description": "Define access policy to the service",
           "x-onyxia": {
-            "overwriteSchemaWith": "network-policy.json"
+            "overwriteSchemaWith": "dapla/network-policy.json"
           },
           "properties": {
             "enabled": {
@@ -268,7 +268,7 @@
           "type": "object",
           "description": "OAuth2 configuration",
           "x-onyxia": {
-            "overwriteSchemaWith": "oauth2.json"
+            "overwriteSchemaWith": "dapla/oauth2.json"
           },
           "properties": {
             "provider": {
@@ -428,7 +428,7 @@
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.tolerations",
-        "overwriteSchemaWith": "tolerations.json"
+        "overwriteSchemaWith": "dapla/tolerations.json"
       }
     },
     "nodeSelector": {
@@ -438,15 +438,12 @@
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.nodeSelector",
-        "overwriteSchemaWith": "nodeSelector.json"
+        "overwriteSchemaWith": "dapla/nodeSelector.json"
       }
     },
     "oidc": {
       "description": "OIDC configuration",
       "type": "object",
-      "x-onyxia": {
-        "overwriteSchemaWith": "oidc.json"
-      },
       "properties": {
         "enabled": {
           "type": "boolean",
