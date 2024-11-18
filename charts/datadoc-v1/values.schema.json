@@ -214,7 +214,7 @@
           "type": "object",
           "description": "Define access policy to the service",
           "x-onyxia": {
-            "overwriteSchemaWith": "dapla/network-policy.json"
+            "overwriteSchemaWith": "network-policy.json"
           },
           "properties": {
             "enabled": {
