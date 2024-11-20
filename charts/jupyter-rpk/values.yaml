@@ -2,7 +2,7 @@ global:
   suspend: false
 tjeneste:
   image:
-    version: "r4.4.0-py311-v8-2024.09.10"
+    version: "r4.4.0-py312-v55-2024.10.31"
     pullPolicy: IfNotPresent
 
 security:
@@ -73,12 +73,10 @@ repository:
 discovery:
   mlflow: true
 
-
 mlflow:
   configMapName: ""
 
 replicaCount: 1
-
 
 imagePullSecrets: []
 nameOverride: ""
@@ -105,7 +103,8 @@ podLabels:
 podSecurityContext:
   fsGroup: 100
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -178,3 +177,6 @@ deleteJob:
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"
+daplaUser: ""
+statbankBaseUrl: ""
+statbankEncryptUrl: ""
