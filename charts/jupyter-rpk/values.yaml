@@ -39,9 +39,9 @@ userAttributes:
   value: ""
 
 dapla:
-  buckets:
-    enabled: false
-    mountStandard: true
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
   group: ""
 
 git:

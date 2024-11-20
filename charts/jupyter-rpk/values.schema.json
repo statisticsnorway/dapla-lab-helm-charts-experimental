@@ -3,75 +3,11 @@
   "type": "object",
   "properties": {
     "dapla": {
-      "title": "Dapla",
-      "description": "Aktiver bøttemontering og velg dapla-gruppe",
+      "title": "Data",
+      "description": "Velg Dapla-team og tilgangsgruppe for datatilgang",
       "type": "object",
-      "properties": {
-        "buckets": {
-          "title": "Buckets",
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Aktiver",
-              "description": "Aktiver datatilgang",
-              "default": false
-            },
-            "mountStandard": {
-              "type": "boolean",
-              "title": "Bøtter som filsystem",
-              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
-              "default": true,
-              "hidden": {
-                "value": false,
-                "path": "dapla/buckets/enabled"
-              }
-            }
-          }
-        },
-        "group": {
-          "type": "string",
-          "title": "Team og tilgangsgruppe",
-          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
-          "render": "list",
-          "default": "",
-          "listEnum": [
-            ""
-          ],
-          "x-onyxia": {
-            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
-            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        },
-        "reason": {
-          "type": "string",
-          "title": "Begrunnelse",
-          "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
-          "default": "",
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        },
-        "requestedDuration": {
-          "type": "string",
-          "title": "Tilgangsvarighet i timer",
-          "description": "Varighet for tilgang til kildedata (kun for data-admins)",
-          "default": "8h",
-          "render": "slider",
-          "sliderMin": 1,
-          "sliderMax": 8,
-          "sliderStep": 1,
-          "sliderUnit": "h",
-          "hidden": {
-            "value": "",
-            "path": "dapla/reason"
-          }
-        }
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
     "git": {
