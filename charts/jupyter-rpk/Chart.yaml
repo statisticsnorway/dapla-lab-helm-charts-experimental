@@ -1,5 +1,5 @@
 apiVersion: v2
-name: jupyter
+name: jupyter-rpk
 description: Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
 keywords:
