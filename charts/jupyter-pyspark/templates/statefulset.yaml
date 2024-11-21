@@ -101,17 +101,17 @@ spec:
                 {{ $memlimit | int64 | toString }}
             - name: SPARK_DRIVER_MEMORY
               value: |
-                {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
+                {{- $requestedmem := .Values.resources.requests.memory | trimSuffix "Gi" | int }}
                 {{- $allocatedMem := mulf $requestedmem 0.5 | int }}
                 {{- printf "%dg" $allocatedMem }}
             - name: SPARK_DRIVER_MAX_RESULT_SIZE
               value: |
-                {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
+                {{- $requestedmem := .Values.resources.requests.memory | trimSuffix "Gi" | int }}
                 {{- $allocatedMaxResultSize := mulf $requestedmem 0.9 | int }}
                 {{- printf "%dg" $allocatedMaxResultSize }}
             - name: SPARK_EXECUTOR_MEMORY
               value: |
-                {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
+                {{- $requestedmem := .Values.resources.requests.memory | trimSuffix "Gi" | int }}
                 {{- $allocatedExecutorMem := mulf $requestedmem 0.9 | int }}
                 {{- printf "%dg" $allocatedExecutorMem }}
             - name: ROOT_PROJECT_DIRECTORY
