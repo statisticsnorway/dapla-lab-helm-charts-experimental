@@ -7,7 +7,7 @@
       "description": "Velg Dapla-team og tilgangsgruppe for datatilgang",
       "type": "object",
       "x-onyxia": {
-        "hidden": true,
+        "hidden": false,
         "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
