@@ -14,9 +14,6 @@
       "title": "Git",
       "description": "Konfigurer Git og Github for tjenesten",
       "type": "object",
-      "x-onyxia": {
-        "overwriteSchemaWith": "dapla/git.json"
-      },
       "properties": {
         "enabled": {
           "type": "boolean",
