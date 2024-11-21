@@ -107,6 +107,7 @@
       "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
       "x-onyxia": {
+        "hidden": true,
         "overwriteSchemaWith": "dapla/persistence.json"
       },
       "properties": {
