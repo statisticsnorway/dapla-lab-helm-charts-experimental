@@ -7,6 +7,7 @@
       "description": "Velg Dapla-team og tilgangsgruppe for datatilgang",
       "type": "object",
       "x-onyxia": {
+        "hidden": true,
         "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
@@ -14,9 +15,6 @@
       "title": "Git",
       "description": "Konfigurer Git og Github for tjenesten",
       "type": "object",
-      "x-onyxia": {
-        "overwriteSchemaWith": "dapla/git.json"
-      },
       "properties": {
         "enabled": {
           "type": "boolean",
