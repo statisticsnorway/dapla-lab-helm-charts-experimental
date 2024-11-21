@@ -11,87 +11,11 @@
       }
     },
     "git": {
-      "description": "Konfigurer Git og GitHub for tjenesten",
+      "title": "Git",
+      "description": "Konfigurer Git og Github for tjenesten",
       "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "title": "Konfigurer Git",
-          "description": "Konfigurerer Git iht SSBs standard",
-          "default": true
-        },
-        "name": {
-          "type": "string",
-          "title": "Git brukernavn",
-          "description": "Standardverdi arves fra *Min konto* i Dapla Lab",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.name}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "email": {
-          "type": "string",
-          "title": "Git e-post",
-          "description": "Standardverdi arves fra *Min konto* i Dapla Lab.",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.email}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "cache": {
-          "type": "string",
-          "description": "duration in seconds of the credentials cache duration",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.credentials_cache_duration}}",
-            "hidden": true
-          }
-        },
-        "token": {
-          "type": "string",
-          "title": "GitHub-token",
-          "description": "personal access token",
-          "default": "",
-          "render": "password",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.token}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "repository": {
-          "type": "string",
-          "title": "Repository",
-          "description": "Repo som skal klones ved oppstart av tjenesten",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.project}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "branch": {
-          "type": "string",
-          "title": "Git branch",
-          "description": "Hvilken branch du skal jobbe i",
-          "default": "",
-          "hidden": {
-            "value": "",
-            "path": "git/repository"
-          }
-        }
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/git.json"
       }
     },
     "tjeneste": {
