@@ -99,40 +99,6 @@
           "x-onyxia": {
             "hidden": true,
             "overwriteSchemaWith": "dapla/resources.json"
-          },
-          "properties": {
-            "cpu": {
-              "description": "The amount of CPU guaranteed",
-              "title": "CPU",
-              "type": "string",
-              "default": "100m",
-              "render": "slider",
-              "sliderMin": 50,
-              "sliderMax": 8000,
-              "sliderStep": 50,
-              "sliderUnit": "m",
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.resources.cpuRequest",
-                "useRegionSliderConfig": "cpu"
-              }
-            },
-            "memory": {
-              "description": "The amount of memory guaranteed",
-              "title": "Memory",
-              "type": "string",
-              "default": "1Gi",
-              "render": "slider",
-              "sliderMin": 1,
-              "sliderMax": 600,
-              "sliderStep": 1,
-              "sliderUnit": "Gi",
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.resources.memoryRequest",
-                "useRegionSliderConfig": "memory"
-              }
-            }
           }
         }
       }
@@ -141,6 +107,7 @@
       "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
       "x-onyxia": {
+        "hidden": true,
         "overwriteSchemaWith": "dapla/persistence.json"
       },
       "properties": {
