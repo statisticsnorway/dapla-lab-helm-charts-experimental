@@ -54,10 +54,6 @@
     "diskplass": {
       "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/persistence.json"
-      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -79,7 +75,6 @@
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
-            "overwriteDefaultWith": "region.resources.disk",
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
