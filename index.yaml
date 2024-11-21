@@ -3801,6 +3801,29 @@ entries:
     version: 0.0.1
   jupyter-rpk:
   - apiVersion: v2
+    created: "2024-11-21T12:08:00.80730392Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.7
+    description: Minimal Jupyterlab med Python og R. Brukeren kan selv installere
+      pakker.
+    digest: 8927be83b3c725301dda374e79cdb2812440f901bd1b4a7fba8bed0288ce5d7a
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-rpk
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-rpk-1.0.3/jupyter-rpk-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2024-11-20T14:24:16.695727584Z"
     dependencies:
     - name: library-chart
@@ -7706,4 +7729,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.22/vscode-python-suspend-0.5.22.tgz
     version: 0.5.22
-generated: "2024-11-21T09:39:01.048485834Z"
+generated: "2024-11-21T12:08:00.808185469Z"
