@@ -149,7 +149,7 @@ spec:
               value: "yes"
             {{- end }}
           envFrom:
-            {{- if .Values.git.enabled }}
+            {{- if .Values.dapla.git.enabled }}
             - secretRef:
                 name: {{ include "library-chart.secretNameGit" . }}
             {{- end }}
