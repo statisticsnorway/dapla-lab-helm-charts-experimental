@@ -6,60 +6,8 @@
       "title": "Dapla",
       "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter (Kildedata støttes ikke)",
       "type": "object",
-      "properties": {
-        "buckets": {
-          "title": "Buckets",
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Aktiver",
-              "description": "Aktiver datatilgang",
-              "default": true,
-              "x-onyxia": {
-                "hidden": true
-              }
-            }
-          }
-        },
-        "group": {
-          "type": "string",
-          "title": "Team og tilgangsgruppe",
-          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
-          "render": "list",
-          "default": "dapla-felles-developers",
-          "listEnum": [""],
-          "x-onyxia": {
-            "hidden": false,
-            "overwriteDefaultWith": "dapla-felles-developers",
-            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          }
-        },
-        "reason": {
-          "type": "string",
-          "title": "Begrunnelse",
-          "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
-          "default": "",
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        },
-        "requestedDuration": {
-          "type": "string",
-          "title": "Tilgangsvarighet i timer",
-          "description": "Varighet for tilgang til kildedata (kun for data-admins)",
-          "default": "8h",
-          "render": "slider",
-          "sliderMin": 1,
-          "sliderMax": 8,
-          "sliderStep": 1,
-          "sliderUnit": "h",
-          "hidden": {
-            "value": "",
-            "path": "dapla/reason"
-          }
-        }
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
     "tjeneste": {
