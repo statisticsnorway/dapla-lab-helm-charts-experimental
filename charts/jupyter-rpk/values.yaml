@@ -44,7 +44,7 @@ dapla:
     requestedDuration: "4h"
   group: ""
 
-git:
+gitConfig:
   git:
     # Specifies whether a config map should be created
     enabled: false

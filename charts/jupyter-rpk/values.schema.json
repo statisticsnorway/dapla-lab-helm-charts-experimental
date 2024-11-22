@@ -11,8 +11,8 @@
         "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
-    "git": {
-      "title": "Git",
+    "gitConfig": {
+      "title": "Git/Github",
       "description": "Konfigurer Git og Github for tjenesten",
       "type": "object",
       "properties": {
@@ -33,7 +33,7 @@
               "description": "Standardverdi arvet fra *Min konto*",
               "default": "",
               "x-onyxia": {
-                "overwriteDefaultWith": "{{git.name}}"
+                "overwriteDefaultWith": "{{gitConfig.git.name}}"
               },
               "hidden": {
                 "value": false,
@@ -46,11 +46,11 @@
               "description": "Standardverdi arvet fra *Min konto*",
               "default": "",
               "x-onyxia": {
-                "overwriteDefaultWith": "{{git.email}}"
+                "overwriteDefaultWith": "{{gitConfig.git.email}}"
               },
               "hidden": {
                 "value": false,
-                "path": "git/enabled"
+                "path": "gitConfig/git/enabled"
               }
             },
             "cache": {
@@ -58,7 +58,7 @@
               "description": "duration in seconds of the credentials cache duration",
               "default": "",
               "x-onyxia": {
-                "overwriteDefaultWith": "{{git.credentials_cache_duration}}",
+                "overwriteDefaultWith": "{{gitConfig.git.credentials_cache_duration}}",
                 "hidden": true
               }
             }
@@ -76,11 +76,11 @@
               "default": "",
               "render": "password",
               "x-onyxia": {
-                "overwriteDefaultWith": "{{github.token}}"
+                "overwriteDefaultWith": "{{gitConfig.github.token}}"
               },
               "hidden": {
                 "value": false,
-                "path": "git/enabled"
+                "path": "gitConfig/git/enabled"
               }
             },
             "repository": {
@@ -89,11 +89,11 @@
               "description": "Repo som skal klones ved oppstart",
               "default": "",
               "x-onyxia": {
-                "overwriteDefaultWith": "{{github.project}}"
+                "overwriteDefaultWith": "{{gitConfig.github.project}}"
               },
               "hidden": {
                 "value": false,
-                "path": "git/enabled"
+                "path": "gitConfig/git/enabled"
               }
             },
             "branch": {
@@ -103,7 +103,7 @@
               "default": "",
               "hidden": {
                 "value": "",
-                "path": "github/repository"
+                "path": "gitConfig/github/repository"
               }
             }
           }
