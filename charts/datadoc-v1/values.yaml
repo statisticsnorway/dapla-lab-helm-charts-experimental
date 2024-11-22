@@ -41,9 +41,9 @@ userAttributes:
   value: ""
 
 dapla:
-  sourceData:
-    reason: ""
-    requestedDuration: "4h"
+  buckets:
+    enabled: true
+    mountStandard: false
   group: "dapla-felles-developers"
 
 oidc:
