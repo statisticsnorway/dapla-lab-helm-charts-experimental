@@ -10,8 +10,6 @@ metadata:
     dapla.ssb.no/access-reason: {{ .Values.dapla.sourceData.reason }}
     dapla.ssb.no/requested-service-duration: {{ .Values.dapla.sourceData.requestedDuration }}
     dapla.ssb.no/mount-standard-buckets: "true"
-{{- end }}
-{{- end }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
