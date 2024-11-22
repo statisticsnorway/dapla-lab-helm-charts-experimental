@@ -30,7 +30,7 @@
             "name": {
               "type": "string",
               "title": "Brukernavn",
-              "description": "Standardverdi arvet fra *Min konto*",
+              "description": "Standardverdi arvet fra *Min konto* i dapla lab",
               "default": "",
               "x-onyxia": {
                 "overwriteDefaultWith": "{{git.name}}"
