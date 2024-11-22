@@ -3,15 +3,13 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
-{{- if .Values.dapla.buckets.enabled }}
   annotations:
     dapla.ssb.no/enable-ssbucketeer: "true"
     dapla.ssb.no/impersonate-group: {{ .Values.dapla.group }}
     dapla.ssb.no/service-container-name: {{ .Chart.Name }}
-{{- if .Values.dapla.buckets.mountStandard }}
+    dapla.ssb.no/access-reason: {{ .Values.dapla.sourceData.reason }}
+    dapla.ssb.no/requested-service-duration: {{ .Values.dapla.sourceData.requestedDuration }}
     dapla.ssb.no/mount-standard-buckets: "true"
-{{- end }}
-{{- end }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
