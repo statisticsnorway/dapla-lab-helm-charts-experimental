@@ -1,6 +1,6 @@
 # jupyter-rpk
 
-![Version: 1.0.9](https://img.shields.io/badge/Version-1.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.8](https://img.shields.io/badge/Version-1.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.9 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.8 |
 
 ## Values
 
