@@ -6,60 +6,8 @@
       "title": "Dapla",
       "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter (Kildedata støttes ikke)",
       "type": "object",
-      "properties": {
-        "buckets": {
-          "title": "Buckets",
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Aktiver",
-              "description": "Aktiver datatilgang",
-              "default": true,
-              "x-onyxia": {
-                "hidden": true
-              }
-            }
-          }
-        },
-        "group": {
-          "type": "string",
-          "title": "Team og tilgangsgruppe",
-          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
-          "render": "list",
-          "default": "dapla-felles-developers",
-          "listEnum": [""],
-          "x-onyxia": {
-            "hidden": false,
-            "overwriteDefaultWith": "dapla-felles-developers",
-            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          }
-        },
-        "reason": {
-          "type": "string",
-          "title": "Begrunnelse",
-          "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
-          "default": "",
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        },
-        "requestedDuration": {
-          "type": "string",
-          "title": "Tilgangsvarighet i timer",
-          "description": "Varighet for tilgang til kildedata (kun for data-admins)",
-          "default": "8h",
-          "render": "slider",
-          "sliderMin": 1,
-          "sliderMax": 8,
-          "sliderStep": 1,
-          "sliderUnit": "h",
-          "hidden": {
-            "value": "",
-            "path": "dapla/reason"
-          }
-        }
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
     "tjeneste": {
@@ -96,9 +44,37 @@
         "requests": {
           "description": "The amount of CPU requested",
           "type": "object",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteSchemaWith": "dapla/resources.json"
+          "properties": {
+            "cpu": {
+              "description": "The amount of CPU guaranteed",
+              "title": "CPU",
+              "type": "string",
+              "default": "100m",
+              "render": "slider",
+              "sliderMin": 50,
+              "sliderMax": 8000,
+              "sliderStep": 50,
+              "sliderUnit": "m",
+              "x-onyxia": {
+                "hidden": true,
+                "useRegionSliderConfig": "cpu"
+              }
+            },
+            "memory": {
+              "description": "The amount of memory guaranteed",
+              "title": "Memory",
+              "type": "string",
+              "default": "1Gi",
+              "render": "slider",
+              "sliderMin": 1,
+              "sliderMax": 600,
+              "sliderStep": 1,
+              "sliderUnit": "Gi",
+              "x-onyxia": {
+                "hidden": true,
+                "useRegionSliderConfig": "memory"
+              }
+            }
           }
         }
       }
@@ -106,10 +82,6 @@
     "diskplass": {
       "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/persistence.json"
-      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -131,7 +103,6 @@
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
-            "overwriteDefaultWith": "region.resources.disk",
             "useRegionSliderConfig": "disk"
           },
           "hidden": {

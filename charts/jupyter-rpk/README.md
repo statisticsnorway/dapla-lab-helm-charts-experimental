@@ -1,6 +1,6 @@
 # jupyter-rpk
 
-![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.7](https://img.shields.io/badge/Version-1.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -45,14 +45,14 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
-| git.branch | string | `""` |  |
-| git.cache | string | `""` |  |
-| git.configMapName | string | `""` |  |
-| git.email | string | `""` |  |
-| git.enabled | bool | `false` |  |
-| git.name | string | `""` |  |
-| git.repository | string | `""` |  |
-| git.token | string | `""` |  |
+| git.git.cache | string | `""` |  |
+| git.git.configMapName | string | `""` |  |
+| git.git.email | string | `""` |  |
+| git.git.enabled | bool | `false` |  |
+| git.git.name | string | `""` |  |
+| git.github.branch | string | `""` |  |
+| git.github.repository | string | `""` |  |
+| git.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
