@@ -405,7 +405,10 @@
             "type": "object",
             "description": "testing",
             "title": "test",
-            "default": {},
+            "default": {
+                "repository": "",
+                "branch": ""
+            },
             "properties": {
                 "repository": {
                     "type": "string",
