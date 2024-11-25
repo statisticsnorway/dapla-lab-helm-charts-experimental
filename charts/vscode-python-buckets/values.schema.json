@@ -403,12 +403,17 @@
           },
           "items": {
             "type": "object",
+            "description": "testing",
+            "title": "test",
+            "default": {},
             "properties": {
                 "repository": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 },
                 "branch": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 }
             } 
           }
