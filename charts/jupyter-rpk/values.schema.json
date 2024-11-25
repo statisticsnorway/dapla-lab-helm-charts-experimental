@@ -118,7 +118,7 @@
       }
     },
     "diskplass": {
-      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
+      "description": "Velg hvor mye diskplass du trenger",
       "type": "object",
       "x-onyxia": {
         "overwriteSchemaWith": "dapla/persistence.json"
@@ -128,11 +128,15 @@
           "type": "boolean",
           "title": "Opprett filsystem",
           "description": "Opprett et lokal filsystem i tjenesten",
-          "default": true
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
         },
         "size": {
           "type": "string",
           "title": "Diskplass i filsystemet",
+          "description": "Velg hvor mange GB diskplass du trenger i det lokale filsystemet i tjenesten",
           "default": "10Gi",
           "form": true,
           "render": "slider",
