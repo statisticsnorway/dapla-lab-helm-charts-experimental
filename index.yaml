@@ -7228,6 +7228,28 @@ entries:
     version: 0.3.7
   vscode-python-buckets:
   - apiVersion: v2
+    created: "2024-11-25T12:30:27.628608262Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.4
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages, with Google Cloud Storage bucket mounting functionality.
+    digest: f614d099527fe7b043e9745640375700adf8f2775bdd2dfd559dbb1693bd8695
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-buckets
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-buckets-4.0.0/vscode-python-buckets-4.0.0.tgz
+    version: 4.0.0
+  - apiVersion: v2
     created: "2024-10-29T10:01:35.772954772Z"
     dependencies:
     - name: library-chart
@@ -8196,4 +8218,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-suspend-0.5.22/vscode-python-suspend-0.5.22.tgz
     version: 0.5.22
-generated: "2024-11-25T12:25:24.599739431Z"
+generated: "2024-11-25T12:30:27.629325277Z"
