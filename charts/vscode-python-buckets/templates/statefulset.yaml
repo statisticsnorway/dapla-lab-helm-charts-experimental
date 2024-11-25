@@ -109,6 +109,12 @@ spec:
               value: {{ .Values.environment.group }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
+            {{- range $index, $repo := .Values.git.repositories }}
+            - name: GIT_REPO_{{ $index }}_NAME
+              value: {{ $repo.repository }}
+            - name: GIT_REPO_{{ $index }}_BRANCH
+              value: {{ $repo.branch }} 
+            {{- end }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:

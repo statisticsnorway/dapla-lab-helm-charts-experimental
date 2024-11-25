@@ -393,28 +393,24 @@
             "path": "git/enabled"
           }
         },
-        "repository": {
-          "type": "string",
-          "description": "projet",
-          "default": "",
-          "x-form": {
-            "value": "{{git.project}}"
-          },
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.project}}"
-          },
+        "repositories": {
+          "type": "array",
+          "description": "Repositories to clone",
+          "default": [],
           "hidden": {
             "value": false,
             "path": "git/enabled"
-          }
-        },
-        "branch": {
-          "type": "string",
-          "description": "Branch automatically checked out",
-          "default": "",
-          "hidden": {
-            "value": "",
-            "path": "git/repository"
+          },
+          "items": {
+            "type": "object",
+            "properties": {
+                "repository": {
+                    "type": "string"
+                },
+                "branch": {
+                    "type": "string"
+                }
+            } 
           }
         }
       }
