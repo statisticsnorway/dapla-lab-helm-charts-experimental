@@ -2,92 +2,200 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "resources": {
-      "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
+    "dapla": {
+      "title": "Dapla",
+      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
+      "type": "object",
+      "properties": {
+        "buckets": {
+          "title": "Buckets",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Aktiver",
+              "description": "Aktiver datatilgang",
+              "default": false
+            },
+            "mountStandard": {
+              "type": "boolean",
+              "title": "Bøtter som filsystem",
+              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
+              "default": true,
+              "hidden": {
+                "value": false,
+                "path": "dapla/buckets/enabled"
+              }
+            }
+          }
+        },
+        "group": {
+          "type": "string",
+          "title": "Team og tilgangsgruppe",
+          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
+          "render": "list",
+          "default": "",
+          "listEnum": [
+            ""
+          ],
+          "x-onyxia": {
+            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
+            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
+          },
+          "hidden": {
+            "value": false,
+            "path": "dapla/buckets/enabled"
+          }
+        },
+        "reason": {
+          "type": "string",
+          "title": "Begrunnelse",
+          "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
+          "default": "",
+          "hidden": {
+            "value": false,
+            "path": "dapla/buckets/enabled"
+          }
+        },
+        "requestedDuration": {
+          "type": "string",
+          "title": "Tilgangsvarighet i timer",
+          "description": "Varighet for tilgang til kildedata (kun for data-admins)",
+          "default": "8h",
+          "render": "slider",
+          "sliderMin": 1,
+          "sliderMax": 8,
+          "sliderStep": 1,
+          "sliderUnit": "h",
+          "hidden": {
+            "value": "",
+            "path": "dapla/reason"
+          }
+        }
+      }
+    },
+    "git": {
+      "description": "Konfigurer Git og GitHub for tjenesten",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "title": "Konfigurer Git",
+          "description": "Konfigurerer Git iht SSBs standard",
+          "default": true
+        },
+        "name": {
+          "type": "string",
+          "title": "Git brukernavn",
+          "description": "Standardverdi arves fra *Min konto* i Dapla Lab",
+          "default": "",
+          "x-onyxia": {
+            "overwriteDefaultWith": "{{git.name}}"
+          },
+          "hidden": {
+            "value": false,
+            "path": "git/enabled"
+          }
+        },
+        "email": {
+          "type": "string",
+          "title": "Git e-post",
+          "description": "Standardverdi arves fra *Min konto* i Dapla Lab.",
+          "default": "",
+          "x-onyxia": {
+            "overwriteDefaultWith": "{{git.email}}"
+          },
+          "hidden": {
+            "value": false,
+            "path": "git/enabled"
+          }
+        },
+        "cache": {
+          "type": "string",
+          "description": "duration in seconds of the credentials cache duration",
+          "default": "",
+          "x-onyxia": {
+            "overwriteDefaultWith": "{{git.credentials_cache_duration}}",
+            "hidden": true
+          }
+        },
+        "token": {
+          "type": "string",
+          "title": "GitHub-token",
+          "description": "personal access token",
+          "default": "",
+          "render": "password",
+          "x-onyxia": {
+            "overwriteDefaultWith": "{{git.token}}"
+          },
+          "hidden": {
+            "value": false,
+            "path": "git/enabled"
+          }
+        },
+        "repository": {
+          "type": "string",
+          "title": "Repository",
+          "description": "Repo som skal klones ved oppstart av tjenesten",
+          "default": "",
+          "x-onyxia": {
+            "overwriteDefaultWith": "{{git.project}}"
+          },
+          "hidden": {
+            "value": false,
+            "path": "git/enabled"
+          }
+        },
+        "branch": {
+          "type": "string",
+          "title": "Git branch",
+          "description": "Hvilken branch du skal jobbe i",
+          "default": "",
+          "hidden": {
+            "value": "",
+            "path": "git/repository"
+          }
+        }
+      }
+    },
+    "ressurser": {
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "resources.json"
+        "overwriteSchemaWith": "dapla/resources-ide.json"
       },
       "properties": {
         "requests": {
-          "description": "Guaranteed resources",
+          "description": "Velg mengden CPU-ressurser i millicores (M)",
           "type": "object",
           "properties": {
             "cpu": {
-              "description": "The amount of cpu guaranteed",
+              "description": "Velg mengden CPU-ressurser i millicores (M). 50 M tilsvarer 0,05 av en CPU-kjerne og 2000 M tilsvarer 2 CPU-kjerner.",
               "title": "CPU",
               "type": "string",
-              "default": "100m",
+              "default": "250m",
               "render": "slider",
               "sliderMin": 50,
-              "sliderMax": 40000,
+              "sliderMax": 8000,
               "sliderStep": 50,
               "sliderUnit": "m",
-              "sliderExtremity": "down",
-              "sliderExtremitySemantic": "guaranteed",
-              "sliderRangeId": "cpu",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.cpuRequest",
                 "useRegionSliderConfig": "cpu"
               }
             },
             "memory": {
-              "description": "The amount of memory guaranteed",
-              "title": "memory",
+              "description": "Garantert tilgjengelig minne/RAM i tjenesten",
+              "title": "Minne/RAM",
               "type": "string",
-              "default": "2Gi",
+              "default": "4Gi",
               "render": "slider",
               "sliderMin": 1,
-              "sliderMax": 200,
+              "sliderMax": 600,
               "sliderStep": 1,
               "sliderUnit": "Gi",
-              "sliderExtremity": "down",
-              "sliderExtremitySemantic": "guaranteed",
-              "sliderRangeId": "memory",
               "x-onyxia": {
                 "overwriteDefaultWith": "region.resources.memoryRequest",
-                "useRegionSliderConfig": "memory"
-              }
-            }
-          }
-        },
-        "limits": {
-          "description": "max resources",
-          "type": "object",
-          "properties": {
-            "cpu": {
-              "description": "The maximum amount of cpu",
-              "title": "CPU",
-              "type": "string",
-              "default": "30000m",
-              "render": "slider",
-              "sliderMin": 50,
-              "sliderMax": 40000,
-              "sliderStep": 50,
-              "sliderUnit": "m",
-              "sliderExtremity": "up",
-              "sliderExtremitySemantic": "Maximum",
-              "sliderRangeId": "cpu",
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.resources.cpuLimit",
-                "useRegionSliderConfig": "cpu"
-              }
-            },
-            "memory": {
-              "description": "The maximum amount of memory",
-              "title": "Memory",
-              "type": "string",
-              "default": "50Gi",
-              "render": "slider",
-              "sliderMin": 1,
-              "sliderMax": 200,
-              "sliderStep": 1,
-              "sliderUnit": "Gi",
-              "sliderExtremity": "up",
-              "sliderExtremitySemantic": "Maximum",
-              "sliderRangeId": "memory",
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.resources.memoryLimit",
                 "useRegionSliderConfig": "memory"
               }
             }
@@ -95,8 +203,8 @@
         }
       }
     },
-    "service": {
-      "description": "spark-history specific configuration",
+    "tjeneste": {
+      "description": "Velg versjon av tjenesten",
       "type": "object",
       "properties": {
         "image": {
@@ -111,16 +219,18 @@
                 "IfNotPresent",
                 "Always",
                 "Never"
-              ]
+              ],
+              "x-onyxia": {
+                "hidden": true
+              }
             },
             "version": {
-              "description": "vscode supported version",
+              "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:vscode1.0.0",
+              "default": "py311-v53-2024.10.25",
               "listEnum": [
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/onyxia/vscode-local:vscode1.0.0",
-                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py312",
-                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py311"
+                "py312-v53-2024.10.25",
+                "py311-v53-2024.10.25"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -129,107 +239,22 @@
         }
       }
     },
-    "buckets": {
-      "description": "Mount Google Cloud Storage buckets as a folder in your service",
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "description": "Enabled",
-          "default": false
-        },
-        "group": {
-          "type": "string",
-          "title": "Dapla group",
-          "description": "Which Dapla group to act as",
-          "render": "list",
-          "default": "",
-          "listEnum": [""],
-          "x-onyxia": {
-              "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
-              "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
-          "hidden": {
-            "value": false,
-            "path": "buckets/enabled"
-          }
-        },
-        "mountStandard": {
-          "type": "boolean",
-          "title": "Mount standard buckets",
-          "description": "Whether to mount your group's standard buckets (e.g. produkt, tilsky, frasky)",
-          "default": true,
-          "hidden": {
-            "value": false,
-            "path": "buckets/enabled"
-          }
-        },
-        "extraBuckets": {
-          "type": "array",
-          "title": "Extra buckets to mount",
-          "description": "Any extra buckets you want to mount (e.g. shared buckets from another team)",
-          "default": [],
-          "hidden": {
-            "value": false,
-            "path": "buckets/enabled"
-          },
-          "items": {
-              "type": "string",
-              "default": ""
-          }
-        },
-        "restricted": {
-            "type": "object",
-            "hidden": {
-                "value": false,
-                "path": "buckets/enabled"
-            },
-            "properties": {
-                "reason": {
-                  "type": "string",
-                  "title": "Begrunnelse",
-                  "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
-                  "default": "",
-                  "hidden": {
-                    "value": false,
-                    "path": "buckets/enabled"
-                  }
-                },
-                "requestedDuration": {
-                  "type": "string",
-                  "title": "Tilgangsvarighet i timer",
-                  "description": "Varighet for tilgang til kildedata (kun for data-admins)",
-                  "default": "8h",
-                  "render": "slider",
-                  "sliderMin": 1,
-                  "sliderMax": 8,
-                  "sliderStep": 1,
-                  "sliderUnit": "h",
-                  "hidden": {
-                    "value": "",
-                    "path": "buckets/restricted/reason"
-                  }
-                }
-            }
-        }
-      }
-    },
-    "persistence": {
-      "description": "Configuration for persistence",
+    "diskplass": {
+      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "persistenceOld.json"
+        "overwriteSchemaWith": "dapla/persistence.json"
       },
       "properties": {
         "enabled": {
           "type": "boolean",
-          "description": "Create a persistent volume",
+          "title": "Opprett filsystem",
+          "description": "Opprett et lokal filsystem i tjenesten",
           "default": true
         },
         "size": {
           "type": "string",
-          "title": "Persistent volume size",
-          "description": "Size of the persistent volume",
+          "title": "Diskplass i filsystemet",
           "default": "10Gi",
           "form": true,
           "render": "slider",
@@ -243,7 +268,7 @@
           },
           "hidden": {
             "value": false,
-            "path": "persistence/enabled"
+            "path": "diskplass/enabled"
           }
         }
       }
@@ -256,7 +281,7 @@
           "type": "object",
           "description": "IP protection",
           "x-onyxia": {
-            "overwriteSchemaWith": "allowlist.json"
+            "overwriteSchemaWith": "dapla/allowlist.json"
           },
           "properties": {
             "enabled": {
@@ -264,9 +289,6 @@
               "title": "Enable IP protection",
               "description": "Only the configured set of IPs will be able to reach the service",
               "default": true,
-              "x-form": {
-                "value": "{{region.defaultIpProtection}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.defaultIpProtection"
@@ -276,9 +298,6 @@
               "type": "string",
               "description": "the white list of IP is whitespace",
               "title": "Whitelist of IP",
-              "x-form": {
-                "value": "{{user.ip}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "{{user.ip}}"
@@ -298,9 +317,6 @@
               "title": "Enable network policy",
               "description": "Only pod from the same namespace will be allowed",
               "default": true,
-              "x-form": {
-                "value": "{{region.defaultNetworkPolicy}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.defaultNetworkPolicy"
@@ -310,10 +326,6 @@
               "type": "array",
               "description": "Array of source allowed to have network access to your service",
               "default": [],
-              "x-form": {
-                "hidden": true,
-                "value": "{{region.from}}"
-              },
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.from"
@@ -325,7 +337,7 @@
           "type": "object",
           "description": "Service entry to give access to external services",
           "x-onyxia": {
-            "overwriteSchemaWith": "egress/vscode.json"
+            "overwriteSchemaWith": "dapla/egress-vscode.json"
           },
           "properties": {
             "enabled": {
@@ -352,7 +364,7 @@
           "type": "object",
           "description": "OAuth2 configuration",
           "x-onyxia": {
-            "overwriteSchemaWith": "oauth2.json"
+            "overwriteSchemaWith": "dapla/oauth2.json"
           },
           "properties": {
             "provider": {
@@ -424,102 +436,6 @@
           ],
           "x-onyxia": {
             "hidden": true
-          }
-        }
-      }
-    },
-    "git": {
-      "description": "Git user configuration",
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "description": "Add git config inside your environment",
-          "default": true
-        },
-        "name": {
-          "type": "string",
-          "description": "user name for git",
-          "default": "",
-          "x-form": {
-            "value": "{{git.name}}"
-          },
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.name}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "email": {
-          "type": "string",
-          "description": "user email for git",
-          "default": "",
-          "x-form": {
-            "value": "{{git.email}}"
-          },
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.email}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "cache": {
-          "type": "string",
-          "description": "duration in seconds of the credentials cache duration",
-          "default": "",
-          "x-form": {
-            "value": "{{git.credentials_cache_duration}}"
-          },
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.credentials_cache_duration}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "token": {
-          "type": "string",
-          "description": "personal access token",
-          "default": "",
-          "render": "password",
-          "x-form": {
-            "value": "{{git.token}}"
-          },
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.token}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "repository": {
-          "type": "string",
-          "description": "projet",
-          "default": "",
-          "x-form": {
-            "value": "{{git.project}}"
-          },
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.project}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "branch": {
-          "type": "string",
-          "description": "Branch automatically checked out",
-          "default": "",
-          "hidden": {
-            "value": "",
-            "path": "git/repository"
           }
         }
       }
@@ -701,28 +617,35 @@
       "type": "object",
       "description": "Start up probe",
       "default": {},
-      "x-form": {
-        "hidden": true,
-        "value": "{{region.startupProbe}}"
-      },
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.startupProbe",
-        "overwriteSchemaWith": "startupProbe.json"
+        "overwriteSchemaWith": "dapla/startupProbe.json"
       }
     },
     "tolerations": {
       "type": "array",
       "description": "Array of tolerations",
       "default": [],
-      "x-form": {
-        "hidden": true,
-        "value": "{{region.tolerations}}"
-      },
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.tolerations",
         "overwriteSchemaWith": "tolerations.json"
+      }
+    },
+    "userPreferences": {
+      "description": "User Preferences",
+      "type": "object",
+      "properties": {
+        "darkMode": {
+          "type": "boolean",
+          "description": "dark mode is or is not enabled",
+          "default": false,
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "user.darkMode"
+          }
+        }
       }
     },
     "nodeSelector": {
@@ -732,14 +655,14 @@
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.nodeSelector",
-        "overwriteSchemaWith": "nodeSelector.json"
+        "overwriteSchemaWith": "dapla/nodeSelector.json"
       }
     },
     "oidc": {
       "description": "OIDC configuration",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "oidc.json"
+        "overwriteSchemaWith": "dapla/oidc.json"
       },
       "properties": {
         "enabled": {
@@ -838,7 +761,27 @@
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.customValues.deployEnvironment",
-        "overwriteSchemaWith": "deployEnvironment.json"
+        "overwriteSchemaWith": "dapla/deployEnvironment.json"
+      }
+    },
+    "statbankEncryptUrl": {
+        "type": "string",
+        "description": "The statbank authenticator encryption endpoint",
+        "default": "",
+        "x-onyxia": {
+          "hidden": true,
+          "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
+          "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
+        }
+    },
+    "daplaUser": {
+      "type": "string",
+      "title": "Current Dapla user",
+      "description": "The currently logged in user's email address",
+      "default": "",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteDefaultWith": "{{user.email}}"
       }
     },
     "global": {

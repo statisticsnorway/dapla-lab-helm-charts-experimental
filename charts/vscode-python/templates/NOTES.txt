@@ -1,9 +1,11 @@
 {{- if .Values.istio.enabled }}
-- You can connect to this VSCode-service when you see **Open the service** in the bottom right of this box.
+Tjenesten bruker opptil 1-2 minutter for å starte opp og er klar når **Åpne tjenesten**-knappen
+dukker opp nederst til høyre i denne boksen.
 {{- end }}
 
-*Important:*
+*Viktig:*
 
-- The volume/disc associated with the service will be deleted every day.
-- Always save data in Google-buckets and not on the temporary volume/disc provided by the service.
-- You should always save your code in GitHub. Remember to push code frequently to GitHub. 
+- Når tjenesten slettes vil også filsystemet i tjenesten slettes.
+- Når tjenesten pauses vil alle filer som lagres utenfor `/home/onyxia/work/` bli slettet.
+- Data skal alltid lagres i Google-bøtter.
+- Kode skal lagres på GitHub og det er viktig at man *pusher* kode til GitHub med jevne mellomrom, og alltid før man avslutter arbeidsdagen.

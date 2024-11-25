@@ -1,20 +1,23 @@
 {{- $fullName := include "library-chart.fullname" . -}}
-{{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.buckets.group) }}
+{{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.dapla.group) }}
 {{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
-{{- if .Values.buckets.enabled }}
+{{- if .Values.dapla.buckets.enabled }}
   annotations:
     dapla.ssb.no/enable-ssbucketeer: "true"
-    dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
+    dapla.ssb.no/impersonate-group: {{ .Values.dapla.group }}
     dapla.ssb.no/service-container-name: {{ .Chart.Name }}
-{{- with .Values.buckets.extraBuckets }}
-    dapla.ssb.no/mount-buckets: {{ join "," . }}
+{{- with .Values.dapla.reason }}
+    dapla.ssb.no/access-reason: {{ . }}
 {{- end }}
-{{- if .Values.buckets.mountStandard }}
-    dapla.ssb.no/mount-standard-buckets: "true"
+{{- with .Values.dapla.requestedDuration }}
+    dapla.ssb.no/requested-service-duration: {{ . }}
+{{- end }}
+{{- with .Values.dapla.buckets.mountStandard }}
+    dapla.ssb.no/mount-standard-buckets: "{{ . }}"
 {{- end }}
 {{- end }}
   labels:
@@ -51,9 +54,9 @@ spec:
     spec:
       volumes:
         - name: home
-        {{- if .Values.persistence.enabled }}
+        {{- if .Values.diskplass.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
         {{- else }}
           emptyDir: {}
         {{- end }}
@@ -73,12 +76,13 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.version }}"
+          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:{{ .Values.tjeneste.image.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} /usr/bin/code-server --host 0.0.0.0 \
-          --auth none --disable-file-downloads --disable-telemetry --disable-update-check --user-data-dir /home/{{ .Values.environment.user }}/work/.vscode"]
-          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          --auth none --disable-file-downloads --disable-telemetry --disable-update-check --extensions-dir /home/{{ .Values.environment.user }}/.local/share/code-server/extensions --user-data-dir /home/{{ .Values.environment.user }}/work/.local/share/code-server"]
+          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
+            {{- include "library-chart.commonEnvVars" . | nindent 12 }}
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
@@ -94,6 +98,10 @@ spec:
             {{- if .Values.init.personalInitArgs }}
             - name: PERSONAL_INIT_ARGS
               value: {{ .Values.init.personalInitArgs }}
+            {{- end }}
+            {{- if .Values.userPreferences.darkMode }}
+            - name: DARK_MODE
+              value: "true"
             {{- end }}
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
@@ -112,17 +120,21 @@ spec:
             - name: POETRY_VIRTUALENVS_IN_PROJECT
               value: "true"
             - name: JUPYTER_CONFIG_DIR
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/config
-            - name: JUPYTER_CONFIG_PATH
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/config_paths
-            - name: JUPYTER_PATH
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/data_paths
+              value: /home/{{ .Values.environment.user }}/work/.jupyter
             - name: JUPYTER_DATA_DIR
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/data
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter
+            - name: JUPYTER_PATH
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter
             - name: JUPYTER_RUNTIME_DIR
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/runtime
-            - name: STAT_TEMPLATE_DEFAULT_REFERENCE
-              value: "1.1.6"
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/runtime
+            - name: PIPX_HOME
+              value: /home/{{ .Values.environment.user }}/work/.local/pipx
+            - name: PIPX_BIN_DIR
+              value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
+            - name: STATBANK_ENCRYPT_URL
+              value: {{ .Values.statbankEncryptUrl }}
+            - name: DAPLA_USER
+              value: {{ .Values.daplaUser }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
@@ -145,7 +157,15 @@ spec:
               path: /
               port: {{ .Values.networking.service.port }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            requests:
+              cpu: {{ .Values.ressurser.requests.cpu }}
+              memory: {{ .Values.ressurser.requests.memory }}
+            limits: 
+              # Memory limit = min(mem_requested * 1.5, mem_requested + 4)
+              {{- with .Values.ressurser.requests}}
+              {{- $requestedmem := .memory | trimSuffix "Gi" | float64}}
+              memory: {{ min (mulf 1.5 $requestedmem) (add 4.0 $requestedmem) | int | toString | printf "%vGi" }}
+              {{- end }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
               subPath: work
