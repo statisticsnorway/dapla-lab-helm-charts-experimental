@@ -1,6 +1,6 @@
 # datadoc-v1
 
-![Version: 1.0.29](https://img.shields.io/badge/Version-1.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.30](https://img.shields.io/badge/Version-1.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Applikasjon for å dokumentere datasett i SSB.
 
@@ -26,6 +26,8 @@ Applikasjon for å dokumentere datasett i SSB.
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| dapla.buckets.enabled | bool | `true` |  |
+| dapla.buckets.mountStandard | bool | `false` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
