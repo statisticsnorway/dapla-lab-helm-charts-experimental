@@ -42,8 +42,8 @@ userAttributes:
 
 dapla:
   buckets:
-    enabled: false
-    mountStandard: true
+    enabled: true
+    mountStandard: false
   sourceData:
     reason: ""
     requestedDuration: "4h"
