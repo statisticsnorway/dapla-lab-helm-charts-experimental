@@ -1,8 +1,8 @@
 global:
   suspend: false
 tjeneste:
+  version: "py311-v59-2024.12.02"
   image:
-    version: "py311-v53-2024.10.25"
     pullPolicy: IfNotPresent
 
 security:
@@ -43,16 +43,20 @@ oidc:
   # If not set and create is true, a name is generated using the fullname template
   secretName: ""
 
-git:
-  # Specifies whether a config map should be created
-  enabled: true
-  # The name of the configmap to use.
-  # If not set and create is true, a name is generated using the fullname template
-  secretName: ""
-  name: ""
-  email: ""
-  cache: ""
-  branch: ""
+gitConfig:
+  git:
+    # Specifies whether a config map should be created
+    enabled: false
+    # The name of the configmap to use.
+    # If not set and create is true, a name is generated using the fullname template
+    configMapName: ""
+    name: ""
+    email: ""
+    cache: ""
+  github:
+    token: ""
+    repository: ""
+    branch: ""
 
 repository:
   configMapName: ""
@@ -110,13 +114,12 @@ istio:
     - istio-namespace/example-gateway
   hostname: chart-example.local
 
-ressurser:
+resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube.
-  requests:
-    cpu: ""
-    memory: ""
+  cpu: ""
+  memory: ""
 
 diskplass:
   enabled: true
@@ -148,10 +151,10 @@ userPreferences: {}
 affinity: {}
 
 dapla:
-  buckets:
-    enabled: false
-    mountStandard: true
-  group: ""
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
+  group: "dapla-felles-developers"
 
 deleteJob:
   enabled: true
@@ -163,4 +166,5 @@ deleteJob:
     annotations: {}
 deployEnvironment: "DEV"
 daplaUser: ""
+statbankBaseUrl: ""
 statbankEncryptUrl: ""

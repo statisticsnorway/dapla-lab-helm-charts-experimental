@@ -3,210 +3,39 @@
   "type": "object",
   "properties": {
     "dapla": {
-      "title": "Dapla",
-      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
-      "type": "object",
-      "properties": {
-        "buckets": {
-          "title": "Buckets",
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Aktiver",
-              "description": "Aktiver datatilgang",
-              "default": false
-            },
-            "mountStandard": {
-              "type": "boolean",
-              "title": "Bøtter som filsystem",
-              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
-              "default": true,
-              "hidden": {
-                "value": false,
-                "path": "dapla/buckets/enabled"
-              }
-            }
-          }
-        },
-        "group": {
-          "type": "string",
-          "title": "Team og tilgangsgruppe",
-          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
-          "render": "list",
-          "default": "",
-          "listEnum": [
-            ""
-          ],
-          "x-onyxia": {
-            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
-            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        },
-        "reason": {
-          "type": "string",
-          "title": "Begrunnelse",
-          "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
-          "default": "",
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        },
-        "requestedDuration": {
-          "type": "string",
-          "title": "Tilgangsvarighet i timer",
-          "description": "Varighet for tilgang til kildedata (kun for data-admins)",
-          "default": "8h",
-          "render": "slider",
-          "sliderMin": 1,
-          "sliderMax": 8,
-          "sliderStep": 1,
-          "sliderUnit": "h",
-          "hidden": {
-            "value": "",
-            "path": "dapla/reason"
-          }
-        }
-      }
-    },
-    "git": {
-      "description": "Konfigurer Git og GitHub for tjenesten",
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "title": "Konfigurer Git",
-          "description": "Konfigurerer Git iht SSBs standard",
-          "default": true
-        },
-        "name": {
-          "type": "string",
-          "title": "Git brukernavn",
-          "description": "Standardverdi arves fra *Min konto* i Dapla Lab",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.name}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "email": {
-          "type": "string",
-          "title": "Git e-post",
-          "description": "Standardverdi arves fra *Min konto* i Dapla Lab.",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.email}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "cache": {
-          "type": "string",
-          "description": "duration in seconds of the credentials cache duration",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.credentials_cache_duration}}",
-            "hidden": true
-          }
-        },
-        "token": {
-          "type": "string",
-          "title": "GitHub-token",
-          "description": "personal access token",
-          "default": "",
-          "render": "password",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.token}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "repository": {
-          "type": "string",
-          "title": "Repository",
-          "description": "Repo som skal klones ved oppstart av tjenesten",
-          "default": "",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{git.project}}"
-          },
-          "hidden": {
-            "value": false,
-            "path": "git/enabled"
-          }
-        },
-        "branch": {
-          "type": "string",
-          "title": "Git branch",
-          "description": "Hvilken branch du skal jobbe i",
-          "default": "",
-          "hidden": {
-            "value": "",
-            "path": "git/repository"
-          }
-        }
-      }
-    },
-    "ressurser": {
-      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
+      "title": "Data",
+      "description": "Velg Dapla-team og tilgangsgruppe for datatilgang",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "dapla/resources-ide.json"
-      },
-      "properties": {
-        "requests": {
-          "description": "Velg mengden CPU-ressurser i millicores (M)",
-          "type": "object",
-          "properties": {
-            "cpu": {
-              "description": "Velg mengden CPU-ressurser i millicores (M). 50 M tilsvarer 0,05 av en CPU-kjerne og 2000 M tilsvarer 2 CPU-kjerner.",
-              "title": "CPU",
-              "type": "string",
-              "default": "250m",
-              "render": "slider",
-              "sliderMin": 50,
-              "sliderMax": 8000,
-              "sliderStep": 50,
-              "sliderUnit": "m",
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.resources.cpuRequest",
-                "useRegionSliderConfig": "cpu"
-              }
-            },
-            "memory": {
-              "description": "Garantert tilgjengelig minne/RAM i tjenesten",
-              "title": "Minne/RAM",
-              "type": "string",
-              "default": "4Gi",
-              "render": "slider",
-              "sliderMin": 1,
-              "sliderMax": 600,
-              "sliderStep": 1,
-              "sliderUnit": "Gi",
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.resources.memoryRequest",
-                "useRegionSliderConfig": "memory"
-              }
-            }
-          }
-        }
+        "overwriteSchemaWith": "dapla/dapla.json"
+      }
+    },
+    "gitConfig": {
+      "title": "Git/Github",
+      "description": "Konfigurer Git og Github for tjenesten",
+      "type": "object",
+      "x-onyxia": {
+        "hidden": false,
+        "overwriteSchemaWith": "dapla/git.json"
       }
     },
     "tjeneste": {
-      "description": "Velg versjon av tjenesten",
+      "title": "Python/R",
+      "description": "Velg versjon av Python og R",
       "type": "object",
       "properties": {
+        "version": {
+          "title": "Versjon",
+          "description": "Versjon av Python og R i tjenesten",
+          "type": "string",
+          "default": "py311-v59-2024.12.02",
+          "listEnum": [
+            "py312-v59-2024.12.02",
+            "py311-v59-2024.12.02"
+          ],
+          "render": "list",
+          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+        },
         "image": {
           "description": "image docker",
           "type": "object",
@@ -223,54 +52,25 @@
               "x-onyxia": {
                 "hidden": true
               }
-            },
-            "version": {
-              "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
-              "type": "string",
-              "default": "py311-v53-2024.10.25",
-              "listEnum": [
-                "py312-v53-2024.10.25",
-                "py311-v53-2024.10.25"
-              ],
-              "render": "list",
-              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
             }
           }
         }
       }
     },
+    "resources": {
+      "title": "Ressurser",
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/resources-ide.json"
+      }
+    },
     "diskplass": {
-      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
+      "title": "Diskplass",
+      "description": "Velg hvor mye diskplass du trenger",
       "type": "object",
       "x-onyxia": {
         "overwriteSchemaWith": "dapla/persistence.json"
-      },
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "title": "Opprett filsystem",
-          "description": "Opprett et lokal filsystem i tjenesten",
-          "default": true
-        },
-        "size": {
-          "type": "string",
-          "title": "Diskplass i filsystemet",
-          "default": "10Gi",
-          "form": true,
-          "render": "slider",
-          "sliderMin": 1,
-          "sliderMax": 100,
-          "sliderStep": 1,
-          "sliderUnit": "Gi",
-          "x-onyxia": {
-            "overwriteDefaultWith": "region.resources.disk",
-            "useRegionSliderConfig": "disk"
-          },
-          "hidden": {
-            "value": false,
-            "path": "diskplass/enabled"
-          }
-        }
       }
     },
     "security": {
@@ -764,15 +564,23 @@
         "overwriteSchemaWith": "dapla/deployEnvironment.json"
       }
     },
+    "statbankBaseUrl": {
+      "type": "string",
+      "description": "The statbank base URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/statbankBaseUrl.json"
+      }
+    },
     "statbankEncryptUrl": {
-        "type": "string",
-        "description": "The statbank authenticator encryption endpoint",
-        "default": "",
-        "x-onyxia": {
-          "hidden": true,
-          "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
-          "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
-        }
+      "type": "string",
+      "description": "The statbank authenticator encryption endpoint",
+      "default": "",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
+        "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
+      }
     },
     "daplaUser": {
       "type": "string",
@@ -785,18 +593,18 @@
       }
     },
     "global": {
-        "description": "Suspend",
-        "type": "object",
-        "properties": {
-            "suspend": {
-                "type": "boolean",
-                "description": "Suspend this service",
-                "default": false,
-                "x-onyxia": {
-                    "hidden": true
-                }
-            }
+      "description": "Suspend",
+      "type": "object",
+      "properties": {
+        "suspend": {
+          "type": "boolean",
+          "description": "Suspend this service",
+          "default": false,
+          "x-onyxia": {
+            "hidden": true
+          }
         }
       }
+    }
   }
 }
