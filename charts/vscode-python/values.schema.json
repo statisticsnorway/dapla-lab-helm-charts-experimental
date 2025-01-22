@@ -564,6 +564,14 @@
         "overwriteSchemaWith": "dapla/deployEnvironment.json"
       }
     },
+    "pseudoServiceUrl": {
+      "type": "string",
+      "description": "The pseudo service URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
+      }
+    },
     "statbankBaseUrl": {
       "type": "string",
       "description": "The statbank base URL",
