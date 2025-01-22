@@ -127,6 +127,8 @@ spec:
               value: {{ .Values.statbankBaseUrl }}
             - name: STATBANK_ENCRYPT_URL
               value: {{ .Values.statbankEncryptUrl }}
+            - name: PSEUDO_SERVICE_URL
+              value: {{ .Values.pseudoServiceUrl }}
             - name: DAPLA_USER
               value: {{ .Values.daplaUser }}
           envFrom:
