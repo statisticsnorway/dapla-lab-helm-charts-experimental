@@ -155,7 +155,7 @@ dapla:
     reason: ""
     requestedDuration: "4h"
   group: "dapla-felles-developers"
-  mountSharedBuckets: []
+  sharedBuckets: []
 
 deleteJob:
   enabled: true
