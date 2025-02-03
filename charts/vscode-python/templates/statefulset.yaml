@@ -12,6 +12,7 @@ metadata:
     dapla.ssb.no/access-reason: {{ quote .Values.dapla.sourceData.reason }}
     dapla.ssb.no/requested-service-duration: {{ quote .Values.dapla.sourceData.requestedDuration }}
     dapla.ssb.no/mount-standard-buckets: "true"
+    dapla.ssb.no/mount-shared-buckets: {{ .Values.dapla.Delt-bøtte | toJson | quote }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
