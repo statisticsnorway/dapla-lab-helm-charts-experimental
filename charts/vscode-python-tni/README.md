@@ -1,8 +1,8 @@
-# vscode-python
+# vscode-python-tni
 
-![Version: 4.0.6](https://img.shields.io/badge/Version-4.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
+tni's test service
 
 **Homepage:** <https://manual.dapla.ssb.no/statistikkere/vscode-python.html>
 
@@ -89,7 +89,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | security.oauth2.clientId | string | `"my-client"` |  |
 | security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
-| security.password | string | `"changeme"` |  |
+| security.password | string | `nil` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
