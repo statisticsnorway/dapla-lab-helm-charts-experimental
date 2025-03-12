@@ -8511,6 +8511,27 @@ entries:
     version: 0.5.22
   vscode-python-tni:
   - apiVersion: v2
+    created: "2025-03-12T14:04:23.355506818Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.10
+    description: tni's test service
+    digest: b809f364734a244c8383c1ee6d53881e8d8dcbea1c2f34771ca67a1a1a4494ba
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-tni
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.1.1/vscode-python-tni-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
     created: "2025-03-12T13:59:00.399501067Z"
     dependencies:
     - name: library-chart
@@ -8552,4 +8573,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-03-12T13:59:00.40005734Z"
+generated: "2025-03-12T14:04:23.356098763Z"
