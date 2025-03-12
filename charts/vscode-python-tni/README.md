@@ -1,6 +1,6 @@
 # vscode-python-tni
 
-![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.1.1](https://img.shields.io/badge/Version-1.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 tni's test service
 
@@ -15,7 +15,7 @@ tni's test service
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.9 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.10 |
 
 ## Values
 
@@ -26,6 +26,7 @@ tni's test service
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| avansert.data.mountStandard | bool | `true` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
@@ -64,6 +65,7 @@ tni's test service
 | istio.hostname | string | `"chart-example.local"` |  |
 | kubernetes.enabled | bool | `true` |  |
 | kubernetes.role | string | `"view"` |  |
+| maskinportenGuardianUrl | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
 | networking.service.port | int | `8080` |  |
@@ -89,7 +91,6 @@ tni's test service
 | security.oauth2.clientId | string | `"my-client"` |  |
 | security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
-| security.password | string | `nil` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
@@ -98,6 +99,7 @@ tni's test service
 | serviceAccount.name | string | `""` |  |
 | statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
+| suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.version | string | `"dev1"` |  |
 | tolerations | list | `[]` |  |
