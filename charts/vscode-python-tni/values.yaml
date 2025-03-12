@@ -6,7 +6,6 @@ tjeneste:
     pullPolicy: IfNotPresent
 
 security:
-  password: null
   networkPolicy:
     enabled: false
     from: []
@@ -157,6 +156,10 @@ dapla:
   group: "dapla-felles-developers"
   sharedBuckets: []
 
+avansert:
+  data:
+    mountStandard: true
+
 deleteJob:
   enabled: true
   cronMinuteAtDay: "0"
@@ -169,4 +172,6 @@ deployEnvironment: "DEV"
 daplaUser: ""
 statbankBaseUrl: ""
 statbankEncryptUrl: ""
+suvDaplaApiUrl: ""
 pseudoServiceUrl: ""
+maskinportenGuardianUrl: ""

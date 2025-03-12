@@ -71,6 +71,14 @@
         "overwriteSchemaWith": "dapla/persistence.json"
       }
     },
+    "avansert": {
+      "title": "Avansert",
+      "description": "Velg avansert konfigurasjon",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/advanced.json"
+      }
+    },
     "security": {
       "description": "security specific configuration",
       "type": "object",
@@ -562,14 +570,6 @@
         "overwriteSchemaWith": "dapla/deployEnvironment.json"
       }
     },
-    "pseudoServiceUrl": {
-      "type": "string",
-      "description": "The pseudo service URL",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
-      }
-    },
     "statbankBaseUrl": {
       "type": "string",
       "description": "The statbank base URL",
@@ -586,6 +586,30 @@
         "hidden": true,
         "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
+      }
+    },
+    "suvDaplaApiUrl": {
+      "type": "string",
+      "description": "The SUV API URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/suvDaplaApiUrl.json"
+      }
+    },
+    "pseudoServiceUrl": {
+      "type": "string",
+      "description": "The pseudo service URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
+      }
+    },
+    "maskinportenGuardianUrl": {
+      "type": "string",
+      "description": "Maskinporten-guardian URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/maskinportenGuardianUrl.json"
       }
     },
     "daplaUser": {
