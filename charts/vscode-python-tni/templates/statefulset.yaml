@@ -11,7 +11,7 @@ metadata:
     dapla.ssb.no/service-container-name: {{ quote .Chart.Name }}
     dapla.ssb.no/access-reason: {{ quote .Values.dapla.sourceData.reason }}
     dapla.ssb.no/requested-service-duration: {{ quote .Values.dapla.sourceData.requestedDuration }}
-    dapla.ssb.no/mount-standard-buckets: "true"
+    dapla.ssb.no/mount-standard-buckets: {{ quote .Values.avansert.data.mountStandard }}
     dapla.ssb.no/mount-shared-buckets: {{ .Values.dapla.sharedBuckets | toJson | quote }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
@@ -69,7 +69,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:{{ .Values.tjeneste.version }}"
+          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/aux/vscode-tmux:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} /usr/bin/code-server --host 0.0.0.0 \
           --auth none --disable-file-downloads --disable-telemetry --disable-update-check --extensions-dir /home/{{ .Values.environment.user }}/.local/share/code-server/extensions --user-data-dir /home/{{ .Values.environment.user }}/work/.local/share/code-server"]
@@ -128,8 +128,12 @@ spec:
               value: {{ .Values.statbankBaseUrl }}
             - name: STATBANK_ENCRYPT_URL
               value: {{ .Values.statbankEncryptUrl }}
+            - name: SUV_DAPLA_API_URL
+              value: {{ .Values.suvDaplaApiUrl }}
             - name: PSEUDO_SERVICE_URL
               value: {{ .Values.pseudoServiceUrl }}
+            - name: MASKINPORTEN_TOKEN_URL
+              value: {{ .Values.maskinportenGuardianUrl }}
             - name: DAPLA_USER
               value: {{ .Values.daplaUser }}
           envFrom:
@@ -167,31 +171,7 @@ spec:
               name: home
             - mountPath: /dev/shm
               name: dshm
-        - image: europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/dapla/aux/wonderwall:tni-test-1
-          name: wonderwall
-          env:
-            - name: WONDERWALL_AUTO_LOGIN
-              value: "true"
-            - name: WONDERWALL_BIND_ADDRESS
-              value: "0.0.0.0:4180"
-            - name: WONDERWALL_OPENID_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "library-chart.daplaSimpleProxyClientSecretName" . | quote }}
-                  key: client-id
-            - name: WONDERWALL_OPENID_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "library-chart.daplaSimpleProxyClientSecretName" . | quote }}
-                  key: client-secret
-            - name: WONDERWALL_OPENID_WELL_KNOWN_URL
-              value: "{{ .Values.security.oauth2.oidcIssuerUrl }}/.well-known/openid-configuration"
-            - name: WONDERWALL_UPSTREAM_HOST
-              value: "127.0.0.1:{{ .Values.networking.service.port }}"
-            - name: WONDERWALL_OPENID_SCOPES
-              value: "email,profile"
-            - name: WONDERWALL_INGRESS
-              value: "https://{{ .Values.istio.hostname }}"
+        - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
