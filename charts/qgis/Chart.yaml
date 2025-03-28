@@ -1,35 +1,31 @@
 apiVersion: v2
 name: qgis
-description: QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
+description: Minimal QGIS med Python. Brukeren kan selv installere pakker etter behov.
+icon: https://avatars.githubusercontent.com/u/483444?s=48&v=4
+keywords:
+  - QGIS
+  - Python
+home: https://manual.dapla.ssb.no/statistikkere/qgis.html
+sources:
+  - https://github.com/statisticsnorway/dapla-lab-images
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
 
-version: 1.13.0
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 1.14.0
 
-# Version of the application
-appVersion: "3.34.3"
-
-# Keywords to tag the chart
-keywords:
-  - QGis
-  - Geo
-
-# Home URL for the project
-home: https://github.com/trygu/dapla-qgis-desktop
-
-# Sources - where to find the source code and related information
-sources:
-  - https://github.com/trygu/dapla-qgis-desktop
-
-# Maintainers list
-maintainers:
-  - name: Trygve Falch
-    email: trygve.falch@gmail.com
-    url: https://github.com/trygu/
-
-# A list of URLs to images to be used as icons
-icon: https://www.qgis.org/favicon.ico
 
 dependencies:
   - name: library-chart
-    version: 3.2.4
-    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+    version: 4.2.12
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
