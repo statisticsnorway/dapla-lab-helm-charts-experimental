@@ -1,20 +1,18 @@
 {{- $fullName := include "library-chart.fullname" . -}}
+{{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.dapla.group) }}
+{{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
-{{- if .Values.buckets.enabled }}
   annotations:
     dapla.ssb.no/enable-ssbucketeer: "true"
-    dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
-    dapla.ssb.no/service-container-name: {{ .Chart.Name }}
-{{- with .Values.buckets.extraBuckets }}
-    dapla.ssb.no/mount-buckets: {{ join "," . }}
-{{- end }}
-{{- if .Values.buckets.mountStandard }}
-    dapla.ssb.no/mount-standard-buckets: "true"
-{{- end }}
-{{- end }}
+    dapla.ssb.no/impersonate-group: {{ quote .Values.dapla.group }}
+    dapla.ssb.no/service-container-name: {{ quote .Chart.Name }}
+    dapla.ssb.no/access-reason: {{ quote .Values.dapla.sourceData.reason }}
+    dapla.ssb.no/requested-service-duration: {{ quote .Values.dapla.sourceData.requestedDuration }}
+    dapla.ssb.no/mount-standard-buckets: {{ quote .Values.avansert.data.mountStandard }}
+    dapla.ssb.no/mount-shared-buckets: {{ .Values.dapla.sharedBuckets | toJson | quote }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
@@ -32,8 +30,14 @@ spec:
   template:
     metadata:
       annotations:
+        {{- if .Values.gitConfig.git.enabled }}
+        checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
+        {{- end }}
         {{- if .Values.oidc.enabled }}
         checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if (include "library-chart.repository.enabled"  .) }}
+        checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
         {{- end }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
@@ -43,9 +47,9 @@ spec:
     spec:
       volumes:
         - name: home
-        {{- if .Values.persistence.enabled }}
+        {{- if .Values.diskplass.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
         {{- else }}
           emptyDir: {}
         {{- end }}
@@ -65,12 +69,72 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.version }}"
-          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/qgis:{{ .Values.tjeneste.version }}"
+          command: ["/bin/sh","-c"]
+          args: ["/init.sh"]
+          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
+          env:
+            {{- include "library-chart.commonEnvVars" . | nindent 12 }}
+            {{- if .Values.init.regionInit }}
+            - name: REGION_INIT_SCRIPT
+              value: {{ .Values.init.regionInit }}
+            {{- end }}
+            {{- if .Values.init.regionInitCheckSum }}
+            - name: REGION_INIT_SCRIPT_CHECKSUM
+              value: {{ .Values.init.regionInitCheckSum }}
+            {{- end }}
+            {{- if .Values.init.personalInit }}
+            - name: PERSONAL_INIT_SCRIPT
+              value: {{ .Values.init.personalInit }}
+            {{- end }}
+            {{- if .Values.init.personalInitArgs }}
+            - name: PERSONAL_INIT_ARGS
+              value: {{ .Values.init.personalInitArgs }}
+            {{- end }}
+            - name: DAPLA_ENVIRONMENT
+              value: {{ .Values.deployEnvironment }}
+            - name: DAPLA_REGION
+              value: DAPLA_LAB
+            - name: DAPLA_SERVICE
+              value: QGIS
+            - name: PASSWORD
+              value: ""
+            - name: PROJECT_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_GROUP
+              value: {{ .Values.environment.group }}
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /home/{{ .Values.environment.user }}/work
+            - name: POETRY_VIRTUALENVS_IN_PROJECT
+              value: "true"
+            - name: STATBANK_BASE_URL
+              value: {{ .Values.statbankBaseUrl }}
+            - name: STATBANK_ENCRYPT_URL
+              value: {{ .Values.statbankEncryptUrl }}
+            - name: STATBANK_TEST_BASE_URL
+              value: {{ .Values.statbankTestBaseUrl }}
+            - name: STATBANK_TEST_ENCRYPT_URL
+              value: {{ .Values.statbankTestEncryptUrl }}
+            - name: SUV_DAPLA_API_URL
+              value: {{ .Values.suvDaplaApiUrl }}
+            - name: PSEUDO_SERVICE_URL
+              value: {{ .Values.pseudoServiceUrl }}
+            - name: MASKINPORTEN_TOKEN_URL
+              value: {{ .Values.maskinportenGuardianUrl }}
+            - name: DAPLA_USER
+              value: {{ .Values.daplaUser }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
                 name: {{ include "library-chart.secretNameOidc" . }}
+            {{- end }}
+            {{- if .Values.gitConfig.git.enabled }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameGit" . }}
+            {{- end }}
+            {{- if (include "library-chart.repository.enabled"  .) }}
+            - configMapRef:
+                name: {{ include "library-chart.configMapNameRepository" . }}
             {{- end }}
           livenessProbe:
             httpGet:
@@ -81,11 +145,17 @@ spec:
               path: /
               port: {{ .Values.networking.service.port }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            requests:
+              cpu: {{ .Values.resources.cpu }}
+              memory: {{ .Values.resources.memory }}
+            limits:
+              memory: {{ .Values.resources.memory }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
               subPath: work
               name: home
+            - mountPath: /dev/shm
+              name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

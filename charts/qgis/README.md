@@ -1,26 +1,21 @@
 # qgis
 
-![Version: 1.13.0](https://img.shields.io/badge/Version-1.13.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.34.3](https://img.shields.io/badge/AppVersion-3.34.3-informational?style=flat-square)
+![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-QGIS Desktop - Open-source GIS software for geospatial data management, mapping, and analysis. User-friendly interface, versatile tools, and ideal for all skill levels.
+Minimal QGIS med Python. Brukeren kan selv installere pakker etter behov.
 
-**Homepage:** <https://github.com/trygu/dapla-qgis-desktop>
-
-## Maintainers
-
-| Name | Email | Url |
-| ---- | ------ | --- |
-| Trygve Falch | <trygve.falch@gmail.com> | <https://github.com/trygu/> |
+**Homepage:** <https://manual.dapla.ssb.no/statistikkere/qgis.html>
 
 ## Source Code
 
-* <https://github.com/trygu/dapla-qgis-desktop>
+* <https://github.com/statisticsnorway/dapla-lab-images>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-library>
 
 ## Requirements
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.4 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
 
 ## Values
 
@@ -31,24 +26,46 @@ QGIS Desktop - Open-source GIS software for geospatial data management, mapping,
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| buckets.enabled | bool | `false` |  |
-| buckets.extraBuckets | list | `[]` |  |
-| buckets.group | string | `""` |  |
-| buckets.mountStandard | bool | `true` |  |
+| avansert.data.mountStandard | bool | `true` |  |
+| dapla.group | string | `"dapla-felles-developers"` |  |
+| dapla.sharedBuckets | list | `[]` |  |
+| dapla.sourceData.reason | string | `""` |  |
+| dapla.sourceData.requestedDuration | string | `"4h"` |  |
+| daplaUser | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
 | deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
-| environment.group | string | `"dapla"` |  |
-| environment.user | string | `"dapla"` |  |
+| deployEnvironment | string | `"DEV"` |  |
+| diskplass.accessMode | string | `"ReadWriteOnce"` |  |
+| diskplass.enabled | bool | `true` |  |
+| diskplass.size | string | `"10Gi"` |  |
+| environment.group | string | `"users"` |  |
+| environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
+| gitConfig.git.cache | string | `""` |  |
+| gitConfig.git.configMapName | string | `""` |  |
+| gitConfig.git.email | string | `""` |  |
+| gitConfig.git.enabled | bool | `false` |  |
+| gitConfig.git.name | string | `""` |  |
+| gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.repository | string | `""` |  |
+| gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
+| init.personalInit | string | `""` |  |
+| init.personalInitArgs | string | `""` |  |
+| init.regionInit | string | `""` |  |
+| init.regionInitCheckSum | string | `""` |  |
+| init.standardInitPath | string | `"/init.sh"` |  |
 | istio.enabled | bool | `false` |  |
 | istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
 | istio.hostname | string | `"chart-example.local"` |  |
+| kubernetes.enabled | bool | `true` |  |
+| kubernetes.role | string | `"view"` |  |
+| maskinportenGuardianUrl | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
 | networking.service.port | int | `6080` |  |
@@ -57,30 +74,48 @@ QGIS Desktop - Open-source GIS software for geospatial data management, mapping,
 | oidc.enabled | bool | `true` |  |
 | oidc.secretName | string | `""` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
-| persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `false` |  |
-| persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
+| podDisruptionBudget.enabled | bool | `true` |  |
+| podLabels."onyxia.app" | string | `"qgis"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
+| pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
+| repository.condaRepository | string | `""` |  |
+| repository.configMapName | string | `""` |  |
+| repository.pipRepository | string | `""` |  |
+| resources.cpu | string | `""` |  |
+| resources.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
 | security.networkPolicy.from | list | `[]` |  |
 | security.oauth2.authenticatedEmails | string | `""` |  |
 | security.oauth2.clientId | string | `"my-client"` |  |
-| security.oauth2.oidcIssuerUrl | string | `"placeholder"` |  |
+| security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
-| security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
-| security.serviceEntry.hosts[0] | string | `"ssb.no"` |  |
+| security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
-| service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"trygu/dapla-qgis-desktop:v0.31.0"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| startupProbe.failureThreshold | int | `60` |  |
+| startupProbe.initialDelaySeconds | int | `10` |  |
+| startupProbe.periodSeconds | int | `10` |  |
+| startupProbe.successThreshold | int | `1` |  |
+| startupProbe.timeoutSeconds | int | `30` |  |
+| statbankBaseUrl | string | `""` |  |
+| statbankEncryptUrl | string | `""` |  |
+| statbankTestBaseUrl | string | `""` |  |
+| statbankTestEncryptUrl | string | `""` |  |
+| suvDaplaApiUrl | string | `""` |  |
+| tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
+| tjeneste.version | string | `"py311-qgis3.40.3-2025.03.28T15_16Z"` |  |
 | tolerations | list | `[]` |  |
+| userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
+| userAttributes.userAttribute | string | `"access_token"` |  |
+| userAttributes.value | string | `""` |  |
+| userPreferences | object | `{}` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
