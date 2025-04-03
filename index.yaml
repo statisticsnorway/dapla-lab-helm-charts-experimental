@@ -6878,6 +6878,31 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.1.0/sirius-editering-0.1.0.tgz
     version: 0.1.0
+  vardef-forvaltning:
+  - apiVersion: v2
+    created: "2025-04-03T06:03:39.302274738Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.9
+    description: 'Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner
+      på Vardef. Tjenesten er basert på VSCode. '
+    digest: c8bb3ea9547fe0b41a9fb5af753b11861f580f47ca0205263ca1c03c5638e25c
+    home: https://manual.dapla.ssb.no/statistikkere/vardef.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    - Metadata
+    - Vardef
+    name: vardef-forvaltning
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vardef-forvaltning-0.1.0/vardef-forvaltning-0.1.0.tgz
+    version: 0.1.0
   vscode-python:
   - apiVersion: v2
     created: "2025-02-25T11:08:57.361430228Z"
@@ -8595,4 +8620,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-03-28T19:51:34.640372877Z"
+generated: "2025-04-03T06:03:39.302825941Z"
