@@ -1,10 +1,10 @@
-# vscode-python
+# vardef-forvaltning
 
-![Version: 4.0.8](https://img.shields.io/badge/Version-4.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
+Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på Vardef. Tjenesten er basert på VSCode.
 
-**Homepage:** <https://manual.dapla.ssb.no/statistikkere/vscode-python.html>
+**Homepage:** <https://manual.dapla.ssb.no/statistikkere/vardef.html>
 
 ## Source Code
 
