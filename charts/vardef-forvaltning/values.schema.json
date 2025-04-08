@@ -44,11 +44,7 @@
               "type": "string",
               "description": "option when pulling the docker image",
               "default": "IfNotPresent",
-              "enum": [
-                "IfNotPresent",
-                "Always",
-                "Never"
-              ],
+              "enum": ["IfNotPresent", "Always", "Never"],
               "x-onyxia": {
                 "hidden": true
               }
@@ -196,9 +192,7 @@
               "title": "OAuth2 provider",
               "description": "Which OAuth2 provider to use, keycloak-oidc is the only one available for now",
               "default": "keycloak-oidc",
-              "enum": [
-                "keycloak-oidc"
-              ],
+              "enum": ["keycloak-oidc"],
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.oauth2.provider"
@@ -254,11 +248,7 @@
           "type": "string",
           "description": "bind your service account to this kubernetes default role",
           "default": "view",
-          "enum": [
-            "view",
-            "edit",
-            "admin"
-          ],
+          "enum": ["view", "edit", "admin"],
           "x-onyxia": {
             "hidden": true
           }
@@ -344,24 +334,24 @@
           "description": "region initialization script",
           "default": "",
           "x-onyxia": {
-            "hidden": true,
+            "hidden": false,
             "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
           }
         },
         "personalInit": {
           "type": "string",
           "description": "user initialization script",
-          "default": "",
+          "default": "https://raw.githubusercontent.com/statisticsnorway/dapla-toolbelt-metadata/refs/heads/dpmeta-837-vardef-init-script/vardef-maintenance/vardef_client_init.sh",
           "x-onyxia": {
-            "hidden": true
+            "hidden": false
           }
         },
         "personalInitArgs": {
           "type": "string",
           "description": "args for user initialization script",
-          "default": "",
+          "default": "--branch=dpmeta-837-vardef-init-script",
           "x-onyxia": {
-            "hidden": true
+            "hidden": false
           }
         }
       }
