@@ -1,10 +1,10 @@
 apiVersion: v2
 name: vardef-forvaltning
 description: |
-  Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på Vardef. Tjenesten er basert på VSCode.
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+  Forvalte variable definisjoner på Vardef. Tjenesten er basert på Jupyter, ferdig konfigurert med Notebooks og miljø.
+icon: https://avatars.githubusercontent.com/u/5849578
 keywords:
-  - VSCode
+  - Jupyter
   - Python
   - Metadata
   - Vardef
@@ -25,7 +25,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.0
+version: 0.2.1
 
 dependencies:
   - name: library-chart
