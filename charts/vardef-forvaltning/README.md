@@ -1,6 +1,6 @@
 # vardef-forvaltning
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på Vardef. Tjenesten er basert på VSCode.
 
@@ -15,7 +15,7 @@ Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på V
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.9 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.3.0 |
 
 ## Values
 
@@ -26,7 +26,8 @@ Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på V
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| dapla.group | string | `"dapla-felles-developers"` |  |
+| avansert.data.mountStandard | bool | `true` |  |
+| dapla.group | string | `""` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
@@ -38,6 +39,7 @@ Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på V
 | deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
+| discovery.mlflow | bool | `true` |  |
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
 | diskplass.enabled | bool | `true` |  |
 | diskplass.size | string | `"10Gi"` |  |
@@ -50,6 +52,7 @@ Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på V
 | gitConfig.git.enabled | bool | `false` |  |
 | gitConfig.git.name | string | `""` |  |
 | gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.build | bool | `false` |  |
 | gitConfig.github.repository | string | `""` |  |
 | gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
@@ -57,22 +60,26 @@ Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på V
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
-| init.regionInitCheckSum | string | `""` |  |
 | init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
 | istio.enabled | bool | `false` |  |
 | istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
 | istio.hostname | string | `"chart-example.local"` |  |
-| kubernetes.enabled | bool | `true` |  |
+| kubernetes.enabled | bool | `false` |  |
 | kubernetes.role | string | `"view"` |  |
+| maskinportenGuardianUrl | string | `""` |  |
+| mlflow.configMapName | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `8080` |  |
+| networking.service.port | int | `8888` |  |
+| networking.sparkui.port | int | `4040` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | nodeSelector | object | `{}` |  |
+| oidc.configMapName | string | `""` |  |
 | oidc.enabled | bool | `true` |  |
-| oidc.secretName | string | `""` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
+| podDisruptionBudget.enabled | bool | `true` |  |
+| podLabels."onyxia.app" | string | `"jupyterlab"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
@@ -89,22 +96,28 @@ Tjeneste tilpasset og konfigurert for forvaltning av variable definisjoner på V
 | security.oauth2.clientId | string | `"my-client"` |  |
 | security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
-| security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| startupProbe.failureThreshold | int | `60` |  |
+| startupProbe.initialDelaySeconds | int | `10` |  |
+| startupProbe.periodSeconds | int | `10` |  |
+| startupProbe.successThreshold | int | `1` |  |
+| startupProbe.timeoutSeconds | int | `5` |  |
 | statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
+| statbankTestBaseUrl | string | `""` |  |
+| statbankTestEncryptUrl | string | `""` |  |
+| suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"py311-v60-2024.12.02"` |  |
+| tjeneste.version | string | `"r4.4.0-py311-2025.03.28T15_41Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
 | userAttributes.value | string | `""` |  |
-| userPreferences | object | `{}` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
