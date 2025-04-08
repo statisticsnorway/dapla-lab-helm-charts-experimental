@@ -1,12 +1,11 @@
 global:
   suspend: false
 tjeneste:
-  version: "py311-v60-2024.12.02"
+  version: "r4.4.0-py311-2025.03.28T15_41Z"
   image:
     pullPolicy: IfNotPresent
 
 security:
-  password: "changeme"
   networkPolicy:
     enabled: false
     from: []
@@ -26,22 +25,24 @@ security:
 init:
   standardInitPath: "/opt/onyxia-init.sh"
   regionInit: ""
-  regionInitCheckSum: ""
   personalInit: ""
   personalInitArgs: ""
+
+environment:
+  user: onyxia
+  group: users
 
 userAttributes:
   environmentVariableName: OIDC_TOKEN
   userAttribute: "access_token"
   value: ""
 
-oidc:
-  # Specifies whether a config map should be created
-  enabled: true
-  tokenExchangeUrl: ""
-  # The name of the configmap to use.
-  # If not set and create is true, a name is generated using the fullname template
-  secretName: ""
+dapla:
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
+  group: ""
+  sharedBuckets: []
 
 gitConfig:
   git:
@@ -57,14 +58,28 @@ gitConfig:
     token: ""
     repository: ""
     branch: ""
+    # Specifies whether or not ssb-project build will run on the repository
+    build: false
+
+oidc:
+  # Specifies whether a config map should be created
+  enabled: true
+  tokenExchangeUrl: ""
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  configMapName: ""
 
 repository:
   configMapName: ""
   pipRepository: ""
   condaRepository: ""
 
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+discovery:
+  mlflow: true
+
+mlflow:
+  configMapName: ""
+
 replicaCount: 1
 
 imagePullSecrets: []
@@ -80,15 +95,14 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-environment:
-  user: onyxia
-  group: users
-
 kubernetes:
-  enabled: true
+  enabled: false
   role: "view"
 
 podAnnotations: {}
+
+podLabels:
+  onyxia.app: "jupyterlab"
 
 podSecurityContext:
   fsGroup: 100
@@ -106,7 +120,9 @@ networking:
   type: ClusterIP
   clusterIP: None
   service:
-    port: 8080
+    port: 8888
+  sparkui:
+    port: 4040
 
 istio:
   enabled: false
@@ -135,6 +151,10 @@ diskplass:
   size: 10Gi
   # existingClaim: ""
 
+avansert:
+  data:
+    mountStandard: true
+
 autoscaling:
   enabled: false
   minReplicas: 1
@@ -146,16 +166,14 @@ nodeSelector: {}
 
 tolerations: []
 
-userPreferences: {}
-
 affinity: {}
 
-dapla:
-  sourceData:
-    reason: ""
-    requestedDuration: "4h"
-  group: "dapla-felles-developers"
-  sharedBuckets: []
+startupProbe:
+  failureThreshold: 60
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
 
 deleteJob:
   enabled: true
@@ -165,8 +183,16 @@ deleteJob:
   clusterRoleName: onyxia-delete-job
   serviceAccount:
     annotations: {}
+
+podDisruptionBudget:
+  enabled: true
+
 deployEnvironment: "DEV"
 daplaUser: ""
 statbankBaseUrl: ""
 statbankEncryptUrl: ""
+statbankTestBaseUrl: ""
+statbankTestEncryptUrl: ""
+suvDaplaApiUrl: ""
 pseudoServiceUrl: ""
+maskinportenGuardianUrl: ""

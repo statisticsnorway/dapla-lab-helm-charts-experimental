@@ -1,1 +1,49 @@
-{{ include "library-chart.virtualservice" . }}
+{{/* vim: set filetype=mustache: */}}
+
+{{- $fullName := include "library-chart.fullname" . -}}
+{{- $svcPort := .Values.networking.service.port -}}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{ $fullName }}-ui
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+  gateways:
+    {{- toYaml .Values.istio.gateways | nindent 4 }}
+  hosts:
+    - {{ .Values.istio.hostname | quote }}
+  http:
+  - match:
+    - uri:
+        exact: /oauth2/callback
+    name: oauth2-callback
+    route:
+    - destination:
+        host: {{ $fullName }}
+        port:
+          number: 4180
+  - match:
+    - uri:
+        exact: /
+    - uri:
+        exact: /user
+    - uri:
+        exact: /user/
+    name: root-to-onyxia
+    rewrite:
+      uri: /user/onyxia
+    route:
+    - destination:
+        host: {{ $fullName }}
+        port:
+          number: 4180
+  - match:
+    - uri:
+        prefix: /user/onyxia
+    name: onyxia-prefixed
+    route:
+    - destination:
+        host: {{ $fullName }}
+        port:
+          number: 4180

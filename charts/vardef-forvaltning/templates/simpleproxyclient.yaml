@@ -1,10 +1,1 @@
-apiVersion: dapla.ssb.no/v1alpha1
-kind: SimpleProxyClient
-metadata:
-  name: {{ include "library-chart.fullname" . }}
-  labels: 
-  {{- include "library-chart.labels" . | nindent 4 }}
-spec:
-  redirectUris:
-    - "https://{{ .Values.istio.hostname }}/oauth2/callback"
-  secretName: {{ include "library-chart.daplaSimpleProxyClientSecretName" . | quote }}
+{{ include "library-chart.daplaSimpleProxyClient" . }}

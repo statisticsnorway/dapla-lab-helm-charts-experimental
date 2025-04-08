@@ -28,24 +28,46 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "py311",
-          "listEnum": ["py312", "py311"],
+          "default": "r4.4.0-py311-2025.03.28T15_41Z",
+          "listEnum": [
+            "r4.4.0-py312-2025.03.28T15_40Z",
+            "r4.4.0-py311-2025.03.28T15_41Z"
+          ],
           "render": "list",
-          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+          "pattern": "^[a-zA-Z0-9-_./]+(:[a-z0-9-_.]+)?$"
         },
         "image": {
-          "description": "image docker",
+          "description": "Docker konteiner",
           "type": "object",
           "properties": {
             "pullPolicy": {
               "type": "string",
               "description": "option when pulling the docker image",
               "default": "IfNotPresent",
-              "enum": ["IfNotPresent", "Always", "Never"],
+              "enum": [
+                "IfNotPresent",
+                "Always",
+                "Never"
+              ],
               "x-onyxia": {
                 "hidden": true
               }
             }
+          }
+        }
+      }
+    },
+    "discovery": {
+      "description": "configure your service to autodetect some ressources.",
+      "type": "object",
+      "properties": {
+        "mlflow": {
+          "type": "boolean",
+          "title": "Enable mlflow discovery",
+          "description": "discover your mlflow service",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
           }
         }
       }
@@ -66,6 +88,14 @@
         "overwriteSchemaWith": "dapla/persistence.json"
       }
     },
+    "avansert": {
+      "title": "Avansert",
+      "description": "Velg avansert konfigurasjon",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/advanced.json"
+      }
+    },
     "security": {
       "description": "security specific configuration",
       "type": "object",
@@ -73,9 +103,6 @@
         "allowlist": {
           "type": "object",
           "description": "IP protection",
-          "x-onyxia": {
-            "overwriteSchemaWith": "dapla/allowlist.json"
-          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -94,6 +121,10 @@
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "{{user.ip}}"
+              },
+              "hidden": {
+                "value": false,
+                "path": "security/allowlist/enabled"
               }
             }
           }
@@ -130,7 +161,7 @@
           "type": "object",
           "description": "Service entry to give access to external services",
           "x-onyxia": {
-            "overwriteSchemaWith": "dapla/egress-vscode.json"
+            "overwriteSchemaWith": "dapla/egress-jupyter.json"
           },
           "properties": {
             "enabled": {
@@ -148,7 +179,7 @@
               "default": [],
               "x-onyxia": {
                 "hidden": true,
-                "overwriteDefaultWith": "region.customValues.vscodeEgress"
+                "overwriteDefaultWith": "region.customValues.jupyterEgress"
               }
             }
           }
@@ -165,7 +196,9 @@
               "title": "OAuth2 provider",
               "description": "Which OAuth2 provider to use, keycloak-oidc is the only one available for now",
               "default": "keycloak-oidc",
-              "enum": ["keycloak-oidc"],
+              "enum": [
+                "keycloak-oidc"
+              ],
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.oauth2.provider"
@@ -175,6 +208,7 @@
               "type": "string",
               "title": "OIDC issuer url",
               "description": "Url to the OIDC issuer",
+              "default": "",
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
@@ -220,7 +254,11 @@
           "type": "string",
           "description": "bind your service account to this kubernetes default role",
           "default": "view",
-          "enum": ["view", "edit", "admin"],
+          "enum": [
+            "view",
+            "edit",
+            "admin"
+          ],
           "x-onyxia": {
             "hidden": true
           }
@@ -258,37 +296,6 @@
           "x-onyxia": {
             "hidden": true,
             "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
-          }
-        }
-      }
-    },
-    "userAttributes": {
-      "description": "User attributes to pass into the service",
-      "type": "object",
-      "properties": {
-        "environmentVariableName": {
-          "type": "string",
-          "description": "Name of the environment variable to use",
-          "default": "OIDC_TOKEN",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "userAttribute": {
-          "type": "string",
-          "description": "The user attribute to map to the environment variable",
-          "default": "access_token",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "value": {
-          "type": "string",
-          "description": "The value of the user attribute (will be replaced by backend)",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": ""
           }
         }
       }
@@ -336,32 +343,15 @@
           "type": "string",
           "description": "region initialization script",
           "default": "",
-          "x-form": {
-            "hidden": true,
-            "value": "{{k8s.initScriptUrl}}"
-          },
           "x-onyxia": {
             "hidden": true,
             "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
           }
         },
-        "regionInitCheckSum": {
-          "type": "string",
-          "description": "region initialization script",
-          "default": "",
-          "x-form": {
-            "hidden": true,
-            "value": "{{k8s.initScriptCheckSum}}"
-          },
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{k8s.initScriptCheckSum}}"
-          }
-        },
         "personalInit": {
           "type": "string",
           "description": "user initialization script",
-          "default": "https://raw.githubusercontent.com/statisticsnorway/dapla-toolbelt-metadata/refs/heads/dpmeta-837-vardef-init-script/bin/vardef_client_init.sh",
+          "default": "",
           "x-onyxia": {
             "hidden": true
           }
@@ -372,6 +362,37 @@
           "default": "",
           "x-onyxia": {
             "hidden": true
+          }
+        }
+      }
+    },
+    "userAttributes": {
+      "description": "User attributes to pass into the service",
+      "type": "object",
+      "properties": {
+        "environmentVariableName": {
+          "type": "string",
+          "description": "Name of the environment variable to use",
+          "default": "OIDC_TOKEN",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "userAttribute": {
+          "type": "string",
+          "description": "The user attribute to map to the environment variable",
+          "default": "access_token",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the user attribute (will be replaced by backend)",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": ""
           }
         }
       }
@@ -420,21 +441,6 @@
         "overwriteSchemaWith": "tolerations.json"
       }
     },
-    "userPreferences": {
-      "description": "User Preferences",
-      "type": "object",
-      "properties": {
-        "darkMode": {
-          "type": "boolean",
-          "description": "dark mode is or is not enabled",
-          "default": false,
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "user.darkMode"
-          }
-        }
-      }
-    },
     "nodeSelector": {
       "type": "object",
       "description": "NodeSelector",
@@ -469,7 +475,7 @@
             "overwriteDefaultWith": "region.customValues.oidc.tokenExchangeUrl"
           }
         },
-        "secretName": {
+        "configMapName": {
           "type": "string",
           "description": "config map name",
           "default": "",
@@ -541,6 +547,20 @@
         }
       }
     },
+    "podDisruptionBudget": {
+      "description": "Pod disruption budget",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable pod disruption budget",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
+        }
+      }
+    },
     "deployEnvironment": {
       "type": "string",
       "description": "Environment in which a service is deployed",
@@ -549,14 +569,6 @@
         "hidden": true,
         "overwriteDefaultWith": "region.customValues.deployEnvironment",
         "overwriteSchemaWith": "dapla/deployEnvironment.json"
-      }
-    },
-    "pseudoServiceUrl": {
-      "type": "string",
-      "description": "The pseudo service URL",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
       }
     },
     "statbankBaseUrl": {
@@ -575,6 +587,46 @@
         "hidden": true,
         "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
+      }
+    },
+    "statbankTestBaseUrl": {
+      "type": "string",
+      "description": "The statbank (test) base URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/statbankTestBaseUrl.json"
+      }
+    },
+    "statbankTestEncryptUrl": {
+      "type": "string",
+      "description": "The statbank (test) authenticator encryption endpoint",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/statbankTestEncryptUrl.json"
+      }
+    },
+    "suvDaplaApiUrl": {
+      "type": "string",
+      "description": "The SUV API URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/suvDaplaApiUrl.json"
+      }
+    },
+    "pseudoServiceUrl": {
+      "type": "string",
+      "description": "The pseudo service URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
+      }
+    },
+    "maskinportenGuardianUrl": {
+      "type": "string",
+      "description": "Maskinporten-guardian URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/maskinportenGuardianUrl.json"
       }
     },
     "daplaUser": {
