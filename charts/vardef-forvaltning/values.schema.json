@@ -28,13 +28,7 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "r4.4.0-py311-2025.03.28T15_41Z",
-          "listEnum": [
-            "r4.4.0-py312-2025.03.28T15_40Z",
-            "r4.4.0-py311-2025.03.28T15_41Z"
-          ],
-          "render": "list",
-          "pattern": "^[a-zA-Z0-9-_./]+(:[a-z0-9-_.]+)?$"
+          "default": "r4.4.0-py312-2025.04.07T13_48Z"
         },
         "image": {
           "description": "Docker konteiner",
