@@ -6902,6 +6902,30 @@ entries:
     version: 0.1.0
   vardef-forvaltning:
   - apiVersion: v2
+    created: "2025-04-09T13:34:36.247500942Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.3.0
+    description: 'Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks.
+      Inneholder nødvendige pakker og ferdig oppsatt kernel. Krever lite forkunnskaper. '
+    digest: 09d6c2f770af66abd7b758649fb92d577fc2cd31f481eb1a862be67ce17056f1
+    home: https://manual.dapla.ssb.no/statistikkere/vardef.html
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Jupyter
+    - Python
+    - Metadata
+    - Vardef
+    name: vardef-forvaltning
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vardef-forvaltning-0.3.1/vardef-forvaltning-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
     created: "2025-04-09T13:06:10.103780565Z"
     dependencies:
     - name: library-chart
@@ -8736,4 +8760,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-04-09T13:06:10.104359103Z"
+generated: "2025-04-09T13:34:36.248003346Z"
