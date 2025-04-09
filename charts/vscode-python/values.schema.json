@@ -224,19 +224,6 @@
           "x-onyxia": {
             "hidden": true
           }
-        },
-        "role": {
-          "type": "string",
-          "description": "bind your service account to this kubernetes default role",
-          "default": "view",
-          "enum": [
-            "view",
-            "edit",
-            "admin"
-          ],
-          "x-onyxia": {
-            "hidden": true
-          }
         }
       }
     },
