@@ -83,8 +83,7 @@
       "description": "Velg hvor mye diskplass du trenger",
       "type": "object",
       "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/persistence.json"
+        "hidden": true
       },
       "properties": {
         "enabled": {
