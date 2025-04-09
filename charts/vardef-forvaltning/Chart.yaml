@@ -1,7 +1,7 @@
 apiVersion: v2
 name: vardef-forvaltning
 description: |
-  Forvalte variable definisjoner på Vardef. Tjenesten er basert på Jupyter, ferdig konfigurert med Notebooks og miljø.
+  Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks. Inneholder nødvendige pakker og ferdig oppsatt kernel. Krever lite forkunnskaper.
 icon: https://avatars.githubusercontent.com/u/5849578
 keywords:
   - Jupyter
@@ -25,7 +25,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.1
+version: 0.3.0
 
 dependencies:
   - name: library-chart

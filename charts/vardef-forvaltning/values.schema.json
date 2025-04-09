@@ -10,15 +10,6 @@
         "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
-    "gitConfig": {
-      "title": "Git/Github",
-      "description": "Konfigurer Git og Github for tjenesten",
-      "type": "object",
-      "x-onyxia": {
-        "hidden": false,
-        "overwriteSchemaWith": "dapla/git.json"
-      }
-    },
     "tjeneste": {
       "title": "Python/R",
       "description": "Velg versjon av Python og R",
@@ -28,7 +19,10 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "r4.4.0-py312-2025.04.07T13_48Z"
+          "default": "r4.4.0-py312-2025.04.07T13_48Z",
+          "x-onyxia": {
+            "hidden": true
+          }
         },
         "image": {
           "description": "Docker konteiner",
@@ -67,7 +61,21 @@
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "dapla/resources-ide.json"
+        "hidden": true
+      },
+      "properties": {
+        "cpu": {
+          "description": "Velg mengden CPU-ressurser i millicores (M). 50 M tilsvarer 0,05 av en CPU-kjerne og 2000 M tilsvarer 2 CPU-kjerner.",
+          "title": "CPU",
+          "type": "string",
+          "default": "250m"
+        },
+        "memory": {
+          "description": "Garantert tilgjengelig minne/RAM i tjenesten",
+          "title": "Minne/RAM",
+          "type": "string",
+          "default": "2Gi"
+        }
       }
     },
     "diskplass": {
@@ -75,7 +83,22 @@
       "description": "Velg hvor mye diskplass du trenger",
       "type": "object",
       "x-onyxia": {
+        "hidden": true,
         "overwriteSchemaWith": "dapla/persistence.json"
+      },
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "title": "Opprett filsystem",
+          "description": "Opprett et lokal filsystem i tjenesten",
+          "default": true
+        },
+        "size": {
+          "type": "string",
+          "title": "Diskplass i filsystemet",
+          "description": "Velg hvor mange GB diskplass du trenger i det lokale filsystemet i tjenesten",
+          "default": "10Gi"
+        }
       }
     },
     "avansert": {
@@ -83,7 +106,21 @@
       "description": "Velg avansert konfigurasjon",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "dapla/advanced.json"
+        "hidden": true
+      },
+      "properties": {
+        "data": {
+          "title": "Data",
+          "type": "object",
+          "properties": {
+            "mountStandard": {
+              "title": "Automatisk bøttemontering",
+              "description": "Bøtter monteres under */buckets* i filsystemet.",
+              "type": "boolean",
+              "default": false
+            }
+          }
+        }
       }
     },
     "security": {
