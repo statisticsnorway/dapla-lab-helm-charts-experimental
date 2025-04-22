@@ -116,9 +116,9 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "py311-qgis3.40.3-2025.04.22T07_46Z",
+          "default": "py311-qgis3.40.3-2025.04.22T08_43Z",
           "listEnum": [
-            "py311-qgis3.40.3-2025.04.22T07_46Z"
+            "py311-qgis3.40.3-2025.04.22T08_43Z"
           ],
           "render": "list",
           "pattern": "^[a-zA-Z0-9-_./]+(:[a-z0-9-_.]+)?$"
