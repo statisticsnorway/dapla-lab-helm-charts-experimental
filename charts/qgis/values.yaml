@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: "py311-qgis3.40.3-2025.04.25T09_32Z"
+  version: "py311-qgis3.40.3-2025.04.25T08_25Z"
   image:
     pullPolicy: IfNotPresent
 
