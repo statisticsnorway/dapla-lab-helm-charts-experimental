@@ -1,0 +1,9 @@
+Tjenesten bruker cirka 1 minutt på å starte opp og er klar til bruk når **Åpne tjenesten**-ikonet
+dukker opp nederst til høyre i denne boksen.
+
+*Viktig:*
+- Husk å *lagre* arbeidet ditt med *jevnlig* siden tjenesten ikke har noen auto-lagre funksjonalitet.
+- Etter at man har logget inn på Dapla Lab så har man *kun én time med arbeidstid*.
+Når timen er passert så må man logge ut av Dapla Lab for så å logge inn igjen for å kunne jobbe én time til.
+Hvis man fortsetter etter at timen er passert så kan det se ut som alt fungerer, men det gjør det ikke da tilgangen har utløpt.
+Dette er per nå en kjent utfordring som er under utbedring.
