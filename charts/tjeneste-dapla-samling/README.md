@@ -1,14 +1,12 @@
-# Tjeneste dapla lab
+# Tjeneste-Dapla-Samling
 
-![Version: 1.0.17](https://img.shields.io/badge/Version-1.0.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Applikasjon for å dokumentere datasett i SSB.
-
+Tjeneste for dapla samling
 
 ## Source Code
 
 * <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
-* <https://github.com/statisticsnorway/dapla-samling-workshop-2025>
 
 ## Requirements
 
@@ -25,7 +23,7 @@ Applikasjon for å dokumentere datasett i SSB.
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| dapla.buckets.enabled | bool | `true` |  |
+| dapla.buckets.enabled | bool | `false` |  |
 | dapla.buckets.mountStandard | bool | `false` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
@@ -59,7 +57,7 @@ Applikasjon for å dokumentere datasett i SSB.
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
-| podLabels."onyxia.app" | string | `"dapla-samling-workshop"` |  |
+| podLabels."onyxia.app" | string | `"tjeneste-dapla-samling"` |  |
 | podLabels.maintained-by-team | string | `"dapla-metadata"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
