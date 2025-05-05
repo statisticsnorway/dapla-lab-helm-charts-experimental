@@ -26,7 +26,8 @@ security:
     authenticatedEmails: ""
 
 environment:
-
+  user: onyxia
+  group: users
 
 features:
   toggle_new_variables_workspace: false
