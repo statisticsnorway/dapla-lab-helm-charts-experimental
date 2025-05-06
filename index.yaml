@@ -7047,6 +7047,25 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/sirius-editering-0.1.0/sirius-editering-0.1.0.tgz
     version: 0.1.0
+  tjeneste-dapla-samling:
+  - apiVersion: v2
+    created: "2025-05-06T07:17:33.244817867Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: Tjeneste for dapla samling
+    digest: 221f7c44034898e850d6af157b1e7ebde6b50a3526433d8ee8fff292cb5028f5
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Dapla-samling
+    name: tjeneste-dapla-samling
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/tjeneste-dapla-samling-1.0.2/tjeneste-dapla-samling-1.0.2.tgz
+    version: 1.0.2
   vardef-forvaltning:
   - annotations:
       environment: test
@@ -8933,4 +8952,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-06T07:07:58.225177798Z"
+generated: "2025-05-06T07:17:33.245439902Z"
