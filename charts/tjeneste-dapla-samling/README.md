@@ -1,11 +1,12 @@
 # Tjeneste-Dapla-Samling
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+
+Tjeneste for dapla samling
 
 ## Source Code
 
 * <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
-* <https://github.com/statisticsnorway/dapla-samling-workshop-2025>
 
 ## Requirements
 
