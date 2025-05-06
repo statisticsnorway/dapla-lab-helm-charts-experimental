@@ -288,7 +288,7 @@
                 "value": false,
                 "path": "networking/user/enabled"
               },
-              "default": 8050
+              "default": 8080
             }
           }
         }
