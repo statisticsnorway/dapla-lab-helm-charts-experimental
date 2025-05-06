@@ -1,12 +1,15 @@
-# Tjeneste-Dapla-Samling
+# datadoc-updated
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.32](https://img.shields.io/badge/Version-1.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Tjeneste for dapla samling
+Applikasjon for å dokumentere datasett i SSB.
+
+**Homepage:** <https://manual.dapla.ssb.no/statistikkere/datadoc.html>
 
 ## Source Code
 
 * <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
+* <https://github.com/statisticsnorway/datadoc>
 
 ## Requirements
 
@@ -23,9 +26,11 @@ Tjeneste for dapla samling
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| dapla.buckets.enabled | bool | `false` |  |
+| dapla.buckets.enabled | bool | `true` |  |
 | dapla.buckets.mountStandard | bool | `false` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
+| dapla.sourceData.reason | string | `""` |  |
+| dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
@@ -35,6 +40,8 @@ Tjeneste for dapla samling
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
 | diskplass.enabled | bool | `false` |  |
 | diskplass.size | string | `"10Gi"` |  |
+| environment.DAPLA_MANUAL_NAMING_STANDARD_URL | string | `"https://probable-waddle-o4w1og1.pages.github.io/statistikkere/navnestandard-datalagring.html"` |  |
+| environment.DATADOC_STATISTICAL_SUBJECT_SOURCE_URL | string | `"https://www.ssb.no/xp/_/service/mimir/subjectStructurStatistics"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | features.toggle_new_variables_workspace | bool | `false` |  |
@@ -57,7 +64,7 @@ Tjeneste for dapla samling
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
-| podLabels."onyxia.app" | string | `"tjeneste-dapla-samling"` |  |
+| podLabels."onyxia.app" | string | `"datadoc-v1"` |  |
 | podLabels.maintained-by-team | string | `"dapla-metadata"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |

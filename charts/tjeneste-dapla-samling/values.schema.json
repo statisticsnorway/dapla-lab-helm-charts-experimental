@@ -3,38 +3,11 @@
   "type": "object",
   "properties": {
     "dapla": {
-      "title": "Dapla",
-      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
+      "title": "Data",
+      "description": "Velg Dapla-team og tilgangsgruppe for datatilgang (Kildedata støttes ikke)",
       "type": "object",
-      "properties": {
-        "buckets": {
-          "title": "Buckets",
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Aktiver",
-              "description": "Aktiver datatilgang",
-              "default": true,
-              "x-onyxia": {
-                "hidden": true
-              }
-            }
-          }
-        },
-        "group": {
-          "type": "string",
-          "title": "Team og tilgangsgruppe",
-          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
-          "render": "list",
-          "default": "dapla-felles-developers",
-          "listEnum": [""],
-          "x-onyxia": {
-            "hidden": false,
-            "overwriteDefaultWith": "dapla-felles-developers",
-            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          }
-        }
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
     "tjeneste": {
@@ -55,7 +28,7 @@
               "enum": ["IfNotPresent", "Always", "Never"]
             },
             "version": {
-              "description": "tjeneste-dapla-samling-versjon",
+              "description": "Tjeneste-dapla-samling-versjon",
               "type": "string",
               "default": "v1",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -71,10 +44,6 @@
         "requests": {
           "description": "The amount of CPU requested",
           "type": "object",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteSchemaWith": "resources.json"
-          },
           "properties": {
             "cpu": {
               "description": "The amount of CPU guaranteed",
@@ -88,7 +57,6 @@
               "sliderUnit": "m",
               "x-onyxia": {
                 "hidden": true,
-                "overwriteDefaultWith": "region.resources.cpuRequest",
                 "useRegionSliderConfig": "cpu"
               }
             },
@@ -104,7 +72,6 @@
               "sliderUnit": "Gi",
               "x-onyxia": {
                 "hidden": true,
-                "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
               }
             }
@@ -112,13 +79,14 @@
         }
       }
     },
-    "persistence": {
-      "description": "Configuration for persistence",
+    "diskplass": {
+      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean",
-          "description": "Create a persistent volume",
+          "title": "Opprett filsystem",
+          "description": "Opprett et lokal filsystem i tjenesten",
           "default": true,
           "x-onyxia": {
             "hidden": true
@@ -126,8 +94,7 @@
         },
         "size": {
           "type": "string",
-          "title": "Persistent volume size",
-          "description": "Size of the persistent volume",
+          "title": "Diskplass i filsystemet",
           "default": "10Gi",
           "form": true,
           "render": "slider",
@@ -136,14 +103,11 @@
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "region.resources.disk",
-            "overwriteSchemaWith": "persistence.json",
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
             "value": true,
-            "path": "persistence/enabled"
+            "path": "diskplass/enabled"
           }
         }
       }
@@ -156,32 +120,7 @@
           "type": "object",
           "description": "IP protection",
           "x-onyxia": {
-            "overwriteSchemaWith": "allowlist.json"
-          },
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Enable IP protection",
-              "description": "Only the configured set of IPs will be able to reach the service",
-              "default": true,
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.defaultIpProtection"
-              }
-            },
-            "ip": {
-              "type": "string",
-              "description": "the white list of IP is whitespace",
-              "title": "Whitelist of IP",
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "{{user.ip}}"
-              },
-              "hidden": {
-                "value": false,
-                "path": "security/allowlist/enabled"
-              }
-            }
+            "overwriteSchemaWith": "dapla/allowlist.json"
           }
         },
         "networkPolicy": {
@@ -197,8 +136,7 @@
               "description": "Only pod from the same namespace will be allowed",
               "default": true,
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.defaultNetworkPolicy"
+                "hidden": true
               }
             },
             "from": {
@@ -206,8 +144,7 @@
               "description": "Array of source allowed to have network access to your service",
               "default": [],
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.from"
+                "hidden": true
               }
             }
           }
@@ -233,8 +170,7 @@
               "description": "Array of hosts allowed to be accessed from your service",
               "default": [],
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.datadocEgress"
+                "hidden": true
               }
             }
           }
@@ -243,7 +179,7 @@
           "type": "object",
           "description": "OAuth2 configuration",
           "x-onyxia": {
-            "overwriteSchemaWith": "oauth2.json"
+            "overwriteSchemaWith": "dapla/oauth2.json"
           },
           "properties": {
             "provider": {
@@ -253,8 +189,7 @@
               "default": "keycloak-oidc",
               "enum": ["keycloak-oidc"],
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.oauth2.provider"
+                "hidden": true
               }
             },
             "oidcIssuerUrl": {
@@ -263,8 +198,7 @@
               "description": "Url to the OIDC issuer",
               "default": "",
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
+                "hidden": true
               }
             },
             "clientId": {
@@ -273,8 +207,7 @@
               "description": "Client id",
               "default": "onyxia-services",
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.oauth2.clientId"
+                "hidden": true
               }
             },
             "authenticatedEmails": {
@@ -403,7 +336,7 @@
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.tolerations",
-        "overwriteSchemaWith": "tolerations.json"
+        "overwriteSchemaWith": "dapla/tolerations.json"
       }
     },
     "nodeSelector": {
@@ -413,14 +346,14 @@
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.nodeSelector",
-        "overwriteSchemaWith": "nodeSelector.json"
+        "overwriteSchemaWith": "dapla/nodeSelector.json"
       }
     },
     "oidc": {
       "description": "OIDC configuration",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "oidc.json"
+        "overwriteSchemaWith": "dapla/oidc.json"
       },
       "properties": {
         "enabled": {
@@ -436,8 +369,7 @@
           "description": "token exchange url",
           "default": "",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "region.customValues.oidc.tokenExchangeUrl"
+            "hidden": true
           }
         },
         "configMapName": {
