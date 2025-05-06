@@ -1,15 +1,11 @@
-# datadoc-updated
+# tjeneste-dapla-samling
 
-![Version: 1.0.32](https://img.shields.io/badge/Version-1.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
-
-Applikasjon for å dokumentere datasett i SSB.
-
-**Homepage:** <https://manual.dapla.ssb.no/statistikkere/datadoc.html>
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 ## Source Code
 
 * <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
-* <https://github.com/statisticsnorway/datadoc>
+* <https://github.com/statisticsnorway/dapla-samling-workshop-2025>
 
 ## Requirements
 
@@ -40,8 +36,6 @@ Applikasjon for å dokumentere datasett i SSB.
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
 | diskplass.enabled | bool | `false` |  |
 | diskplass.size | string | `"10Gi"` |  |
-| environment.DAPLA_MANUAL_NAMING_STANDARD_URL | string | `"https://probable-waddle-o4w1og1.pages.github.io/statistikkere/navnestandard-datalagring.html"` |  |
-| environment.DATADOC_STATISTICAL_SUBJECT_SOURCE_URL | string | `"https://www.ssb.no/xp/_/service/mimir/subjectStructurStatistics"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | features.toggle_new_variables_workspace | bool | `false` |  |
@@ -64,7 +58,7 @@ Applikasjon for å dokumentere datasett i SSB.
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
-| podLabels."onyxia.app" | string | `"datadoc-v1"` |  |
+| podLabels."onyxia.app" | string | `"tjeneste-dapla-samling"` |  |
 | podLabels.maintained-by-team | string | `"dapla-metadata"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
