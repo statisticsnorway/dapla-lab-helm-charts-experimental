@@ -68,8 +68,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
-            - name: IMAGE_NAME
-              value: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/dapla-samling-workshop/dapla-samling-workshop:{{ .Values.tjeneste.image.version }}"
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
