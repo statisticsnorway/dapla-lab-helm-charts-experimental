@@ -1762,6 +1762,25 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/doom-0.0.1/doom-0.0.1.tgz
     version: 0.0.1
+  gruppe1-service:
+  - apiVersion: v2
+    created: "2025-05-08T12:09:52.024175487Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: Tjeneste for dapla samling
+    digest: 947f9bf9cd54c95343e08360e7a29d63c5e220399616354d57db80081efaa713
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Dapla-samling
+    name: gruppe1-service
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/gruppe1-service-1.0.1/gruppe1-service-1.0.1.tgz
+    version: 1.0.1
   jdemetra:
   - apiVersion: v2
     appVersion: 3.2.1
@@ -9006,4 +9025,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-08T12:07:06.812693315Z"
+generated: "2025-05-08T12:09:52.024694787Z"
