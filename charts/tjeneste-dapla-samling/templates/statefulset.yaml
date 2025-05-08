@@ -61,7 +61,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "TODO: Skriv in image her"
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/dapla-samling-workshop/dapla-samling-workshop:{{ .Values.tjeneste.image.version }}"
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             - name: KUBERNETES_POD_NAME
