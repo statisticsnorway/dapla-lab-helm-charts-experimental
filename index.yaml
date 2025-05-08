@@ -7083,6 +7083,43 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/tjeneste-dapla-samling-1.0.2/tjeneste-dapla-samling-1.0.2.tgz
     version: 1.0.2
+  - apiVersion: v2
+    created: "2025-05-08T12:07:06.701083098Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: Tjeneste for dapla samling
+    digest: f39b6a08d80b4292bb4523bba3a63c57f7c0a4ebaf9f2e8f5bb2a9551a850043
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Dapla-samling
+    name: tjeneste-dapla-samling
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/tjeneste-dapla-samling-1.0.0/tjeneste-dapla-samling-1.0.0.tgz
+    version: 1.0.0
+  tjeneste-dapla-samling-gruppe4:
+  - apiVersion: v2
+    created: "2025-05-08T12:07:06.811953945Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: Tjeneste for dapla samling
+    digest: 817b323052f6592a4d1d0ba3c23e51c692e5e14649a2e4865e53299cdf659491
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Dapla-samling
+    name: tjeneste-dapla-samling-gruppe4
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/tjeneste-dapla-samling-gruppe4-1.0.0/tjeneste-dapla-samling-gruppe4-1.0.0.tgz
+    version: 1.0.0
   vardef-forvaltning:
   - annotations:
       environment: test
@@ -8969,4 +9006,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-06T10:33:36.982355551Z"
+generated: "2025-05-08T12:07:06.812693315Z"
