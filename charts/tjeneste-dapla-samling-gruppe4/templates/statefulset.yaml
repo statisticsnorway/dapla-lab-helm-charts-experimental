@@ -61,7 +61,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "TODO: Skriv in image her"
+          image: europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/dapla-samling-workshop/dapla-samling-workshop:{{ .Values.tjeneste.image.version }}
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             - name: KUBERNETES_POD_NAME
@@ -102,7 +102,7 @@ spec:
             requests:
               cpu: {{ .Values.ressurser.requests.cpu }}
               memory: {{ .Values.ressurser.requests.memory }}
-            limits: 
+            limits:
               # Memory limit = min(mem_requested * 1.5, mem_requested + 4)
               {{- with .Values.ressurser.requests}}
               {{- $requestedmem := .memory | trimSuffix "Gi" | float64}}
