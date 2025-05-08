@@ -7120,6 +7120,25 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/tjeneste-dapla-samling-1.0.0/tjeneste-dapla-samling-1.0.0.tgz
     version: 1.0.0
+  tjeneste-dapla-samling-gruppe-3:
+  - apiVersion: v2
+    created: "2025-05-08T12:37:56.419087921Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 4.0.0
+    description: Tjeneste for dapla samling - Gruppe 3
+    digest: 93fef4b62c73b99b78d271728a26bd6ca99cd5fe0f40b30b950d0445f3ad35e9
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Dapla-samling
+    name: tjeneste-dapla-samling-gruppe-3
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/tjeneste-dapla-samling-gruppe-3-1.0.0/tjeneste-dapla-samling-gruppe-3-1.0.0.tgz
+    version: 1.0.0
   tjeneste-dapla-samling-gruppe2:
   - apiVersion: v2
     created: "2025-05-08T12:19:31.657661021Z"
@@ -9044,4 +9063,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-08T12:19:31.658336851Z"
+generated: "2025-05-08T12:37:56.419717985Z"
