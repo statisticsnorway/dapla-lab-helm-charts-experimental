@@ -1,6 +1,6 @@
 apiVersion: v2
-name: tjeneste-dapla-samling-gruppe-3
-description: Tjeneste for dapla samling - Gruppe 3
+name: tjeneste-dapla-samling
+description: Tjeneste for dapla samling
 icon: https://avatars.githubusercontent.com/u/5849578
 keywords:
   - Dapla-samling
