@@ -1,0 +1,123 @@
+{{- $fullName := include "library-chart.fullname" . -}}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "library-chart.fullname" . }}
+  annotations:
+    dapla.ssb.no/enable-ssbucketeer: "true"
+    dapla.ssb.no/impersonate-group: {{ quote .Values.dapla.group }}
+    dapla.ssb.no/service-container-name: {{ quote .Chart.Name }}
+    dapla.ssb.no/access-reason: {{ quote .Values.dapla.sourceData.reason }}
+    dapla.ssb.no/requested-service-duration: {{ quote .Values.dapla.sourceData.requestedDuration }}
+    dapla.ssb.no/mount-standard-buckets: "true"
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  {{- if .Values.global.suspend }}
+  replicas: 0
+  {{- else}}
+  replicas: {{ .Values.replicaCount }}
+  {{- end}}
+{{- end }}
+  serviceName: {{ include "library-chart.fullname" . }}
+  selector:
+    matchLabels:
+      {{- include "library-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        {{- if .Values.oidc.enabled }}
+        checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "library-chart.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      volumes:
+        - name: home
+        {{- if .Values.diskplass.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - {{ include "library-chart.oauth2ProxyVolume" . | indent 10 | trim }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      subdomain: {{ include "library-chart.fullname" . }}
+      hostname: tjeneste_dapla_samling
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/dapla-samling-workshop/dapla-samling-workshop:{{ .Values.tjeneste.image.version }}"
+          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
+          env:
+            - name: KUBERNETES_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: DAPLA_ENVIRONMENT
+              value: {{ .Values.deployEnvironment }}
+            - name: DAPLA_REGION
+              value: DAPLA_LAB
+            - name: DAPLA_SERVICE
+              value: DAPLA_SAMLING_WORKSHOP
+            - name: PROJECT_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_GROUP
+              value: {{ .Values.environment.group }}
+            - name: DAPLA_MANUAL_NAMING_STANDARD_URL
+              value: {{ .Values.environment.DAPLA_MANUAL_NAMING_STANDARD_URL }}
+          envFrom:
+            {{- if .Values.oidc.enabled }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameOidc" . }}
+            {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /healthz/live
+              port: {{ .Values.networking.service.port }}
+          readinessProbe:
+            httpGet:
+              path: /healthz/ready
+              port: {{ .Values.networking.service.port }}
+          startupProbe:
+            httpGet:
+              path: /healthz/startup
+              port: {{ .Values.networking.service.port }}
+            {{- toYaml .Values.startupProbe | nindent 12 }}
+          resources:
+            requests:
+              cpu: {{ .Values.ressurser.requests.cpu }}
+              memory: {{ .Values.ressurser.requests.memory }}
+            limits: 
+              # Memory limit = min(mem_requested * 1.5, mem_requested + 4)
+              {{- with .Values.ressurser.requests}}
+              {{- $requestedmem := .memory | trimSuffix "Gi" | float64}}
+              memory: {{ min (mulf 1.5 $requestedmem) (add 4.0 $requestedmem) | int | toString | printf "%vGi" }}
+              {{- end }}
+        - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
