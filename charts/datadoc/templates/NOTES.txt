@@ -1,5 +1,5 @@
 Tjenesten bruker cirka 1 minutt på å starte opp og er klar til bruk når **Åpne tjenesten**-ikonet
-dukker opp nederst til høyre i denne boksen.
+dukker opp nederst til høyre i denne boksen.[.]({{ .Values.istio.hostname }})
 
 *Viktig:*
 - Husk å *lagre* arbeidet ditt med *jevnlig* siden tjenesten ikke har noen auto-lagre funksjonalitet.
