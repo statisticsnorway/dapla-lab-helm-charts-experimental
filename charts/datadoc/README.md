@@ -15,7 +15,7 @@ Applikasjon for å dokumentere datasett i SSB.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 4.4.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.2 |
 
 ## Values
 
