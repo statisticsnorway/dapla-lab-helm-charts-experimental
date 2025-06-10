@@ -488,7 +488,7 @@
           "description": "user initialization script",
           "default": "",
           "x-onyxia": {
-            "hidden": false
+            "hidden": true
           }
         },
         "personalInitArgs": {
@@ -496,7 +496,7 @@
           "description": "args for user initialization script",
           "default": "",
           "x-onyxia": {
-            "hidden": false
+            "hidden": true
           }
         }
       }
