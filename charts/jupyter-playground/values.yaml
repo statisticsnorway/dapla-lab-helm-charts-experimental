@@ -2,7 +2,7 @@ global:
   suspend: false
 service:
   image:
-    version: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311"
+    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311"
     pullPolicy: IfNotPresent
 
 security:

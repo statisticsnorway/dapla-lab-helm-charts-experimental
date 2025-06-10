@@ -28,13 +28,13 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "py311",
+          "default": "py311-2025.06.10T11_35Z",
           "listEnum": [
-            "py312",
-            "py311"
+            "py312-2025.06.10T11_36Z",
+            "py311-2025.06.10T11_35Z"
           ],
           "render": "list",
-          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+          "pattern": "^[a-zA-Z0-9-_./]+(:[a-z0-9-_.]+)?$"
         },
         "image": {
           "description": "image docker",

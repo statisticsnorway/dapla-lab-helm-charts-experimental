@@ -2,7 +2,7 @@ global:
   suspend: false
 service:
   image:
-    version: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:py311-spark3.5.3"
+    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:py311-spark3.5.3"
     pullPolicy: IfNotPresent
 
 security:

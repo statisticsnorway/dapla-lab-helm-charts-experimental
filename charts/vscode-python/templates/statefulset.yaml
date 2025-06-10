@@ -69,7 +69,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:{{ .Values.tjeneste.version }}"
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} /usr/bin/code-server --host 0.0.0.0 \
           --auth none --disable-file-downloads --disable-telemetry --disable-update-check --extensions-dir /home/{{ .Values.environment.user }}/.local/share/code-server/extensions --user-data-dir /home/{{ .Values.environment.user }}/work/.local/share/code-server"]
