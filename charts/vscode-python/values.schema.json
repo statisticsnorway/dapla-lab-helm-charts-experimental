@@ -34,7 +34,7 @@
             "py311"
           ],
           "render": "list",
-          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+          "pattern": "^py[0-9]{3}$"
         },
         "image": {
           "description": "image docker",
