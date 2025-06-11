@@ -1,0 +1,163 @@
+{{- $fullName := include "library-chart.fullname" . -}}
+{{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.dapla.group) }}
+{{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "library-chart.fullname" . }}
+  annotations:
+    dapla.ssb.no/service-catalog: experimental
+    # dapla.ssb.no/enable-ssbucketeer: "false"
+    # dapla.ssb.no/impersonate-group: {{ quote .Values.dapla.group }}
+    dapla.ssb.no/service-container-name: {{ quote .Chart.Name }}
+    # dapla.ssb.no/access-reason: {{ quote .Values.dapla.sourceData.reason }}
+    # dapla.ssb.no/requested-service-duration: {{ quote .Values.dapla.sourceData.requestedDuration }}
+    # dapla.ssb.no/mount-standard-buckets: "true"
+    # dapla.ssb.no/mount-shared-buckets: {{ .Values.dapla.sharedBuckets | toJson | quote }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  {{- if .Values.global.suspend }}
+  replicas: 0
+  {{- else }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+{{- end }}
+  serviceName: {{ include "library-chart.fullname" . }}
+  selector:
+    matchLabels:
+      {{- include "library-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        dapla.ssb.no/service-catalog: experimental
+        {{- if .Values.gitConfig.git.enabled }}
+        checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if .Values.oidc.enabled }}
+        checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if (include "library-chart.repository.enabled"  .) }}
+        checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "library-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: home
+        {{- if .Values.diskplass.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - {{ include "library-chart.oauth2ProxyVolume" . | indent 10 | trim }}
+        - name: dshm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 128Mi
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "dpage/pgadmin4:9.4.0"
+          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
+          env:
+            {{- include "library-chart.commonEnvVars" . | nindent 12 }}
+            - name: DAPLA_ENVIRONMENT
+              value: {{ .Values.deployEnvironment }}
+            - name: DAPLA_REGION
+              value: DAPLA_LAB
+            - name: DAPLA_SERVICE
+              value: PGADMIN
+            - name: PASSWORD
+              value: ""
+            - name: PROJECT_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_GROUP
+              value: {{ .Values.environment.group }}
+            - name: STATBANK_BASE_URL
+              value: {{ .Values.statbankBaseUrl }}
+            - name: STATBANK_ENCRYPT_URL
+              value: {{ .Values.statbankEncryptUrl }}
+            - name: PSEUDO_SERVICE_URL
+              value: {{ .Values.pseudoServiceUrl }}
+            - name: DAPLA_USER
+              value: {{ .Values.daplaUser }}
+
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: {{ .Values.daplaUser }}
+            - name: PGADMIN_DEFAULT_PASSWORD
+              value: {{ .Values.security.password }}
+            - name: PGADMIN_CONFIG_SERVER_MODE
+              value: "False"
+            - name: PGADMIN_CONFIG_ALLOW_SAVE_PASSWORD
+              value: "False"
+            - name: PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED
+              value: "False"
+            - name: PGADMIN_CONFIG_ALLOW_SPECIAL_EMAIL_DOMAINS
+              value: "['localhost']"
+            - name: PGADMIN_CONFIG_CHECK_EMAIL_DELIVERABILITY
+              value: "False"
+            - name: PGADMIN_CONFIG_GLOBALLY_DELIVERABLE
+              value: "False"
+
+          envFrom:
+            {{- if .Values.oidc.enabled }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameOidc" . }}
+            {{- end }}
+            {{- if .Values.gitConfig.git.enabled }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameGit" . }}
+            {{- end }}
+            {{- if (include "library-chart.repository.enabled"  .) }}
+            - configMapRef:
+                name: {{ include "library-chart.configMapNameRepository" . }}
+            {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.networking.service.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.networking.service.port }}
+          resources:
+            requests:
+              cpu: {{ .Values.resources.cpu }}
+              memory: {{ .Values.resources.memory }}
+            limits: 
+              # Memory limit = min(mem_requested * 1.5, mem_requested + 4)
+              {{- $requestedmem := .Values.resources.memory | trimSuffix "Gi" | float64}}
+              memory: {{ min (mulf 1.5 $requestedmem) (add 4.0 $requestedmem) | int | toString | printf "%vGi" }}
+          volumeMounts:
+            - mountPath: /home/{{ .Values.environment.user}}/work
+              subPath: work
+              name: home
+            - mountPath: /dev/shm
+              name: dshm
+        - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

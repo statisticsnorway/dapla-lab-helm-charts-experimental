@@ -1,0 +1,30 @@
+apiVersion: v2
+name: pgadmin
+description: Pgadmin for administrering av Postgresql
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+keywords:
+  - Pgadmin
+  - Postgresql
+# home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+# sources:
+#   - https://github.com/statisticsnorway/dapla-lab-images
+#   - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.0.1
+
+dependencies:
+  - name: library-chart
+    version: 4.3.1
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
