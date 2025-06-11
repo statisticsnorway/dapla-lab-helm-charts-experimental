@@ -5074,6 +5074,24 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
+  pgadmin:
+  - apiVersion: v2
+    created: "2025-06-11T12:19:18.002308527Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.3.1
+    description: Pgadmin for administrering av Postgresql
+    digest: 3b60f017750cf8a20344c0d711174480b78b20356a287cb461e1ffa12826edb0
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    keywords:
+    - Pgadmin
+    - Postgresql
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/pgadmin-0.0.1/pgadmin-0.0.1.tgz
+    version: 0.0.1
   qgis:
   - apiVersion: v2
     created: "2025-06-10T12:58:14.949335624Z"
@@ -9241,4 +9259,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-06-10T12:58:15.391421846Z"
+generated: "2025-06-11T12:19:18.003241258Z"
