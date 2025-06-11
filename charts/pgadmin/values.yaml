@@ -4,7 +4,6 @@ global:
 tjeneste:
   version: "v1"
   image:
-    
     pullPolicy: IfNotPresent
 
 security:
