@@ -106,8 +106,6 @@ spec:
               value: "False"
             - name: PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED
               value: "False"
-            - name: PGADMIN_CONFIG_ALLOW_SPECIAL_EMAIL_DOMAINS
-              value: "['localhost']"
             - name: PGADMIN_CONFIG_CHECK_EMAIL_DELIVERABILITY
               value: "False"
             - name: PGADMIN_CONFIG_GLOBALLY_DELIVERABLE

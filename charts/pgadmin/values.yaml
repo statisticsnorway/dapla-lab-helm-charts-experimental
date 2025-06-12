@@ -107,7 +107,7 @@ networking:
   type: ClusterIP
   clusterIP: None
   service:
-    port: 8080
+    port: 80
 
 istio:
   enabled: false
