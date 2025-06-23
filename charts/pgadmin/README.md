@@ -1,6 +1,6 @@
 # pgadmin
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Pgadmin for administrering av Postgresql
 
@@ -24,6 +24,7 @@ Pgadmin for administrering av Postgresql
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |
+| database.instance | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
@@ -31,27 +32,11 @@ Pgadmin for administrering av Postgresql
 | deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
-| diskplass.accessMode | string | `"ReadWriteOnce"` |  |
-| diskplass.enabled | bool | `true` |  |
-| diskplass.size | string | `"10Gi"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
-| gitConfig.git.cache | string | `""` |  |
-| gitConfig.git.configMapName | string | `""` |  |
-| gitConfig.git.email | string | `""` |  |
-| gitConfig.git.enabled | bool | `false` |  |
-| gitConfig.git.name | string | `""` |  |
-| gitConfig.github.branch | string | `""` |  |
-| gitConfig.github.repository | string | `""` |  |
-| gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
-| init.personalInit | string | `""` |  |
-| init.personalInitArgs | string | `""` |  |
-| init.regionInit | string | `""` |  |
-| init.regionInitCheckSum | string | `""` |  |
-| init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
 | istio.enabled | bool | `false` |  |
 | istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
 | istio.hostname | string | `"chart-example.local"` |  |
@@ -69,11 +54,6 @@ Pgadmin for administrering av Postgresql
 | podSecurityContext.fsGroup | int | `100` |  |
 | pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
-| repository.condaRepository | string | `""` |  |
-| repository.configMapName | string | `""` |  |
-| repository.pipRepository | string | `""` |  |
-| resources.cpu | string | `""` |  |
-| resources.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
@@ -91,8 +71,6 @@ Pgadmin for administrering av Postgresql
 | serviceAccount.name | string | `""` |  |
 | statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
-| tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"v1"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
