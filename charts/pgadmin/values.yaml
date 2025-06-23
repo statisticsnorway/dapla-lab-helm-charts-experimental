@@ -1,10 +1,8 @@
 global:
   suspend: false
 
-tjeneste:
-  version: "v1"
-  image:
-    pullPolicy: IfNotPresent
+database:
+  instance: ""
 
 security:
   password: "changeme"
@@ -24,13 +22,6 @@ security:
     clientId: "my-client"
     authenticatedEmails: ""
 
-init:
-  standardInitPath: "/opt/onyxia-init.sh"
-  regionInit: ""
-  regionInitCheckSum: ""
-  personalInit: ""
-  personalInitArgs: ""
-
 userAttributes:
   environmentVariableName: OIDC_TOKEN
   userAttribute: "access_token"
@@ -43,26 +34,6 @@ oidc:
   # The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   secretName: ""
-
-gitConfig:
-  git:
-    # Specifies whether a config map should be created
-    enabled: false
-    # The name of the configmap to use.
-    # If not set and create is true, a name is generated using the fullname template
-    configMapName: ""
-    name: ""
-    email: ""
-    cache: ""
-  github:
-    token: ""
-    repository: ""
-    branch: ""
-
-repository:
-  configMapName: ""
-  pipRepository: ""
-  condaRepository: ""
 
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -114,27 +85,6 @@ istio:
   gateways:
     - istio-namespace/example-gateway
   hostname: chart-example.local
-
-resources:
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube.
-  cpu: ""
-  memory: ""
-
-diskplass:
-  enabled: true
-  ## database data Persistent Volume Storage Class
-  ## If defined, storageClassName: <storageClass>
-  ## If set to "-", storageClassName: "", which disables dynamic provisioning
-  ## If undefined (the default) or set to null, no storageClassName spec is
-  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-  ##   GKE, AWS & OpenStack)
-  ##
-  # storageClass: "-"
-  accessMode: ReadWriteOnce
-  size: 10Gi
-  # existingClaim: ""
 
 autoscaling:
   enabled: false
