@@ -32,14 +32,8 @@ spec:
     metadata:
       annotations:
         dapla.ssb.no/service-catalog: experimental
-        {{- if .Values.gitConfig.git.enabled }}
-        checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
-        {{- end }}
         {{- if .Values.oidc.enabled }}
         checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if (include "library-chart.repository.enabled"  .) }}
-        checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
         {{- end }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
@@ -49,12 +43,7 @@ spec:
     spec:
       volumes:
         - name: home
-        {{- if .Values.diskplass.enabled }}
-          persistentVolumeClaim:
-            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
-        {{- else }}
           emptyDir: {}
-        {{- end }}
         - {{ include "library-chart.oauth2ProxyVolume" . | indent 10 | trim }}
         - name: dshm
           emptyDir:
@@ -72,7 +61,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "dpage/pgadmin4:9.4.0"
-          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
+          imagePullPolicy: IfNotPresent
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
             - name: DAPLA_ENVIRONMENT
@@ -116,14 +105,6 @@ spec:
             - secretRef:
                 name: {{ include "library-chart.secretNameOidc" . }}
             {{- end }}
-            {{- if .Values.gitConfig.git.enabled }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameGit" . }}
-            {{- end }}
-            {{- if (include "library-chart.repository.enabled"  .) }}
-            - configMapRef:
-                name: {{ include "library-chart.configMapNameRepository" . }}
-            {{- end }}
           livenessProbe:
             httpGet:
               path: /
@@ -134,12 +115,8 @@ spec:
               port: {{ .Values.networking.service.port }}
           resources:
             requests:
-              cpu: {{ .Values.resources.cpu }}
-              memory: {{ .Values.resources.memory }}
-            limits: 
-              # Memory limit = min(mem_requested * 1.5, mem_requested + 4)
-              {{- $requestedmem := .Values.resources.memory | trimSuffix "Gi" | float64}}
-              memory: {{ min (mulf 1.5 $requestedmem) (add 4.0 $requestedmem) | int | toString | printf "%vGi" }}
+              cpu: 100m
+              memory: 2Gi
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
               subPath: work
@@ -147,6 +124,18 @@ spec:
             - mountPath: /dev/shm
               name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
+      
+      initContainers:
+        - name: cloud-sql-proxy
+          restartPolicy: Always
+          image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:latest
+          args:
+            - "--private-ip"
+            - "--auto-iam-authn"
+            - "--structured-logs"
+            - "--port=5432"
+            - {{ .Values.database.instance }}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

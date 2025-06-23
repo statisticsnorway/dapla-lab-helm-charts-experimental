@@ -10,67 +10,16 @@
         "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
-    "gitConfig": {
-      "title": "Git/Github",
-      "description": "Konfigurer Git og Github for tjenesten",
-      "type": "object",
-      "x-onyxia": {
-        "hidden": false,
-        "overwriteSchemaWith": "dapla/git.json"
-      }
-    },
-    "tjeneste": {
-      "title": "Python/R",
-      "description": "Velg versjon av Python og R",
+    "database": {
+      "title": "Database",
+      "description": "Velg database instanse",
       "type": "object",
       "properties": {
-        "version": {
-          "title": "Versjon",
-          "description": "Versjon av Python og R i tjenesten",
+        "instance": {
           "type": "string",
-          "default": "py311",
-          "listEnum": [
-            "py312",
-            "py311"
-          ],
-          "render": "list",
-          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
-        },
-        "image": {
-          "description": "image docker",
-          "type": "object",
-          "properties": {
-            "pullPolicy": {
-              "type": "string",
-              "description": "option when pulling the docker image",
-              "default": "IfNotPresent",
-              "enum": [
-                "IfNotPresent",
-                "Always",
-                "Never"
-              ],
-              "x-onyxia": {
-                "hidden": true
-              }
-            }
-          }
+          "title": "Database instanse",
+          "description": "Cloud SQL database instanse"
         }
-      }
-    },
-    "resources": {
-      "title": "Ressurser",
-      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
-      "type": "object",
-      "x-onyxia": {
-        "overwriteSchemaWith": "dapla/resources-ide.json"
-      }
-    },
-    "diskplass": {
-      "title": "Diskplass",
-      "description": "Velg hvor mye diskplass du trenger",
-      "type": "object",
-      "x-onyxia": {
-        "overwriteSchemaWith": "dapla/persistence.json"
       }
     },
     "security": {
@@ -324,78 +273,6 @@
               },
               "default": 5000
             }
-          }
-        }
-      }
-    },
-    "init": {
-      "description": "Init parameters",
-      "type": "object",
-      "properties": {
-        "regionInit": {
-          "type": "string",
-          "description": "region initialization script",
-          "default": "",
-          "x-form": {
-            "hidden": true,
-            "value": "{{k8s.initScriptUrl}}"
-          },
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
-          }
-        },
-        "regionInitCheckSum": {
-          "type": "string",
-          "description": "region initialization script",
-          "default": "",
-          "x-form": {
-            "hidden": true,
-            "value": "{{k8s.initScriptCheckSum}}"
-          },
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{k8s.initScriptCheckSum}}"
-          }
-        },
-        "personalInit": {
-          "type": "string",
-          "description": "user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "personalInitArgs": {
-          "type": "string",
-          "description": "args for user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
-        }
-      }
-    },
-    "repository": {
-      "description": "python repositories for pip and conda",
-      "type": "object",
-      "properties": {
-        "pipRepository": {
-          "type": "string",
-          "description": "python repository for pip",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{packageRepositoryInjection.pypiProxyUrl}}"
-          }
-        },
-        "condaRepository": {
-          "type": "string",
-          "description": "python repository for pip",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{packageRepositoryInjection.condaProxyUrl}}"
           }
         }
       }
