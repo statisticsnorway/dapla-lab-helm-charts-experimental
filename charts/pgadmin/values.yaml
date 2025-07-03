@@ -15,7 +15,7 @@ security:
   serviceEntry:
     enabled: true
     hosts:
-      - "storage.googleapis.com"
+      - "sqladmin.googleapis.com"
   oauth2:
     provider: keycloak-oidc
     oidcIssuerUrl: "overwritten-by-onyxia"

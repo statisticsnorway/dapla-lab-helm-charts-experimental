@@ -8,7 +8,7 @@ metadata:
   annotations:
     dapla.ssb.no/service-catalog: experimental
     # dapla.ssb.no/enable-ssbucketeer: "false"
-    # dapla.ssb.no/impersonate-group: {{ quote .Values.dapla.group }}
+    dapla.ssb.no/impersonate-group: {{ quote .Values.dapla.group }}
     dapla.ssb.no/service-container-name: {{ quote .Chart.Name }}
     # dapla.ssb.no/access-reason: {{ quote .Values.dapla.sourceData.reason }}
     # dapla.ssb.no/requested-service-duration: {{ quote .Values.dapla.sourceData.requestedDuration }}
@@ -106,10 +106,14 @@ spec:
                 name: {{ include "library-chart.secretNameOidc" . }}
             {{- end }}
           livenessProbe:
+            failureThreshold: 6
+            periodSeconds: 10
             httpGet:
               path: /
               port: {{ .Values.networking.service.port }}
           readinessProbe:
+            failureThreshold: 6
+            periodSeconds: 10
             httpGet:
               path: /
               port: {{ .Values.networking.service.port }}
