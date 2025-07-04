@@ -85,7 +85,9 @@
         "serviceEntry": {
           "type": "object",
           "description": "Service entry to give access to external services",
-          "x-onyxia": {},
+          "x-onyxia": {
+            "overwriteSchemaWith": "dapla/egress-vscode.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -99,7 +101,9 @@
             "hosts": {
               "type": "array",
               "description": "Array of hosts allowed to be accessed from your service",
-              "default": [],
+              "default": [
+                "sqladmin.googleapis.com"
+              ],
               "x-onyxia": {
                 "hidden": true
               }
