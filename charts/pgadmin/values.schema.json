@@ -101,11 +101,12 @@
             "hosts": {
               "type": "array",
               "description": "Array of hosts allowed to be accessed from your service",
-              "default": [
-                "sqladmin.googleapis.com"
-              ],
+              "default": [],
               "x-onyxia": {
-                "hidden": true
+                "hidden": true,
+                "overwriteDefaultWith": [
+                  "sqladmin.googleapis.com"
+                ]
               }
             }
           }
