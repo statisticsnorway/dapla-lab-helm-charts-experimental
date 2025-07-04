@@ -103,8 +103,7 @@
               "description": "Array of hosts allowed to be accessed from your service",
               "default": [],
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.vscodeEgress"
+                "hidden": true
               }
             }
           }
