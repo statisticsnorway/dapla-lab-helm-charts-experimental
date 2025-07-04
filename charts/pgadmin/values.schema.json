@@ -99,7 +99,8 @@
               "type": "array",
               "description": "Array of hosts allowed to be accessed from your service",
               "default": [
-                "sqladmin.googleapis.com"
+                "sqladmin.googleapis.com",
+                "auth.test.ssb.no"
               ],
               "x-onyxia": {
                 "hidden": true
