@@ -85,9 +85,7 @@
         "serviceEntry": {
           "type": "object",
           "description": "Service entry to give access to external services",
-          "x-onyxia": {
-            "overwriteSchemaWith": "dapla/egress-vscode.json"
-          },
+          "x-onyxia": {},
           "properties": {
             "enabled": {
               "type": "boolean",
