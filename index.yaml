@@ -5076,6 +5076,23 @@ entries:
     version: 0.0.1
   pgadmin:
   - apiVersion: v2
+    created: "2025-07-09T08:39:54.775934166Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.4.4
+    description: Pgadmin for administrering av Postgresql
+    digest: 25beff64acc953a59979f0de148307ba463ed04b3d5ffcf0e42413951a2d455e
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    keywords:
+    - Pgadmin
+    - Postgresql
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/pgadmin-0.0.12/pgadmin-0.0.12.tgz
+    version: 0.0.12
+  - apiVersion: v2
     created: "2025-07-04T11:13:43.864781366Z"
     dependencies:
     - name: library-chart
@@ -9451,4 +9468,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-07-04T11:13:43.865351081Z"
+generated: "2025-07-09T08:39:54.776570538Z"
