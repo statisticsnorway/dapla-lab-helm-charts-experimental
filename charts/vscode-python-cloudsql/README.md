@@ -1,8 +1,8 @@
-# vscode-python
+# vscode-python-cloudsql
 
-![Version: 0.15.4](https://img.shields.io/badge/Version-0.15.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
+Minimal VS Code med Python og mulighet til å koble til Cloud SQL. Brukeren kan selv installere pakker etter behov.
 
 **Homepage:** <https://manual.dapla.ssb.no/statistikkere/vscode-python.html>
 
@@ -34,6 +34,8 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |
+| database.cloudSqlProxy.enabled | bool | `false` |  |
+| database.cloudSqlProxy.instance | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
