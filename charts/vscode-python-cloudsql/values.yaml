@@ -5,6 +5,11 @@ tjeneste:
   image:
     pullPolicy: IfNotPresent
 
+database:
+  cloudSqlProxy:
+    enabled: false
+    instance: ""
+
 security:
   networkPolicy:
     enabled: false
