@@ -1,6 +1,6 @@
 # qgis
 
-![Version: 1.15.0](https://img.shields.io/badge/Version-1.15.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.16.0](https://img.shields.io/badge/Version-1.16.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal QGIS med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -15,7 +15,7 @@ Minimal QGIS med Python. Brukeren kan selv installere pakker etter behov.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.6 |
 
 ## Values
 
