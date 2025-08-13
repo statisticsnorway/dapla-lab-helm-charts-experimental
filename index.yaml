@@ -5076,6 +5076,23 @@ entries:
     version: 0.0.1
   pgadmin:
   - apiVersion: v2
+    created: "2025-08-13T09:07:21.750919826Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.4.8
+    description: Pgadmin for administrering av Postgresql
+    digest: 63f8fadbe9655f83e138ee7dcd2cec9db7f4679455094a6c8818aa808ff2b825
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/post.png
+    keywords:
+    - Pgadmin
+    - Postgresql
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/pgadmin-0.0.13/pgadmin-0.0.13.tgz
+    version: 0.0.13
+  - apiVersion: v2
     created: "2025-07-09T08:39:54.775934166Z"
     dependencies:
     - name: library-chart
@@ -9317,6 +9334,29 @@ entries:
     version: 0.0.1
   vscode-python-cloudsql:
   - apiVersion: v2
+    created: "2025-08-13T09:07:21.896798587Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.4.8
+    description: Minimal VS Code med Python og mulighet til å koble til Cloud SQL.
+      Brukeren kan selv installere pakker etter behov.
+    digest: 33017ca035a0286dba63331c12298fa36820ce00036cef8659bc47a7cba24f38
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    - Postgresql
+    name: vscode-python-cloudsql
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-cloudsql-0.0.2/vscode-python-cloudsql-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     created: "2025-07-15T12:20:36.561874185Z"
     dependencies:
     - name: library-chart
@@ -9624,4 +9664,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-08-06T07:50:52.818519333Z"
+generated: "2025-08-13T09:07:21.897582178Z"
