@@ -124,6 +124,12 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.local/pipx
             - name: PIPX_BIN_DIR
               value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
+            - name: RENV_PATHS_LIBRARY
+              value: /home/{{ .Values.environment.user }}/work/.renv
+            - name: RENV_PATHS_CACHE
+              value: /home/{{ .Values.environment.user }}/work/.renv/cache
+            - name: XDG_CONFIG_HOME
+              value: /home/{{ .Values.environment.user }}/work/.config
             - name: STATBANK_BASE_URL
               value: {{ .Values.statbankBaseUrl }}
             - name: STATBANK_ENCRYPT_URL
