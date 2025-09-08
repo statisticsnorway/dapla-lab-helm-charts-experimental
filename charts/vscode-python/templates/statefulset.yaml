@@ -136,6 +136,8 @@ spec:
               value: {{ .Values.statbankEncryptUrl }}
             - name: PSEUDO_SERVICE_URL
               value: {{ .Values.pseudoServiceUrl }}
+            - name: WHODAT_SERVICE_URL
+              value: {{ .Values.whodatServiceUrl }}
             - name: DAPLA_USER
               value: {{ .Values.daplaUser }}
           envFrom:

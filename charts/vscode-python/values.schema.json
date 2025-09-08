@@ -559,6 +559,14 @@
         "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
       }
     },
+    "whodatServiceUrl": {
+      "type": "string",
+      "description": "The whodat service URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/whodatServiceUrl.json"
+      }
+    },
     "statbankBaseUrl": {
       "type": "string",
       "description": "The statbank base URL",
