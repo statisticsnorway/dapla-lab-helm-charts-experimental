@@ -9572,30 +9572,6 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-cloudsql-0.0.1/vscode-python-cloudsql-0.0.1.tgz
     version: 0.0.1
-  vscode-python-copilot:
-  - apiVersion: v2
-    created: "2025-09-25T11:44:06.055459806Z"
-    dependencies:
-    - name: library-chart
-      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
-      version: 4.4.8
-    description: VSCode tjeneste med Python. Brukeren kan selv installere pakker etter
-      behov.
-    digest: 2d93e56fa696b622884450aa56f0438d19198435158325c0376e5a66e5b6fe86
-    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
-    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
-    keywords:
-    - VSCode
-    - Python
-    - GithubCopilot
-    name: vscode-python-copilot
-    sources:
-    - https://github.com/statisticsnorway/dapla-lab-images
-    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
-    type: application
-    urls:
-    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-copilot-0.0.1/vscode-python-copilot-0.0.1.tgz
-    version: 0.0.1
   vscode-python-suspend:
   - apiVersion: v2
     created: "2024-10-29T10:01:35.858900133Z"
