@@ -1,6 +1,6 @@
 # vscode-python-cloudsql
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python og mulighet til å koble til Cloud SQL. Brukeren kan selv installere pakker etter behov.
 
@@ -106,7 +106,7 @@ Minimal VS Code med Python og mulighet til å koble til Cloud SQL. Brukeren kan 
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"py311-2025.06.15T17_10Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py311-2025.10.13T02_33Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
