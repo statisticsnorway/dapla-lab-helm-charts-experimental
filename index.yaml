@@ -9527,6 +9527,29 @@ entries:
     version: 0.0.1
   vscode-python-cloudsql:
   - apiVersion: v2
+    created: "2025-10-14T10:52:35.879903201Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.4.8
+    description: Minimal VS Code med Python og mulighet til å koble til Cloud SQL.
+      Brukeren kan selv installere pakker etter behov.
+    digest: 7c8fcefc9da5312d4695d3ea715a5d5efd8c74f559e98fde6fb7e3b43d51065f
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    - Postgresql
+    name: vscode-python-cloudsql
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-cloudsql-0.0.3/vscode-python-cloudsql-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
     created: "2025-08-13T09:07:21.896798587Z"
     dependencies:
     - name: library-chart
@@ -9857,4 +9880,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-25T11:44:06.056055699Z"
+generated: "2025-10-14T10:52:35.880593092Z"
