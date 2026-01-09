@@ -187,7 +187,7 @@
           "type": "object",
           "description": "Service entry to give access to external services",
           "x-onyxia": {
-            "overwriteSchemaWith": "dapla/egress-jupyter.json"
+            "overwriteSchemaWith": "dapla/egress-ide.json"
           },
           "properties": {
             "enabled": {
