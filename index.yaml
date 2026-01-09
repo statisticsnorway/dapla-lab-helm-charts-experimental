@@ -4173,6 +4173,29 @@ entries:
     version: 0.0.1
   jupyter-rpk:
   - apiVersion: v2
+    created: "2026-01-09T12:38:59.580325296Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.9
+    description: Minimal Jupyterlab med Python og R. Brukeren kan selv installere
+      pakker.
+    digest: 06054dc8bfc678be1408bf33bf528c26a47629095ee5559e0b6b2cbb6f06dcba
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-rpk
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/jupyter-rpk-1.0.15/jupyter-rpk-1.0.15.tgz
+    version: 1.0.15
+  - apiVersion: v2
     created: "2024-11-25T10:13:21.779887556Z"
     dependencies:
     - name: library-chart
@@ -7664,6 +7687,32 @@ entries:
   - annotations:
       environment: test
     apiVersion: v2
+    created: "2026-01-09T12:38:59.738137936Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.3.0
+    description: 'Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks.
+      Inneholder nødvendige pakker og ferdig oppsatt kernel. Krever lite forkunnskaper. '
+    digest: 19479c15ce214c9fdaa3f5a9f98d2a2900ef6fb64d57442dfcee6ec01071765c
+    home: https://manual.dapla.ssb.no/statistikkere/vardef.html
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Jupyter
+    - Python
+    - Metadata
+    - Vardef
+    name: vardef-forvaltning
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vardef-forvaltning-0.3.3/vardef-forvaltning-0.3.3.tgz
+    version: 0.3.3
+  - annotations:
+      environment: test
+    apiVersion: v2
     created: "2025-04-23T13:35:34.425152683Z"
     dependencies:
     - name: library-chart
@@ -7808,6 +7857,28 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vardef-forvaltning-0.1.0/vardef-forvaltning-0.1.0.tgz
     version: 0.1.0
   vscode-python:
+  - apiVersion: v2
+    created: "2026-01-09T12:38:59.87227977Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.3.1
+    description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter
+      behov.
+    digest: 22e7d4dd963a4f07841373278093ce5f8b3cc59adf0d44932effba1c3c9ce27a
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-4.0.22/vscode-python-4.0.22.tgz
+    version: 4.0.22
   - apiVersion: v2
     created: "2025-09-08T07:51:28.410738946Z"
     dependencies:
@@ -9880,4 +9951,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2025-10-14T10:52:35.880593092Z"
+generated: "2026-01-09T12:38:59.873225358Z"
