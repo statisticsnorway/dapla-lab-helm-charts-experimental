@@ -73,7 +73,7 @@ spec:
           command: ["/bin/sh","-c"]
           {{- if .Values.tjeneste.marimoAppFile }}
           args: ["{{ .Values.init.standardInitPath }} marimo run --host 0.0.0.0 \
-          --port 8080 --headless --no-token --skip-update-check"]
+          --port 8080 --headless --no-token"]
           {{- else }}
           args: ["{{ .Values.init.standardInitPath }} marimo edit --host 0.0.0.0 \
           --port 8080 --headless --no-token --skip-update-check"]
