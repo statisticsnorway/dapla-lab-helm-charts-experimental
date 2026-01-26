@@ -71,8 +71,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/marimo:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
+          {{- if .Values.tjeneste.marimoAppFile }}
+          args: ["{{ .Values.init.standardInitPath }} marimo run --host 0.0.0.0 \
+          --port 8080 --headless --no-token --skip-update-check"]
+          {{- else }}
           args: ["{{ .Values.init.standardInitPath }} marimo edit --host 0.0.0.0 \
           --port 8080 --headless --no-token --skip-update-check"]
+          {{- end }}
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
@@ -98,6 +103,10 @@ spec:
               value: DAPLA_LAB
             - name: DAPLA_SERVICE
               value: MARIMO
+            - name: GIT_REPOSITORY
+              value: {{ .Values.tjeneste.githubRepo }}
+            - name: MARIMO_APP_FILE_PATH # Only relevant for run mode
+              value: {{ .Values.tjeneste.marimoAppFile }}
             - name: PASSWORD
               value: ""
             - name: MARIMO_PYTHON_VERSION
