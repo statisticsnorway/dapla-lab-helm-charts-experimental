@@ -51,7 +51,7 @@
           "title": "Marimo-repo",
           "description": "Marimo-repo som skal klones ved oppstart. Støtter ikke andre type repo",
           "type": "string",
-          "default": "",
+          "default": ""
         },
         "marimoAppFile": {
           "title": "App filsti",
