@@ -1,6 +1,6 @@
 # marimo
 
-![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Marimo med Python.
 
@@ -52,9 +52,6 @@ Marimo med Python.
 | gitConfig.git.email | string | `""` |  |
 | gitConfig.git.enabled | bool | `false` |  |
 | gitConfig.git.name | string | `""` |  |
-| gitConfig.github.branch | string | `""` |  |
-| gitConfig.github.build | bool | `false` |  |
-| gitConfig.github.repository | string | `""` |  |
 | gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
@@ -103,7 +100,9 @@ Marimo med Python.
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
+| tjeneste.githubRepo | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
+| tjeneste.marimoAppFile | string | `""` |  |
 | tjeneste.version | string | `"latest"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
