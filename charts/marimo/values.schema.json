@@ -27,7 +27,7 @@
         "version": {
           "description": "Marimo-versjon",
           "type": "string",
-          "default": "latest-2026.01.26T01_41Z",
+          "default": "latest-2026.01.26T10_45Z",
           "pattern": "^[a-zA-Z0-9-_.:/]+$"
         },
         "image" : {
