@@ -21,15 +21,14 @@
     },
     "tjeneste" : {
       "title" : "Python/R",
-      "description" : "Velg versjon av Python og R",
+      "description" : "Velg versjon av Marimo",
       "type" : "object",
       "properties" : {
         "version" : {
           "title" : "Versjon",
-          "description" : "Versjon av Python og R i tjenesten",
+          "description" : "Versjon av Marimo tjenesten",
           "type" : "string",
-          "default" : "latest-2026.01.09T11_28Z",
-          "listEnum" : [ "latest-2026.01.09T11_28Z" ],
+          "default" : "latest-2026.01.26T01_41Z",
           "render" : "list",
           "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         },
