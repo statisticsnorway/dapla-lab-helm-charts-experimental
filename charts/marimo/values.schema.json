@@ -16,21 +16,19 @@
       "type" : "object",
       "x-onyxia" : {
         "hidden" : false,
-        "overwriteSchemaWith" : "dapla/git.json"
+        "overwriteSchemaWith" : "dapla/git-no-clone-repo.json"
       }
     },
     "tjeneste" : {
-      "title" : "Python/R",
+      "title" : "Marimo",
       "description" : "Velg versjon av Marimo",
       "type" : "object",
       "properties" : {
-        "version" : {
-          "title" : "Versjon",
-          "description" : "Versjon av Marimo tjenesten",
-          "type" : "string",
-          "default" : "latest-2026.01.26T01_41Z",
-          "render" : "list",
-          "pattern" : "^[a-zA-Z0-9-_.:/]+$"
+        "version": {
+          "description": "Marimo-versjon",
+          "type": "string",
+          "default": "latest-2026.01.26T10_45Z",
+          "pattern": "^[a-zA-Z0-9-_.:/]+$"
         },
         "image" : {
           "description" : "image docker",
@@ -46,6 +44,20 @@
               }
             }
           }
+        },
+        "githubRepo": {
+          "title": "Marimo-repo",
+          "description": "Marimo-repo som skal klones ved oppstart. Støtter ikke andre type repo",
+          "type": "string",
+          "default": "",
+          "pattern": "^[a-zA-Z0-9-_./]+$"
+        },
+        "marimoAppFile": {
+          "title": "App filsti",
+          "description": "Oppgi en sti i GitHub-repoet som skal kjøres som app, f.eks. \"folder1/run.py\". La stå tomt for å starte i edit-modus.",
+          "type": "string",
+          "default": "",
+          "pattern" : "^[a-zA-Z0-9-_./]+$"
         }
       }
     },
