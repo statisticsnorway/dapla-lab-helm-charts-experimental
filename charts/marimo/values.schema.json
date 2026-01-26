@@ -50,14 +50,14 @@
           "description": "Marimo-repo som skal klones ved oppstart. Støtter ikke andre type repo",
           "type": "string",
           "default": "",
-          "pattern": "^[a-zA-Z0-9-_./]+$"
+          "pattern": "^[A-Za-z0-9_./-]+$"
         },
         "marimoAppFile": {
           "title": "App filsti",
           "description": "Oppgi en sti i GitHub-repoet som skal kjøres som app, f.eks. \"folder1/run.py\". La stå tomt for å starte i edit-modus.",
           "type": "string",
           "default": "",
-          "pattern" : "^[a-zA-Z0-9-_./]+$"
+          "pattern": "^[A-Za-z0-9_./-]+$"
         }
       }
     },
