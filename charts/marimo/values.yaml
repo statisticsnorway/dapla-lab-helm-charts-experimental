@@ -4,6 +4,8 @@ tjeneste:
   version: latest
   image:
     pullPolicy: IfNotPresent
+  githubRepo: ''
+  marimoAppFile: ''
 security:
   networkPolicy:
     enabled: false
@@ -41,9 +43,6 @@ gitConfig:
     cache: ''
   github:
     token: ''
-    repository: ''
-    branch: ''
-    build: false
 repository:
   configMapName: ''
   pipRepository: ''
