@@ -22,7 +22,7 @@
             "repository": {
               "type": "string",
               "description": "Container-repositoriet for det ferdigbygde Prodcom-appbildet",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/prodcom",
+              "default": "europe-north1-docker.pkg.dev/nais-management-b3a7/prodcom/stat-prodcom-service",
               "x-onyxia": {
                 "hidden": true
               }

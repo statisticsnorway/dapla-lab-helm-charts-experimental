@@ -4,6 +4,9 @@ kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
   annotations:
+    # Unntar poden fra Kyverno-policyen restrict-image-registries, siden appbildet
+    # ligger i NAIS GAR (nais-management-b3a7) og ikke i artifact-registry-5n.
+    dapla.ssb.no/service-catalog: "experimental"
     dapla.ssb.no/enable-ssbucketeer: "true"
     dapla.ssb.no/impersonate-group: {{ quote .Values.dapla.group }}
     dapla.ssb.no/service-container-name: {{ quote .Chart.Name }}
@@ -26,6 +29,7 @@ spec:
   template:
     metadata:
       annotations:
+        dapla.ssb.no/service-catalog: "experimental"
         {{- if .Values.oidc.enabled }}
         checksum/oidc: {{ include (print $.Template.BasePath "/secret-oidc.yaml") . | sha256sum }}
         {{- end }}

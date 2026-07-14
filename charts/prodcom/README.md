@@ -45,19 +45,28 @@ Bruker ─▶ Istio VirtualService ("/") ─▶ Service:4180 ─▶ oauth2-proxy
 
 ## Forutsetninger (må være på plass før tjenesten fungerer)
 
-1. **Appbildet må bygges og publiseres.** Prodcom-teamet må bygge et image fra
-   `stat-prodcom` og publisere det til registeret angitt i `tjeneste.image.repository`
-   (default: `europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/prodcom`).
-   Se *Image-kontrakt* under. En ferdig `Dockerfile` er foreslått i `stat-prodcom`
-   (se medfølgende patch).
+1. **Appbildet må bygges.** Workflowen *Build Prodcom service image* i `stat-prodcom`
+   (`.github/workflows/build-service-image.yaml`) bygger og publiserer imaget til
+   `europe-north1-docker.pkg.dev/nais-management-b3a7/prodcom/stat-prodcom-service`
+   via `nais/docker-build-push` (team `prodcom`, allerede autorisert). Den pusher en
+   uforanderlig `<dato>-<sha>`-tag og en flytende `latest`.
 
-2. **`dash/app.py` må støtte frittstående kjøring.** Appen er opprinnelig skrevet for
-   jupyter-server-proxy. En liten, bakoverkompatibel endring gjør at den kan serveres på
-   rot-stien og kjøre headless, og at prod-data kun lastes når `DAPLA_ENVIRONMENT=PROD`
-   (se medfølgende patch til `stat-prodcom`). Endringen påvirker ikke eksisterende bruk
-   inne i JupyterLab.
+2. **Pull-tilgang fra Dapla Lab (engangs plattform-oppgave).** To porter må passeres
+   for at Dapla Lab skal kunne dra imaget:
+   - *Kyverno-policyen `restrict-image-registries`*: håndtert av charten - StatefulSet
+     og pod-template er annotert `dapla.ssb.no/service-catalog: "experimental"`, som
+     har et PolicyException (samme mekanisme som doom/pgadmin-chartene).
+   - *IAM*: Dapla Lab-clusterets node-SA har i dag kun `artifactregistry.reader` på
+     `artifact-registry-5n`-repoene. Noen med admin på NAIS GAR-repoet må gi node-SA-en
+     lesetilgang på `prodcom`-repoet i `nais-management-b3a7` (ellers ImagePullBackOff).
+     Alternativ: speile imaget inn i `artifact-registry-5n` (da trengs verken unntak
+     eller IAM-endring).
 
-3. **Datatilgang (kun produksjon).** I produksjonsmiljøet må team/tilgangsgruppen valgt
+3. **`dash/app.py`-endringen er på plass** (merget i `stat-prodcom` PR #186): appen
+   serveres på rot-stien og kjører headless når `PRODCOM_STANDALONE=true`, og prod-data
+   lastes kun når `DAPLA_ENVIRONMENT=PROD`. Eksisterende bruk i JupyterLab er uendret.
+
+4. **Datatilgang (kun produksjon).** I produksjonsmiljøet må team/tilgangsgruppen valgt
    under *Data* ha lese/skrive-tilgang til `gs://ssb-strukt-naering-data-produkt-prod`
    (appen leser bl.a. `vti/temp/omsetning_422/...` og `vti/inndata/nspek/...` ved
    oppstart). I test-clusteret lastes ingen data, og tjenesten starter uavhengig av
@@ -95,8 +104,8 @@ helm template prodcom charts/prodcom \
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | global.suspend | bool | `false` | Suspender (skaler til 0) tjenesten |
-| tjeneste.image.repository | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/prodcom"` | Container-repo for det ferdigbygde Prodcom-appbildet |
-| tjeneste.image.version | string | `"latest"` | Image-tag som skal deployes |
+| tjeneste.image.repository | string | `"europe-north1-docker.pkg.dev/nais-management-b3a7/prodcom/stat-prodcom-service"` | Container-repo for det ferdigbygde Prodcom-appbildet |
+| tjeneste.image.version | string | `"latest"` | Image-tag som skal deployes (`latest` eller en `<dato>-<sha>`-tag fra byggejobben) |
 | tjeneste.image.pullPolicy | string | `"Always"` | Image pull policy |
 | networking.type | string | `"ClusterIP"` | Service-type |
 | networking.clusterIP | string | `"None"` | Headless service |

@@ -8,9 +8,11 @@ global:
 tjeneste:
   image:
     # Full container repository (without tag) for the prebuilt Prodcom app image.
-    # The Prodcom team must build and publish this image (see README.md → "Image contract").
-    repository: europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/prodcom
-    # Image tag to deploy.
+    # Built and published by stat-prodcom's "Build Prodcom service image" workflow
+    # (nais/docker-build-push, team prodcom). See README.md → "Image-kontrakt".
+    repository: europe-north1-docker.pkg.dev/nais-management-b3a7/prodcom/stat-prodcom-service
+    # Image tag to deploy: "latest" (moving alias) or an immutable <date>-<sha> tag
+    # from the build workflow's Step Summary.
     version: latest
     pullPolicy: Always
 
