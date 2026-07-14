@@ -1,0 +1,149 @@
+# Default values for the Prodcom service.
+# The Prodcom service runs a prebuilt Plotly Dash application image (see README.md
+# for the image contract). The app is served on `networking.service.port` and fronted
+# by an oauth2-proxy sidecar (port 4180) which the Istio VirtualService routes to.
+global:
+  suspend: false
+
+tjeneste:
+  image:
+    # Full container repository (without tag) for the prebuilt Prodcom app image.
+    # The Prodcom team must build and publish this image (see README.md → "Image contract").
+    repository: europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/prodcom
+    # Image tag to deploy.
+    version: latest
+    pullPolicy: Always
+
+security:
+  networkPolicy:
+    enabled: false
+    from: []
+  serviceEntry:
+    enabled: true
+    # External hosts the app is allowed to reach (egress). Prodcom reads/writes GCS and
+    # talks to SSB auth. Overwritten by the Onyxia GUI via dapla/egress-datadoc.json.
+    hosts:
+      - "www.googleapis.com"
+      - "oauth2.googleapis.com"
+      - "storage.googleapis.com"
+      - "sts.googleapis.com"
+      - "auth.test.ssb.no"
+      - "data.ssb.no"
+      - "www.ssb.no"
+  oauth2:
+    provider: keycloak-oidc
+    oidcIssuerUrl: "overwritten-by-onyxia"
+    clientId: "onyxia-services"
+    authenticatedEmails: ""
+
+environment:
+  user: onyxia
+  group: users
+
+userAttributes:
+  environmentVariableName: OIDC_TOKEN
+  userAttribute: "access_token"
+  value: ""
+
+dapla:
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
+  # Dapla team + access group whose data accesses are activated for the service.
+  # Must be a group with access to the Prodcom production bucket
+  # (gs://ssb-strukt-naering-data-produkt-prod). See README.md.
+  group: ""
+  sharedBuckets: []
+
+oidc:
+  # Specifies whether an OIDC secret should be created
+  enabled: true
+  tokenExchangeUrl: ""
+  # The name of the secret to use. Generated from the fullname template when empty.
+  secretName: ""
+
+replicaCount: 1
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use. Generated from the fullname template when empty.
+  name: ""
+
+kubernetes:
+  enabled: false
+  role: "view"
+
+podAnnotations: {}
+
+podLabels:
+  onyxia.app: "prodcom"
+  maintained-by-team: "strukt-naering"
+
+podSecurityContext:
+  fsGroup: 100
+
+securityContext: {}
+
+networking:
+  type: ClusterIP
+  clusterIP: None
+  service:
+    # Port the Dash app listens on inside the container.
+    port: 8061
+
+istio:
+  enabled: false
+  gateways:
+    - istio-namespace/example-gateway
+  hostname: chart-example.local
+
+# Guaranteed resources. Prodcom loads parquet data into memory and runs R via rpy2
+# (Kostra/HB-metoden), so it needs a reasonable baseline. Overwritten by the Onyxia GUI.
+ressurser:
+  requests:
+    cpu: "500m"
+    memory: "4Gi"
+
+diskplass:
+  # A local filesystem is not required: dependencies are baked into the image and all
+  # data lives in GCS. A small emptyDir is used for scratch/cache when this is disabled.
+  enabled: false
+  accessMode: ReadWriteOnce
+  size: 10Gi
+
+avansert:
+  data:
+    mountStandard: true
+
+nodeSelector: {}
+
+tolerations: []
+
+startupProbe:
+  failureThreshold: 60
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 30
+
+podDisruptionBudget:
+  enabled: true
+
+deleteJob:
+  enabled: true
+  cronMinuteAtDay: "0"
+  cronHourAtDay: "20"
+  imageVersion: "v1.1.0"
+  clusterRoleName: onyxia-delete-job
+  serviceAccount:
+    annotations: {}
+
+deployEnvironment: "TEST"
+daplaUser: ""
