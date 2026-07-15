@@ -1,0 +1,10 @@
+Tjenesten bruker vanligvis under ett minutt på å starte opp, og er klar til bruk når
+**Åpne tjenesten**-ikonet dukker opp nederst til høyre i denne boksen.
+
+*Viktig:*
+- Prodcom-data ligger i produksjonsbøtta og leses **kun i produksjonsmiljøet**
+  (DAPLA_ENVIRONMENT=PROD). I test starter appen uten data.
+- I produksjonsmiljøet må team/tilgangsgruppen du velger under *Data* ha tilgang til
+  Prodcom-bøtta, og endringer lagres da direkte i EimerDB (`prodcombasen`).
+- All data lagres i Google-bøtter - tjenesten har ikke noe varig lokalt filsystem.
+- Tjenesten slettes automatisk hver kveld (kl. 20:00 UTC, dvs. kl. 21/22 norsk tid).
