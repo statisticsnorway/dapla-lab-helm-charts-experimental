@@ -109,12 +109,15 @@ istio:
     - istio-namespace/example-gateway
   hostname: chart-example.local
 
-# Guaranteed resources. Prodcom loads parquet data into memory and runs R via rpy2
-# (Kostra/HB-metoden), so it needs a reasonable baseline. Overwritten by the Onyxia GUI.
-ressurser:
-  requests:
-    cpu: "500m"
-    memory: "4Gi"
+# Guaranteed resources (flat cpu/memory layout: Dapla Lab's Onyxia convention, expected
+# by the ssb-plugin.js price estimator). Prodcom loads parquet data into memory and runs
+# R via rpy2 (Kostra/HB-metoden), so it needs a reasonable baseline. Overwritten by the
+# Onyxia GUI.
+resources:
+  # -- Garantert CPU (requests; 1000m = one core)
+  cpu: "500m"
+  # -- Garantert minne (requests; also used as the memory limit)
+  memory: "4Gi"
 
 diskplass:
   # A local filesystem is not required: dependencies are baked into the image and all

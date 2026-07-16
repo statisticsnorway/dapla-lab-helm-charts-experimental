@@ -119,10 +119,10 @@ spec:
             {{- toYaml .Values.startupProbe | nindent 12 }}
           resources:
             requests:
-              cpu: {{ .Values.ressurser.requests.cpu }}
-              memory: {{ .Values.ressurser.requests.memory }}
+              cpu: {{ .Values.resources.cpu }}
+              memory: {{ .Values.resources.memory }}
             limits:
-              memory: {{ .Values.ressurser.requests.memory }}
+              memory: {{ .Values.resources.memory }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user }}/work
               subPath: work
@@ -134,7 +134,7 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- $affinityYaml := include "library-chart.nodeAffinity" (dict "cpu" (.Values.ressurser.requests.cpu | trimSuffix "m") "memory" (.Values.ressurser.requests.memory | trimSuffix "Gi")) }}
+      {{- $affinityYaml := include "library-chart.nodeAffinity" (dict "cpu" (.Values.resources.cpu | trimSuffix "m") "memory" (.Values.resources.memory | trimSuffix "Gi")) }}
       {{- if $affinityYaml }}
       affinity:
         {{- $affinityYaml | nindent 8 }}

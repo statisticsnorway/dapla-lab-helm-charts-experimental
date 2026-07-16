@@ -141,8 +141,8 @@ helm template prodcom charts/prodcom \
 | podLabels.maintained-by-team | string | `"strukt-naering"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
-| ressurser.requests.cpu | string | `"500m"` |  |
-| ressurser.requests.memory | string | `"4Gi"` |  |
+| resources.cpu | string | `"500m"` | Garantert CPU (requests; 1000m = one core) |
+| resources.memory | string | `"4Gi"` | Garantert minne (requests; also used as the memory limit) |
 | security.networkPolicy.enabled | bool | `false` |  |
 | security.networkPolicy.from | list | `[]` |  |
 | security.oauth2.authenticatedEmails | string | `""` |  |
