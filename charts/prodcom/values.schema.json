@@ -31,7 +31,11 @@
               "type": "string",
               "description": "option when pulling the docker image",
               "default": "Always",
-              "enum": ["IfNotPresent", "Always", "Never"],
+              "enum": [
+                "IfNotPresent",
+                "Always",
+                "Never"
+              ],
               "x-onyxia": {
                 "hidden": true
               }
@@ -47,43 +51,37 @@
         }
       }
     },
-    "ressurser": {
+    "resources": {
       "title": "Ressurser",
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten. Prodcom leser parquet-data inn i minnet og kjører R (Kostra/HB-metoden), så velg rikelig med minne.",
       "type": "object",
       "properties": {
-        "requests": {
-          "description": "Guaranteed resources",
-          "type": "object",
-          "properties": {
-            "cpu": {
-              "description": "Garantert mengde CPU. 1000 M tilsvarer én CPU-kjerne.",
-              "title": "CPU",
-              "type": "string",
-              "default": "500m",
-              "render": "slider",
-              "sliderMin": 50,
-              "sliderMax": 8000,
-              "sliderStep": 50,
-              "sliderUnit": "m",
-              "x-onyxia": {
-                "useRegionSliderConfig": "cpu"
-              }
-            },
-            "memory": {
-              "description": "Garantert tilgjengelig minne/RAM i tjenesten",
-              "title": "Minne/RAM",
-              "type": "string",
-              "default": "4Gi",
-              "render": "slider",
-              "sliderMin": 1,
-              "sliderMax": 128,
-              "sliderStep": 1,
-              "sliderUnit": "Gi",
-              "x-onyxia": {
-                "useRegionSliderConfig": "memory"
-              }
-            }
+        "cpu": {
+          "description": "Garantert mengde CPU. 1000 M tilsvarer én CPU-kjerne.",
+          "title": "CPU",
+          "type": "string",
+          "default": "500m",
+          "render": "slider",
+          "sliderMin": 50,
+          "sliderMax": 8000,
+          "sliderStep": 50,
+          "sliderUnit": "m",
+          "x-onyxia": {
+            "useRegionSliderConfig": "cpu"
+          }
+        },
+        "memory": {
+          "description": "Garantert tilgjengelig minne/RAM i tjenesten",
+          "title": "Minne/RAM",
+          "type": "string",
+          "default": "4Gi",
+          "render": "slider",
+          "sliderMin": 1,
+          "sliderMax": 128,
+          "sliderStep": 1,
+          "sliderUnit": "Gi",
+          "x-onyxia": {
+            "useRegionSliderConfig": "memory"
           }
         }
       }
@@ -197,7 +195,9 @@
               "title": "OAuth2 provider",
               "description": "Which OAuth2 provider to use, keycloak-oidc is the only one available for now",
               "default": "keycloak-oidc",
-              "enum": ["keycloak-oidc"],
+              "enum": [
+                "keycloak-oidc"
+              ],
               "x-onyxia": {
                 "hidden": true
               }
