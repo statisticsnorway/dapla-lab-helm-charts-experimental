@@ -1,0 +1,177 @@
+# Default values for the nspek-noku service.
+# The service runs a prebuilt Plotly Dash application image (see README.md for the
+# image contract): the NSPEK/NØKU editing app from statisticsnorway/stat-naringer-dash
+# (src/nspek_noku/app_nspek_noku.py). The app is served on `networking.service.port`
+# and fronted by an oauth2-proxy sidecar (port 4180) which the Istio VirtualService
+# routes to. A Cloud SQL Auth Proxy sidecar provides the Postgres database the app
+# requires at startup.
+global:
+  suspend: false
+
+tjeneste:
+  image:
+    # -- Container repository (without tag) for the prebuilt NSPEK/NØKU app image.
+    # Built and published to strukt-naering's own registry by stat-naringer-dash's
+    # "Build nspek-noku service image" workflow - WIF push, same model as the
+    # Prodcom service. See README.md -> "Image-kontrakt".
+    repository: europe-north1-docker.pkg.dev/artifact-registry-5n/strukt-naering-docker/nspek-noku
+    # -- Image tag to deploy: "latest" (moving alias) or an immutable
+    # <date>-<sha> tag from the build workflow's Step Summary.
+    version: latest
+    # -- Image pull policy
+    pullPolicy: Always
+
+database:
+  cloudSqlProxy:
+    # -- Run a Cloud SQL Auth Proxy sidecar on localhost:5432. The app opens its
+    # Postgres connection pool at startup and cannot start without it.
+    enabled: true
+    # -- Cloud SQL instance connection name, <project>:<region>:<instance>, for the
+    # strukt-naering database. Must be set for the service to start.
+    instance: ""
+
+security:
+  networkPolicy:
+    enabled: false
+    from: []
+  serviceEntry:
+    enabled: true
+    # External hosts the app is allowed to reach (egress): GCS + SSB auth and
+    # data.ssb.no for KLASS lookups. Both auth hosts are listed so helm-CLI installs
+    # work in test AND prod; the Onyxia GUI overwrites this via the environment's
+    # dapla/egress-datadoc.json (which carries the right auth host per cluster).
+    # The Bootstrap/Bootswatch stylesheets on cdn.jsdelivr.net are fetched by the
+    # user's BROWSER, not the pod, so no egress entry is needed for them.
+    hosts:
+      - "www.googleapis.com"
+      - "oauth2.googleapis.com"
+      - "storage.googleapis.com"
+      - "sts.googleapis.com"
+      - "auth.test.ssb.no"
+      - "auth.ssb.no"
+      - "data.ssb.no"
+      - "www.ssb.no"
+  oauth2:
+    provider: keycloak-oidc
+    oidcIssuerUrl: "overwritten-by-onyxia"
+    clientId: "onyxia-services"
+    authenticatedEmails: ""
+
+environment:
+  user: onyxia
+  group: users
+
+userAttributes:
+  environmentVariableName: OIDC_TOKEN
+  userAttribute: "access_token"
+  value: ""
+
+dapla:
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
+  # Dapla team + access group whose data accesses are activated for the service.
+  # Must be a group with read/write access to the strukt-naering product bucket -
+  # the app reads and writes /buckets/produkt/naringer/... via the standard bucket
+  # mounts. See README.md.
+  group: ""
+  # The VoF tab additionally needs the shared bucket with /buckets/shared/vof
+  # mounted; the app starts without it and simply hides the tab.
+  sharedBuckets: []
+
+oidc:
+  # Specifies whether an OIDC secret should be created
+  enabled: true
+  tokenExchangeUrl: ""
+  # The name of the secret to use. Generated from the fullname template when empty.
+  secretName: ""
+
+replicaCount: 1
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use. Generated from the fullname template when empty.
+  name: ""
+
+kubernetes:
+  enabled: false
+  role: "view"
+
+podAnnotations: {}
+
+podLabels:
+  onyxia.app: "nspek-noku"
+  maintained-by-team: "strukt-naering"
+
+podSecurityContext:
+  fsGroup: 100
+
+securityContext: {}
+
+networking:
+  type: ClusterIP
+  clusterIP: None
+  service:
+    # Port the Dash app listens on inside the container.
+    port: 8008
+
+istio:
+  enabled: false
+  gateways:
+    - istio-namespace/example-gateway
+  hostname: chart-example.local
+
+# Guaranteed resources (flat cpu/memory layout: Dapla Lab's Onyxia convention, expected
+# by the ssb-plugin.js price estimator). The app reads parquet data via duckdb/ibis and
+# keeps editing state in memory, so it needs a reasonable baseline. Overwritten by the
+# Onyxia GUI.
+resources:
+  # -- Garantert CPU (requests; 1000m = one core)
+  cpu: "500m"
+  # -- Garantert minne (requests; also used as the memory limit)
+  memory: "4Gi"
+
+diskplass:
+  # A local filesystem is not required: dependencies are baked into the image and all
+  # data lives in GCS/Cloud SQL. A small emptyDir is used for scratch/logs when this
+  # is disabled.
+  enabled: false
+  accessMode: ReadWriteOnce
+  size: 10Gi
+
+avansert:
+  data:
+    mountStandard: true
+
+nodeSelector: {}
+
+tolerations: []
+
+startupProbe:
+  failureThreshold: 60
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 30
+
+podDisruptionBudget:
+  enabled: true
+
+deleteJob:
+  enabled: true
+  cronMinuteAtDay: "0"
+  cronHourAtDay: "20"
+  imageVersion: "v1.1.0"
+  clusterRoleName: onyxia-delete-job
+  serviceAccount:
+    annotations: {}
+
+deployEnvironment: "TEST"
+daplaUser: ""

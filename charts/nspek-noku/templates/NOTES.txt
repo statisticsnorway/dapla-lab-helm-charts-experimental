@@ -1,0 +1,15 @@
+Tjenesten bruker vanligvis et par minutter på å starte opp, og er klar til bruk når
+**Åpne tjenesten**-ikonet dukker opp nederst til høyre i denne boksen.
+
+*Viktig:*
+- Appen krever databasen (Cloud SQL) ved oppstart: den starter ikke uten at
+  database-instansen er satt og at teamet/tilgangsgruppen din har IAM-tilgang til
+  `strukt-naering`-databasen.
+- Team/tilgangsgruppen du velger under *Data* må ha lese/skrive-tilgang til
+  produktbøtta til strukt-naering - appen leser og skriver
+  `/buckets/produkt/naringer/...`.
+- VoF-fanen krever i tillegg den delte bøtta med `/buckets/shared/vof` montert;
+  uten den starter appen, men fanen skjules.
+- All data lagres i Google-bøtter og Cloud SQL - tjenesten har ikke noe varig lokalt
+  filsystem.
+- Tjenesten slettes automatisk hver kveld (kl. 20:00 UTC, dvs. kl. 21/22 norsk tid).
