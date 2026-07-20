@@ -1,0 +1,24 @@
+{{ include "library-chart.serviceentry" . }}
+{{- if .Values.database.cloudSqlProxy.enabled }}
+---
+# Raw TCP egress to the Cloud SQL private-IP range (3307) for the cloud-sql-proxy
+# sidecar. The mesh runs outboundTrafficPolicy REGISTRY_ONLY, so without this entry
+# the proxy's connection to the instance's private IP is dropped by the Istio
+# sidecar. Same block as vscode-python-cloudsql.
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: {{ include "library-chart.fullname" . }}-db-serviceentry
+spec:
+  hosts:
+    - "dummy-10.100.0.0.ssb"
+  addresses:
+    - 10.100.0.0/22
+  exportTo:
+    - "."
+  ports:
+    - name: tcp
+      number: 3307
+      protocol: tcp
+  location: MESH_EXTERNAL
+{{- end }}

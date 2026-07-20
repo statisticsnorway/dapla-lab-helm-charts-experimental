@@ -1,0 +1,456 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "dapla": {
+      "title": "Data",
+      "description": "Aktiver tilgang til et av dine team sine data i GCS-lagringsbøtter. Gruppen må ha lese/skrive-tilgang til produktbøtta til strukt-naering (appen bruker /buckets/produkt/naringer/...).",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/dapla.json"
+      }
+    },
+    "tjeneste": {
+      "title": "NSPEK/NØKU",
+      "description": "Velg versjon av NSPEK/NØKU-tjenesten",
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "image docker",
+          "type": "object",
+          "properties": {
+            "repository": {
+              "type": "string",
+              "description": "Container-repositoriet for det ferdigbygde NSPEK/NØKU-appbildet",
+              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/strukt-naering-docker/nspek-noku",
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "pullPolicy": {
+              "type": "string",
+              "description": "option when pulling the docker image",
+              "default": "Always",
+              "enum": [
+                "IfNotPresent",
+                "Always",
+                "Never"
+              ],
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "version": {
+              "title": "Versjon",
+              "description": "NSPEK/NØKU-versjon (image-tag)",
+              "type": "string",
+              "default": "latest",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+            }
+          }
+        }
+      }
+    },
+    "database": {
+      "title": "Database",
+      "description": "Appen krever Postgres-databasen til strukt-naering (Cloud SQL) ved oppstart. Tilkoblingen går via en Cloud SQL Auth Proxy-sidecar med IAM-autentisering.",
+      "type": "object",
+      "properties": {
+        "cloudSqlProxy": {
+          "description": "Cloud SQL Auth Proxy",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Aktiver Cloud SQL Proxy",
+              "description": "Kjør en Cloud SQL Auth Proxy-sidecar på localhost:5432",
+              "default": true,
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "instance": {
+              "type": "string",
+              "title": "Database-instans",
+              "description": "Cloud SQL instance connection name, <projectid>:<region>:<instancename>, f.eks. my-gcp-project:europe-north1:my-db-instance",
+              "default": "",
+              "pattern": "^$|^[a-z][a-z0-9-]*:[a-z0-9-]+:[a-z][a-z0-9-]*$"
+            }
+          }
+        }
+      }
+    },
+    "resources": {
+      "title": "Ressurser",
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten. Appen leser parquet-data via duckdb/ibis og holder editeringsdata i minnet, så velg rikelig med minne.",
+      "type": "object",
+      "properties": {
+        "cpu": {
+          "description": "Garantert mengde CPU. 1000 M tilsvarer én CPU-kjerne.",
+          "title": "CPU",
+          "type": "string",
+          "default": "500m",
+          "render": "slider",
+          "sliderMin": 50,
+          "sliderMax": 8000,
+          "sliderStep": 50,
+          "sliderUnit": "m",
+          "x-onyxia": {
+            "useRegionSliderConfig": "cpu"
+          }
+        },
+        "memory": {
+          "description": "Garantert tilgjengelig minne/RAM i tjenesten",
+          "title": "Minne/RAM",
+          "type": "string",
+          "default": "4Gi",
+          "render": "slider",
+          "sliderMin": 1,
+          "sliderMax": 128,
+          "sliderStep": 1,
+          "sliderUnit": "Gi",
+          "x-onyxia": {
+            "useRegionSliderConfig": "memory"
+          }
+        }
+      }
+    },
+    "diskplass": {
+      "description": "Tjenesten trenger ikke et lokalt filsystem - alle data lagres i GCS og Cloud SQL.",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "title": "Opprett filsystem",
+          "description": "Opprett et lokalt filsystem i tjenesten",
+          "default": false,
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "size": {
+          "type": "string",
+          "title": "Diskplass i filsystemet",
+          "default": "10Gi",
+          "form": true,
+          "render": "slider",
+          "sliderMin": 1,
+          "sliderMax": 100,
+          "sliderStep": 1,
+          "sliderUnit": "Gi",
+          "x-onyxia": {
+            "useRegionSliderConfig": "disk"
+          },
+          "hidden": {
+            "value": false,
+            "path": "diskplass/enabled"
+          }
+        }
+      }
+    },
+    "avansert": {
+      "title": "Avansert",
+      "description": "Velg avansert konfigurasjon",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/advanced.json"
+      }
+    },
+    "security": {
+      "description": "security specific configuration",
+      "type": "object",
+      "properties": {
+        "networkPolicy": {
+          "type": "object",
+          "description": "Define access policy to the service",
+          "x-onyxia": {
+            "overwriteSchemaWith": "network-policy.json"
+          },
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable network policy",
+              "description": "Only pod from the same namespace will be allowed",
+              "default": true,
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "from": {
+              "type": "array",
+              "description": "Array of source allowed to have network access to your service",
+              "default": [],
+              "x-onyxia": {
+                "hidden": true
+              }
+            }
+          }
+        },
+        "serviceEntry": {
+          "type": "object",
+          "description": "Service entry to give access to external services",
+          "x-onyxia": {
+            "overwriteSchemaWith": "dapla/egress-datadoc.json"
+          },
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable service entry",
+              "description": "Enable access to external services",
+              "default": true,
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "hosts": {
+              "type": "array",
+              "description": "Array of hosts allowed to be accessed from your service",
+              "default": [],
+              "x-onyxia": {
+                "hidden": true
+              }
+            }
+          }
+        },
+        "oauth2": {
+          "type": "object",
+          "description": "OAuth2 configuration",
+          "x-onyxia": {
+            "overwriteSchemaWith": "dapla/oauth2.json"
+          },
+          "properties": {
+            "provider": {
+              "type": "string",
+              "title": "OAuth2 provider",
+              "description": "Which OAuth2 provider to use, keycloak-oidc is the only one available for now",
+              "default": "keycloak-oidc",
+              "enum": [
+                "keycloak-oidc"
+              ],
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "oidcIssuerUrl": {
+              "type": "string",
+              "title": "OIDC issuer url",
+              "description": "Url to the OIDC issuer",
+              "default": "",
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "clientId": {
+              "type": "string",
+              "title": "Client id",
+              "description": "Client id",
+              "default": "onyxia-services",
+              "x-onyxia": {
+                "hidden": true
+              }
+            },
+            "authenticatedEmails": {
+              "type": "string",
+              "title": "OAuth2 authenticated emails",
+              "description": "OAuth2 authenticated emails, comma seperated",
+              "default": [],
+              "x-onyxia": {
+                "hidden": true,
+                "overwriteDefaultWith": "{{user.email}}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "istio": {
+      "type": "object",
+      "form": true,
+      "title": "Ingress Details",
+      "x-onyxia": {
+        "hidden": false,
+        "overwriteSchemaWith": "dapla/istio.json"
+      }
+    },
+    "userAttributes": {
+      "description": "User attributes to pass into the service",
+      "type": "object",
+      "properties": {
+        "environmentVariableName": {
+          "type": "string",
+          "description": "Name of the environment variable to use",
+          "default": "OIDC_TOKEN",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "userAttribute": {
+          "type": "string",
+          "description": "The user attribute to map to the environment variable",
+          "default": "access_token",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the user attribute (will be replaced by backend)",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": ""
+          }
+        }
+      }
+    },
+    "tolerations": {
+      "type": "array",
+      "description": "Array of tolerations",
+      "default": [],
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteDefaultWith": "region.tolerations",
+        "overwriteSchemaWith": "tolerations.json"
+      }
+    },
+    "nodeSelector": {
+      "type": "object",
+      "description": "NodeSelector",
+      "default": {},
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/nodeSelector.json"
+      }
+    },
+    "oidc": {
+      "description": "OIDC configuration",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/oidc.json"
+      },
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "activate oidc",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "tokenExchangeUrl": {
+          "type": "string",
+          "description": "token exchange url",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "secretName": {
+          "type": "string",
+          "description": "secret name",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true
+          }
+        }
+      }
+    },
+    "podDisruptionBudget": {
+      "description": "Pod disruption budget",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable pod disruption budget",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
+        }
+      }
+    },
+    "deleteJob": {
+      "description": "Configuration for automatic deletion of the service",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether or not to create a job to delete this release",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "cronMinuteAtDay": {
+          "type": "string",
+          "title": "Minute at day",
+          "description": "Which minute at day the job should run",
+          "default": "0",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "cronHourAtDay": {
+          "type": "string",
+          "title": "Hour at day",
+          "description": "Which hour at day the job should run",
+          "default": "20",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "imageVersion": {
+          "type": "string",
+          "title": "Version of helm-cli image",
+          "description": "Which version of the helm-cli image",
+          "default": "v1.1.0",
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "clusterRoleName": {
+          "type": "string",
+          "title": "Cluster role name",
+          "description": "Which cluster role the delete job should run with",
+          "default": "onyxia-delete-job",
+          "x-onyxia": {
+            "hidden": true
+          }
+        }
+      }
+    },
+    "deployEnvironment": {
+      "type": "string",
+      "description": "Environment in which a service is deployed",
+      "default": "",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/deployEnvironment.json"
+      }
+    },
+    "daplaUser": {
+      "type": "string",
+      "title": "Current Dapla user",
+      "description": "The currently logged in user's email address",
+      "default": "",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteDefaultWith": "{{user.email}}"
+      }
+    },
+    "global": {
+      "description": "Suspend",
+      "type": "object",
+      "properties": {
+        "suspend": {
+          "type": "boolean",
+          "description": "Suspend this service",
+          "default": false,
+          "x-onyxia": {
+            "hidden": true
+          }
+        }
+      }
+    }
+  }
+}
