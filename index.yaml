@@ -5266,6 +5266,32 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/mlflow-0.0.1/mlflow-0.0.1.tgz
     version: 0.0.1
+  nspek-noku:
+  - apiVersion: v2
+    created: "2026-08-07T08:50:27.466252014Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: NSPEK/NØKU - SSBs editeringsløsning for strukturstatistikk for næringene
+      (Plotly Dash-app).
+    digest: 855bcb2978e0c5a7679d64ebc921364e79081f919b07c00e094a4581fc8c541b
+    home: https://github.com/statisticsnorway/stat-naringer-dash
+    icon: https://cdn-icons-png.flaticon.com/512/4149/4149678.png
+    keywords:
+    - Nspek
+    - Noku
+    - Dash
+    - Python
+    - Strukturstatistikk
+    name: nspek-noku
+    sources:
+    - https://github.com/statisticsnorway/stat-naringer-dash
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/nspek-noku-0.1.0/nspek-noku-0.1.0.tgz
+    version: 0.1.0
   pgadmin:
   - apiVersion: v2
     created: "2025-09-17T08:59:33.015460394Z"
@@ -10336,4 +10362,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2026-07-20T08:49:39.193452835Z"
+generated: "2026-08-07T08:50:27.467232595Z"
