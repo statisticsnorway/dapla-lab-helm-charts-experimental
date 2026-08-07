@@ -79,13 +79,14 @@ Bruker ─▶ Istio VirtualService ("/") ─▶ Service:4180 ─▶ oauth2-proxy
    headless når `NSPEK_NOKU_STANDALONE=true` (se stat-naringer-dash-patchen).
    Eksisterende bruk i JupyterLab er uendret.
 
-4. **Databasetilgang.** `database.cloudSqlProxy.instance` må settes til
-   instance connection name for `strukt-naering`-databasen
-   (`<prosjekt>:<region>:<instans>`), og teamet/tilgangsgruppen må ha IAM-tilgang til
-   Cloud SQL-instansen. Appen velger IAM-databasebruker ut fra `DAPLA_ENVIRONMENT`
-   (PROD -> prod-gruppebrukeren, ellers test-gruppebrukeren). Merk: appen krever også
-   at `skjemamottak`-tabellen har rader for gjeldende årgang - en tom database gir
-   oppstartsfeil.
+4. **Databasetilgang.** `database.cloudSqlProxy.instance` er forhåndsutfylt med
+   PROD-instansen `nspek-sql-p-7m:europe-north1:nspek`, som hoster både
+   `strukt-naering`- og `nspek`-databasen. Teamet/tilgangsgruppen må ha IAM-tilgang
+   til Cloud SQL-instansen. Appen velger IAM-databasebruker ut fra `DAPLA_ENVIRONMENT`
+   (PROD -> prod-gruppebrukeren, ellers test-gruppebrukeren). Merk: i TEST finnes
+   ikke `strukt-naering`-databasen på nspek-testinstansen - der må feltet settes til
+   strukt-naerings egen testinstans. Appen krever også at `skjemamottak`-tabellen
+   har rader for gjeldende årgang - en tom database gir oppstartsfeil.
 
 5. **Datatilgang.** Team/tilgangsgruppen valgt under *Data* må ha lese/skrive-tilgang
    til produktbøtta til strukt-naering (appen bruker `/buckets/produkt/naringer/...`).
@@ -118,7 +119,7 @@ helm template nspek-noku charts/nspek-noku \
   --set istio.enabled=true \
   --set istio.hostname=nspek-noku.example.no \
   --set dapla.group=<ditt-team>-developers \
-  --set database.cloudSqlProxy.instance=my-gcp-project:europe-north1:my-db-instance
+  --set database.cloudSqlProxy.instance=nspek-sql-p-7m:europe-north1:nspek
 ```
 
 ## Values
@@ -132,7 +133,7 @@ helm template nspek-noku charts/nspek-noku \
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |
 | database.cloudSqlProxy.enabled | bool | `true` | Run a Cloud SQL Auth Proxy sidecar on localhost:5432. The app opens its Postgres connection pool at startup and cannot start without it. |
-| database.cloudSqlProxy.instance | string | `""` | Cloud SQL instance connection name, <project>:<region>:<instance>, for the strukt-naering database. Must be set for the service to start. |
+| database.cloudSqlProxy.instance | string | `"nspek-sql-p-7m:europe-north1:nspek"` | Cloud SQL instance connection name, <project>:<region>:<instance>, for the strukt-naering database. Pre-filled with the PROD instance, which hosts both the strukt-naering and nspek databases. In TEST the nspek instance has no strukt-naering database - use strukt-naering's own test instance (see README). |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |

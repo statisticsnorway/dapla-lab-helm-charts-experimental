@@ -155,7 +155,7 @@ spec:
             - "--auto-iam-authn"
             - "--structured-logs"
             - "--port=5432"
-            # Quoted: with the empty default this renders "" (the proxy then exits
+            # Quoted: if the field is cleared, this renders "" (the proxy then exits
             # with a clear "missing instance connection name" in its logs) instead of
             # a null args element the Kubernetes API rejects with a cryptic error.
             - {{ .Values.database.cloudSqlProxy.instance | quote }}

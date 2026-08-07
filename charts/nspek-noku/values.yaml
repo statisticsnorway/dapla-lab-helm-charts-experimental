@@ -27,8 +27,10 @@ database:
     # Postgres connection pool at startup and cannot start without it.
     enabled: true
     # -- Cloud SQL instance connection name, <project>:<region>:<instance>, for the
-    # strukt-naering database. Must be set for the service to start.
-    instance: ""
+    # strukt-naering database. Pre-filled with the PROD instance, which hosts both
+    # the strukt-naering and nspek databases. In TEST the nspek instance has no
+    # strukt-naering database - use strukt-naering's own test instance (see README).
+    instance: "nspek-sql-p-7m:europe-north1:nspek"
 
 security:
   networkPolicy:

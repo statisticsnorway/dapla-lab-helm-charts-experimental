@@ -72,8 +72,8 @@
             "instance": {
               "type": "string",
               "title": "Database-instans",
-              "description": "Cloud SQL instance connection name, <projectid>:<region>:<instancename>, f.eks. my-gcp-project:europe-north1:my-db-instance",
-              "default": "",
+              "description": "Cloud SQL instance connection name, <projectid>:<region>:<instancename>. Forhåndsutfylt med PROD-instansen, som hoster både strukt-naering- og nspek-databasen.",
+              "default": "nspek-sql-p-7m:europe-north1:nspek",
               "pattern": "^$|^[a-z][a-z0-9-]*:[a-z0-9-]+:[a-z][a-z0-9-]*$"
             }
           }
