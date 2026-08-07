@@ -1,0 +1,5 @@
+{{- /* library-chart.networkPolicyIngress renders invalid YAML (and an allow-all rule)
+when networkPolicy.from is empty, so only render it when sources are configured. */}}
+{{- if .Values.security.networkPolicy.from }}
+{{ include "library-chart.networkPolicyIngress" . }}
+{{- end }}
