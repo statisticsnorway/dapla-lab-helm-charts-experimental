@@ -48,6 +48,18 @@
               "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
             }
           }
+        },
+        "app": {
+          "type": "string",
+          "description": "App-entrypoint imaget kjører (imagets CMD er `exec python ${PRODCOM_APP}`). app_rammeverk.py = ssb-dash-framework-appen (cutover 2026-08); app.py = legacy-appen (rollback).",
+          "default": "app_rammeverk.py",
+          "enum": [
+            "app_rammeverk.py",
+            "app.py"
+          ],
+          "x-onyxia": {
+            "hidden": true
+          }
         }
       }
     },
