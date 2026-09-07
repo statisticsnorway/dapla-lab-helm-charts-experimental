@@ -18,6 +18,10 @@ tjeneste:
     version: latest
     # -- Image pull policy
     pullPolicy: Always
+  # -- App entrypoint the image runs (the image CMD is `exec python ${PRODCOM_APP}`).
+  # `app_rammeverk.py` = the ssb-dash-framework-based app (cutover 2026-08,
+  # stat-prodcom PR #191); set `app.py` to roll back to the legacy app.
+  app: app_rammeverk.py
 
 security:
   networkPolicy:

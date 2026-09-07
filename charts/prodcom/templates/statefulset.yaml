@@ -88,12 +88,18 @@ spec:
             - name: LABID_TOKEN_EXCHANGE_URL
               value: http://labid.labid.svc.cluster.local/token
             # Run the Dash app as a standalone server served at the root path (no
-            # jupyter-server-proxy prefix). Honoured by dash/app.py (see README →
-            # "Image contract" and the stat-prodcom patch).
+            # jupyter-server-proxy prefix). Honoured by both apps in the image (see
+            # README → "Image-kontrakt" and the stat-prodcom patch).
             - name: PRODCOM_STANDALONE
               value: "true"
             - name: PORT
               value: {{ .Values.networking.service.port | quote }}
+            # Which app the image runs (image CMD: `exec python ${PRODCOM_APP}`).
+            # app_rammeverk.py = the ssb-dash-framework app (cutover 2026-08);
+            # set tjeneste.app=app.py to roll back to the legacy app. The
+            # `default` guard keeps the pod bootable if the value is ever unset.
+            - name: PRODCOM_APP
+              value: {{ .Values.tjeneste.app | default "app.py" | quote }}
             # Point caches at the writable work volume (mounted, group gid 100).
             - name: HOME
               value: /home/{{ .Values.environment.user }}
