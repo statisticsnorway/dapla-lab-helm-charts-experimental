@@ -5533,6 +5533,31 @@ entries:
     version: 0.0.1
   prodcom:
   - apiVersion: v2
+    created: "2026-09-07T13:24:58.628591557Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Prodcom - SSBs saksbehandlingsløsning for industriell vareproduksjon
+      (Plotly Dash-app).
+    digest: 08dd352cb8b2c75dc84450beefad7d5df4425fd80f07edbd41b7d2b249f00e41
+    home: https://github.com/statisticsnorway/stat-prodcom
+    icon: https://cdn-icons-png.flaticon.com/512/2933/2933116.png
+    keywords:
+    - Prodcom
+    - Dash
+    - Python
+    - Industri
+    - Strukturstatistikk
+    name: prodcom
+    sources:
+    - https://github.com/statisticsnorway/stat-prodcom
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/prodcom-0.3.0/prodcom-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2026-07-20T08:49:39.192636544Z"
     dependencies:
     - name: library-chart
@@ -10362,4 +10387,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-experimental/releases/download/vscode-python-tni-1.0.0/vscode-python-tni-1.0.0.tgz
     version: 1.0.0
-generated: "2026-08-07T08:50:27.467232595Z"
+generated: "2026-09-07T13:24:58.629287585Z"
