@@ -1,6 +1,6 @@
 # prodcom
 
-![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Prodcom - SSBs saksbehandlingsløsning for industriell vareproduksjon (Plotly Dash-app).
 
@@ -60,9 +60,14 @@ Bruker ─▶ Istio VirtualService ("/") ─▶ Service:4180 ─▶ oauth2-proxy
    `restrict-image-registries` tillater `europe-*-docker.pkg.dev/artifact-registry-5n/*`,
    så charten trenger ingen `service-catalog`-annotasjon eller policy-unntak.
 
-3. **`dash/app.py`-endringen er på plass** (merget i `stat-prodcom` PR #186): appen
-   serveres på rot-stien og kjører headless når `PRODCOM_STANDALONE=true`, og prod-data
-   lastes kun når `DAPLA_ENVIRONMENT=PROD`. Eksisterende bruk i JupyterLab er uendret.
+3. **App-endringene er på plass** (`stat-prodcom` PR #186 + #191): begge appene i
+   imaget serveres på rot-stien og kjører headless når `PRODCOM_STANDALONE=true`, og
+   prod-data lastes kun når `DAPLA_ENVIRONMENT=PROD`. Eksisterende bruk i JupyterLab
+   er uendret. Charten velger app via `tjeneste.app` → `PRODCOM_APP` (imagets CMD er
+   `exec python ${PRODCOM_APP}`): default er `app_rammeverk.py` (den
+   ssb-dash-framework-baserte appen, cutover 2026-08); sett `app.py` for rollback
+   til legacy-appen. NB: rammeverk-appen leser/skriver eimerdb-basen
+   `prodcombasen_rammeverk` (ikke `prodcombasen` som legacy).
 
 4. **Datatilgang (kun produksjon).** I produksjonsmiljøet må team/tilgangsgruppen valgt
    under *Data* ha lese/skrive-tilgang til `gs://ssb-strukt-naering-data-produkt-prod`
@@ -166,6 +171,7 @@ helm template prodcom charts/prodcom \
 | startupProbe.periodSeconds | int | `10` |  |
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `30` |  |
+| tjeneste.app | string | `"app_rammeverk.py"` | App entrypoint the image runs (the image CMD is `exec python ${PRODCOM_APP}`). `app_rammeverk.py` = the ssb-dash-framework-based app (cutover 2026-08, stat-prodcom PR #191); set `app.py` to roll back to the legacy app. |
 | tjeneste.image.pullPolicy | string | `"Always"` | Image pull policy |
 | tjeneste.image.repository | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/strukt-naering-docker/prodcom"` | Container repository (without tag) for the prebuilt Prodcom app image. Built and published to strukt-naering's own registry (the team owning the Prodcom data product) by stat-prodcom's "Build Prodcom service image" workflow - WIF push, same model as Datadoc-editor. See README.md -> "Image-kontrakt". |
 | tjeneste.image.version | string | `"latest"` | Image tag to deploy: "latest" (moving alias) or an immutable <date>-<sha> tag from the build workflow's Step Summary. |
